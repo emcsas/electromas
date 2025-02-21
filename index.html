@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electromáscrédito</title>
+    <title>Electromáscrédito - Tienda de Electrodomésticos</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -71,48 +71,18 @@
             justify-content: center;
             margin-top: 100px;
         }
-        .destacados {
-            text-align: center;
-            margin-top: 40px;
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            padding: 10px;
+            gap: 10px;
         }
-        .productos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            justify-items: center;
-        }
-        .producto {
-            width: 100%; 
-            max-width: 320px;
-            padding: 20px; 
-            border: 1px solid #ddd; 
-            border-radius: 12px;
-            background: #ffffff;
-            text-align: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        .producto:hover {
-            transform: scale(1.05);
-        }
-        .producto img { 
-            width: 100%; 
-            max-width: 240px;
-            border-radius: 10px;
-        }
-        .boton {
-            background-color: #ff9800;
-            color: white;
-            padding: 12px 18px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
+        .carousel img {
+            width: 250px;
+            height: auto;
             border-radius: 8px;
-            transition: background 0.3s;
-        }
-        .boton:hover {
-            background-color: #e68900;
         }
     </style>
 </head>
@@ -130,19 +100,11 @@
     </div>
     <div class="container">
         <h2 class="destacados">Productos Destacados</h2>
-        <div class="productos-grid">
-            <div class="producto">
-                <img src="lavadora.jpg" alt="Lavadora">
-                <h3>Lavadora</h3>
-                <p>Precio: $600</p>
-                <button class="boton">Añadir a Carrito</button>
-            </div>
-            <div class="producto">
-                <img src="televisor.jpg" alt="Televisor">
-                <h3>Televisor Smart 4K</h3>
-                <p>Precio: $900</p>
-                <button class="boton">Añadir a Carrito</button>
-            </div>
+        <div class="carousel">
+            <img src="destacado1.jpg" alt="Producto Destacado 1">
+            <img src="destacado2.jpg" alt="Producto Destacado 2">
+            <img src="destacado3.jpg" alt="Producto Destacado 3">
+            <img src="destacado4.jpg" alt="Producto Destacado 4">
         </div>
     </div>
 </body>
