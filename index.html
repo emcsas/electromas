@@ -87,18 +87,59 @@
             to { transform: translateX(-50%); }
         }
 
-        <!-- MODAL -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <h2 id="modal-titulo"></h2>
-                <p id="modal-descripcion"></p>
-                <p id="modal-precio" style="font-weight:bold; color:#fc4b08;"></p>
-                <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-                <button class="close" onclick="cerrarModal()">Cerrar</button>
-            </div>
-        </div>
 
-        /*WHATSAPP*/
+
+
+
+
+        /* SECCIÓN MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .close {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #fc4b08;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .close:hover {
+            background-color: #e63900;
+        }
+
+
+
+
+
+
+
+
+        
+
+        /* BOTÓN WHATSAPP */
         .whatsapp-btn {
             display: inline-block;
             background-color: #25D366;
@@ -110,33 +151,23 @@
             font-size: 16px;
             font-weight: bold;
         }
+
         .whatsapp-btn:hover {
             background-color: #1EBE5D;
         }
 
+
+
+
+
         
-        function mostrarDetalles(titulo, descripcion, precio) {
-            document.getElementById('modal-titulo').innerText = titulo;
-            document.getElementById('modal-descripcion').innerText = descripcion;
-            document.getElementById('modal-precio').innerText = precio;
         
-            // Crear el enlace de WhatsApp con el producto seleccionado
-            let mensaje = Hola, estoy interesado en el producto: ${titulo} con precio ${precio}. ¿Podrían darme más información?;
-            let whatsappURL = https://wa.me/0988200116?text=${encodeURIComponent(mensaje)};
-            document.getElementById('whatsapp-link').href = whatsappURL;
-        
-            document.getElementById('modal').style.display = "flex";
-        }
-        
-        function cerrarModal() {
-            document.getElementById('modal').style.display = "none";
-        }
 
 
         
         /* SECCIÓN OFERTAS DEL MES */
         .ofertas {
-            max-width: 2000px;
+            max-width: 1200px;
             margin: 2px auto;
             text-align: center;
             padding: 2px;
@@ -160,6 +191,7 @@
             width: 250px;
             text-align: center;
             transition: transform 0.3s;
+            cursor: pointer;
         }
         .producto:hover {
             transform: scale(1.05);
@@ -182,6 +214,7 @@
             font-weight: bold;
             color: #fc4b08;
         }
+        /* PIE DE PÁGINA */
         footer {
             background-color: #003366;
             color: white;
@@ -235,6 +268,38 @@
         </div>
     </section>
 
+
+
+
+
+
+<div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-titulo"></h2>
+            <p id="modal-descripcion"></p>
+            <p id="modal-precio" style="font-weight:bold; color:#fc4b08;"></p>
+            <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+            <button class="close" onclick="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        function mostrarDetalles(titulo, descripcion, precio) {
+            document.getElementById('modal-titulo').innerText = titulo;
+            document.getElementById('modal-descripcion').innerText = descripcion;
+            document.getElementById('modal-precio').innerText = precio;
+            let whatsappURL = `https://wa.me/0988200116?text=${encodeURIComponent(`Hola, estoy interesado en el producto: ${titulo} con precio ${precio}. ¿Podrían darme más información?`)}`;
+            document.getElementById('whatsapp-link').href = whatsappURL;
+            document.getElementById('modal').style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+    </script>
+    
+
+    
     <footer>
         © 2025 Electromáscrédito. Todos los derechos reservados.
     </footer>
