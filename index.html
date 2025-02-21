@@ -69,7 +69,7 @@
         .carousel {
             display: flex;
             width: 200%;
-            animation: scroll 30s linear infinite;
+            animation: scroll 20s linear infinite;
         }
         .carousel img {
             width: 50%;
@@ -79,6 +79,55 @@
         @keyframes scroll {
             from { transform: translateX(0%); }
             to { transform: translateX(-50%); }
+        }
+
+        /* SECCIÓN OFERTAS DEL MES */
+        .ofertas {
+            max-width: 1200px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .ofertas h2 {
+            color: #002244;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .producto {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .producto:hover {
+            transform: scale(1.05);
+        }
+        .producto img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .producto h3 {
+            font-size: 18px;
+            color: #002244;
+            margin: 10px 0;
+        }
+        .producto p {
+            font-size: 16px;
+            color: #666;
+        }
+        .producto span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fc4b08;
         }
         footer {
             background-color: #003366;
@@ -101,12 +150,38 @@
     </nav>
     <div class="banner">
         <div class="carousel">
-            <img src="oferta1.jpg" alt="Oferta 1">
-            <img src="oferta1.jpg" alt="Oferta 2">
-            <img src="oferta1.jpg" alt="Oferta 3">
-            <img src="oferta1.jpg" alt="Oferta 3">
+            <img src="imagenes/oferta1.jpg" alt="Oferta 1">
+            <img src="imagenes/oferta2.jpg" alt="Oferta 2">
+            <img src="imagenes/oferta3.jpg" alt="Oferta 3">
+            <img src="imagenes/oferta4.jpg" alt="Oferta 4">
         </div>
     </div>
+
+    <!-- SECCIÓN DE OFERTAS DEL MES -->
+    <section class="ofertas">
+        <h2>🔥 Ofertas del Mes 🔥</h2>
+        <div class="productos">
+            <div class="producto">
+                <img src="imagenes/productos/lavadora.jpg" alt="Lavadora">
+                <h3>Lavadora 12kg</h3>
+                <p>Gran capacidad y eficiencia energética.</p>
+                <span>$399.99</span>
+            </div>
+            <div class="producto">
+                <img src="imagenes/productos/televisor.jpg" alt="Televisor">
+                <h3>Smart TV 50"</h3>
+                <p>Calidad 4K Ultra HD con Android TV.</p>
+                <span>$549.99</span>
+            </div>
+            <div class="producto">
+                <img src="imagenes/productos/refrigeradora.jpg" alt="Refrigeradora">
+                <h3>Refrigeradora 250L</h3>
+                <p>Ahorro de energía y amplio espacio.</p>
+                <span>$699.99</span>
+            </div>
+        </div>
+    </section>
+
     <footer>
         © 2025 Electromáscrédito. Todos los derechos reservados.
     </footer>
