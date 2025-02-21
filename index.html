@@ -59,7 +59,6 @@
         .banner {
             width: 100%;
             height: 300px;
-            background-image: url('banner.jpg');
             background-size: cover;
             background-position: center;
             text-align: center;
@@ -73,14 +72,17 @@
         }
         .carousel {
             display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            white-space: nowrap;
-            padding: 10px;
-            gap: 10px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 1s ease-in-out;
+            width: 400%;
         }
         .carousel img {
-            width: 250px;
+            width: 100%;
             height: auto;
             border-radius: 8px;
         }
@@ -96,16 +98,37 @@
         <a href="hogar.html">Hogar</a>
     </nav>
     <div class="banner">
-        <p>Ofertas Especiales del Mes</p>
+        <div class="carousel">
+            <div class="carousel-track" id="carouselTrack">
+                <img src="oferta1.jpg" alt="Oferta 1">
+                <img src="oferta2.jpg" alt="Oferta 2">
+                <img src="oferta3.jpg" alt="Oferta 3">
+                <img src="oferta4.jpg" alt="Oferta 4">
+            </div>
+        </div>
     </div>
     <div class="container">
         <h2 class="destacados">Productos Destacados</h2>
         <div class="carousel">
-            <img src="destacado1.jpg" alt="Producto Destacado 1">
-            <img src="destacado2.jpg" alt="Producto Destacado 2">
-            <img src="destacado3.jpg" alt="Producto Destacado 3">
-            <img src="destacado4.jpg" alt="Producto Destacado 4">
+            <div class="carousel-track" id="productosCarousel">
+                <img src="destacado1.jpg" alt="Producto Destacado 1">
+                <img src="destacado2.jpg" alt="Producto Destacado 2">
+                <img src="destacado3.jpg" alt="Producto Destacado 3">
+                <img src="destacado4.jpg" alt="Producto Destacado 4">
+            </div>
         </div>
     </div>
+    <script>
+        function iniciarCarrusel(id) {
+            let track = document.getElementById(id);
+            let index = 0;
+            setInterval(() => {
+                index = (index + 1) % track.children.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }, 3000);
+        }
+        iniciarCarrusel("carouselTrack");
+        iniciarCarrusel("productosCarousel");
+    </script>
 </body>
 </html>
