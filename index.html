@@ -278,7 +278,7 @@ function mostrarDetalles(titulo, descripcion, precio) {
             document.getElementById('modal-precio').innerText = precio;
             
             let numeroWhatsApp = "593988200116"; // Código de país de Ecuador (+593) sin el '+'
-            let mensaje = `Hola, estoy interesado en el <b>producto:</b> ${titulo} con precio ${precio}. ¿Podrían darme más información?`;
+            let mensaje = `Hola, estoy interesado en el *producto:* ${titulo} *con precio* ${precio}. ¿Podrían darme más información?`;
             let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
             
             document.getElementById('whatsapp-link').href = whatsappURL;
