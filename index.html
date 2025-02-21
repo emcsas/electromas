@@ -102,17 +102,12 @@
         .producto:hover {
             transform: scale(1.05);
         }
-        .producto img { 
-            width: 100%; 
-            max-width: 240px;
-            border-radius: 10px;
-        }
-        .boton { 
-            background-color: #ff9800; 
-            color: white; 
-            padding: 12px 18px; 
-            border: none; 
-            cursor: pointer; 
+        .boton {
+            background-color: #ff9800;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            cursor: pointer;
             font-size: 16px;
             font-weight: bold;
             border-radius: 8px;
@@ -131,27 +126,12 @@
         <img src="logo.png" alt="Electromáscrédito" width="200">
     </header>
     <nav class="nav">
-        <a href="#electrodomesticos" onclick="mostrarCategoria('electrodomesticos')">Electrodomésticos</a>
-        <a href="#tecnologia" onclick="mostrarCategoria('tecnologia')">Tecnología</a>
-        <a href="#hogar" onclick="mostrarCategoria('hogar')">Hogar</a>
+        <a href="electrodomesticos.html">Electrodomésticos</a>
+        <a href="tecnologia.html">Tecnología</a>
+        <a href="hogar.html">Hogar</a>
     </nav>
-    <div class="banner">ORGANIZA TU COCINA</div>
-    <div class="container">
-        <h2>Ofertas del Mes</h2>
-        <div class="productos-grid" id="productos">
-            <div class="producto" data-categoria="electrodomesticos">
-                <img src="producto1.jpg" alt="Refrigeradora">
-                <h3>Refrigeradora</h3>
-                <p>Precio: $500</p>
-                <button class="boton" onclick="añadirAlCarrito('Refrigeradora', 500)">Añadir a Carrito</button>
-            </div>
-            <div class="producto" data-categoria="tecnologia">
-                <img src="producto2.jpg" alt="Televisor">
-                <h3>Televisor</h3>
-                <p>Precio: $800</p>
-                <button class="boton" onclick="añadirAlCarrito('Televisor', 800)">Añadir a Carrito</button>
-            </div>
-        </div>
+    <div class="banner">
+        <p>Ofertas del Mes</p>
     </div>
 </body>
 </html>
