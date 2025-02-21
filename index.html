@@ -82,6 +82,21 @@
             to { transform: translateX(-50%); }
         }
 
+        <!-- MODAL -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2 id="modal-titulo"></h2>
+                <p id="modal-descripcion"></p>
+                <p id="modal-precio" style="font-weight:bold; color:#fc4b08;"></p>
+                <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+                <button class="close" onclick="cerrarModal()">Cerrar</button>
+            </div>
+        </div>
+
+        
+
+
+        
         /* SECCIÓN OFERTAS DEL MES */
         .ofertas {
             max-width: 2000px;
@@ -162,24 +177,23 @@
     <section class="ofertas">
         <h2>🔥 Ofertas del Mes 🔥</h2>
         <div class="productos">
-            <div class="producto">
-                <img src="imagenes/productos/lavadora.jpg" alt="Lavadora">
-                <h3>Lavadora 12kg</h3>
-                <p>Gran capacidad y eficiencia energética.</p>
-                <span>$399.99</span>
-            </div>
-            <div class="producto">
-                <img src="imagenes/productos/televisor.jpg" alt="Televisor">
-                <h3>Smart TV 50"</h3>
-                <p>Calidad 4K Ultra HD con Android TV.</p>
-                <span>$549.99</span>
-            </div>
-            <div class="producto">
-                <img src="imagenes/productos/refrigeradora.jpg" alt="Refrigeradora">
-                <h3>Refrigeradora 250L</h3>
-                <p>Ahorro de energía y amplio espacio.</p>
-                <span>$699.99</span>
-            </div>
+        <div class="producto" onclick="mostrarDetalles('Lavadora 12kg', 'Gran capacidad y eficiencia energética.', '$399.99')">
+            <img src="imagenes/productos/lavadora.jpg" alt="Lavadora">
+            <h3>Lavadora 12kg</h3>
+            <p>Gran capacidad y eficiencia energética.</p>
+            <span>$399.99</span>
+        </div>
+        <div class="producto" onclick="mostrarDetalles('Smart TV 50\"', 'Calidad 4K Ultra HD con Android TV.', '$549.99')">
+            <img src="imagenes/productos/televisor.jpg" alt="Televisor">
+            <h3>Smart TV 50"</h3>
+            <p>Calidad 4K Ultra HD con Android TV.</p>
+            <span>$549.99</span>
+        </div>
+        <div class="producto" onclick="mostrarDetalles('Refrigeradora 250L', 'Ahorro de energía y amplio espacio.', '$699.99')">
+            <img src="imagenes/productos/refrigeradora.jpg" alt="Refrigeradora">
+            <h3>Refrigeradora 250L</h3>
+            <p>Ahorro de energía y amplio espacio.</p>
+            <span>$699.99</span>
         </div>
     </section>
 
