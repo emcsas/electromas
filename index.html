@@ -110,6 +110,22 @@
         }
 
         
+        function mostrarDetalles(titulo, descripcion, precio) {
+            document.getElementById('modal-titulo').innerText = titulo;
+            document.getElementById('modal-descripcion').innerText = descripcion;
+            document.getElementById('modal-precio').innerText = precio;
+        
+            // Crear el enlace de WhatsApp con el producto seleccionado
+            let mensaje = `Hola, estoy interesado en el producto: ${titulo} con precio ${precio}. ¿Podrían darme más información?`;
+            let whatsappURL = `https://wa.me/0988200116?text=${encodeURIComponent(mensaje)}`;
+            document.getElementById('whatsapp-link').href = whatsappURL;
+        
+            document.getElementById('modal').style.display = "flex";
+        }
+        
+        function cerrarModal() {
+            document.getElementById('modal').style.display = "none";
+        }
 
 
         
