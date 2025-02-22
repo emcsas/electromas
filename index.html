@@ -276,7 +276,7 @@
             document.getElementById('modal-titulo').innerText = titulo;
             document.getElementById('modal-descripcion').innerText = descripcion;
             document.getElementById('modal-precio').innerText = precio;
-            let whatsappURL = `https://wa.me/593988200116?text=${encodeURIComponent(`Hola, estoy interesado en el *producto*: ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`)}`;
+            let whatsappURL = `https://wa.me/+593988200116?text=${encodeURIComponent(`Hola, estoy interesado en el *producto*: ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`)}`;
             document.getElementById('whatsapp-link').href = whatsappURL;
             document.getElementById('modal').style.display = "flex";
         }
