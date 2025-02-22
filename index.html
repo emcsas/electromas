@@ -294,35 +294,23 @@
          </p>
       </footer>
       <script>
-         function actualizarContador() {
-             let ahora = new Date();
-             let diaActual = ahora.toISOString().split('T')[0]; // Formato YYYY-MM-DD
-         
-             // Obtener contadores desde localStorage
-             let visitasTotal = parseInt(localStorage.getItem("visitasTotal")) || 0;
-             let visitasDia = JSON.parse(localStorage.getItem("visitasDia")) || { fecha: "", conteo: 0 };
-         
-             // Si la fecha cambió, reiniciar el contador diario
-             if (visitasDia.fecha !== diaActual) {
-                 visitasDia.fecha = diaActual;
-                 visitasDia.conteo = 0;
-             }
-         
-             // Incrementar contadores
-             visitasTotal += 1;
-             visitasDia.conteo += 1;
-         
-             // Guardar los valores en localStorage
-             localStorage.setItem("visitasTotal", visitasTotal);
-             localStorage.setItem("visitasDia", JSON.stringify(visitasDia));
-         
-             // Mostrar valores actualizados en la página
-             document.getElementById("visitas-total").innerText = visitasTotal;
-             document.getElementById("visitas-dia").innerText = visitasDia.conteo;
-         }
-         
-         
-         actualizarContador();
-      </script>
+    async function actualizarContador() {
+        try {
+            // Hacer la petición al servidor para obtener las visitas
+            const respuesta = await fetch('contador.php');
+            const datos = await respuesta.json();
+
+            // Mostrar los valores en la página
+            document.getElementById("visitas-total").innerText = datos.total;
+            document.getElementById("visitas-dia").innerText = datos.dia;
+        } catch (error) {
+            console.error("Error obteniendo los datos del contador:", error);
+        }
+    }
+
+    // Llamar a la función al cargar la página
+    actualizarContador();
+</script>
+
    </body>
 </html>
