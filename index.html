@@ -274,6 +274,11 @@
             <h3>Lavadora 12kg</h3>
             <p>Gran capacidad y eficiencia energética.</p>
             <span>$399.99</span>
+            <div class="redes">
+                <a href="#" class="facebook" onclick="compartir('facebook', 'Lavadora 12kg', 399.99)">Facebook</a>
+                <a href="#" class="instagram" onclick="compartir('instagram', 'Lavadora 12kg', 399.99)">Instagram</a>
+                <a href="#" class="whatsapp" onclick="compartir('whatsapp', 'Lavadora 12kg', 399.99)">WhatsApp</a>
+            </div>
         </div>
         <div class="producto" onclick="mostrarDetalles('Smart TV 50\"', 'Calidad 4K Ultra HD con Android TV.', '$549.99')">
             <img src="imagenes/productos/televisor.jpg" alt="Televisor">
@@ -323,8 +328,10 @@
     
     <footer>
         © 2025 Electromáscrédito. Todos los derechos reservados.
-        <p>Visitas hoy: <span id="visitas-dia"></span></p>
-        <p>Visitas totales: <span id="visitas-total"></span></p>
+        <div class="contador-box">
+            <p>Visitas hoy: <span id="visitas-dia">0</span></p>
+            <p>Visitas totales: <span id="visitas-total">0</span></p>
+        </div></p>
     </footer>
 
 
@@ -355,8 +362,19 @@
             document.getElementById("visitas-total").innerText = visitasTotal;
             document.getElementById("visitas-dia").innerText = visitasDia.conteo;
         }
+        function compartir(red, producto, precio) {
+            let url = encodeURIComponent(window.location.href);
+            let mensaje = encodeURIComponent(`Mira este producto: ${producto} por solo $${precio}`);
 
-        // Llamar a la función para actualizar el contador al cargar la página
+            if (red === 'facebook') {
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+            } else if (red === 'instagram') {
+                alert("Instagram no permite compartir enlaces directamente.");
+            } else if (red === 'whatsapp') {
+                window.open(`https://wa.me/?text=${mensaje}%20${url}`, '_blank');
+            }
+        }
+
         actualizarContador();
     </script>
 
