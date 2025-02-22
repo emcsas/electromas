@@ -291,24 +291,7 @@
             document.getElementById('modal').style.display = "none";
         }
     
-    </script>
-
-    <script>
-        // Contador de visitas con localStorage
-        function contarVisitas() {
-            let visitas = localStorage.getItem("contadorVisitas");
-            visitas = visitas ? parseInt(visitas) + 1 : 1;
-            localStorage.setItem("contadorVisitas", visitas);
-            document.getElementById("contador").innerText = "Visitas a la página: " + visitas;
-            document.getElementById("contador-footer").innerText = visitas;
-        }
-        contarVisitas();
-
-        function cerrarModal() {
-            document.getElementById('modal').style.display = "none";
-        }
-    </script>
-    
+    </script> 
 
     
     <footer>
