@@ -193,26 +193,7 @@
 
 
 
-
- /* BOTONES DE COMPARTIR */
-        .redes {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .redes a {
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        .facebook { background-color: #1877F2; }
-        .instagram { background-color: #E4405F; }
-        .whatsapp { background-color: #25D366; }
-        /* PIE DE PÁGINA MEJORADO */
+       /* PIE DE PÁGINA MEJORADO */
         footer {
             background-color: #002244;
             color: white;
@@ -274,11 +255,6 @@
             <h3>Lavadora 12kg</h3>
             <p>Gran capacidad y eficiencia energética.</p>
             <span>$399.99</span>
-            <div class="redes">
-                <a href="#" class="facebook" onclick="compartir('facebook', 'Lavadora 12kg', 399.99)">Facebook</a>
-                <a href="#" class="instagram" onclick="compartir('instagram', 'Lavadora 12kg', 399.99)">Instagram</a>
-                <a href="#" class="whatsapp" onclick="compartir('whatsapp', 'Lavadora 12kg', 399.99)">WhatsApp</a>
-            </div>
         </div>
         <div class="producto" onclick="mostrarDetalles('Smart TV 50\"', 'Calidad 4K Ultra HD con Android TV.', '$549.99')">
             <img src="imagenes/productos/televisor.jpg" alt="Televisor">
@@ -362,18 +338,7 @@
             document.getElementById("visitas-total").innerText = visitasTotal;
             document.getElementById("visitas-dia").innerText = visitasDia.conteo;
         }
-        function compartir(red, producto, precio) {
-            let url = encodeURIComponent(window.location.href);
-            let mensaje = encodeURIComponent(`Mira este producto: ${producto} por solo $${precio}`);
 
-            if (red === 'facebook') {
-                window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-            } else if (red === 'instagram') {
-                alert("Instagram no permite compartir enlaces directamente.");
-            } else if (red === 'whatsapp') {
-                window.open(`https://wa.me/?text=${mensaje}%20${url}`, '_blank');
-            }
-        }
 
         actualizarContador();
     </script>
