@@ -299,14 +299,16 @@
         let numeroWhatsApp = "593988200116";
         
         // Mensaje estructurado correctamente
-        let mensaje = `Hola, estoy interesado en el producto: ${titulo} con precio de ${precio}. ¿Podrían darme más información?`;
+        let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
 
         // Construcción correcta del enlace
         let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
-        // Asignar el enlace al botón de WhatsApp
-        document.getElementById('whatsapp-link').href = whatsappURL;
-        
+ // Asignar el enlace al botón de WhatsApp
+        let botonWhatsApp = document.getElementById('whatsapp-link');
+        botonWhatsApp.href = whatsappURL;
+        botonWhatsApp.target = "_blank"; // Para abrir en una nueva pestaña
+
         // Mostrar el modal
         document.getElementById('modal').style.display = "flex";
     }
