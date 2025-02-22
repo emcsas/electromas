@@ -293,10 +293,12 @@
          </div>
          </p>
       </footer>
-      <script>
+
+      
+     <script>
     async function actualizarContador() {
         try {
-            // Hacer la petición al servidor para obtener las visitas
+            // Obtener los datos del servidor
             const respuesta = await fetch('contador.php');
             const datos = await respuesta.json();
 
@@ -311,6 +313,8 @@
     // Llamar a la función al cargar la página
     actualizarContador();
 </script>
+
+      
 
    </body>
 </html>
