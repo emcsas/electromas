@@ -214,19 +214,6 @@
 
 
 
-    <div id="contador" style="text-align: center; margin-top: 150px; font-size: 20px; font-weight: bold; color: #002244;"></div>
-
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <h2 id="modal-titulo"></h2>
-            <p id="modal-descripcion"></p>
-            <p id="modal-precio" style="font-weight:bold; color:#fc4b08;"></p>
-            <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-            <button class="close" onclick="cerrarModal()">Cerrar</button>
-        </div>
-    </div>
-
-
 
     
     <div class="banner">
@@ -296,7 +283,44 @@
     
     <footer>
         © 2025 Electromáscrédito. Todos los derechos reservados.
-        <br>Visitas: <span id="contador-footer"></span>
+        <p>Visitas hoy: <span id="visitas-dia"></span></p>
+        <p>Visitas totales: <span id="visitas-total"></span></p>
     </footer>
+
+
+<script>
+        function actualizarContador() {
+            let ahora = new Date();
+            let diaActual = ahora.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+
+            // Obtener contadores desde localStorage
+            let visitasTotal = parseInt(localStorage.getItem("visitasTotal")) || 0;
+            let visitasDia = JSON.parse(localStorage.getItem("visitasDia")) || { fecha: "", conteo: 0 };
+
+            // Si la fecha cambió, reiniciar el contador diario
+            if (visitasDia.fecha !== diaActual) {
+                visitasDia.fecha = diaActual;
+                visitasDia.conteo = 0;
+            }
+
+            // Incrementar contadores
+            visitasTotal += 1;
+            visitasDia.conteo += 1;
+
+            // Guardar los valores en localStorage
+            localStorage.setItem("visitasTotal", visitasTotal);
+            localStorage.setItem("visitasDia", JSON.stringify(visitasDia));
+
+            // Mostrar valores actualizados en la página
+            document.getElementById("visitas-total").innerText = visitasTotal;
+            document.getElementById("visitas-dia").innerText = visitasDia.conteo;
+        }
+
+        // Llamar a la función para actualizar el contador al cargar la página
+        actualizarContador();
+    </script>
+
+
+    
 </body>
 </html>
