@@ -75,6 +75,7 @@
             width: 200%;
             animation: scroll 20s linear infinite;
         }
+        /*CAMBIAR EL TAMAÑO DE LA IMAGEN QUE ESTA EN EL CARRUSEL*/
         .carousel img {
             width: 50%;
             height: 400px;
@@ -140,16 +141,6 @@
         .whatsapp-btn:hover {
             background-color: #1EBE5D;
         }
-
-
-
-
-
-        
-        
-
-
-        
         /* SECCIÓN OFERTAS DEL MES */
         .ofertas {
             max-width: 1200px;
@@ -220,6 +211,24 @@
         <a href="tecnologia.html">Tecnología</a>
         <a href="hogar.html">Hogar</a>
     </nav>
+
+
+
+    <div id="contador" style="text-align: center; margin-top: 150px; font-size: 20px; font-weight: bold; color: #002244;"></div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-titulo"></h2>
+            <p id="modal-descripcion"></p>
+            <p id="modal-precio" style="font-weight:bold; color:#fc4b08;"></p>
+            <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+            <button class="close" onclick="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+
+
+
+    
     <div class="banner">
         <div class="carousel">
             <img src="principal/oferta1.jpg" alt="Oferta">
@@ -281,12 +290,30 @@
         function cerrarModal() {
             document.getElementById('modal').style.display = "none";
         }
+    
+    </script>
+
+    <script>
+        // Contador de visitas con localStorage
+        function contarVisitas() {
+            let visitas = localStorage.getItem("contadorVisitas");
+            visitas = visitas ? parseInt(visitas) + 1 : 1;
+            localStorage.setItem("contadorVisitas", visitas);
+            document.getElementById("contador").innerText = "Visitas a la página: " + visitas;
+            document.getElementById("contador-footer").innerText = visitas;
+        }
+        contarVisitas();
+
+        function cerrarModal() {
+            document.getElementById('modal').style.display = "none";
+        }
     </script>
     
 
     
     <footer>
         © 2025 Electromáscrédito. Todos los derechos reservados.
+        <br>Visitas: <span id="contador-footer"></span>
     </footer>
 </body>
 </html>
