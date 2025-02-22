@@ -195,16 +195,6 @@
          flex-direction: column;
          align-items: center;
          }
-         .contador-box {
-         display: flex;
-         justify-content: center;
-         gap: 20px;
-         background: #003366;
-         padding: 10px;
-         border-radius: 8px;
-         margin-top: 10px;
-         font-size: 18px;
-         }
       </style>
    </head>
    <body>
@@ -287,34 +277,7 @@
       </script>
       <footer>
          © 2025 Electromáscrédito. Todos los derechos reservados.
-         <div class="contador-box">
-            <p>Visitas hoy: <span id="visitas-dia">0</span></p>
-            <p>Visitas totales: <span id="visitas-total">0</span></p>
-         </div>
-         </p>
-      </footer>
-
-      
-     <script>
-    async function actualizarContador() {
-        try {
-            // Obtener los datos del servidor
-            const respuesta = await fetch('contador.php');
-            const datos = await respuesta.json();
-
-            // Mostrar los valores en la página
-            document.getElementById("visitas-total").innerText = datos.total;
-            document.getElementById("visitas-dia").innerText = datos.dia;
-        } catch (error) {
-            console.error("Error obteniendo los datos del contador:", error);
-        }
-    }
-
-    // Llamar a la función al cargar la página
-    actualizarContador();
-</script>
-
-      
+      </footer>    
 
    </body>
 </html>
