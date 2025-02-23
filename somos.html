@@ -13,12 +13,15 @@
             box-sizing: border-box;
         }
 
-         body { 
-         font-family: Arial, sans-serif; 
-         background-color: #f4f4f4; 
-         margin: 0; 
-         padding: 0; 
-         }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100vw;
+            overflow-x: hidden; /* Evita desbordamientos */
+        }
 
          /*SECCIÓN ENCABEZADO*/
          header {
@@ -46,7 +49,7 @@
          /*SECCIÓN MENÚ DE NAVEGACIÓN*/
          .nav {
          background-color: #fc4b08; /*Naranja*/
-         padding: 1px;
+         padding: 8px;
          display: flex;
          justify-content: left; /* Esto alinea los elementos a la derecha */
          padding-right: 50px; /* Espaciado desde la derecha */
@@ -84,8 +87,8 @@
         }
         .contenido h1 {
             color: #002244;
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 18px;
+            margin-bottom: 10px;
             text-align: center;
         }
         .contenido p {
@@ -97,7 +100,7 @@
 
         /* SECCIONES CORPORATIVAS */
         .corporativo {
-            margin-top: 14px;
+            margin-top: 10px;
         }
         .corporativo h2 {
             font-size: 16px;
@@ -122,6 +125,8 @@
             font-weight: bold;
             border-radius: 4px;
             margin-top: 15px;
+            width: 100%;
+            max-width: 100%;
         }
 
         /* PIE DE PÁGINA */
@@ -129,16 +134,34 @@
          background-color: #002244;
          color: white;
          text-align: center;
-         padding: 2px;
+         padding: 8px;
          font-size: 12px;
-         width: 100vw;
+         width: 100%;
          min-height: 40px; /* Ajusta la altura mínima */
          box-sizing: border-box; /* Evita problemas con márgenes y paddings */
          position: auto;
-         margin-top: auto; /* Se mantiene abajo automáticamente */
+         margin-top: 15px; /* Se mantiene abajo automáticamente */
          bottom: 0;
          left: 0;
          }
+            @media (max-width: 600px) {
+                .nav {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 10px;
+                }
+                .nav a {
+                    margin: 5px 0;
+                }
+                .contenido {
+                    width: 95%;
+                    padding: 12px;
+                }
+                .direccion {
+                    font-size: 13px;
+                    padding: 10px;
+                }
+            }
     </style>
 </head>
 <body>
