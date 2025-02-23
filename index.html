@@ -257,43 +257,40 @@
             <span>$699.99</span>
          </div>
       </section>
-      <div id="modal" class="modal">
-         <div class="modal-content">
+     <!-- MODAL PARA DETALLES DEL PRODUCTO -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
             <h2 id="modal-titulo"></h2>
-            <p id="modal-descripcion"></p>
-            <p id="modal-precio" style="font-weight:bold; color:#fc4b08;"></p>
-            <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+            <ul id="modal-descripcion"></ul>
+            <p id="modal-precio" style="font-weight:bold; color:#fc4b08; text-align:center;"></p>
             <button class="close" onclick="cerrarModal()">Cerrar</button>
-         </div>
-      </div>
-      <script>
-         function mostrarDetalles(titulo, descripcion, precio) {
-             document.getElementById('modal-titulo').innerText = titulo;
-             document.getElementById('modal-descripcion').innerText = descripcion;
-             document.getElementById('modal-precio').innerText = precio;
-         
-             // Número de WhatsApp en formato internacional sin el "+"
-             let numeroWhatsApp = "+593988200116";
-             
-             // Mensaje estructurado correctamente
-             let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
-         
-             // Construcción correcta del enlace
-             let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-         
-         // Asignar el enlace al botón de WhatsApp
-             let botonWhatsApp = document.getElementById('whatsapp-link');
-             botonWhatsApp.href = whatsappURL;
-             botonWhatsApp.target = "_blank"; // Para abrir en una nueva pestaña
-         
-             // Mostrar el modal
-             document.getElementById('modal').style.display = "flex";
-         }
-         
-         function cerrarModal() {
-             document.getElementById('modal').style.display = "none";
-         }
-      </script>
+        </div>
+    </div>
+
+    <script>
+        function mostrarDetalles(titulo, descripcion, precio) {
+            document.getElementById('modal-titulo').innerText = titulo;
+
+            // Convertir la lista de características en una lista HTML
+            let listaDescripcion = document.getElementById('modal-descripcion');
+            listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
+
+            descripcion.forEach(caracteristica => {
+                let li = document.createElement('li');
+                li.textContent = caracteristica;
+                listaDescripcion.appendChild(li);
+            });
+
+            document.getElementById('modal-precio').innerText = precio;
+
+            // Mostrar el modal
+            document.getElementById('modal').style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+    </script>
       <footer>
          © 2025 Electromáscrédito. Todos los derechos reservados.
       </footer>
