@@ -107,66 +107,66 @@
          max-width: 400px;
          box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
          }
-.modal-content h2 {
-    font-size: 22px;
-    font-weight: bold;
-    color: #002244;
-    margin-bottom: 15px;
-}
-.modal-content ul {
-    text-align: left;
-    padding-left: 20px;
-    font-size: 16px;
-    color: #444;
-    list-style-type: disc; /* Viñetas */
-}
-.modal-content ul li {
-    margin-bottom: 8px;
-}
-.precio {
-    font-size: 20px;
-    font-weight: bold;
-    color: #fc4b08;
-    text-align: center;
-    margin-top: 15px;
-}
-.modal-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
-}
+         .modal-content h2 {
+         font-size: 22px;
+         font-weight: bold;
+         color: #002244;
+         margin-bottom: 15px;
+         }
+         .modal-content ul {
+         text-align: left;
+         padding-left: 20px;
+         font-size: 16px;
+         color: #444;
+         list-style-type: disc; /* Viñetas */
+         }
+         .modal-content ul li {
+         margin-bottom: 8px;
+         }
+         .precio {
+         font-size: 20px;
+         font-weight: bold;
+         color: #fc4b08;
+         text-align: center;
+         margin-top: 15px;
+         }
+         .modal-buttons {
+         display: flex;
+         justify-content: center;
+         gap: 10px;
+         margin-top: 15px;
+         }
          /* BOTÓN WHATSAPP */
-.whatsapp-btn {
-    background-color: #085c27;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    display: inline-block;
-    align-items: center;
-    gap: 5px;
-}
-.whatsapp-btn:hover {
-    background-color: #1EBE5D;
-}
-.close {
-    padding: 10px 15px;
-    background-color: #fc4b08;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-}
-.close:hover {
-    background-color: #e63900;
-}
+         .whatsapp-btn {
+         background-color: #085c27;
+         color: white;
+         padding: 10px 15px;
+         border-radius: 5px;
+         text-decoration: none;
+         font-size: 16px;
+         font-weight: bold;
+         display: inline-block;
+         align-items: center;
+         gap: 5px;
+         }
+         .whatsapp-btn:hover {
+         background-color: #1EBE5D;
+         }
+         .close {
+         padding: 10px 15px;
+         background-color: #fc4b08;
+         color: white;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 16px;
+         display: inline-flex;
+         align-items: center;
+         gap: 5px;
+         }
+         .close:hover {
+         background-color: #e63900;
+         }
          /* SECCIÓN OFERTAS DEL MES */
          .ofertas {
          max-width: 1200px;
@@ -252,10 +252,10 @@
       <section class="ofertas">
          <h2>🔥 Ofertas del Mes 🔥</h2>
          <div class="productos">
-            <div class="producto" onclick="mostrarDetalles(
+         <div class="producto" onclick="mostrarDetalles(
             'Televisor Indurama 58 pulgadas',
-    'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Garantía 2 años|Dolby Vision HDR10',
-    '$555.99')">
+            'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Garantía 2 años|Dolby Vision HDR10',
+            '$555.99')">
             <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
             <h3>Televisor Indurama 58"</h3>
             <span>$555.99</span>
@@ -269,51 +269,50 @@
       </section>
       /*MODAL*/
       <div id="modal" class="modal">
-          <div class="modal-content">
-              <h2 id="modal-titulo"></h2>
-              <ul id="modal-descripcion"></ul>
-              <p id="modal-precio" class="precio"></p>
-              <div class="modal-buttons">
-                  <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-                  <button class="close" onclick="cerrarModal()">Cerrar</button>
-              </div>
-          </div>
+         <div class="modal-content">
+            <h2 id="modal-titulo"></h2>
+            <ul id="modal-descripcion"></ul>
+            <p id="modal-precio" class="precio"></p>
+            <div class="modal-buttons">
+               <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+               <button class="close" onclick="cerrarModal()">Cerrar</button>
+            </div>
+         </div>
       </div>
-<script>
-    function mostrarDetalles(titulo, descripcion, precio) {
-        document.getElementById('modal-titulo').innerText = titulo;
-
-        // Seleccionar la lista de características
-        let listaDescripcion = document.getElementById('modal-descripcion');
-        listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
-
-        // Convertir la descripción en una lista
-        let caracteristicas = descripcion.split('|'); 
-        
-        caracteristicas.forEach(caracteristica => {
-            let li = document.createElement('li');
-            li.textContent = caracteristica.trim();
-            listaDescripcion.appendChild(li);
-        });
-
-        // Actualizar el precio
-        document.getElementById('modal-precio').innerText = precio;
-
-        // Construcción del enlace de WhatsApp
-        let numeroWhatsApp = "593988200116"; 
-        let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
-        let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-        document.getElementById('whatsapp-link').href = whatsappURL;
-
-        // Mostrar el modal
-        document.getElementById('modal').style.display = "flex";
-    }
-
-    function cerrarModal() {
-        document.getElementById('modal').style.display = "none";
-    }
-</script>
-
+      <script>
+         function mostrarDetalles(titulo, descripcion, precio) {
+             document.getElementById('modal-titulo').innerText = titulo;
+         
+             // Seleccionar la lista de características
+             let listaDescripcion = document.getElementById('modal-descripcion');
+             listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
+         
+             // Convertir la descripción en una lista
+             let caracteristicas = descripcion.split('|'); 
+             
+             caracteristicas.forEach(caracteristica => {
+                 let li = document.createElement('li');
+                 li.textContent = caracteristica.trim();
+                 listaDescripcion.appendChild(li);
+             });
+         
+             // Actualizar el precio
+             document.getElementById('modal-precio').innerText = precio;
+         
+             // Construcción del enlace de WhatsApp
+             let numeroWhatsApp = "593988200116"; 
+             let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
+             let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+             document.getElementById('whatsapp-link').href = whatsappURL;
+         
+             // Mostrar el modal
+             document.getElementById('modal').style.display = "flex";
+         }
+         
+         function cerrarModal() {
+             document.getElementById('modal').style.display = "none";
+         }
+      </script>
       <footer>
          © 2025 Electromáscrédito. Todos los derechos reservados.
       </footer>
