@@ -234,15 +234,15 @@
             <span>$699.99</span>
          </div>
       </section>
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <h2 id="modal-titulo"></h2>
-        <ul id="modal-descripcion"></ul> <!-- Usamos una lista en lugar de <p> -->
-        <p id="modal-precio" style="font-weight:bold; color:#fc4b08; text-align:center;"></p>
-        <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-        <button class="close" onclick="cerrarModal()">Cerrar</button>
-    </div>
-</div>
+      <div id="modal" class="modal">
+          <div class="modal-content">
+              <h2 id="modal-titulo"></h2>
+              <ul id="modal-descripcion"></ul> <!-- Usamos una lista en lugar de <p> -->
+              <p id="modal-precio" style="font-weight:bold; color:#fc4b08; text-align:left;"></p>
+              <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+              <button class="close" onclick="cerrarModal()">Cerrar</button>
+          </div>
+      </div>
       <script>
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
