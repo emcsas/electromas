@@ -17,11 +17,11 @@
             align-items: center;
         }
 
-        /* ENCABEZADO AZUL */
+        /* ENCABEZADO AZUL (IGUAL AL ORIGINAL) */
         header {
             background-color: #002244;
             color: white;
-            padding: 15px;
+            padding: 20px;
             font-size: 24px;
             text-align: center;
             width: 100%;
@@ -51,10 +51,9 @@
             font-weight: bold;
             padding: 5px 10px;
         }
-
-        /* ICONO DE VOLVER */
-        .back-btn {
+        .nav a {
             color: white;
+            font-weight: bold; /* NEGRITA */
             font-size: 16px;
             text-decoration: none;
             display: flex;
@@ -62,10 +61,10 @@
             gap: 5px;
             margin-right: 15px;
         }
-        .back-btn i {
+        .nav a i {
             font-size: 18px;
         }
-        .back-btn:hover {
+        .nav a:hover {
             text-decoration: underline;
         }
 
@@ -135,17 +134,17 @@
 </head>
 <body>
 
-    <!-- ENCABEZADO AZUL -->
+    <!-- ENCABEZADO AZUL (MISMAS DIMENSIONES QUE EL ORIGINAL) -->
     <header>
         <img src="principal/logo.png" alt="Electromás">
         <span>Electromás</span>
     </header>
 
-    <!-- MENÚ DE NAVEGACIÓN NARANJA -->
+    <!-- MENÚ DE NAVEGACIÓN NARANJA CON NEGRITA -->
     <nav class="nav">
-        <span>Quiénes Somos</span>
-        <a href="index.html" class="back-btn">
-            <i class="fas fa-home"></i> Inicio
+        <span><strong>Quiénes Somos</strong></span>
+        <a href="index.html">
+            <i class="fas fa-home"></i> <strong>Inicio</strong>
         </a>
     </nav>
 
