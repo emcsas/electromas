@@ -246,8 +246,18 @@
       <script>
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
-             document.getElementById('modal-descripcion').innerText = descripcion;
-             document.getElementById('modal-precio').innerText = precio;
+
+             // Convertir la cadena de texto en una lista dividiéndola por "|"
+              let listaDescripcion = document.getElementById('modal-descripcion');
+              listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
+      
+              let caracteristicas = descripcion.split('|'); // Separar por "|"
+              caracteristicas.forEach(caracteristica => {
+                  let li = document.createElement('li');
+                  li.textContent = caracteristica.trim(); // Eliminar espacios innecesarios
+                  listaDescripcion.appendChild(li);
+              }); 
+            document.getElementById('modal-precio').innerText = precio;
          
              // Número de WhatsApp en formato internacional sin el "+"
              let numeroWhatsApp = "+593988200116";
