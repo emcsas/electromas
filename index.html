@@ -252,6 +252,8 @@
       <section class="ofertas">
          <h2>🔥 Ofertas del Mes 🔥</h2>
          <div class="productos">
+      <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
+         /*PRODUCTO 1*/
          <div class="producto" onclick="mostrarDetalles(
             'Televisor Indurama 58 pulgadas',
             'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Garantía 2 años|Dolby Vision HDR10',
@@ -260,13 +262,18 @@
             <h3>Televisor Indurama 58"</h3>
             <span>$555.99</span>
          </div>
-         <div class="producto" onclick="mostrarDetalles('Refrigeradora 250L', 'Ahorro de energía y amplio espacio.', '$699.99')">
-            <img src="imagenes/productos/refrigeradora.jpg" alt="Refrigeradora">
-            <h3>Refrigeradora 250L</h3>
-            <p>Ahorro de energía y amplio espacio.</p>
-            <span>$699.99</span>
+            
+         /*PRODUCTO 2*/
+         <div class="producto" onclick="mostrarDetalles(
+            'Lavadora Indurama 19kg',
+            'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua',
+            '$555.99')">
+            <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
+            <h3>Lavadora Indurama 19kg"</h3>
+            <span>$533.99</span>
          </div>
-      </section>
+
+      <!-- SECCIÓN MODAL -->
       <div id="modal" class="modal">
          <div class="modal-content">
             <h2 id="modal-titulo"></h2>
@@ -281,33 +288,26 @@
       <script>
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
-         
              // Seleccionar la lista de características
              let listaDescripcion = document.getElementById('modal-descripcion');
              listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
-         
              // Convertir la descripción en una lista
-             let caracteristicas = descripcion.split('|'); 
-             
+             let caracteristicas = descripcion.split('|');    
              caracteristicas.forEach(caracteristica => {
                  let li = document.createElement('li');
                  li.textContent = caracteristica.trim();
                  listaDescripcion.appendChild(li);
              });
-         
              // Actualizar el precio
              document.getElementById('modal-precio').innerText = precio;
-         
              // Construcción del enlace de WhatsApp
              let numeroWhatsApp = "593988200116"; 
              let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
              let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-             document.getElementById('whatsapp-link').href = whatsappURL;
-         
+             document.getElementById('whatsapp-link').href = whatsappURL;  
              // Mostrar el modal
              document.getElementById('modal').style.display = "flex";
          }
-         
          function cerrarModal() {
              document.getElementById('modal').style.display = "none";
          }
