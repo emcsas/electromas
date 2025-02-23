@@ -234,21 +234,18 @@
          main {
          flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
          }
-         /* PIE DE PÁGINA*/
-         footer {
-             background-color: #002244;
-             color: white;
-             text-align: center;
-             padding: 2px;
-             font-size: 12px;
-             width: 100vw;
-             min-height: 40px; /* Ajusta la altura mínima */
-             box-sizing: border-box; /* Evita problemas con márgenes y paddings */
-             position: relative;
-             margin-top: auto; /* Se mantiene abajo automáticamente */
-             bottom: 0;
-             left: 0;
-         }
+
+
+footer {
+    background-color: #002244;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+         
             /* Asegurar que el footer cubra toda la pantalla si hay poco contenido */
             @media (max-height: 800px) {
             footer {
