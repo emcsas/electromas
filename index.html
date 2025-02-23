@@ -220,7 +220,7 @@
          <h2>🔥 Ofertas del Mes 🔥</h2>
          <div class="productos">
          <div class="producto" onclick="mostrarDetalles(
-             'Televisor Indurama 58\"',
+             'Televisor Indurama 58',
              'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Garantía 2 años|Dolby Vision HDR10',
              '$555.99')">
              <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
@@ -234,15 +234,15 @@
             <span>$699.99</span>
          </div>
       </section>
-      <div id="modal" class="modal">
-         <div class="modal-content">
-            <h2 id="modal-titulo"></h2>
-            <ul id="modal-descripcion"></ul>
-            <p id="modal-precio" style="font-weight:bold; color:#fc4b08;"></p>
-            <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-            <button class="close" onclick="cerrarModal()">Cerrar</button>
-         </div>
-      </div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2 id="modal-titulo"></h2>
+        <ul id="modal-descripcion"></ul> <!-- Usamos una lista en lugar de <p> -->
+        <p id="modal-precio" style="font-weight:bold; color:#fc4b08; text-align:center;"></p>
+        <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+        <button class="close" onclick="cerrarModal()">Cerrar</button>
+    </div>
+</div>
       <script>
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
