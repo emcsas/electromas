@@ -3,91 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quiénes Somos? | Electromáscrédito</title>
+    <title>¿Quiénes Somos? - Electromás</title>
+    <link rel="shortcut icon" href="principal/logo1.png" type="image/png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        h1, h2 {
-            text-align: center;
-            color: #002244;
-        }
-        .content {
-            text-align: center;
-            font-size: 18px;
-            color: #333;
-        }
-        .values {
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 0; 
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ENCABEZADO */
+        header {
+            background-color: #002244;
+            color: white;
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 6px solid #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        header img {
+            width: 40px;
+            height: auto;
+        }
+
+        /* BOTÓN DE VOLVER */
+        .volver-btn {
+            background-color: #fc4b08;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: block;
+            width: max-content;
+            margin: 20px auto;
+        }
+        .volver-btn:hover {
+            background-color: #e63900;
+        }
+
+        /* SECCIÓN QUIÉNES SOMOS */
+        .quienes-somos {
+            background: white;
+            max-width: 900px;
+            padding: 30px;
+            margin: 20px auto;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .quienes-somos h1 {
+            color: #002244;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .quienes-somos p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Misión y Visión */
+        .mision-vision h2 {
+            font-size: 22px;
+            color: #002244;
             margin-top: 20px;
         }
-        .value-box {
-            background: #fc4b08;
+        .mision-vision p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* VALORES */
+        .valores {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .valor {
+            background-color: #fc4b08;
             color: white;
-            padding: 15px;
-            width: 30%;
-            text-align: center;
-            border-radius: 8px;
+            padding: 15px 20px;
+            border-radius: 5px;
             font-size: 16px;
             font-weight: bold;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 120px;
         }
-        @media (max-width: 768px) {
-            .value-box {
-                width: 100%;
-                margin-bottom: 10px;
-            }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background-color: #002244;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            width: 100%;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>¿Quiénes Somos?</h1>
-    <p class="content">
-        Somos **Electromáscrédito**, una empresa lojana dedicada a la venta de electrodomésticos 
-        de alta calidad con planes de financiamiento accesibles. Nos ubicamos en la **calle Imbabura, 
-        entre Sucre y 18 de Noviembre**. <br><br>
-        Contamos con servicio de **entrega a domicilio** para que nuestros clientes reciban sus productos 
-        de manera rápida y segura.
-    </p>
+    <header>
+        <img src="principal/logo.png" alt="Electromás">
+        <span>Electromás</span>
+    </header>
 
-    <h2>Nuestra Misión</h2>
-    <p class="content">
-        Brindar a nuestros clientes **electrodomésticos de última tecnología** a precios competitivos, 
-        con opciones de financiamiento flexibles y un servicio de calidad que garantice la mejor experiencia de compra.
-    </p>
+    <div class="quienes-somos">
+        <h1>¿Quiénes Somos?</h1>
+        <p>
+            Somos <strong>Electromás</strong>, una empresa lojana dedicada a la venta de electrodomésticos de alta calidad con planes de financiamiento accesibles.  
+            Nos ubicamos en la <strong>calle Imbabura, entre Sucre y 18 de Noviembre</strong>.
+        </p>
+        <p>
+            Contamos con servicio de <strong>entrega a domicilio</strong> para que nuestros clientes reciban sus productos de manera rápida y segura.
+        </p>
 
-    <h2>Nuestra Visión</h2>
-    <p class="content">
-        Ser la **empresa líder en ventas de electrodomésticos en Loja**, reconocida por la confianza de nuestros 
-        clientes, la variedad de productos y un servicio de entrega eficiente en toda la región.
-    </p>
+        <div class="mision-vision">
+            <h2>Nuestra Misión</h2>
+            <p>Brindar a nuestros clientes <strong>electrodomésticos de última tecnología</strong> a precios competitivos, con opciones de financiamiento flexibles y un servicio de calidad que garantice la mejor experiencia de compra.</p>
 
-    <h2>Nuestros Valores</h2>
-    <div class="values">
-        <div class="value-box">Compromiso</div>
-        <div class="value-box">Calidad</div>
-        <div class="value-box">Responsabilidad</div>
-        <div class="value-box">Innovación</div>
-        <div class="value-box">Atención al Cliente</div>
+            <h2>Nuestra Visión</h2>
+            <p>Ser la <strong>empresa líder en ventas de electrodomésticos en Loja</strong>, reconocida por la confianza de nuestros clientes, la variedad de productos y un servicio de entrega eficiente en toda la región.</p>
+        </div>
+
+        <h2>Nuestros Valores</h2>
+        <div class="valores">
+            <div class="valor">Compromiso</div>
+            <div class="valor">Calidad</div>
+            <div class="valor">Responsabilidad</div>
+            <div class="valor">Innovación</div>
+            <div class="valor">Atención al Cliente</div>
+        </div>
+
+        <a href="index.html" class="volver-btn">Volver a la Página Principal</a>
     </div>
-</div>
+
+    <footer>
+        © 2025 Electromás. Todos los derechos reservados.
+    </footer>
 
 </body>
 </html>
-
