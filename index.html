@@ -208,8 +208,10 @@
          }
          .producto img {
              width: 100%;
-             height: 200px; /* Tamaño uniforme de imágenes */
-             object-fit: cover; /* Asegura que las imágenes se ajusten sin deformarse */
+             max-height: 200px; /* Altura máxima para evitar deformaciones */
+             object-fit: contain; /* Ajusta la imagen dentro sin cortarla */
+             display: block;
+             margin: auto;
              border-radius: 10px;
          }
          .producto h3 {
@@ -229,18 +231,17 @@
          main {
          flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
          }
-         /* PIE DE PÁGINA MEJORADO */
+         /* PIE DE PÁGINA*/
          footer {
-         background-color: #002244;
-         color: white;
-         text-align: center;
-         padding: 20px;
-         margin-top: auto;
-         width: 100%;
-         font-size: 16px;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
+             background-color: #002244;
+             color: white;
+             text-align: center;
+             padding: 20px;
+             font-size: 16px;
+             width: 100%;
+             min-height: 80px; /* Ajusta la altura mínima */
+             position: relative; /* Se mantiene al fondo del contenido */
+             bottom: 0;
          }
       </style>
    </head>
