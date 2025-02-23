@@ -105,35 +105,63 @@
          text-align: center;
          width: 80%;
          max-width: 400px;
+         box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
          }
-         .close {
-         margin-top: 10px;
-         padding: 10px 20px;
-         background-color: #fc4b08;
-         color: white;
-         border: none;
-         border-radius: 5px;
-         cursor: pointer;
-         font-size: 16px;
-         }
-         .close:hover {
-         background-color: #e63900;
-         }
+.modal-content h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #002244;
+    margin-bottom: 15px;
+}
+.modal-content ul {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #444;
+    list-style-type: disc; /* Viñetas */
+}
+.modal-content ul li {
+    margin-bottom: 8px;
+}
+.precio {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fc4b08;
+    text-align: center;
+    margin-top: 15px;
+}
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
          /* BOTÓN WHATSAPP */
-         .whatsapp-btn {
-         display: inline-block;
-         background-color: #25D366;
-         color: white;
-         padding: 10px 15px;
-         margin-top: 10px;
-         border-radius: 5px;
-         text-decoration: none;
-         font-size: 16px;
-         font-weight: bold;
-         }
-         .whatsapp-btn:hover {
-         background-color: #1EBE5D;
-         }
+.whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+}
+.whatsapp-btn:hover {
+    background-color: #1EBE5D;
+}
+.close {
+    padding: 10px 15px;
+    background-color: #fc4b08;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.close:hover {
+    background-color: #e63900;
+}
          /* SECCIÓN OFERTAS DEL MES */
          .ofertas {
          max-width: 1200px;
@@ -235,42 +263,51 @@
          </div>
       </section>
       <div id="modal" class="modal">
-         <div class="modal-content">
-            <h2 id="modal-titulo"></h2>
-            <p id="modal-descripcion"></p>
-            <p id="modal-precio" style="font-weight:bold; color:#fc4b08;"></p>
-            <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-            <button class="close" onclick="cerrarModal()">Cerrar</button>
-         </div>
+          <div class="modal-content">
+              <h2 id="modal-titulo"></h2>
+              <ul id="modal-descripcion"></ul>
+              <p id="modal-precio" class="precio"></p>
+              <div class="modal-buttons">
+                  <a id="whatsapp-link" target="_blank" class="whatsapp-btn">📲 Contactar por WhatsApp</a>
+                  <button class="close" onclick="cerrarModal()">❌ Cerrar</button>
+              </div>
+          </div>
       </div>
-      <script>
-         function mostrarDetalles(titulo, descripcion, precio) {
-             document.getElementById('modal-titulo').innerText = titulo;
-             document.getElementById('modal-descripcion').innerText = descripcion;
-             document.getElementById('modal-precio').innerText = precio;
-         
-             // Número de WhatsApp en formato internacional sin el "+"
-             let numeroWhatsApp = "+593988200116";
-             
-             // Mensaje estructurado correctamente
-             let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
-         
-             // Construcción correcta del enlace
-             let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-         
-         // Asignar el enlace al botón de WhatsApp
-             let botonWhatsApp = document.getElementById('whatsapp-link');
-             botonWhatsApp.href = whatsappURL;
-             botonWhatsApp.target = "_blank"; // Para abrir en una nueva pestaña
-         
-             // Mostrar el modal
-             document.getElementById('modal').style.display = "flex";
-         }
-         
-         function cerrarModal() {
-             document.getElementById('modal').style.display = "none";
-         }
-      </script>
+<script>
+    function mostrarDetalles(titulo, descripcion, precio) {
+        document.getElementById('modal-titulo').innerText = titulo;
+
+        // Seleccionar la lista de características
+        let listaDescripcion = document.getElementById('modal-descripcion');
+        listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
+
+        // Convertir la descripción en una lista
+        let caracteristicas = descripcion.split('|'); 
+        
+        caracteristicas.forEach(caracteristica => {
+            let li = document.createElement('li');
+            li.textContent = caracteristica.trim();
+            listaDescripcion.appendChild(li);
+        });
+
+        // Actualizar el precio
+        document.getElementById('modal-precio').innerText = precio;
+
+        // Construcción del enlace de WhatsApp
+        let numeroWhatsApp = "593988200116"; 
+        let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
+        let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        document.getElementById('whatsapp-link').href = whatsappURL;
+
+        // Mostrar el modal
+        document.getElementById('modal').style.display = "flex";
+    }
+
+    function cerrarModal() {
+        document.getElementById('modal').style.display = "none";
+    }
+</script>
+
       <footer>
          © 2025 Electromáscrédito. Todos los derechos reservados.
       </footer>
