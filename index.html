@@ -11,6 +11,9 @@
          background-color: #f4f4f4; 
          margin: 0; 
          padding: 0; 
+         display: flex;
+         flex-direction: column;
+         min-height: 100vh; /* Hace que el body ocupe toda la pantalla */
          }
          /*SECCIÓN ENCABEZADO*/
          header {
@@ -216,13 +219,17 @@
          font-weight: bold;
          color: #fc4b08;
          }
+         main {
+         flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
+         }
          /* PIE DE PÁGINA MEJORADO */
          footer {
          background-color: #002244;
          color: white;
          text-align: center;
          padding: 20px;
-         margin-top: 30px;
+         margin-top: auto;
+         width: 100%;
          font-size: 16px;
          display: flex;
          flex-direction: column;
@@ -268,7 +275,7 @@
          <div class="producto" onclick="mostrarDetalles(
             'Lavadora Indurama 19kg',
             'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua',
-            '$555.99')">
+            '$533.99')">
             <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
             <h3>Lavadora Indurama 19kg"</h3>
             <span>$533.99</span>
@@ -314,7 +321,7 @@
          }
       </script>
       <footer>
-         © 2025 Electromáscrédito. Todos los derechos reservados.
+         <p>© 2025 Electromáscrédito. Todos los derechos reservados.</p>
       </footer>
    </body>
 </html>
