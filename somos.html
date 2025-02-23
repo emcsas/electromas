@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiénes Somos | Electromás</title>
     <link rel="shortcut icon" href="principal/logo1.png" type="image/png">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> 
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,7 +17,7 @@
             align-items: center;
         }
 
-        /* ENCABEZADO */
+        /* ENCABEZADO AZUL */
         header {
             background-color: #002244;
             color: white;
@@ -26,7 +27,7 @@
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
         header img {
@@ -40,20 +41,37 @@
             gap: 10px;
         }
 
-        /* BOTÓN DE VOLVER */
-        .volver-btn {
+        /* MENÚ DE NAVEGACIÓN NARANJA */
+        .nav {
             background-color: #fc4b08;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .nav span {
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+
+        /* ICONO DE VOLVER */
+        .back-btn {
+            color: white;
+            font-size: 18px;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
             margin-right: 20px;
         }
-        .volver-btn:hover {
-            background-color: #e63900;
+        .back-btn i {
+            font-size: 22px;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
         }
 
         /* CONTENIDO PRINCIPAL */
@@ -109,13 +127,21 @@
 </head>
 <body>
 
+    <!-- ENCABEZADO AZUL -->
     <header>
         <div class="header-left">
             <img src="principal/logo.png" alt="Electromás">
             <span>Electromás</span>
         </div>
-        <a href="index.html" class="volver-btn">Volver a la Página Principal</a>
     </header>
+
+    <!-- MENÚ DE NAVEGACIÓN NARANJA -->
+    <nav class="nav">
+        <span>Quiénes Somos</span>
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-home"></i> Inicio
+        </a>
+    </nav>
 
     <div class="contenido">
         <h1>¿Quiénes Somos?</h1>
