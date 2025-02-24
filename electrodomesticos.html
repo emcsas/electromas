@@ -229,22 +229,77 @@
 
       
       <section class="productos">
-         <div class="producto">
-            <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-            <h3>Televisor Indurama 58"</h3>
-            <span>$556</span>
-         </div>
-         <div class="producto">
-            <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-            <h3>Lavadora Indurama 19kg</h3>
-            <span>$534</span>
-         </div>
-         <div class="producto">
-            <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama">
-            <h3>Refrigerador Indurama 262 litros</h3>
-            <span>$420</span>
+         <h2>Lavadoras</h2>
+         <div class="productos">
+            <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
+            <!-- PRODUCTO 1 -->
+            <div class="producto" onclick="mostrarDetalles(
+               'Televisor Indurama 58 pulgadas',
+               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
+               '$556')">
+               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
+               <h3>Televisor Indurama 58"</h3>
+               <span>$556</span>
+            </div>
+            <!-- PRODUCTO 2 -->
+            <div class="producto" onclick="mostrarDetalles(
+               'Lavadora Indurama 19kg',
+               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
+               '$534')">
+               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
+               <h3>Lavadora Indurama 19kg</h3>
+               <span>$534</span>
+            </div>
+            <!-- PRODUCTO 3 -->
+            <div class="producto" onclick="mostrarDetalles(
+               'Refrigerador Indurama 262 litros',
+               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
+               '$420')">
+               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
+               <h3>Refrigerador Indurama 262 litros</h3>
+               <span>$420</span>
+            </div>
          </div>
       </section>
+      <!-- SECCIÓN MODAL -->
+      <div id="modal" class="modal">
+         <div class="modal-content">
+            <h2 id="modal-titulo"></h2>
+            <ul id="modal-descripcion"></ul>
+            <p id="modal-precio" class="precio"></p>
+            <div class="modal-buttons">
+               <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+               <button class="close" onclick="cerrarModal()">Cerrar</button>
+            </div>
+         </div>
+      </div>
+      <script>
+         function mostrarDetalles(titulo, descripcion, precio) {
+             document.getElementById('modal-titulo').innerText = titulo;
+             // Seleccionar la lista de características
+             let listaDescripcion = document.getElementById('modal-descripcion');
+             listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
+             // Convertir la descripción en una lista
+             let caracteristicas = descripcion.split('|');    
+             caracteristicas.forEach(caracteristica => {
+                 let li = document.createElement('li');
+                 li.textContent = caracteristica.trim();
+                 listaDescripcion.appendChild(li);
+             });
+             // Actualizar el precio
+             document.getElementById('modal-precio').innerText = precio;
+             // Construcción del enlace de WhatsApp
+             let numeroWhatsApp = "593988200116"; 
+             let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
+             let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+             document.getElementById('whatsapp-link').href = whatsappURL;  
+             // Mostrar el modal
+             document.getElementById('modal').style.display = "flex";
+         }
+         function cerrarModal() {
+             document.getElementById('modal').style.display = "none";
+         }
+      </script>
       <footer>
          <p>© 2025 Electromás. Todos los derechos reservados.</p>
       </footer>
