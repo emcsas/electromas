@@ -2,7 +2,7 @@
 <html lang="es">
    <head>
       <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=0.5">
+      <meta name="viewport" content="width=device-width, initial-scale=0.4">
       <title>Electrodomésticos | Electromás</title>
       <link rel="shortcut icon" href="principal/logo1.png" type="image/png">
       <style>
@@ -11,15 +11,7 @@
          background-color: #f4f4f4; 
          margin: 0; 
          padding: 0; 
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1; /* Empuja el footer hacia abajo */
-}
-         
+         }
          /*SECCIÓN ENCABEZADO*/
          header {
          background-color: #002244;
@@ -225,12 +217,13 @@ main {
          background-color: #002244;
          color: white;
          text-align: center;
-         padding: 10px;
+         padding: 2px;
          font-size: 12px;
          width: 100vw;
          min-height: 40px; /* Ajusta la altura mínima */
          box-sizing: border-box; /* Evita problemas con márgenes y paddings */
          position: auto;
+         margin-top: auto; /* Se mantiene abajo automáticamente */
          bottom: 0;
          left: 0;
          }
