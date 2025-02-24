@@ -40,19 +40,30 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+/* AJUSTE DEL TEXTO PARA EVITAR DESBORDAMIENTO */
+header span {
+    font-size: 20px; /* Reducir el tamaño del texto para evitar que se rompa */
+    font-weight: bold;
 }
 
-@media (max-width: 800px) {
+/* AJUSTE PARA PANTALLAS PEQUEÑAS */
+@media (max-width: 768px) {
     header {
-        flex-direction: column; /* Apila la imagen y el título verticalmente */
-        padding: 10px; /* Opcional: reduce el padding para dispositivos móviles */
+        flex-direction: row; /* Mantiene la imagen y el texto en la misma línea */
+        font-size: 18px; /* Reducir más el tamaño del texto */
+        padding: 10px;
     }
-}
-         header img {
-         width: 28px;
-         height: auto;
-         }        
+
+    header span {
+        font-size: 18px;
+    }
+
+    header img {
+        width: 24px; /* Reducir el tamaño del logo en móviles */
+        
          /*SECCIÓN MENÚ DE NAVEGACIÓN*/
          .nav {
          background-color: #fc4b08; /*Naranja*/
