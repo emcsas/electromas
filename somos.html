@@ -27,8 +27,8 @@
 header {
     background-color: #002244;
     color: white;
-    padding: 20px;
-    font-size: 28px;
+    padding: 15px;
+    font-size: 22px;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -49,8 +49,15 @@ header span {
     font-weight: bold;
 }
 
+ header img {
+    width: 50px; /* Ajuste del logo en pantallas grandes */
+    max-width: 100px;
+    height: auto;
+}
+
+        
 /* AJUSTE PARA PANTALLAS PEQUEÑAS */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     header {
         flex-direction: row; /* Mantiene la imagen y el texto en la misma línea */
         font-size: 18px; /* Reducir más el tamaño del texto */
