@@ -16,15 +16,16 @@
          header {
          background-color: #002244;
          color: white;
-         padding: 15px;
+         padding: 20px;
          font-size: 30px;
          text-align: center;
          position: fixed;
          width: 100%;
          top: 0;
+         left: 0;
          z-index: 1000;
          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-         border-bottom: 4px solid #FFFFFF; /* Línea blanca */
+         border-bottom: 6px solid #FFFFFF; /* Línea blanca */
          display: flex;
          align-items: center;
          justify-content: center;
@@ -45,7 +46,7 @@
          position: fixed;
          width: 100%;
          border-bottom: 6px solid #FFFFFF; /* Línea blanca */
-         top: 60px; /*Espaciado entre el encabezado principal y el menú*/
+         top: 80px; /*Espaciado entre el encabezado principal y el menú*/
          left: 0;
          z-index: 999;
          }       
@@ -54,7 +55,7 @@
          text-decoration: none;
          font-size: 18px;
          font-weight: bold;
-         padding: 10px;
+         padding: 10px 15px;
          border-radius: 5px;
          transition: background 0.9s;
          }
@@ -147,15 +148,15 @@
          /* SECCIÓN OFERTAS DEL MES */
          .ofertas {
          max-width: 1200px;
-         margin: 80px auto 20px;
+         margin: 0px auto;
          margin-bottom: 5px; /*Espacio entre la imagen y la foto del producto*/
          text-align: center;
-         padding: 20px;
+         padding: 2px;
          padding-top: 120px; /*Sirve para dar espacios entre secciones*/
          }
          .ofertas h2 {
          color: #002244;
-         font-size: 24px;
+         font-size: 28px;
          margin-bottom: 10px;
        
          }
@@ -164,13 +165,20 @@
          flex-wrap: wrap;
          justify-content: center;
          gap: 10px;
+         margin-top: 3px;
+         padding: 5px;
          }
+         .producto {
+          width: 90%; /* Para que los productos ocupen más espacio en móviles */
+          max-width: 300px; /* Máximo ancho */
+          height: auto;
+          }
          .producto {
          background: white;
          border-radius: 10px;
          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
          padding: 15px;
-         width: 250px; /* Tamaño uniforme */
+         width: 280px; /* Tamaño uniforme */
          height: 300px; /* Altura fija */
          text-align: center;
          transition: transform 0.3s;
