@@ -2,8 +2,8 @@
 <html lang="es">
    <head>
       <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=0.4">
-      <title>Electrodomésticos | Electromás</title>
+      <meta name="viewport" content="width=device-width, initial-scale=0.5">
+      <title>Electromás</title>
       <link rel="shortcut icon" href="principal/logo1.png" type="image/png">
       <style>
          body { 
@@ -38,7 +38,7 @@
          /*SECCIÓN MENÚ DE NAVEGACIÓN*/
          .nav {
          background-color: #fc4b08;
-         padding: 1.0px; /*Ancho de la barra donde esta inicio*/
+         padding: 3px;
          display: flex;
          justify-content: left; /* Esto alinea los elementos a la derecha */
          padding-right: 50px; /* Espaciado desde la derecha */
@@ -61,8 +61,30 @@
          }
          .nav a:hover {
          background-color: #e68900;
-         }       
-
+         }
+         /*BANNER CARRUSEL*/
+         .banner {
+         width: 100%;
+         height: 400px;
+         overflow: hidden;
+         position: relative;
+         margin-top: 140px; /* Espacio de 0.5 cm entre la barra de navegación y el carrusel */
+         }
+         .carousel {
+         display: flex;
+         width: 200%;
+         animation: scroll 20s linear infinite;
+         }
+         /*CAMBIAR EL TAMAÑO DE LA IMAGEN QUE ESTA EN EL CARRUSEL*/
+         .carousel img {
+         width: 50%;
+         height: 400px;
+         object-fit: cover;
+         }
+         @keyframes scroll {
+         from { transform: translateX(0%); }
+         to { transform: translateX(-50%); }
+         }
          /* SECCIÓN MODAL */
          .modal {
          display: none;
@@ -148,31 +170,23 @@
          /* SECCIÓN OFERTAS DEL MES */
          .ofertas {
          max-width: 1200px;
-         margin: 0px auto;
-         margin-bottom: 5px; /*Espacio entre la imagen y la foto del producto*/
+         margin: 2px auto;
+         margin-bottom: 40px; /*Espacio entre la imagen y la foto del producto*/
          text-align: center;
          padding: 2px;
-         padding-top: 120px; /*Sirve para dar espacios entre secciones*/
          }
          .ofertas h2 {
          color: #002244;
          font-size: 28px;
-         margin-bottom: 10px;
-       
+         margin-bottom: 20px;
          }
          .productos {
          display: flex;
          flex-wrap: wrap;
          justify-content: center;
-         gap: 10px;
-         margin-top: 3px;
-         padding: 5px;
+         gap: 20px;
+         margin-top: 20px;
          }
-         .producto {
-          width: 90%; /* Para que los productos ocupen más espacio en móviles */
-          max-width: 300px; /* Máximo ancho */
-          height: auto;
-          }
          .producto {
          background: white;
          border-radius: 10px;
@@ -231,25 +245,30 @@
          }
       </style>
    </head>
-<!-- ############################ -->
-<!-- ####INGRESO DE PRODUCTOS#### -->
-<!-- ############################ -->
-         
+   /*INICIO PARA COLOCAR TODO LO DE LA EMPRESA*/
    <body>
       <header>
          <img src="principal/logo.png" alt="Electromás">
-         <span>Electrodomésticos | Electromás</span>
+         <span>Electromás</span>
       </header>
-      <!-- MENÚ DE NAVEGACIÓN NARANJA CON NEGRITA -->
       <nav class="nav">
-         <a href="index.html">
-         <i class="fas fa-home"></i> <strong>Inicio</strong>
-         </a>
+         <a href="electrodomesticos.html">Electrodomésticos</a>
+         <a href="tecnologia.html">Tecnología</a>
+         <a href="hogar.html">Hogar</a>
+         <a href="combos.html">Electro combos</a>
+         <a href="somos.html">Quiénes somos</a>
       </nav>
-
-      <!-- INGRESO DE PRODUCTOS -->
+      <div class="banner">
+         <div class="carousel">
+            <img src="principal/oferta1.jpg" alt="Oferta">
+            <img src="principal/oferta1.jpg" alt="Oferta">
+            <img src="principal/oferta1.jpg" alt="Oferta">
+            <img src="principal/oferta1.jpg" alt="Oferta">
+         </div>
+      </div>
+      <!-- SECCIÓN DE OFERTAS DEL MES -->
       <section class="ofertas">
-         <h2>🟠 Refrigeradoras 🟠</h2>
+         <h2>🟠 Electrofertas Febrero 🟠</h2>
          <div class="productos">
             <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
             <!-- PRODUCTO 1 -->
@@ -281,221 +300,6 @@
             </div>
          </div>
       </section>
-
-  <!-- INGRESO DE PRODUCTOS -->
-      <section class="ofertas">
-         <h2>🟠 Lavadoras y secadoras 🟠</h2>
-         <div class="productos">
-            <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
-            <!-- PRODUCTO 1 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Televisor Indurama 58 pulgadas',
-               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-               '$556')">
-               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-               <h3>Televisor Indurama 58"</h3>
-               <span>$556</span>
-            </div>
-            <!-- PRODUCTO 2 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Lavadora Indurama 19kg',
-               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-               '$534')">
-               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-               <h3>Lavadora Indurama 19kg</h3>
-               <span>$534</span>
-            </div>
-            <!-- PRODUCTO 3 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Refrigerador Indurama 262 litros',
-               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-               '$420')">
-               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-               <h3>Refrigerador Indurama 262 litros</h3>
-               <span>$420</span>
-            </div>
-         </div>
-      </section>
-
-  <!-- INGRESO DE PRODUCTOS -->
-      <section class="ofertas">
-         <h2>🟠 Microondas 🟠</h2>
-         <div class="productos">
-            <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
-            <!-- PRODUCTO 1 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Televisor Indurama 58 pulgadas',
-               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-               '$556')">
-               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-               <h3>Televisor Indurama 58"</h3>
-               <span>$556</span>
-            </div>
-            <!-- PRODUCTO 2 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Lavadora Indurama 19kg',
-               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-               '$534')">
-               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-               <h3>Lavadora Indurama 19kg</h3>
-               <span>$534</span>
-            </div>
-            <!-- PRODUCTO 3 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Refrigerador Indurama 262 litros',
-               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-               '$420')">
-               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-               <h3>Refrigerador Indurama 262 litros</h3>
-               <span>$420</span>
-            </div>
-         </div>
-      </section>
-
-  <!-- INGRESO DE PRODUCTOS -->
-      <section class="ofertas">
-         <h2>🟠 Cocinas y estufas 🟠</h2>
-         <div class="productos">
-            <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
-            <!-- PRODUCTO 1 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Televisor Indurama 58 pulgadas',
-               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-               '$556')">
-               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-               <h3>Televisor Indurama 58"</h3>
-               <span>$556</span>
-            </div>
-            <!-- PRODUCTO 2 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Lavadora Indurama 19kg',
-               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-               '$534')">
-               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-               <h3>Lavadora Indurama 19kg</h3>
-               <span>$534</span>
-            </div>
-            <!-- PRODUCTO 3 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Refrigerador Indurama 262 litros',
-               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-               '$420')">
-               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-               <h3>Refrigerador Indurama 262 litros</h3>
-               <span>$420</span>
-            </div>
-         </div>
-      </section>
-
-
-  <!-- INGRESO DE PRODUCTOS -->
-      <section class="ofertas">
-         <h2>🟠 Licuadoras y batidoras 🟠</h2>
-         <div class="productos">
-            <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
-            <!-- PRODUCTO 1 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Televisor Indurama 58 pulgadas',
-               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-               '$556')">
-               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-               <h3>Televisor Indurama 58"</h3>
-               <span>$556</span>
-            </div>
-            <!-- PRODUCTO 2 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Lavadora Indurama 19kg',
-               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-               '$534')">
-               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-               <h3>Lavadora Indurama 19kg</h3>
-               <span>$534</span>
-            </div>
-            <!-- PRODUCTO 3 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Refrigerador Indurama 262 litros',
-               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-               '$420')">
-               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-               <h3>Refrigerador Indurama 262 litros</h3>
-               <span>$420</span>
-            </div>
-         </div>
-      </section>
-      
-
-        <!-- INGRESO DE PRODUCTOS -->
-      <section class="ofertas">
-         <h2>🟠 Cafeteras 🟠</h2>
-         <div class="productos">
-            <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
-            <!-- PRODUCTO 1 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Televisor Indurama 58 pulgadas',
-               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-               '$556')">
-               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-               <h3>Televisor Indurama 58"</h3>
-               <span>$556</span>
-            </div>
-            <!-- PRODUCTO 2 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Lavadora Indurama 19kg',
-               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-               '$534')">
-               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-               <h3>Lavadora Indurama 19kg</h3>
-               <span>$534</span>
-            </div>
-            <!-- PRODUCTO 3 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Refrigerador Indurama 262 litros',
-               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-               '$420')">
-               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-               <h3>Refrigerador Indurama 262 litros</h3>
-               <span>$420</span>
-            </div>
-         </div>
-      </section>
-
-
-  <!-- INGRESO DE PRODUCTOS -->
-      <section class="ofertas">
-         <h2>🟠 Planchas 🟠</h2>
-         <div class="productos">
-            <!-- INGRESO DE LOS PRODUCTOS PARA MOSTRAR -->
-            <!-- PRODUCTO 1 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Televisor Indurama 58 pulgadas',
-               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-               '$556')">
-               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-               <h3>Televisor Indurama 58"</h3>
-               <span>$556</span>
-            </div>
-            <!-- PRODUCTO 2 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Lavadora Indurama 19kg',
-               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-               '$534')">
-               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-               <h3>Lavadora Indurama 19kg</h3>
-               <span>$534</span>
-            </div>
-            <!-- PRODUCTO 3 -->
-            <div class="producto" onclick="mostrarDetalles(
-               'Refrigerador Indurama 262 litros',
-               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-               '$420')">
-               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-               <h3>Refrigerador Indurama 262 litros</h3>
-               <span>$420</span>
-            </div>
-         </div>
-      </section>
-      
-      
       <!-- SECCIÓN MODAL -->
       <div id="modal" class="modal">
          <div class="modal-content">
