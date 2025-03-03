@@ -74,16 +74,17 @@
          }
          .carousel {
          display: flex;
-         width: 120%;
+         width: 100%;
          animation: scroll 20s linear infinite;
          }
          /*CAMBIAR EL TAMAÑO DE LA IMAGEN QUE ESTA EN EL CARRUSEL*/
          .carousel img {
-         width: 25vw;
+         width: 100%;
+         max-width: 1000px; /* Limitar el ancho para que no sean excesivamente grandes */
          height: 400px;
-         object-fit: cover;
+         object-fit: contain;
          flex-shrink: 0; /* Evita que las imágenes se reduzcan y se solapen */
-         }       
+         }            
          @keyframes scroll {
          from { transform: translateX(0%); }
          to { transform: translateX(-100%); }
