@@ -80,14 +80,17 @@
          }
          /*CAMBIAR EL TAMAÑO DE LA IMAGEN QUE ESTA EN EL CARRUSEL*/
          .carousel img {
-         width: 25%;
+         width: 100%;
+         max-width: 500px; /* Limitar el ancho para que no sean excesivamente grandes */
          height: 400px;
-         object-fit: cover;
+         object-fit: contain;
          flex-shrink: 0; /* Evita que las imágenes se reduzcan y se solapen */
+         margin: 0; /* Eliminar espacios en blanco */
+         padding: 0; /* Asegurar que no haya espacios extra */
          }            
          @keyframes scroll {
          from { transform: translateX(0%); }
-         to { transform: translateX(-50%); }
+         to { transform: translateX(-100%); }
          }
          /* SECCIÓN MODAL */
          .modal {
