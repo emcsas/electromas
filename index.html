@@ -64,70 +64,47 @@ header {
 
 /* SECCIÓN PRINCIPAL HERO */
          .hero {
-         background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('principal/Fondo1.jpg');
+         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/Fondo1.jpg');
          background-size: cover;
          background-position: center;
-         padding: 180px 20px;
+         padding: 320px 15px;
          text-align: center;
          color: white;
          }
-.hero-texto h1 {
-  font-size: 28px;
-  line-height: 1.4;
-  font-family: 'Segoe UI', sans-serif;
-  font-weight: bold;
-
-.hero-texto .blanco {
-  color: #ffffff;
-}
-
-.hero-texto .naranja {
-  color: #f29300;
-}
-.hero-botones {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-}
-
-.btn.whatsapp {
-  background-color: #25D366;
-  color: white;
-  border: none;
-}
-
-.btn.whatsapp:hover {
-  background-color: #1EBE5D;
-}
-
-.btn.facebook {
-  background-color: white;
-  color: #1877F2;
-  border: 2px solid #1877F2;
-}
-
-.btn.facebook:hover {
-  background-color: #1877F2;
-  color: white;
-}
-
-
-   
-       
+         .hero h1 {
+         font-size: 40px;
+         margin: 0 0 10px;
+         }
+         .hero p {
+         font-size: 20px;
+         max-width: 100px;
+         margin: auto;
+         }
+         .cta-buttons {
+         margin-top: 100px;
+         }
+         .cta-buttons a {
+         background-color: #f29300;
+         color: white;
+         text-decoration: none;
+         font-weight: bold;
+         padding: 15px 25px;
+         margin: 0 10px;
+         border-radius: 30px;
+         display: inline-block;
+         transition: background-color 0.3s;
+         }
+         .cta-buttons a:hover {
+         background-color: #cc7600;
+         }
+         .social-icons {
+         margin-top: 15px;
+         }
+         .social-icons a {
+         color: white;
+         margin: 0 10px;
+         font-size: 24px;
+         }
 
 /*AQUI VIENE: ¿POR QUÉ ELEGIRNOS?*/
          
@@ -403,25 +380,14 @@ header {
   </div>
  </header>
 
-<section class="hero">
-  <div class="hero-texto">
-    <h1>
-      <span class="blanco">Viva mejor,</span><br>
-      <span class="naranja">compre inteligente.</span><br>
-      <span class="blanco">Sin esperas,</span><br>
-      <span class="naranja">solo ventajas.</span>
-    </h1>
-    <div class="hero-botones">
-      <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
-        <i class="fab fa-whatsapp"></i> Contáctenos
-      </a>
-      <a href="https://facebook.com/electromas" target="_blank" class="btn facebook">
-        <i class="fab fa-facebook-f"></i> Síganos
-      </a>
-    </div>
-  </div>
-</section>
+      <section class="hero">
+         <h1>Electrodomésticos y Tecnología</h1>
+         <p>Compra segura, atención personalizada y <strong>crédito directo y rápido</strong> para que lleve lo que necesita sin complicaciones.</p>
+         <div class="cta-buttons">
+            <a href="#contacto"><i class="fas fa-envelope"></i> Contáctenos</a>
+         </div>
 
+      </section>
       <section class="why-section">
          <h2>¿Por qué elegir Electromás?</h2>
          <div class="features">
