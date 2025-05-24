@@ -4,9 +4,9 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=0.5">
       <title>Electromás | Electrodomésticos y Tecnología para el Hogar</title>
-      <meta name="description" content="Encuentre los mejores electrodomésticos y tecnología para su hogar en Electromás. Descubra nuestras ofertas y combos exclusivos.">
-      <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, celulares, computadores, portatiles, electromas">
-      <meta name="author" content="Electromás">
+       <meta name="description" content="Encuentre los mejores electrodomésticos y tecnología para su hogar en Electromás. Descubra nuestras ofertas y combos exclusivos.">
+       <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, celulares, computadores, portatiles, electromas">
+       <meta name="author" content="Electromás">   
       <link rel="shortcut icon" href="principal/logo1.png" type="image/png">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       <style>
@@ -31,8 +31,7 @@
          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
          display: flex;
          align-items: center;
-         justify-content: space-between;
-         padding: 5px 10px;
+         justify-content: center;
          padding-left: 30px;
          padding-right: 30px;
          }
@@ -40,18 +39,24 @@
          width: 150px;
          height: auto;
          }        
+
+
          .header-icons a {
          color: #002244;
          font-size: 30px;
-         margin-left: 40px;
+         margin-left: 10px;
          transition: color 0.3s;
          text-decoration: none;
          }
+
          .header-icons a.whatsapp { color: #25D366; }      /* Verde WhatsApp */
          .header-icons a.facebook { color: #3b5998; }      /* Azul Facebook */
+         
          .header-icons a:hover {
          color: #f29300;
          }
+
+         
          /*SECCIÓN MENÚ DE NAVEGACIÓN*/
          .nav {
          background-color: #002244;
@@ -251,119 +256,126 @@
          main {
          flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
          }
+
+
+
+         
          /* SECCIÓN PRINCIPAL HERO */
-         .hero {
-         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/landing_banner.jpg');
-         background-size: cover;
-         background-position: center;
-         padding: 300px 20px;
-         text-align: center;
-         color: white;
-         }
-         .hero h1 {
-         font-size: 48px;
-         margin: 0 0 20px;
-         }
-         .hero p {
-         font-size: 22px;
-         max-width: 300px;
-         margin: auto;
-         }
-         .cta-buttons {
-         margin-top: 100px;
-         }
-         .cta-buttons a {
-         background-color: #f29300;
-         color: white;
-         text-decoration: none;
-         font-weight: bold;
-         padding: 15px 25px;
-         margin: 0 10px;
-         border-radius: 30px;
-         display: inline-block;
-         transition: background-color 0.3s;
-         }
-         .cta-buttons a:hover {
-         background-color: #cc7600;
-         }
-         .social-icons {
-         margin-top: 15px;
-         }
-         .social-icons a {
-         color: white;
-         margin: 0 10px;
-         font-size: 24px;
-         }
-         .why-section {
-         background-color: #fff;
-         text-align: center;
-         padding: 60px 20px;
-         }
-         .why-section h2 {
-         font-size: 36px;
-         color: #002244;
-         margin-bottom: 30px;
-         }
-         .features {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 30px;
-         max-width: 1100px;
-         margin: auto;
-         }
-         .feature {
-         background-color: #ffffff;
-         border-radius: 12px;
-         padding: 25px;
-         width: 280px;
-         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-         transition: transform 0.3s;
-         }
-         .feature:hover {
-         transform: translateY(-5px);
-         }
-         .feature img {
-         width: 60px;
-         height: 60px;
-         margin-bottom: 15px;
-         }
-         .feature h3 {
-         color: #f29300;
-         font-size: 20px;
-         margin-bottom: 10px;
-         }
-         .feature p {
-         color: #333;
-         font-size: 15px;
-         }
-         .testimonials {
-         background-color: #e6e6e6;
-         text-align: center;
-         padding: 60px 20px;
-         }
-         .testimonials h2 {
-         font-size: 32px;
-         color: #002244;
-         margin-bottom: 30px;
-         }
-         .testimonial {
-         background-color: #fff;
-         padding: 20px;
-         margin: 15px auto;
-         max-width: 600px;
-         border-radius: 10px;
-         box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-         }
-         .testimonial p {
-         font-style: italic;
-         font-size: 16px;
-         }
-         .testimonial strong {
-         display: block;
-         margin-top: 10px;
-         color: #f29300;
-         }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/landing_banner.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 300px 20px;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin: 0 0 20px;
+    }
+    .hero p {
+      font-size: 22px;
+      max-width: 300px;
+      margin: auto;
+    }
+    .cta-buttons {
+      margin-top: 100px;
+    }
+    .cta-buttons a {
+      background-color: #f29300;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 15px 25px;
+      margin: 0 10px;
+      border-radius: 30px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .cta-buttons a:hover {
+      background-color: #cc7600;
+    }
+    .social-icons {
+      margin-top: 15px;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 24px;
+    }
+    .why-section {
+      background-color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .why-section h2 {
+      font-size: 36px;
+      color: #002244;
+      margin-bottom: 30px;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .feature {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .feature img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+    .feature h3 {
+      color: #f29300;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      color: #333;
+      font-size: 15px;
+    }
+    .testimonials {
+      background-color: #e6e6e6;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .testimonials h2 {
+      font-size: 32px;
+      color: #002244;
+      margin-bottom: 30px;
+    }
+    .testimonial {
+      background-color: #fff;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .testimonial p {
+      font-style: italic;
+      font-size: 16px;
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 10px;
+      color: #f29300;
+    }
+
+         
          footer {
          background-color: #002244;
          color: white;
@@ -380,15 +392,15 @@
          }
       </style>
    </head>
+   
    <!-- INICIO PARA COLOCAR TODO LO DE LA EMPRESA -->
    <body>
-      <header>
-         <img src="principal/logo2.png" alt="">
-         <div class="header-icons">
+   <header>
+      <img src="principal/logo2.png" alt="">
+      <div class="header-icons">
             <a href="https://wa.me/593988926331" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>      
-         </div>
-      </header>
+            <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>      </div>
+   </header>
       <nav class="nav">
          <a href="index.html">Inicio</a>
          <a href="electrodomesticos.html">Electrodomésticos</a>
@@ -397,56 +409,66 @@
          <a href="combos.html">Combos</a>
          <a href="somos.html">Quiénes somos</a>
       </nav>
-      <section class="hero">
-         <h1>Electrodomésticos y Tecnología</h1>
-         <p>Compra segura, atención personalizada y <strong>crédito directo y rápido</strong> para que lleve lo que necesita sin complicaciones.</p>
-         <div class="cta-buttons">
-            <a href="#contacto"><i class="fas fa-envelope"></i> Contáctenos</a>
-         </div>
-         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-square"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-         </div>
-      </section>
-      <section class="why-section">
-         <h2>¿Por qué elegir Electromás?</h2>
-         <div class="features">
-            <div class="feature">
-               <img src="principal/icons/envios.png" alt="Envíos">
-               <h3>Envíos Rápidos</h3>
-               <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
-            </div>
-            <div class="feature">
-               <img src="principal/icons/credito.png" alt="Crédito">
-               <h3>Crédito Directo</h3>
-               <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
-            </div>
-            <div class="feature">
-               <img src="principal/icons/calidad.png" alt="Calidad">
-               <h3>Garantía de Calidad</h3>
-               <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
-            </div>
-            <div class="feature">
-               <img src="principal/icons/promocion.png" alt="Promociones">
-               <h3>Promociones Exclusivas</h3>
-               <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
-            </div>
-         </div>
-      </section>
-      <section class="testimonials">
-      <h2>Lo que nuestros clientes dicen</h2>
-      <div class="testimonial">
-         <p>"Recibí mi refrigeradora en perfectas condiciones y antes de lo esperado. ¡Excelente servicio!"</p>
-         <strong>- María González, Loja</strong>
+
+
+
+<section class="hero">
+    <h1>Electrodomésticos y Tecnología</h1>
+    <p>Compra segura, atención personalizada y <strong>crédito directo y rápido</strong> para que lleve lo que necesita sin complicaciones.</p>
+    <div class="cta-buttons">
+      <a href="#contacto"><i class="fas fa-envelope"></i> Contáctenos</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-square"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+  <section class="why-section">
+    <h2>¿Por qué elegir Electromás?</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="principal/icons/envios.png" alt="Envíos">
+        <h3>Envíos Rápidos</h3>
+        <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
       </div>
-      <div class="testimonial">
-         <p>"Los precios son muy competitivos y la atención fue rápida y cordial. ¡Recomendado!"</p>
-         <strong>- Andrés Vallejo, Zamora</strong>
+      <div class="feature">
+        <img src="principal/icons/credito.png" alt="Crédito">
+        <h3>Crédito Directo</h3>
+        <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
       </div>
-      <div class="testimonial">
-         <p>"Me encantó la calidad del televisor y la facilidad para hacer el pedido. Muy satisfecho."</p>
-         <strong>- Diana Palacios, Loja</strong>
+      <div class="feature">
+        <img src="principal/icons/calidad.png" alt="Calidad">
+        <h3>Garantía de Calidad</h3>
+        <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
       </div>
+      <div class="feature">
+        <img src="principal/icons/promocion.png" alt="Promociones">
+        <h3>Promociones Exclusivas</h3>
+        <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
+      </div>
+    </div>
+  </section>
+  <section class="testimonials">
+    <h2>Lo que nuestros clientes dicen</h2>
+    <div class="testimonial">
+      <p>"Recibí mi refrigeradora en perfectas condiciones y antes de lo esperado. ¡Excelente servicio!"</p>
+      <strong>- María González, Loja</strong>
+    </div>
+    <div class="testimonial">
+      <p>"Los precios son muy competitivos y la atención fue rápida y cordial. ¡Recomendado!"</p>
+      <strong>- Andrés Vallejo, Zamora</strong>
+    </div>
+    <div class="testimonial">
+      <p>"Me encantó la calidad del televisor y la facilidad para hacer el pedido. Muy satisfecho."</p>
+      <strong>- Diana Palacios, Loja</strong>
+    </div>
+  </section>
+
+      
+
+      
+
+      
       <div class="banner">
          <div class="carousel">
             <img src="principal/inicio/p1.jpg" alt="Oferta">
@@ -455,7 +477,7 @@
             <img src="principal/inicio/p4.jpg" alt="Oferta">    
             <img src="principal/inicio/p5.jpg" alt="Oferta">
          </div>
-      </div>
+      </div>     
       <!-- SECCIÓN DE OFERTAS DEL MES -->
       <section class="ofertas">
          <h2>🟠 Electrofertas Marzo 🟠</h2>
