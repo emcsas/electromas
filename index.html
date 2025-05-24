@@ -67,11 +67,14 @@ header {
   .hero {
   background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('principal/Fondo1.jpg');
   background-size: cover;
-  background-position: center;
+background-position: top center; /* ← Ancla la imagen en la parte superior */
+height: 280px; /* ← Ajuste la altura según cuánto desee mostrar */
+  padding: 80px 40px 40px 40px;
   display: flex;
   align-items: center;
-  padding: 700px 100px 0px 40px; /* <-- este padding-top evita el choque */
   color: white;
+  overflow: hidden; /* ← Oculta cualquier contenido que sobresalga */
+
 }
 
 
