@@ -63,26 +63,76 @@ header {
 
 
 /* SECCIÓN PRINCIPAL HERO */
+
          .hero {
-         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/Fondo1.jpg');
-         background-size: cover;
-       background-position: center top; /* O: center center, center bottom */
-         height: 550px; /* Ajuste la altura deseada */
-           overflow: hidden;
-  position: relative;
-         padding: 50px 10px;
-         text-align: center;
-         color: white;
-         }
-         .hero h1 {
-         font-size: 40px;
-         margin: 0 0 10px;
-         }
-         .hero p {
-         font-size: 20px;
-         max-width: 100px;
-         margin: auto;
-         }
+  background: linear-gradient(to right, rgba(0,0,0,0.65), rgba(0,0,0,0.3)), url('principal/Fondo1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  color: white;
+}
+
+.hero-contenido {
+  max-width: 500px;
+  text-align: left;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hero-contenido h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-contenido p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.hero-botones {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn.whatsapp {
+  background-color: #25D366;
+  color: white;
+  border: none;
+}
+
+.btn.whatsapp:hover {
+  background-color: #1EBE5D;
+}
+
+.btn.facebook {
+  background-color: white;
+  color: #1877F2;
+  border: 2px solid #1877F2;
+}
+
+.btn.facebook:hover {
+  background-color: #1877F2;
+  color: white;
+}
+       
+         
          .cta-buttons {
          margin-top: 100px;
          }
@@ -384,13 +434,20 @@ header {
  </header>
 
       <section class="hero">
-         <h1>Electrodomésticos y Tecnología</h1>
-         <p>Compra segura, atención personalizada y <strong>crédito directo y rápido</strong> para que lleve lo que necesita sin complicaciones.</p>
-         <div class="cta-buttons">
-            <a href="#contacto"><i class="fas fa-envelope"></i> Contáctenos</a>
-         </div>
+  <div class="hero-contenido">
+    <h1>Electrodomésticos y Tecnología</h1>
+    <p>Compra segura, atención personalizada y <strong>crédito directo y rápido</strong> para que lleve lo que necesita sin complicaciones.</p>
+    <div class="hero-botones">
+      <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
+        <i class="fab fa-whatsapp"></i> Contáctenos
+      </a>
+      <a href="https://facebook.com/electromas" target="_blank" class="btn facebook">
+        <i class="fab fa-facebook-f"></i> Síganos
+      </a>
+    </div>
+  </div>
+</section>
 
-      </section>
       <section class="why-section">
          <h2>¿Por qué elegir Electromás?</h2>
          <div class="features">
