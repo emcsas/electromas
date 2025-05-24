@@ -239,7 +239,7 @@
          /* SECCIÓN PRINCIPAL HERO */
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('p1.jpg');
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/landing_banner.jpg');
       background-size: cover;
       background-position: center;
       padding: 100px 20px;
@@ -256,7 +256,7 @@
       margin: auto;
     }
     .cta-buttons {
-      margin-top: 60px;
+      margin-top: 30px;
     }
     .cta-buttons a {
       background-color: #f29300;
@@ -299,20 +299,29 @@
       margin: auto;
     }
     .feature {
-      background-color: #f7f7f7;
-      border-radius: 10px;
+      background-color: #ffffff;
+      border-radius: 12px;
       padding: 25px;
       width: 280px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .feature img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
     }
     .feature h3 {
       color: #f29300;
-      font-size: 22px;
+      font-size: 20px;
       margin-bottom: 10px;
     }
     .feature p {
       color: #333;
-      font-size: 16px;
+      font-size: 15px;
     }
     .testimonials {
       background-color: #e6e6e6;
@@ -373,11 +382,13 @@
          <a href="somos.html">Quiénes somos</a>
       </nav>
 
-<section class="hero">
+
+
+ <section class="hero">
     <h1>Electrodomésticos y Tecnología</h1>
     <p>Compra segura, atención personalizada y <strong>crédito directo y rápido</strong> para que lleve lo que necesita sin complicaciones.</p>
     <div class="cta-buttons">
-      <a href="0988200116"><i class="fas fa-envelope"></i> Contáctenos</a>
+      <a href="#contacto"><i class="fas fa-envelope"></i> Contáctenos</a>
     </div>
     <div class="social-icons">
       <a href="#"><i class="fab fa-facebook-square"></i></a>
@@ -388,38 +399,29 @@
     <h2>¿Por qué elegir Electromás?</h2>
     <div class="features">
       <div class="feature">
+        <img src="principal/icons/envios.png" alt="Envíos">
         <h3>Envíos Rápidos</h3>
         <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
       </div>
       <div class="feature">
+        <img src="principal/icons/credito.png" alt="Crédito">
         <h3>Crédito Directo</h3>
         <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
       </div>
       <div class="feature">
+        <img src="principal/icons/calidad.png" alt="Calidad">
         <h3>Garantía de Calidad</h3>
         <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
       </div>
       <div class="feature">
+        <img src="principal/icons/promocion.png" alt="Promociones">
         <h3>Promociones Exclusivas</h3>
         <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
       </div>
     </div>
   </section>
-  <section class="testimonials">
-    <h2>Lo que nuestros clientes dicen</h2>
-    <div class="testimonial">
-      <p>"Recibí mi refrigeradora en perfectas condiciones y antes de lo esperado. ¡Excelente servicio!"</p>
-      <strong>- María González, Loja</strong>
-    </div>
-    <div class="testimonial">
-      <p>"Los precios son muy competitivos y la atención fue rápida y cordial. ¡Recomendado!"</p>
-      <strong>- Andrés Vallejo, Zamora</strong>
-    </div>
-    <div class="testimonial">
-      <p>"Me encantó la calidad del televisor y la facilidad para hacer el pedido. Muy satisfecho."</p>
-      <strong>- Diana Palacios, Loja</strong>
-    </div>
-  </section>
+
+      
 
       
       <div class="banner">
