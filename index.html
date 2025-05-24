@@ -8,6 +8,7 @@
        <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, celulares, computadores, portatiles, electromas">
        <meta name="author" content="Electromás">   
       <link rel="shortcut icon" href="principal/logo1.png" type="image/png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       <style>
          body { 
          font-family: Arial, sans-serif; 
@@ -30,13 +31,29 @@
          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
          display: flex;
          align-items: center;
-         justify-content: center;
-         gap: 25px;
+         justify-content: space-between;
+         padding-left: 30px;
+         padding-right: 30px;
          }
          header img {
          width: 150px;
          height: auto;
          }        
+
+
+         .header-icons a {
+         color: #002244;
+         font-size: 26px;
+         margin-left: 20px;
+         transition: color 0.3s;
+         text-decoration: none;
+         }
+
+         .header-icons a:hover {
+         color: #f29300;
+         }
+
+         
          /*SECCIÓN MENÚ DE NAVEGACIÓN*/
          .nav {
          background-color: #585555;
@@ -376,6 +393,11 @@
    <body>
    <header>
       <img src="principal/logo2.png" alt="">
+      <div class="header-icons">
+            <a href="https://wa.me/593988926331" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
    </header>
       <nav class="nav">
          <a href="index.html">Inicio</a>
