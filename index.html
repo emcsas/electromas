@@ -92,7 +92,7 @@
          display: flex;
          width: 150%;
          white-space: nowrap; /* Evita saltos bruscos */
-         animation: scroll 120s linear infinite;
+         animation: scroll 80s linear infinite;
          }
          /*CAMBIAR EL TAMAÑO DE LA IMAGEN QUE ESTA EN EL CARRUSEL*/
          .carousel img {
@@ -103,8 +103,8 @@
          flex-shrink: 0; /* Evita que las imágenes se reduzcan y se solapen */
          }            
          @keyframes scroll {
-         from { transform: translateX(10%); }
-         to { transform: translateX(-100%); } /* Solo se desplaza 75%, asegurando un bucle perfecto */
+         from { transform: translateX(-1%); }
+         to { transform: translateX(-50%); } /* Solo se desplaza 75%, asegurando un bucle perfecto */
          }
          /* SECCIÓN MODAL */
          .modal {
