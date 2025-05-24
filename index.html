@@ -61,6 +61,101 @@ header {
 
 
 
+
+/* SECCIÓN PRINCIPAL HERO */
+         .hero {
+         background: linear-gradient(rgba(20,0,0,0.5), rgba(20,20,20,0.5)), url('principal/Fondo1.jpg');
+         background-size: cover;
+         background-position: center;
+         padding: 300px 0px;
+         text-align: center;
+         color: white;
+         }
+         .hero h1 {
+         font-size: 10px;
+         margin: 0 0 10px;
+         }
+         .hero p {
+         font-size: 10px;
+         max-width: 100px;
+         margin: auto;
+         }
+         .cta-buttons {
+         margin-top: 100px;
+         }
+         .cta-buttons a {
+         background-color: #f29300;
+         color: white;
+         text-decoration: none;
+         font-weight: bold;
+         padding: 15px 25px;
+         margin: 0 10px;
+         border-radius: 30px;
+         display: inline-block;
+         transition: background-color 0.3s;
+         }
+         .cta-buttons a:hover {
+         background-color: #cc7600;
+         }
+         .social-icons {
+         margin-top: 15px;
+         }
+         .social-icons a {
+         color: white;
+         margin: 0 10px;
+         font-size: 24px;
+         }
+         .why-section {
+         background-color: #fff;
+         text-align: center;
+         padding: 60px 20px;
+         }
+         .why-section h2 {
+         font-size: 36px;
+         color: #002244;
+         margin-bottom: 30px;
+         }
+         .features {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 30px;
+         max-width: 1100px;
+         margin: auto;
+         }
+         .feature {
+         background-color: #ffffff;
+         border-radius: 12px;
+         padding: 25px;
+         width: 280px;
+         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+         transition: transform 0.3s;
+         }
+         .feature:hover {
+         transform: translateY(-5px);
+         }
+         .feature img {
+         width: 60px;
+         height: 60px;
+         margin-bottom: 15px;
+         }
+         .feature h3 {
+         color: #f29300;
+         font-size: 20px;
+         margin-bottom: 10px;
+         }
+         .feature p {
+         color: #333;
+         font-size: 15px;
+         }
+
+
+
+
+         
+
+         
+
          
          /*BANNER CARRUSEL*/
          .banner {
@@ -90,7 +185,9 @@ header {
          from { transform: translateX(0%); }
          to { transform: translateX(-50%); } /* Solo se desplaza 75%, asegurando un bucle perfecto */
          }
-         /* SECCIÓN MODAL */
+
+         
+         /* SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha */
          .modal {
          display: none;
          position: fixed;
@@ -141,7 +238,7 @@ header {
          gap: 10px;
          margin-top: 15px;
          }
-         /* BOTÓN WHATSAPP */
+         /* BOTÓN WHATSAPP: Este es el que esta en modal*/
          .whatsapp-btn {
          background-color: #085c27;
          color: white;
@@ -240,92 +337,9 @@ header {
 
 
          
-         /* SECCIÓN PRINCIPAL HERO */
-         .hero {
-         background: linear-gradient(rgba(20,0,0,0.5), rgba(20,20,20,0.5)), url('principal/Fondo1.jpg');
-         background-size: cover;
-         background-position: center;
-         padding: 300px 0px;
-         text-align: center;
-         color: white;
-         }
-         .hero h1 {
-         font-size: 10px;
-         margin: 0 0 10px;
-         }
-         .hero p {
-         font-size: 10px;
-         max-width: 100px;
-         margin: auto;
-         }
-         .cta-buttons {
-         margin-top: 100px;
-         }
-         .cta-buttons a {
-         background-color: #f29300;
-         color: white;
-         text-decoration: none;
-         font-weight: bold;
-         padding: 15px 25px;
-         margin: 0 10px;
-         border-radius: 30px;
-         display: inline-block;
-         transition: background-color 0.3s;
-         }
-         .cta-buttons a:hover {
-         background-color: #cc7600;
-         }
-         .social-icons {
-         margin-top: 15px;
-         }
-         .social-icons a {
-         color: white;
-         margin: 0 10px;
-         font-size: 24px;
-         }
-         .why-section {
-         background-color: #fff;
-         text-align: center;
-         padding: 60px 20px;
-         }
-         .why-section h2 {
-         font-size: 36px;
-         color: #002244;
-         margin-bottom: 30px;
-         }
-         .features {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 30px;
-         max-width: 1100px;
-         margin: auto;
-         }
-         .feature {
-         background-color: #ffffff;
-         border-radius: 12px;
-         padding: 25px;
-         width: 280px;
-         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-         transition: transform 0.3s;
-         }
-         .feature:hover {
-         transform: translateY(-5px);
-         }
-         .feature img {
-         width: 60px;
-         height: 60px;
-         margin-bottom: 15px;
-         }
-         .feature h3 {
-         color: #f29300;
-         font-size: 20px;
-         margin-bottom: 10px;
-         }
-         .feature p {
-         color: #333;
-         font-size: 15px;
-         }
+
+/*Este es par poner el pie de página*/
+         
          footer {
          background-color: #002244;
          color: white;
