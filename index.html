@@ -24,7 +24,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
+    padding: 10px 30px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
@@ -36,6 +36,10 @@ header {
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+ .header-left img {
+    height: 40px;
+    width: auto;
   }
   .header-right {
     display: flex;
@@ -345,17 +349,23 @@ header {
    
    <!-- INICIO PARA COLOCAR TODO LO DE LA EMPRESA -->
    <body>
-      <header>
-         <img src="principal/logo2.png" alt="">
-      <nav class="nav">
-         <a href="index.html">Inicio</a>
-         <a href="electrodomesticos.html">Electrodomésticos</a>
-         <a href="tecnologia.html">Tecnología</a>
-         <a href="hogar.html">Hogar</a>
-         <a href="combos.html">Combos</a>
-         <a href="somos.html">Quiénes somos</a>
-      </nav>
-      </header>
+<header>
+  <div class="header-left">
+    <img src="principal/logo2.png" alt="Logo">
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="electrodomesticos.html">Electrodomésticos</a>
+      <a href="tecnologia.html">Tecnología</a>
+      <a href="hogar.html">Hogar</a>
+      <a href="combos.html">Combos</a>
+      <a href="somos.html">Quiénes somos</a>
+    </nav>
+  </div>
+  <div class="header-right">
+    <a href="https://wa.me/593988926331" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+  </div>
+</header>
 
       <section class="hero">
          <h1>Electrodomésticos y Tecnología</h1>
