@@ -237,8 +237,9 @@
          flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
          }
          /* SECCIÓN PRINCIPAL HERO */
+
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('principal/landing_banner.jpg');
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/landing_banner.jpg');
       background-size: cover;
       background-position: center;
       padding: 100px 20px;
@@ -250,7 +251,7 @@
       margin: 0 0 20px;
     }
     .hero p {
-      font-size: 20px;
+      font-size: 22px;
       max-width: 800px;
       margin: auto;
     }
@@ -271,6 +272,77 @@
     .cta-buttons a:hover {
       background-color: #cc7600;
     }
+    .social-icons {
+      margin-top: 15px;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 24px;
+    }
+    .why-section {
+      background-color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .why-section h2 {
+      font-size: 36px;
+      color: #002244;
+      margin-bottom: 30px;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .feature {
+      background-color: #f7f7f7;
+      border-radius: 10px;
+      padding: 25px;
+      width: 280px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .feature h3 {
+      color: #f29300;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      color: #333;
+      font-size: 16px;
+    }
+    .testimonials {
+      background-color: #e6e6e6;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .testimonials h2 {
+      font-size: 32px;
+      color: #002244;
+      margin-bottom: 30px;
+    }
+    .testimonial {
+      background-color: #fff;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .testimonial p {
+      font-style: italic;
+      font-size: 16px;
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 10px;
+      color: #f29300;
+    }
+
+         
          footer {
          background-color: #002244;
          color: white;
@@ -301,6 +373,55 @@
          <a href="somos.html">Quiénes somos</a>
       </nav>
 
+<section class="hero">
+    <h1>Electrodomésticos y Tecnología</h1>
+    <p>Compra segura, atención personalizada y <strong>crédito directo y rápido</strong> para que lleve lo que necesita sin complicaciones.</p>
+    <div class="cta-buttons">
+      <a href="#contacto"><i class="fas fa-envelope"></i> Contáctenos</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-square"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+  <section class="why-section">
+    <h2>¿Por qué elegir Electromás?</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Envíos Rápidos</h3>
+        <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
+      </div>
+      <div class="feature">
+        <h3>Crédito Directo</h3>
+        <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
+      </div>
+      <div class="feature">
+        <h3>Garantía de Calidad</h3>
+        <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
+      </div>
+      <div class="feature">
+        <h3>Promociones Exclusivas</h3>
+        <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
+      </div>
+    </div>
+  </section>
+  <section class="testimonials">
+    <h2>Lo que nuestros clientes dicen</h2>
+    <div class="testimonial">
+      <p>"Recibí mi refrigeradora en perfectas condiciones y antes de lo esperado. ¡Excelente servicio!"</p>
+      <strong>- María González, Loja</strong>
+    </div>
+    <div class="testimonial">
+      <p>"Los precios son muy competitivos y la atención fue rápida y cordial. ¡Recomendado!"</p>
+      <strong>- Andrés Vallejo, Zamora</strong>
+    </div>
+    <div class="testimonial">
+      <p>"Me encantó la calidad del televisor y la facilidad para hacer el pedido. Muy satisfecho."</p>
+      <strong>- Diana Palacios, Loja</strong>
+    </div>
+  </section>
+
+      
       <div class="banner">
          <div class="carousel">
             <img src="principal/inicio/p1.jpg" alt="Oferta">
