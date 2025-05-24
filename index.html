@@ -103,8 +103,8 @@
          flex-shrink: 0; /* Evita que las imágenes se reduzcan y se solapen */
          }            
          @keyframes scroll {
-         from { transform: translateX(-1%); }
-         to { transform: translateX(-50%); } /* Solo se desplaza 75%, asegurando un bucle perfecto */
+         from { transform: translateX(10%); }
+         to { transform: translateX(-100%); } /* Solo se desplaza 75%, asegurando un bucle perfecto */
          }
          /* SECCIÓN MODAL */
          .modal {
@@ -252,10 +252,10 @@
          }
          /* SECCIÓN PRINCIPAL HERO */
          .hero {
-         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/oferta1.jpg');
+         background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/landing_banner.jpg');
          background-size: cover;
          background-position: center;
-         padding: 100px 20px;
+         padding: 200px 20px;
          text-align: center;
          color: white;
          }
@@ -396,15 +396,12 @@
          <a href="combos.html">Combos</a>
          <a href="somos.html">Quiénes somos</a>
       </nav>
-
-<section class="hero" style="background-image: url('principal/nueva_portada.jpg'); background-size: cover; background-position: center;">
-   <div style="background: rgba(0,0,0,0.4); padding: 100px 30px; text-align: left; color: white; max-width: 600px;">
-      <h1 style="font-size: 52px; font-weight: bold; margin-bottom: 20px;">Tecnología que transforma tu hogar</h1>
-      <p style="font-size: 22px; line-height: 1.4;">Disfrute de electrodomésticos de alta gama con entrega local, crédito rápido y atención personalizada.</p>
-      <a href="#contacto" style="display: inline-block; margin-top: 30px; background-color: #f29300; color: white; padding: 15px 25px; font-size: 18px; border-radius: 30px; text-decoration: none; font-weight: bold;">
-         <i class="fas fa-envelope"></i> Contáctenos
-      </a>
-   </div>
+      <section class="hero">
+         <h1>Electrodomésticos y Tecnología</h1>
+         <p>Compra segura, atención personalizada y <strong>crédito directo y rápido</strong> para que lleve lo que necesita sin complicaciones.</p>
+         <div class="cta-buttons">
+            <a href="#contacto"><i class="fas fa-envelope"></i> Contáctenos</a>
+         </div>
          <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-square"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
