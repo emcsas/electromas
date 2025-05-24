@@ -66,8 +66,11 @@ header {
          .hero {
          background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/Fondo1.jpg');
          background-size: cover;
-         background-position: center;
-         padding: 320px 15px;
+       background-position: center top; /* O: center center, center bottom */
+         height: 400px; /* Ajuste la altura deseada */
+           overflow: hidden;
+  position: relative;
+         padding: 60px 20px;
          text-align: center;
          color: white;
          }
