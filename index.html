@@ -222,41 +222,50 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
          }
 
 
-         .feature {
+.feature {
+  width: 260px;
+  height: 260px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  position: relative;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  width: 240px;
-  height: 240px;
-  border-radius: 12px;
-  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+         
+.feature:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
 }
 
 .feature .overlay {
-  background-color: rgba(0, 0, 0, 0.55);
-  color: white;
-  padding: 30px;
-  border-radius: 12px;
-  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 25px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
 .feature h3 {
-  font-size: 18px;
-  color: #f29300;;
+  font-size: 20px;
+  color: #f29300;
   margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .feature p {
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
+         .feature.promociones {
+  background-image: url('principal/promociones-mejorada.png');
+}
+
+         
 /* FONDOS ESPECÍFICOS */
 .feature.envios {
   background-image: url('principal/envios.png');
