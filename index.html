@@ -222,6 +222,59 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
          }
 
 
+         .feature {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 280px;
+  height: 280px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.feature .overlay {
+  background-color: rgba(0, 0, 0, 0.55);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.feature h3 {
+  font-size: 18px;
+  color: #f29300;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* FONDOS ESPECÍFICOS */
+.feature.envios {
+  background-image: url('ruta/envios.jpg');
+}
+
+.feature.credito {
+  background-image: url('ruta/credito.jpg');
+}
+
+.feature.calidad {
+  background-image: url('ruta/calidad.jpg');
+}
+
+.feature.promociones {
+  background-image: url('ruta/promociones.jpg');
+}
+
+
 
 
          
@@ -469,26 +522,41 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
       <section class="why-section">
          <h2>¿Por qué elegir Electromás?</h2>
          <div class="features">
-            <div class="feature">
-               <img src="principal/envios.png" alt="Envíos">
-               <h3>Envíos Rápidos</h3>
-               <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
-            </div>
-            <div class="feature">
-               <img src="principal/icons/credito.png" alt="Crédito">
-               <h3>Crédito Directo</h3>
-               <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
-            </div>
-            <div class="feature">
-               <img src="principal/icons/calidad.png" alt="Calidad">
-               <h3>Garantía de Calidad</h3>
-               <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
-            </div>
-            <div class="feature">
-               <img src="principal/icons/promocion.png" alt="Promociones">
-               <h3>Promociones Exclusivas</h3>
-               <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
-            </div>
+            
+            
+            
+<div class="feature envios">
+  <div class="overlay">
+    <h3>Envíos Rápidos</h3>
+    <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
+  </div>
+</div>
+
+<div class="feature credito">
+  <div class="overlay">
+    <h3>Crédito Directo</h3>
+    <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
+  </div>
+</div>
+
+<div class="feature calidad">
+  <div class="overlay">
+    <h3>Garantía de Calidad</h3>
+    <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
+  </div>
+</div>
+
+<div class="feature promociones">
+  <div class="overlay">
+    <h3>Promociones Exclusivas</h3>
+    <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
+  </div>
+</div>
+
+
+
+
+            
          </div>
       </section>
       <div class="banner">
