@@ -541,21 +541,26 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
          }
 
 
-
+ /* OFERTAS CARRUSEL */
 
 .ofertas-carrusel {
-  overflow-x: auto;
   display: flex;
+  width: max-content;
+  animation: deslizarOfertas 60s linear infinite;
   gap: 20px;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  padding: 20px 0;
 }
 
-.ofertas-carrusel::-webkit-scrollbar {
-  display: none;
+@keyframes deslizarOfertas {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
+.ofertas {
+  overflow: hidden;
+  width: 100%;
+}
+         
 .producto-carrusel {
   flex: 0 0 auto;
   scroll-snap-align: center;
