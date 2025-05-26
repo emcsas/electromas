@@ -272,12 +272,8 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
 .categorias-section {
   background-color: rgba(242, 147, 0, 0.08); /* Naranja opaco */
   padding: 50px 20px;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .categorias-section h2 {
@@ -291,7 +287,7 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
   flex-wrap: wrap;
   justify-content: center;
   gap: 25px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
 }
 
