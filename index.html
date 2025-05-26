@@ -368,33 +368,37 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
 
          
          /*BANNER CARRUSEL*/
-         .banner {
-         width: 100%;
-         height: 350px;
-         overflow: hidden;
-         position: relative;
-         margin-top: 40px; /* Espacio de 0.5 cm entre la barra de navegación y el carrusel */
-         display: flex;
-         align-items: center;
-         }
-         .carousel {
-         display: flex;
-         width: 150%;
-         white-space: nowrap; /* Evita saltos bruscos */
-         animation: scroll 50s linear infinite;
-         }
-         /*CAMBIAR EL TAMAÑO DE LA IMAGEN QUE ESTA EN EL CARRUSEL*/
-         .carousel img {
-         width: 35%; /* Asegura que cada imagen tome su espacio correcto */
-         max-width: 350px; /* Limitar el ancho para que no sean excesivamente grandes */
-         height: 350px;
-         object-fit: contain;
-         flex-shrink: 0; /* Evita que las imágenes se reduzcan y se solapen */
-         }            
-         @keyframes scroll {
-         from { transform: translateX(0%); }
-         to { transform: translateX(-50%); } /* Solo se desplaza 75%, asegurando un bucle perfecto */
-         }
+   .banner {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+  background-color: #f4f4f4;
+  padding: 10px 0;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  animation: scroll 60s linear infinite;
+}
+
+.carousel img {
+  height: 260px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: white;
+  padding: 10px;
+  object-fit: contain;
+}
+
+/* Animación */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
          
          /* SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha */
@@ -647,7 +651,7 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
     <a href="electrodomesticos.html" class="categoria electro">
       <div class="overlay">
         <h3>Electrodomésticos</h3>
-        <p>Descubra refrigeradoras, cocinas, lavadoras y más.</p>
+        <p>Refrigeradoras, cocinas, lavadoras y más.</p>
       </div>
     </a>
     <a href="tecnologia.html" class="categoria tecnologia">
@@ -672,6 +676,12 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
       <div class="banner">
          <div class="carousel">
             <img src="principal/inicio/p1.jpg" alt="Oferta">
+            <img src="principal/inicio/p2.jpg" alt="Oferta">
+            <img src="principal/inicio/p3.jpg" alt="Oferta">
+            <img src="principal/inicio/p4.jpg" alt="Oferta">    
+            <img src="principal/inicio/p5.jpg" alt="Oferta">
+  <!-- repetir las mismas -->
+                        <img src="principal/inicio/p1.jpg" alt="Oferta">
             <img src="principal/inicio/p2.jpg" alt="Oferta">
             <img src="principal/inicio/p3.jpg" alt="Oferta">
             <img src="principal/inicio/p4.jpg" alt="Oferta">    
