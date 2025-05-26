@@ -177,35 +177,37 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
 
 /*AQUI VIENE: ¿POR QUÉ ELEGIRNOS?*/
          
-         .why-section {
-         background-color: #fff;
-         text-align: center;
-         padding: 20px 20px 40px 20px; /*Distancia entre el por qué con la imagen*/
-         }
+.why-section {
+  background-color: #fff;
+  padding: 20px 20px 30px;
+}
          .why-section h2 {
          font-size: 32px;
          color: #002244;
          margin-bottom: 30px;
          }
-         .features {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 30px;
-         max-width: 1100px;
-         margin: auto;
-         }
-         .feature {
-         background-color: #ffffff;
-         border-radius: 12px;
-         padding: 25px;
-         width: 150px;
-         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-         transition: transform 0.3s;
-         }
-         .feature:hover {
-         transform: translateY(-5px);
-         }
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+.feature {
+  width: 240px;
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+     .feature:hover {
+  transform: scale(1.03);
+}
          .feature img {
          width: 20px;
          height: 20px;
@@ -222,28 +224,17 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
          }
 
 
-         .feature {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 200px;
-  height: 200px;
-  border-radius: 12px;
-  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+
 
 .feature .overlay {
-  background-color: rgba(0, 0, 0, 0.4); /*Este es para la caja oscura que rodea el contenido del Por qué*/
+  background-color: rgba(0, 0, 0, 0.55);
   color: white;
-  padding: 5px;
-  border-radius: 12px;
-  z-index: 1;
+  padding: 15px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .feature h3 {
@@ -279,12 +270,9 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
 /*CATEGORIAS*/
 
 .categorias-section {
-  background-color: #ffffff;
-  text-align: center;
- padding: 0px 0px 0px 0px; /* Menor padding superior e inferior */
-  margin-top: 0;
+  background-color: #f8f9fa;
+  padding: 20px 0 50px;
 }
-
 .categorias-section h2 {
   font-size: 32px;
   color: #002244;
@@ -295,25 +283,22 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  max-width: 1100px;
+  gap: 25px;
+  max-width: 1200px;
   margin: auto;
 }
 
 .categoria {
-  width: 260px;
-  height: 260px;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+  width: 240px;
+  height: 240px;
   background-size: cover;
   background-position: center;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
 .categoria:hover {
@@ -321,23 +306,25 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
 }
 
 .categoria .overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.55);
+  height: 100%;
   color: white;
-  padding: 5px;
-  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
 .categoria h3 {
   font-size: 18px;
+  margin-bottom: 8px;
   color: #f29300;
-  margin-bottom: 10px;
 }
 
 .categoria p {
   font-size: 14px;
-  line-height: 1.4;
-  color: white;
+  line-height: 1.5;
 }
 
 /* Fondos de categorías */
@@ -546,6 +533,30 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
          flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
          }
 
+
+
+
+         /* TITULOS MODERNOS */
+.seccion-titulo {
+  font-size: 34px;
+  color: #002244;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.seccion-titulo::after {
+  content: '';
+  width: 60px;
+  height: 4px;
+  background-color: #f29300;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 4px;
+}
 
 .titulo-seccion {
   font-size: 32px;
