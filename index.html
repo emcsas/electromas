@@ -277,6 +277,119 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
 
 
 
+
+
+
+
+/*CATEGORIAS*/
+
+         <section class="categorias-section">
+  <h2>Explore nuestras categorías</h2>
+  <div class="categorias">
+    <a href="electrodomesticos.html" class="categoria electro">
+      <div class="overlay">
+        <h3>Electrodomésticos</h3>
+        <p>Descubra refrigeradoras, cocinas, lavadoras y más.</p>
+      </div>
+    </a>
+    <a href="tecnologia.html" class="categoria tecnologia">
+      <div class="overlay">
+        <h3>Tecnología</h3>
+        <p>Celulares, televisores, laptops y lo último en innovación.</p>
+      </div>
+    </a>
+    <a href="hogar.html" class="categoria hogar">
+      <div class="overlay">
+        <h3>Hogar</h3>
+        <p>Todo para equipar y decorar su espacio con estilo.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+.categorias-section {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.categorias-section h2 {
+  font-size: 32px;
+  color: #002244;
+  margin-bottom: 30px;
+}
+
+.categorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.categoria {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  background-size: cover;
+  background-position: center;
+}
+
+.categoria:hover {
+  transform: translateY(-5px);
+}
+
+.categoria .overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 5px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.categoria h3 {
+  font-size: 18px;
+  color: #f29300;
+  margin-bottom: 10px;
+}
+
+.categoria p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: white;
+}
+
+/* Fondos de categorías */
+.categoria.electro {
+  background-image: url('principal/categorias/electrodomesticos.jpg');
+}
+
+.categoria.tecnologia {
+  background-image: url('principal/categorias/tecnologia.jpg');
+}
+
+.categoria.hogar {
+  background-image: url('principal/categorias/hogar.jpg');
+}
+
+         
+
+
+         
+
+         
+
+
          
 
          
