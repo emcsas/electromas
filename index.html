@@ -573,12 +573,15 @@ width: 100vw;
  /* OFERTAS CARRUSEL */
 
 .ofertas-carrusel {
-  overflow-x: auto;
   display: flex;
   gap: 20px;
-  padding: 20px;
+  padding: 20px 0; /* quitar padding lateral */
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  width: 100vw;         /* asegurar que cubre todo el ancho de la ventana */
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .ofertas-carrusel::-webkit-scrollbar {
