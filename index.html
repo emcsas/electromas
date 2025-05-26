@@ -772,7 +772,7 @@ height: 600px; /* ← Ajuste la altura según cuánto desee mostrar */
              // Construcción del enlace de WhatsApp
              let numeroWhatsApp = "593988926331";
              let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
-             let whatsappURL = https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)};
+             let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
              document.getElementById('whatsapp-link').href = whatsappURL;  
              // Mostrar el modal
              document.getElementById('modal').style.display = "flex";
