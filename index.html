@@ -503,17 +503,7 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
          margin-bottom: 40px; /*Espacio entre la imagen y la foto del producto*/
          text-align: center;
          padding: 2px;
-
-width: 100vw;          
-  margin: 0;
-  padding: 40px 0;
-  overflow: hidden;
-  background-color: #f9f9f9;
          }
-
-
-
-         
          .ofertas h2 {
          color: #002244;
          font-size: 28px;
@@ -573,15 +563,12 @@ width: 100vw;
  /* OFERTAS CARRUSEL */
 
 .ofertas-carrusel {
+  overflow-x: auto;
   display: flex;
   gap: 20px;
-  padding: 20px 0; /* quitar padding lateral */
+  padding: 20px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
-  width: 100vw;         /* asegurar que cubre todo el ancho de la ventana */
-  box-sizing: border-box;
-  margin: 0 auto;
 }
 
 .ofertas-carrusel::-webkit-scrollbar {
