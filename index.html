@@ -497,13 +497,13 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
 
          
          /* SECCIÓN OFERTAS DEL MES */
-         .ofertas {
-         max-width: 1200px;
-         margin: 2px auto;
-         margin-bottom: 40px; /*Espacio entre la imagen y la foto del producto*/
-         text-align: center;
-         padding: 2px;
-         }
+.ofertas {
+  width: 100%;
+  margin: 2px 0;
+  padding: 40px 0;
+  text-align: center;
+  background-color: #f4f4f4; /* Color opcional para destacar */
+}
          .ofertas h2 {
          color: #002244;
          font-size: 28px;
@@ -561,15 +561,17 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
 
 
  /* OFERTAS CARRUSEL */
-
 .ofertas-carrusel {
+  width: 100%;
   overflow-x: auto;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  padding: 20px 40px;
+  box-sizing: border-box;
 }
+
 
 .ofertas-carrusel::-webkit-scrollbar {
   display: none;
