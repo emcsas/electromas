@@ -16,158 +16,133 @@
          margin: 0; 
          padding: 0; 
          }
-            
-         
-         
          /*SECCIÓN ENCABEZADO*/     
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    background-color: #fff;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 4px solid #f29300; /* Línea naranja delgada inferior */
-  }
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 30px; /* Es el espacio entre el logo y el menú */
-  }
-.header-left img {
-    height: 40px;
-    width: auto;
-  }
-
+         header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 10px 30px;
+         background-color: #fff;
+         box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+         position: fixed;
+         top: 0;
+         width: 100%;
+         z-index: 1000;
+         border-bottom: 4px solid #f29300; /* Línea naranja delgada inferior */
+         }
+         .header-left {
+         display: flex;
+         align-items: center;
+         gap: 30px; /* Es el espacio entre el logo y el menú */
+         }
+         .header-left img {
+         height: 40px;
+         width: auto;
+         }
          .header-left nav a {
-  border-radius: 5px;
-  padding: 10px;
-}
-  .header-right {
-    display: flex;
-  align-items: center;
-    gap: 40px;
-      margin-left: 20px;
-  }
+         border-radius: 5px;
+         padding: 10px;
+         }
+         .header-right {
+         display: flex;
+         align-items: center;
+         gap: 40px;
+         margin-left: 20px;
+         }
          .header-left nav a:focus,
-.header-left nav a:active {
-  outline: none;
-  background-color: rgba(242, 147, 0, 0.2); /* Sensación de "clic" */
-}
-nav {
-  display: flex;
-  gap: 25px;
-  background-color: transparent;
-}
-  nav a {
-    color: #002244;
-    text-decoration: none;
-    font-weight: bold;
-     font-size: 22px; /* Letra más grande */
-  padding: 10px 15px; /* Aumenta el área de clic */
-  transition: color 0.3s, transform 0.2s ease;
-  }
-
+         .header-left nav a:active {
+         outline: none;
+         background-color: rgba(242, 147, 0, 0.2); /* Sensación de "clic" */
+         }
+         nav {
+         display: flex;
+         gap: 25px;
+         background-color: transparent;
+         }
+         nav a {
+         color: #002244;
+         text-decoration: none;
+         font-weight: bold;
+         font-size: 22px; /* Letra más grande */
+         padding: 10px 15px; /* Aumenta el área de clic */
+         transition: color 0.3s, transform 0.2s ease;
+         }
          nav a:hover {
-  color: #f29300; /* Color llamativo al pasar el mouse */
-  transform: scale(1.1); /* Efecto visual de crecimiento */
-  cursor: pointer;
-}
-
-
-
-
-/* SECCIÓN PRINCIPAL HERO */
-
-  .hero {
-  background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('principal/Fondo1.jpg');
-  background-size: cover;
-background-position: top center; /* ← Ancla la imagen en la parte superior */
-height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
-     padding: 50px 400px 40px 40px; /* <-- este padding-top evita el choque */
-  display: flex;
-  align-items: center;
-  color: #f29300;;
-  overflow: hidden; /* ← Oculta cualquier contenido que sobresalga */
-
-}
-
-
-         
-.hero-contenido {
-  max-width: 500px;
-  text-align: left;
-  font-family: 'Segoe UI', sans-serif;
-   margin-left: 40px; /* ← Separación del borde izquierdo */
-  margin-right: auto;
-}
-
-.hero-contenido h1 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.hero-contenido p {
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-.hero-botones {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 18px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-}
-
+         color: #f29300; /* Color llamativo al pasar el mouse */
+         transform: scale(1.1); /* Efecto visual de crecimiento */
+         cursor: pointer;
+         }
+         /* SECCIÓN PRINCIPAL HERO */
+         .hero {
+         background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('principal/Fondo1.jpg');
+         background-size: cover;
+         background-position: top center; /* ← Ancla la imagen en la parte superior */
+         height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
+         padding: 50px 400px 40px 40px; /* <-- este padding-top evita el choque */
+         display: flex;
+         align-items: center;
+         color: #f29300;;
+         overflow: hidden; /* ← Oculta cualquier contenido que sobresalga */
+         }
+         .hero-contenido {
+         max-width: 500px;
+         text-align: left;
+         font-family: 'Segoe UI', sans-serif;
+         margin-left: 40px; /* ← Separación del borde izquierdo */
+         margin-right: auto;
+         }
+         .hero-contenido h1 {
+         font-size: 32px;
+         font-weight: 700;
+         margin-bottom: 15px;
+         }
+         .hero-contenido p {
+         font-size: 20px;
+         line-height: 1.6;
+         margin-bottom: 25px;
+         }
+         .hero-botones {
+         display: flex;
+         gap: 15px;
+         flex-wrap: wrap;
+         }
+         .btn {
+         padding: 12px 20px;
+         border-radius: 30px;
+         font-weight: bold;
+         font-size: 18px;
+         text-decoration: none;
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         transition: all 0.3s ease;
+         }
          .mensaje-potente {
-  font-size: 16px;
-  color: white;
-  margin-top: 15px;
-  line-height: 1.6;
-  font-weight: 500;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-.btn.whatsapp {
-  background-color: #25D366;
-  color: white;
-  border: none;
-}
-
-.btn.whatsapp:hover {
-  background-color: white;
-  color: #1EBE5D;
-}
-
-.btn.facebook {
-  background-color: #1877F2;
-  color: white;
-  border: none;
-}
-
-.btn.facebook:hover {
-  background-color: white;
-  color: #1877F2;
-}
-       
-         
+         font-size: 16px;
+         color: white;
+         margin-top: 15px;
+         line-height: 1.6;
+         font-weight: 500;
+         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+         }
+         .btn.whatsapp {
+         background-color: #25D366;
+         color: white;
+         border: none;
+         }
+         .btn.whatsapp:hover {
+         background-color: white;
+         color: #1EBE5D;
+         }
+         .btn.facebook {
+         background-color: #1877F2;
+         color: white;
+         border: none;
+         }
+         .btn.facebook:hover {
+         background-color: white;
+         color: #1877F2;
+         }
          .cta-buttons {
          margin-top: 80px;
          }
@@ -193,40 +168,38 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
          margin: 0 10px;
          font-size: 24px;
          }
-
-/*AQUI VIENE: ¿POR QUÉ ELEGIRNOS?*/
-         
-.why-section {
-  background-color: #fff;
-  padding: 20px 20px 30px;
-}
+         /*AQUI VIENE: ¿POR QUÉ ELEGIRNOS?*/
+         .why-section {
+         background-color: #fff;
+         padding: 20px 20px 30px;
+         }
          .why-section h2 {
          font-size: 32px;
          color: #002244;
          margin-bottom: 30px;
          }
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  max-width: 1200px;
-  margin: auto;
-}
-.feature {
-  width: 240px;
-  height: 240px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-     .feature:hover {
-  transform: scale(1.03);
-}
+         .features {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 25px;
+         max-width: 1200px;
+         margin: auto;
+         }
+         .feature {
+         width: 240px;
+         height: 240px;
+         background-size: cover;
+         background-position: center;
+         border-radius: 16px;
+         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+         overflow: hidden;
+         position: relative;
+         transition: transform 0.3s ease;
+         }
+         .feature:hover {
+         transform: scale(1.03);
+         }
          .feature img {
          width: 20px;
          height: 20px;
@@ -241,175 +214,131 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
          color: white;
          font-size: 15px;
          }
-
-
-
-
-.feature .overlay {
-  background-color: rgba(0, 0, 0, 0.55);
-  color: white;
-  padding: 15px;
-  text-align: center;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.feature h3 {
-  font-size: 22px; /*Titulo de cada por qué*/
-  color: #f29300;;
-  margin-bottom: 10px;
-}
-
-.feature p {
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-/* FONDOS ESPECÍFICOS */
-.feature.envios {
-  background-image: url('principal/envios.png');
-}
-
-.feature.credito {
-  background-image: url('principal/credito.png');
-}
-
-.feature.calidad {
-  background-image: url('principal/garantia.png');
-}
-
-.feature.promociones {
-  background-image: url('principal/Promociones.png');
-}
-
-
-
-/*CATEGORIAS*/
-
-.categorias-section {
-  background-color: rgba(242, 147, 0, 0.08); /* Naranja opaco */
-  padding: 20px 0px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.categorias-section h2 {
-  font-size: 32px;
-  color: #002244;
-  margin-bottom: 30px;
-}
-
-.categorias {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.categoria {
-  width: 240px;
-  height: 240px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  position: relative;
-  text-decoration: none;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.categoria:hover {
-  transform: translateY(-5px);
-}
-
-.categoria .overlay {
-  background-color: rgba(0, 0, 0, 0.55);
-  height: 100%;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-.categoria h3 {
-  font-size: 22px;
-  margin-bottom: 8px;
-  color: #f29300;
-}
-
-.categoria p {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-/* Fondos de categorías */
-.categoria.electro {
-  background-image: url('principal/oferta1.jpg');
-}
-
-.categoria.tecnologia {
-  background-image: url('principal/tec.jpg');
-}
-
-         
-.categoria.hogar {
-  background-image: url('principal/sal.jpg');
-}
-
-         
-
-
-         
-
-         
-
-
-         
-
-         
-
-         
+         .feature .overlay {
+         background-color: rgba(0, 0, 0, 0.55);
+         color: white;
+         padding: 15px;
+         text-align: center;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         }
+         .feature h3 {
+         font-size: 22px; /*Titulo de cada por qué*/
+         color: #f29300;;
+         margin-bottom: 10px;
+         }
+         .feature p {
+         font-size: 16px;
+         line-height: 1.4;
+         }
+         /* FONDOS ESPECÍFICOS */
+         .feature.envios {
+         background-image: url('principal/envios.png');
+         }
+         .feature.credito {
+         background-image: url('principal/credito.png');
+         }
+         .feature.calidad {
+         background-image: url('principal/garantia.png');
+         }
+         .feature.promociones {
+         background-image: url('principal/Promociones.png');
+         }
+         /*CATEGORIAS*/
+         .categorias-section {
+         background-color: rgba(242, 147, 0, 0.08); /* Naranja opaco */
+         padding: 20px 0px;
+         width: 100%;
+         box-sizing: border-box;
+         }
+         .categorias-section h2 {
+         font-size: 32px;
+         color: #002244;
+         margin-bottom: 30px;
+         }
+         .categorias {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 25px;
+         max-width: 1100px;
+         margin: auto;
+         }
+         .categoria {
+         width: 240px;
+         height: 240px;
+         background-size: cover;
+         background-position: center;
+         border-radius: 16px;
+         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+         position: relative;
+         text-decoration: none;
+         overflow: hidden;
+         transition: transform 0.3s ease;
+         }
+         .categoria:hover {
+         transform: translateY(-5px);
+         }
+         .categoria .overlay {
+         background-color: rgba(0, 0, 0, 0.55);
+         height: 100%;
+         color: white;
+         padding: 20px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         text-align: center;
+         }
+         .categoria h3 {
+         font-size: 22px;
+         margin-bottom: 8px;
+         color: #f29300;
+         }
+         .categoria p {
+         font-size: 16px;
+         line-height: 1.5;
+         }
+         /* Fondos de categorías */
+         .categoria.electro {
+         background-image: url('principal/oferta1.jpg');
+         }
+         .categoria.tecnologia {
+         background-image: url('principal/tec.jpg');
+         }
+         .categoria.hogar {
+         background-image: url('principal/sal.jpg');
+         }
          /*BANNER CARRUSEL*/
-   .banner {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  margin-top: 20px;
-  background-color: #f4f4f4;
-  padding: 10px 0;
-}
-
-.carousel {
-  display: flex;
-  gap: 20px;
-  animation: scroll 40s linear infinite;
-}
-
-.carousel img {
-  height: 260px;
-  width: auto;
-  flex-shrink: 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background-color: white;
-  padding: 10px;
-  object-fit: contain;
-}
-
-/* Animación */
-@keyframes scroll {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-80%); }
-}
-
-         
+         .banner {
+         width: 100%;
+         overflow: hidden;
+         position: relative;
+         margin-top: 20px;
+         background-color: #f4f4f4;
+         padding: 10px 0;
+         }
+         .carousel {
+         display: flex;
+         gap: 20px;
+         animation: scroll 40s linear infinite;
+         }
+         .carousel img {
+         height: 260px;
+         width: auto;
+         flex-shrink: 0;
+         border-radius: 10px;
+         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+         background-color: white;
+         padding: 10px;
+         object-fit: contain;
+         }
+         /* Animación */
+         @keyframes scroll {
+         0% { transform: translateX(0%); }
+         100% { transform: translateX(-80%); }
+         }
          /* SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha */
          .modal {
          display: none;
@@ -492,10 +421,6 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
          .close:hover {
          background-color: #e63900;
          }
-
-
-
-         
          /* SECCIÓN OFERTAS DEL MES */
          .ofertas {
          max-width: 1200px;
@@ -558,100 +483,77 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
          main {
          flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
          }
-
-
- /* OFERTAS CARRUSEL */
-
-.ofertas-carrusel {
-  overflow-x: auto;
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.ofertas-carrusel::-webkit-scrollbar {
-  display: none;
-}
-
-.producto-carrusel {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 280px;
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-
-.producto-carrusel:hover {
-  transform: scale(1.05);
-}
-
-.producto-carrusel img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  border-radius: 10px;
-}
-
-.producto-carrusel h3 {
-  font-size: 16px;
-  color: #002244;
-  margin-top: 10px;
-}
-
-.producto-carrusel span {
-  color: #fc4b08;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-         
-
-         
-
-
-
+         /* OFERTAS CARRUSEL */
+         .ofertas-carrusel {
+         overflow-x: auto;
+         display: flex;
+         gap: 20px;
+         padding: 20px;
+         scroll-snap-type: x mandatory;
+         -webkit-overflow-scrolling: touch;
+         }
+         .ofertas-carrusel::-webkit-scrollbar {
+         display: none;
+         }
+         .producto-carrusel {
+         flex: 0 0 auto;
+         scroll-snap-align: center;
+         background: white;
+         border-radius: 16px;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+         width: 280px;
+         padding: 20px;
+         text-align: center;
+         transition: transform 0.3s;
+         cursor: pointer;
+         }
+         .producto-carrusel:hover {
+         transform: scale(1.05);
+         }
+         .producto-carrusel img {
+         width: 100%;
+         height: 180px;
+         object-fit: contain;
+         border-radius: 10px;
+         }
+         .producto-carrusel h3 {
+         font-size: 16px;
+         color: #002244;
+         margin-top: 10px;
+         }
+         .producto-carrusel span {
+         color: #fc4b08;
+         font-weight: bold;
+         font-size: 18px;
+         }
          /* TITULOS MODERNOS */
-.seccion-titulo {
-  font-size: 34px;
-  color: #002244;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-family: 'Segoe UI', sans-serif;
-  position: relative;
-}
-
-.seccion-titulo::after {
-  content: '';
-  width: 60px;
-  height: 4px;
-  background-color: #f29300;
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 4px;
-}
-
-.titulo-seccion {
-  font-size: 32px;
-  color: #002244;
-  margin: 20px 0 30px;
-  text-align: center;
-  font-weight: bold;
-}
-
-
-         
-
-/*Este es par poner el pie de página*/
-         
+         .seccion-titulo {
+         font-size: 34px;
+         color: #002244;
+         font-weight: 700;
+         text-align: center;
+         margin-top: 40px;
+         margin-bottom: 40px;
+         font-family: 'Segoe UI', sans-serif;
+         position: relative;
+         }
+         .seccion-titulo::after {
+         content: '';
+         width: 60px;
+         height: 4px;
+         background-color: #f29300;
+         display: block;
+         margin: 10px auto 0;
+         border-radius: 4px;
+         }
+         .titulo-seccion {
+         font-size: 32px;
+         color: #002244;
+         margin: 20px 0 30px;
+         text-align: center;
+         font-weight: bold;
+         }
+         /*Este es par poner el pie de página*/
          footer {
          background-color: #002244;
          color: white;
@@ -668,106 +570,85 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
          }
       </style>
    </head>
-
-
-
-
-
-
-   
    <!-- INICIO PARA COLOCAR TODO LO DE LA EMPRESA -->
    <body>
-<header>
-  <div class="header-left">
-    <img src="00imagenes/electro.png" alt="Logo">
-    <nav>
-<a href="#categorias">Categorías</a>
-<a href="#ofertas">Ofertas</a>
-      <a href="combos.html">Combos</a>
-      <a href="somos.html">Quiénes somos</a>
-    </nav>
-  </div>
- </header>
-
+      <header>
+         <div class="header-left">
+            <img src="00imagenes/electro.png" alt="Logo">
+            <nav>
+               <a href="#categorias">Categorías</a>
+               <a href="#ofertas">Ofertas</a>
+               <a href="combos.html">Combos</a>
+               <a href="somos.html">Quiénes somos</a>
+            </nav>
+         </div>
+      </header>
       <section class="hero">
-  <div class="hero-contenido">
-    <h1>Electrodomésticos y Tecnología</h1>
-    <p class="mensaje-potente">
-  Aproveche hoy mismo nuestras <strong>ofertas exclusivas</strong> con <strong>crédito inmediato</strong> y <strong>entrega garantizada</strong>. ¡Llévese lo mejor a su hogar, sin complicaciones ni demoras!
-</p>
-    <div class="hero-botones">
-      <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
-        <i class="fab fa-whatsapp"></i> Contáctenos
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61554825365190" target="_blank" class="btn facebook">
-        <i class="fab fa-facebook-f"></i> Síganos
-      </a>
-    </div>
-  </div>
-</section>
-
+         <div class="hero-contenido">
+            <h1>Electrodomésticos y Tecnología</h1>
+            <p class="mensaje-potente">
+               Aproveche hoy mismo nuestras <strong>ofertas exclusivas</strong> con <strong>crédito inmediato</strong> y <strong>entrega garantizada</strong>. ¡Llévese lo mejor a su hogar, sin complicaciones ni demoras!
+            </p>
+            <div class="hero-botones">
+               <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
+               <i class="fab fa-whatsapp"></i> Contáctenos
+               </a>
+               <a href="https://www.facebook.com/profile.php?id=61554825365190" target="_blank" class="btn facebook">
+               <i class="fab fa-facebook-f"></i> Síganos
+               </a>
+            </div>
+         </div>
+      </section>
       <section class="why-section">
          <h2 class="seccion-titulo">¿Por qué elegir Electromás?</h2>
          <div class="features">
-            
-            
-            
-<div class="feature envios">
-  <div class="overlay">
-    <h3>Envíos Rápidos</h3>
-    <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
-  </div>
-</div>
-
-<div class="feature credito">
-  <div class="overlay">
-    <h3>Crédito Directo</h3>
-    <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
-  </div>
-</div>
-
-<div class="feature calidad">
-  <div class="overlay">
-    <h3>Garantía de Calidad</h3>
-    <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
-  </div>
-</div>
-
-<div class="feature promociones">
-  <div class="overlay">
-    <h3>Promociones Exclusivas</h3>
-    <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
-  </div>
-</div>
-
-
-
-                  <section class="categorias-section" id="categorias">                    
-<h2 class="seccion-titulo">🟠 Categorías 🟠</h2>
-  <div class="categorias">
-    <a href="electrodomesticos.html" class="categoria electro">
-      <div class="overlay">
-        <h3>Electrodomésticos</h3>
-        <p>Refrigeradoras, cocinas, lavadoras y más.</p>
-      </div>
-    </a>
-    <a href="tecnologia.html" class="categoria tecnologia">
-      <div class="overlay">
-        <h3>Tecnología</h3>
-        <p>Celulares, televisores, laptops y lo último en innovación.</p>
-      </div>
-    </a>
-    <a href="hogar.html" class="categoria hogar">
-      <div class="overlay">
-        <h3>Hogar</h3>
-        <p>Todo para equipar y decorar su espacio con estilo.</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-
-            
+            <div class="feature envios">
+               <div class="overlay">
+                  <h3>Envíos Rápidos</h3>
+                  <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
+               </div>
+            </div>
+            <div class="feature credito">
+               <div class="overlay">
+                  <h3>Crédito Directo</h3>
+                  <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
+               </div>
+            </div>
+            <div class="feature calidad">
+               <div class="overlay">
+                  <h3>Garantía de Calidad</h3>
+                  <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
+               </div>
+            </div>
+            <div class="feature promociones">
+               <div class="overlay">
+                  <h3>Promociones Exclusivas</h3>
+                  <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
+               </div>
+            </div>
+            <section class="categorias-section" id="categorias">
+               <h2 class="seccion-titulo">🟠 Categorías 🟠</h2>
+               <div class="categorias">
+                  <a href="electrodomesticos.html" class="categoria electro">
+                     <div class="overlay">
+                        <h3>Electrodomésticos</h3>
+                        <p>Refrigeradoras, cocinas, lavadoras y más.</p>
+                     </div>
+                  </a>
+                  <a href="tecnologia.html" class="categoria tecnologia">
+                     <div class="overlay">
+                        <h3>Tecnología</h3>
+                        <p>Celulares, televisores, laptops y lo último en innovación.</p>
+                     </div>
+                  </a>
+                  <a href="hogar.html" class="categoria hogar">
+                     <div class="overlay">
+                        <h3>Hogar</h3>
+                        <p>Todo para equipar y decorar su espacio con estilo.</p>
+                     </div>
+                  </a>
+               </div>
+            </section>
          </div>
       </section>
       <div class="banner">
@@ -777,86 +658,68 @@ height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
             <img src="principal/inicio/p3.jpg" alt="Oferta">
             <img src="principal/inicio/p4.jpg" alt="Oferta">    
             <img src="principal/inicio/p5.jpg" alt="Oferta">
-  <!-- repetir las mismas -->
-                        <img src="principal/inicio/p1.jpg" alt="Oferta">
+            <!-- repetir las mismas -->
+            <img src="principal/inicio/p1.jpg" alt="Oferta">
             <img src="principal/inicio/p2.jpg" alt="Oferta">
             <img src="principal/inicio/p3.jpg" alt="Oferta">
             <img src="principal/inicio/p4.jpg" alt="Oferta">    
             <img src="principal/inicio/p5.jpg" alt="Oferta">
          </div>
       </div>
-
-
-      
       <!-- SECCIÓN DE OFERTAS DEL MES -->
       <section class="ofertas" id="ofertas">
-  <h2 class="seccion-titulo">🟠 Electrofertas Mayo 🟠</h2>
-  <div class="ofertas-carrusel">
-     
-    <div class="producto-carrusel" onclick="mostrarDetalles(
-      'Televisor Indurama 58 pulgadas',
-      'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-      '$556')">
-      <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-      <h3>Televisor Indurama 58"</h3>
-      <span>$556</span>
-    </div>
-
-    <div class="producto-carrusel" onclick="mostrarDetalles(
-      'Lavadora Indurama 19kg',
-      'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-      '$535')">
-      <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-      <h3>Lavadora Indurama 19kg</h3>
-      <span>$535</span>
-    </div>
-
-    <div class="producto-carrusel" onclick="mostrarDetalles(
-      'Refrigerador Indurama 262 litros',
-      '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-      '$420')">
-      <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-      <h3>Refrigerador Indurama 262 litros</h3>
-      <span>$420</span>
-    </div>
-
-
-
-    <div class="producto-carrusel" onclick="mostrarDetalles(
-      'Televisor Indurama 58 pulgadas',
-      'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-      '$556')">
-      <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-      <h3>Televisor Indurama 58"</h3>
-      <span>$556</span>
-    </div>
-
-    <div class="producto-carrusel" onclick="mostrarDetalles(
-      'Lavadora Indurama 19kg',
-      'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-      '$535')">
-      <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-      <h3>Lavadora Indurama 19kg</h3>
-      <span>$535</span>
-    </div>
-
-    <div class="producto-carrusel" onclick="mostrarDetalles(
-      'Refrigerador Indurama 262 litros',
-      '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-      '$420')">
-      <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-      <h3>Refrigerador Indurama 262 litros</h3>
-      <span>$420</span>
-    </div>
-     
-
-     
-  </div>
-</section>
-
-
-
-      
+         <h2 class="seccion-titulo">🟠 Electrofertas Mayo 🟠</h2>
+         <div class="ofertas-carrusel">
+            <div class="producto-carrusel" onclick="mostrarDetalles(
+               'Televisor Indurama 58 pulgadas',
+               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
+               '$556')">
+               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
+               <h3>Televisor Indurama 58"</h3>
+               <span>$556</span>
+            </div>
+            <div class="producto-carrusel" onclick="mostrarDetalles(
+               'Lavadora Indurama 19kg',
+               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
+               '$535')">
+               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
+               <h3>Lavadora Indurama 19kg</h3>
+               <span>$535</span>
+            </div>
+            <div class="producto-carrusel" onclick="mostrarDetalles(
+               'Refrigerador Indurama 262 litros',
+               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
+               '$420')">
+               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
+               <h3>Refrigerador Indurama 262 litros</h3>
+               <span>$420</span>
+            </div>
+            <div class="producto-carrusel" onclick="mostrarDetalles(
+               'Televisor Indurama 58 pulgadas',
+               'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
+               '$556')">
+               <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
+               <h3>Televisor Indurama 58"</h3>
+               <span>$556</span>
+            </div>
+            <div class="producto-carrusel" onclick="mostrarDetalles(
+               'Lavadora Indurama 19kg',
+               'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
+               '$535')">
+               <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
+               <h3>Lavadora Indurama 19kg</h3>
+               <span>$535</span>
+            </div>
+            <div class="producto-carrusel" onclick="mostrarDetalles(
+               'Refrigerador Indurama 262 litros',
+               '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
+               '$420')">
+               <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
+               <h3>Refrigerador Indurama 262 litros</h3>
+               <span>$420</span>
+            </div>
+         </div>
+      </section>
       <!-- SECCIÓN MODAL -->
       <div id="modal" class="modal">
          <div class="modal-content">
