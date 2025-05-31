@@ -2,108 +2,174 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <title>Categorías | Electromás</title>
+  <meta name="description" content="Descubra las diferentes categorías de productos que Electromás ofrece para su hogar y tecnología.">
+  <meta name="keywords" content="categorías, electrodomésticos, tecnología, hogar, electromas">
+  <meta name="author" content="Electromás">
+  <link rel="shortcut icon" href="00imagenes/logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
     }
     header {
-      background-color: #002244;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background-color: #fff;
+      box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 4px solid #f29300;
     }
-    header h1 {
-      font-size: 36px;
-      margin: 0;
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
     }
-    header p {
-      font-size: 18px;
-      margin-top: 5px;
+    .header-left img {
+      height: 40px;
+      width: auto;
     }
     nav {
-      background-color: #F18611;
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      gap: 25px;
     }
     nav a {
-      color: white;
+      color: #002244;
       text-decoration: none;
-      font-size: 18px;
       font-weight: bold;
-      transition: color 0.3s;
+      font-size: 18px;
+      padding: 10px 15px;
+      transition: color 0.3s, transform 0.2s ease;
     }
     nav a:hover {
+      color: #f29300;
+      transform: scale(1.1);
+    }
+    .categorias-section {
+      padding-top: 120px;
+      background-color: #FFFFFF;
+      padding-bottom: 40px;
+    }
+    .categorias-section h2 {
+      text-align: center;
+      font-size: 32px;
       color: #002244;
+      margin-bottom: 30px;
     }
     .categorias {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
-      padding: 40px 20px;
-      background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+      max-width: 1100px;
+      margin: auto;
     }
     .categoria {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-      width: 250px;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: bold;
-      color: #002244;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      text-align: center;
-      padding: 10px;
-      background-image: url('principal/bg-pattern.png');
+      width: 240px;
+      height: 240px;
       background-size: cover;
-      background-blend-mode: lighten;
+      background-position: center;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      position: relative;
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
     .categoria:hover {
-      transform: scale(1.08);
-      background-color: #fefefe;
-      color: #fc4b08;
+      transform: translateY(-5px);
     }
+    .categoria .overlay {
+      background-color: rgba(0, 0, 0, 0.55);
+      height: 100%;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .categoria h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #f29300;
+    }
+    .categoria p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .categoria.refrigeracion { background-image: url('principal/categorias/refrigeracion.jpg'); }
+    .categoria.cocinas { background-image: url('principal/categorias/cocinas.jpg'); }
+    .categoria.microondas { background-image: url('principal/categorias/microondas.jpg'); }
+    .categoria.lavadoras { background-image: url('principal/categorias/lavadoras.jpg'); }
+    .categoria.menores { background-image: url('principal/categorias/menores.jpg'); }
     footer {
       background-color: #002244;
       color: white;
       text-align: center;
       padding: 15px;
       font-size: 14px;
-      position: relative;
-      bottom: 0;
       width: 100%;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Electromás</h1>
-    <p>Encuentra lo que necesitas para tu hogar o negocio</p>
+    <div class="header-left">
+      <img src="00imagenes/electro.png" alt="Logo Electromás">
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="combos.html">Combos</a>
+        <a href="somos.html">Quiénes somos</a>
+      </nav>
+    </div>
   </header>
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="electrodomesticos.html">Electrodomésticos</a>
-  </nav>
-  <section class="categorias">
-    <div class="categoria" onclick="location.href='categoria-refrigeracion.html'">❄️ Refrigeración Inteligente</div>
-    <div class="categoria" onclick="location.href='categoria-cocinas.html'">🍳 Cocinas Modernas</div>
-    <div class="categoria" onclick="location.href='categoria-microondas.html'">⚡ Microondas Eficientes</div>
-    <div class="categoria" onclick="location.href='categoria-lavadoras.html'">🧺 Lavadoras Potentes</div>
-    <div class="categoria" onclick="location.href='categoria-menores.html'">💡 Pequeños Electrodomésticos</div>
+  <section class="categorias-section" id="categorias">
+    <h2>🟠 Categorías 🟠</h2>
+    <div class="categorias">
+      <a href="categoria-refrigeracion.html" class="categoria refrigeracion">
+        <div class="overlay">
+          <h3>Refrigeración</h3>
+          <p>Neveras, congeladores, dispensadores y más.</p>
+        </div>
+      </a>
+      <a href="categoria-cocinas.html" class="categoria cocinas">
+        <div class="overlay">
+          <h3>Cocinas</h3>
+          <p>Estufas, cocinetas, hornos, planchas y más.</p>
+        </div>
+      </a>
+      <a href="categoria-microondas.html" class="categoria microondas">
+        <div class="overlay">
+          <h3>Microondas</h3>
+          <p>Modelos con grill, convección y funciones avanzadas.</p>
+        </div>
+      </a>
+      <a href="categoria-lavadoras.html" class="categoria lavadoras">
+        <div class="overlay">
+          <h3>Lavadoras</h3>
+          <p>Alta capacidad, eficiencia energética, tecnología inverter.</p>
+        </div>
+      </a>
+      <a href="categoria-menores.html" class="categoria menores">
+        <div class="overlay">
+          <h3>Pequeños Electrodomésticos</h3>
+          <p>Freidoras, licuadoras, batidoras, cafeteras y más.</p>
+        </div>
+      </a>
+    </div>
   </section>
   <footer>
     <p>© 2025 Electromás. Todos los derechos reservados.</p>
