@@ -42,6 +42,7 @@
          height: 40px;
          width: auto;
          }
+         
          .header-left nav a {
          border-radius: 5px;
          padding: 10px;
@@ -423,7 +424,7 @@
             <div class="hero-contenido">
                <h1>Ofertas Especiales</h1>
                <p class="mensaje-potente">
-                   Electrodomésticos con <strong>crédito inmediato</strong> y <strong>entrega garantizada</strong> en Loja y Zamora. ¡Promoción limitada!
+                   <strong>Electrodomésticos con crédito inmediato y entrega garantizada en Loja y Zamora. ¡Promoción limitada!</strong>
                </p>
                <div class="hero-botones">
                   <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
@@ -481,35 +482,6 @@
          <!-- ############# -->
          <!-- SECCIÓN SCRIPT -->
          <!-- ############# -->
-         <script>
-            let animado = true;
-            function toggleAnimacion() {
-            const carrusel = document.getElementById("miCarrusel");
-            const wrapper = document.getElementById("wrapper");
-            
-            if (animado) {
-            carrusel.style.animationPlayState = "paused";
-            wrapper.classList.add("scrollable");
-            } else {
-            carrusel.style.animationPlayState = "running";
-            wrapper.classList.remove("scrollable");
-            }
-            animado = !animado;
-            }
-         </script>
-         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-               const carrusel = document.getElementById("miCarrusel");
-               if (!carrusel) return;
-            
-               const contenidoOriginal = carrusel.innerHTML;
-               const repeticiones = 8; // Ajuste según cuán largo desea el loop
-            
-               for (let i = 0; i < repeticiones - 1; i++) {
-                  carrusel.innerHTML += contenidoOriginal;
-               }
-            });
-         </script>
          <script>
             function mostrarDetalles(titulo, descripcion, precio) {
                 document.getElementById('modal-titulo').innerText = titulo;
