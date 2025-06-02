@@ -75,10 +75,6 @@
          transform: scale(1.1); /* Efecto visual de crecimiento */
          cursor: pointer;
          }
-         main {
-         flex: 1;
-         padding-top: 70px;
-         }
          /*##########################*/
          /*##SECCIÓN PRINCIPAL HERO##*/
          /*##########################*/
@@ -86,21 +82,19 @@
          background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('principal/general/ologo.png');
          background-size: cover;
          background-position: top center; /* ← Ancla la imagen en la parte superior */
-         height: 500px; /* ← Ajuste la altura según cuánto desee mostrar */
+         height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
          padding: 50px 400px 40px 40px; /* <-- este padding-top evita el choque */
          display: flex;
          align-items: center;
-         justify-content: center
-         text-align: center;
-         color: #FFFFFF;
+         color: #f29300;;
          overflow: hidden; /* ← Oculta cualquier contenido que sobresalga */
          }
          .hero-contenido {
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           text-align: center;
+         max-width: 500px;
+         text-align: left;
+         font-family: 'Segoe UI', sans-serif;
+         margin-left: 40px; /* ← Separación del borde izquierdo */
+         margin-right: auto;
          }
          .hero-contenido h1 {
          font-size: 32px;
@@ -358,48 +352,6 @@
          text-align: center;
          font-weight: bold;
          }
-
-         .ofertas-carrusel {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 20px;
-         }
-         .producto-carrusel {
-         background: white;
-         border-radius: 10px;
-         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-         padding: 15px;
-         width: 260px;
-         height: 280px;
-         text-align: center;
-         transition: transform 0.3s;
-         cursor: pointer;
-         display: flex;
-         flex-direction: column;
-         justify-content: space-between;
-         }
-         .producto-carrusel:hover {
-         transform: scale(1.05);
-         }
-         .producto-carrusel img {
-         width: 100%;
-         max-height: 150px;
-         object-fit: contain;
-         margin: 0 auto;
-         border-radius: 8px;
-         }
-         .producto-carrusel h3 {
-         font-size: 16px;
-         color: #002244;
-         margin: 8px 0;
-         }
-         .producto-carrusel span {
-         font-size: 18px;
-         font-weight: bold;
-         color: #fc4b08;
-         }
-         
          /*##########################*/
          /*#######PIE DE PÁGINA######*/
          /*##########################*/
@@ -434,22 +386,25 @@
          </header>
          <section class="hero">
             <div class="hero-contenido">
-               <h1>Ofertas Especiales</h1>
+               <h1>Electrodomésticos y Tecnología</h1>
                <p class="mensaje-potente">
-                   <strong>Electrodomésticos con crédito inmediato y entrega garantizada en Loja y Zamora. ¡Promoción limitada!</strong>
+                  Aproveche hoy mismo nuestras <strong>ofertas exclusivas</strong> con <strong>crédito inmediato</strong> y <strong>entrega garantizada</strong>. ¡Llévese lo mejor a su hogar, sin complicaciones ni demoras!
                </p>
                <div class="hero-botones">
                   <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
-                  <i class="fab fa-whatsapp"></i> Cotice ahora por WhatsApp
+                  <i class="fab fa-whatsapp"></i> Contáctenos
                   </a>
-                </div>
+                  <a href="https://www.facebook.com/profile.php?id=61554825365190" target="_blank" class="btn facebook">
+                  <i class="fab fa-facebook-f"></i> Síganos
+                  </a>
+               </div>
             </div>
          </section>
          <!-- ########################## -->
          <!-- SECCIÓN DE OFERTAS DEL MES -->
          <!-- ########################## -->    
          <section class="ofertas" id="ofertas">
-            <h2 class="seccion-titulo">🟠 Electrofertas 🟠</h2>
+            <h2 class="seccion-titulo">🟠 Electrofertas Mayo 🟠</h2>
             <div class="ofertas-carrusel">
                <div class="producto-carrusel" onclick="mostrarDetalles(
                   'Televisor Indurama 58 pulgadas',
@@ -540,7 +495,7 @@
                 // Actualizar el precio
                 document.getElementById('modal-precio').innerText = precio;
                 // Construcción del enlace de WhatsApp
-                let numeroWhatsApp = "593988926331";
+                let numeroWhatsApp = "593988200116";
                 let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
                 let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
                 document.getElementById('whatsapp-link').href = whatsappURL;  
