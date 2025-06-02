@@ -339,9 +339,9 @@
          .carousel {
             display: flex;
             gap: 20px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
+            animation: scroll 40s linear infinite;
+            animation-play-state: running;
+            will-change: transform;
          }
          .carousel img {
          height: 260px;
@@ -352,6 +352,13 @@
          background-color: white;
          padding: 10px;
          object-fit: contain;
+         }
+         /*##########################*/
+         /*#########ANIMACIÓN########*/
+         /*##########################*/
+         @keyframes scroll {
+         0% { transform: translateX(0%); }
+         100% { transform: translateX(-50%); }
          }
          /*#######################################################################*/
          /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
@@ -811,13 +818,22 @@
                animado = !animado;
             }
          function moverCarrusel(direccion) {
-               const carrusel = document.getElementById("miCarrusel");
-               const desplazamiento = carrusel.offsetWidth / 2; // mover medio carrusel
-               carrusel.scrollBy({
-                  left: direccion * desplazamiento,
-                  behavior: "smooth"
-               });
+            const carrusel = document.getElementById("miCarrusel");
+            carrusel.style.animation = "none"; // Pausar animación
+            const actual = getComputedStyle(carrusel).transform;
+         
+            if (actual !== 'none') {
+               const matrix = new DOMMatrixReadOnly(actual);
+               const desplazamiento = direccion * (carrusel.offsetWidth / 2);
+               const nuevo = matrix.m41 - desplazamiento;
+               carrusel.style.transform = `translateX(${nuevo}px)`;
             }
+         
+            // Reinicia animación tras un momento
+            setTimeout(() => {
+               carrusel.style.animation = "scroll 40s linear infinite";
+            }, 3000); // 3 segundos antes de retomar movimiento
+         }
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
              // Seleccionar la lista de características
