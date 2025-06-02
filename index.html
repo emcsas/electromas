@@ -341,7 +341,8 @@
          gap: 20px;
          animation: scroll 60s linear infinite;
          animation-play-state: running;
-         width: max-content;
+         width: fit-content;
+         padding-right: 20px; /* ← espacio final para evitar corte */
          }
          .carousel img {
          height: 260px;
@@ -805,18 +806,21 @@ window.addEventListener('DOMContentLoaded', () => {
    const carrusel = document.getElementById("miCarrusel");
    const imagenes = Array.from(carrusel.children);
 
-   // Duplicar las imágenes
+   // Duplicar imágenes
    imagenes.forEach(img => {
       const copia = img.cloneNode(true);
       carrusel.appendChild(copia);
    });
 
-   // Calcular el ancho total requerido y aplicarlo
-   const anchoImagen = imagenes[0].offsetWidth + 20; // ancho + gap
+   // Ajustar ancho: se mide correctamente considerando márgenes y padding
    const totalImagenes = carrusel.children.length;
-   carrusel.style.width = (anchoImagen * totalImagenes) + "px";
+   const imagenMuestra = carrusel.querySelector("img");
+   const estilo = getComputedStyle(imagenMuestra);
+   const anchoReal = imagenMuestra.offsetWidth + parseInt(estilo.marginLeft) + parseInt(estilo.marginRight) + 20; // +gap
+   carrusel.style.width = (anchoReal * totalImagenes) + "px";
 });
 </script>
+
 
 
          
