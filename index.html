@@ -337,10 +337,11 @@
          padding: 10px 0;
          }
          .carousel {
-         display: flex;
-         gap: 20px;
-         animation: scroll 40s linear infinite;
-         animation-play-state: running;
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
          }
          .carousel img {
          height: 260px;
@@ -351,13 +352,6 @@
          background-color: white;
          padding: 10px;
          object-fit: contain;
-         }
-         /*##########################*/
-         /*#########ANIMACIÓN########*/
-         /*##########################*/
-         @keyframes scroll {
-         0% { transform: translateX(0%); }
-         100% { transform: translateX(-80%); }
          }
          /*#######################################################################*/
          /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
