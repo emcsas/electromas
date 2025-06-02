@@ -600,6 +600,28 @@
          bottom: 0;
          left: 0;
          }
+         .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 30px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1001;
+            border-radius: 50%;
+         }
+         .arrow.left {
+            left: 10px;
+         }
+         .arrow.right {
+            right: 10px;
+         }
+         .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+         }
       </style>
    </head>
    <!-- ######################################### -->
@@ -686,7 +708,8 @@
             </section>
          </div>
       </section>
-      <div class="banner">
+      <div class="banner" style="position: relative;">
+         <button class="arrow left" onclick="moverCarrusel(-1)">&#10094;</button>
          <div class="carousel" onclick="toggleAnimacion()" id="miCarrusel">
             <img src="principal/inicio/p1.jpg" alt="Oferta">
             <img src="principal/inicio/p2.jpg" alt="Oferta">
@@ -700,6 +723,7 @@
             <img src="principal/inicio/p4.jpg" alt="Oferta">    
             <img src="principal/inicio/p5.jpg" alt="Oferta">
          </div>
+         <button class="arrow right" onclick="moverCarrusel(1)">&#10095;</button>
       </div>
       <!-- ########################## -->
       <!-- SECCIÓN DE OFERTAS DEL MES -->
@@ -781,6 +805,14 @@
                   carrusel.style.animationPlayState = "running";
                }
                animado = !animado;
+            }
+         function moverCarrusel(direccion) {
+               const carrusel = document.getElementById("miCarrusel");
+               const desplazamiento = carrusel.offsetWidth / 2; // mover medio carrusel
+               carrusel.scrollBy({
+                  left: direccion * desplazamiento,
+                  behavior: "smooth"
+               });
             }
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
