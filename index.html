@@ -340,6 +340,7 @@
          display: flex;
          gap: 20px;
          animation: scroll 40s linear infinite;
+         animation-play-state: running;
          }
          .carousel img {
          height: 260px;
@@ -686,7 +687,7 @@
          </div>
       </section>
       <div class="banner">
-         <div class="carousel">
+         <div class="carousel" onclick="toggleAnimacion()" id="miCarrusel">
             <img src="principal/inicio/p1.jpg" alt="Oferta">
             <img src="principal/inicio/p2.jpg" alt="Oferta">
             <img src="principal/inicio/p3.jpg" alt="Oferta">
@@ -772,6 +773,17 @@
       </div>
       <script>
          function mostrarDetalles(titulo, descripcion, precio) {
+            let animado = true;
+
+function toggleAnimacion() {
+   const carrusel = document.getElementById("miCarrusel");
+   if (animado) {
+      carrusel.style.animationPlayState = "paused";
+   } else {
+      carrusel.style.animationPlayState = "running";
+   }
+   animado = !animado;
+}
              document.getElementById('modal-titulo').innerText = titulo;
              // Seleccionar la lista de características
              let listaDescripcion = document.getElementById('modal-descripcion');
