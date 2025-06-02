@@ -366,7 +366,7 @@
          /*##########################*/
          @keyframes scroll {
          0% { transform: translateX(0%); }
-         100% { transform: translateX(-80%); }
+         100% { transform: translateX(-50%); }
          }
          /*#######################################################################*/
          /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
@@ -800,17 +800,18 @@ function toggleAnimacion() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-   const carrusel = document.getElementById("carruselOfertas");
+   const carrusel = document.getElementById("miCarrusel");
    if (!carrusel) return;
 
    const contenidoOriginal = carrusel.innerHTML;
-   const repeticiones = 5;
+   const repeticiones = 8; // Ajuste según cuán largo desea el loop
 
    for (let i = 0; i < repeticiones - 1; i++) {
       carrusel.innerHTML += contenidoOriginal;
    }
 });
 </script>
+
 
 
          
