@@ -1,514 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=0.5">
-      <title>Electromás | Ofertas</title>
-      <meta name="author" content="Electromás">
-      <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-      <style>
-         html, body {
-         height: 100%;
-         margin: 0;
-         padding: 0;
-         display: flex;
-         flex-direction: column;
-         font-family: Arial, sans-serif;
-         background-color: #f4f4f4;
-         }
-         /*##########################*/
-         /*####SECCIÓN ENCABEZADO####*/
-         /*##########################*/
-         header {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 10px 30px;
-         background-color: #fff;
-         box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-         position: fixed;
-         top: 0;
-         width: 100%;
-         z-index: 1000;
-         border-bottom: 4px solid #f29300; /* Línea naranja delgada inferior */
-         }
-         .header-left {
-         display: flex;
-         align-items: center;
-         gap: 30px; /* Es el espacio entre el logo y el menú */
-         }
-         .header-left img {
-         height: 40px;
-         width: auto;
-         }
-         .header-left nav a {
-         border-radius: 5px;
-         padding: 10px;
-         }
-         .header-right {
-         display: flex;
-         align-items: center;
-         gap: 40px;
-         margin-left: 20px;
-         }
-         .header-left nav a:focus,
-         .header-left nav a:active {
-         outline: none;
-         background-color: rgba(242, 147, 0, 0.2); /* Sensación de "clic" */
-         }
-         nav {
-         display: flex;
-         gap: 25px;
-         background-color: transparent;
-         }
-         nav a {
-         color: #002244;
-         text-decoration: none;
-         font-weight: bold;
-         font-size: 22px; /* Letra más grande */
-         padding: 10px 15px; /* Aumenta el área de clic */
-         transition: color 0.3s, transform 0.2s ease;
-         }
-         nav a:hover {
-         color: #f29300; /* Color llamativo al pasar el mouse */
-         transform: scale(1.1); /* Efecto visual de crecimiento */
-         cursor: pointer;
-         }
-         /*##########################*/
-         /*##SECCIÓN PRINCIPAL HERO##*/
-         /*##########################*/
-         .hero {
-         background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('principal/general/ologo.png');
-         background-size: cover;
-         background-position: top center; /* ← Ancla la imagen en la parte superior */
-         height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
-         padding: 50px 400px 40px 40px; /* <-- este padding-top evita el choque */
-         display: flex;
-         align-items: center;
-         color: #f29300;;
-         overflow: hidden; /* ← Oculta cualquier contenido que sobresalga */
-         }
-         .hero-contenido {
-         max-width: 500px;
-         text-align: left;
-         font-family: 'Segoe UI', sans-serif;
-         margin-left: 40px; /* ← Separación del borde izquierdo */
-         margin-right: auto;
-         }
-         .hero-contenido h1 {
-         font-size: 32px;
-         font-weight: 700;
-         margin-bottom: 15px;
-         }
-         .hero-contenido p {
-         font-size: 20px;
-         line-height: 1.6;
-         margin-bottom: 25px;
-         }
-         .hero-botones {
-         display: flex;
-         gap: 15px;
-         flex-wrap: wrap;
-         }
-         .btn {
-         padding: 12px 20px;
-         border-radius: 30px;
-         font-weight: bold;
-         font-size: 18px;
-         text-decoration: none;
-         display: inline-flex;
-         align-items: center;
-         gap: 8px;
-         transition: all 0.3s ease;
-         }
-         .mensaje-potente {
-         font-size: 16px;
-         color: white;
-         margin-top: 15px;
-         line-height: 1.6;
-         font-weight: 500;
-         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-         }
-         .btn.whatsapp {
-         background-color: #25D366;
-         color: white;
-         border: none;
-         }
-         .btn.whatsapp:hover {
-         background-color: white;
-         color: #1EBE5D;
-         }
-         .btn.facebook {
-         background-color: #1877F2;
-         color: white;
-         border: none;
-         }
-         .btn.facebook:hover {
-         background-color: white;
-         color: #1877F2;
-         }
-         .cta-buttons {
-         margin-top: 80px;
-         }
-         .cta-buttons a {
-         background-color: #f29300;
-         color: white;
-         text-decoration: none;
-         font-weight: bold;
-         padding: 15px 25px;
-         margin: 0 10px;
-         border-radius: 30px;
-         display: inline-block;
-         transition: background-color 0.3s;
-         }
-         .cta-buttons a:hover {
-         background-color: #cc7600;
-         }
-         .social-icons {
-         margin-top: 15px;
-         }
-         .social-icons a {
-         color: white;
-         margin: 0 10px;
-         font-size: 24px;
-         }
-         /*#######################################################################*/
-         /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
-         /*#######################################################################*/
-         .modal {
-         display: none;
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: rgba(0, 0, 0, 0.5);
-         align-items: center;
-         justify-content: center;
-         z-index: 1000;
-         }
-         .modal-content {
-         background: white;
-         padding: 20px;
-         border-radius: 10px;
-         text-align: center;
-         width: 80%;
-         max-width: 400px;
-         box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-         }
-         .modal-content h2 {
-         font-size: 22px;
-         font-weight: bold;
-         color: #002244;
-         margin-bottom: 15px;
-         }
-         .modal-content ul {
-         text-align: left;
-         padding-left: 20px;
-         font-size: 16px;
-         color: #444;
-         list-style-type: disc; /* Viñetas */
-         }
-         .modal-content ul li {
-         margin-bottom: 8px;
-         }
-         .precio {
-         font-size: 20px;
-         font-weight: bold;
-         color: #fc4b08;
-         text-align: center;
-         margin-top: 15px;
-         }
-         .modal-buttons {
-         display: flex;
-         justify-content: center;
-         gap: 10px;
-         margin-top: 15px;
-         }
-         /*##############################################*/
-         /*#BOTÓN WHATSAPP: Este es el que esta en modal#*/
-         /*##############################################*/
-         .whatsapp-btn {
-         background-color: #085c27;
-         color: white;
-         padding: 10px 15px;
-         border-radius: 5px;
-         text-decoration: none;
-         font-size: 16px;
-         font-weight: bold;
-         display: inline-block;
-         align-items: center;
-         gap: 5px;
-         }
-         .whatsapp-btn:hover {
-         background-color: #1EBE5D;
-         }
-         .close {
-         padding: 10px 15px;
-         background-color: #fc4b08;
-         color: white;
-         border: none;
-         border-radius: 5px;
-         cursor: pointer;
-         font-size: 16px;
-         display: inline-flex;
-         align-items: center;
-         gap: 5px;
-         }
-         .close:hover {
-         background-color: #e63900;
-         }
-         /*##########################*/
-         /*##SECCIÓN OFERTAS DEL MES#*/
-         /*##########################*/
-         .ofertas {
-         max-width: 1200px;
-         margin: 2px auto;
-         margin-bottom: 40px; /*Espacio entre la imagen y la foto del producto*/
-         text-align: center;
-         padding: 2px;
-         }
-         .ofertas h2 {
-         color: #002244;
-         font-size: 28px;
-         margin-bottom: 20px;
-         }
-         .productos {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 20px;
-         margin-top: 20px;
-         }
-         .producto {
-         background: white;
-         border-radius: 10px;
-         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-         padding: 15px;
-         width: 280px; /* Tamaño uniforme */
-         height: 300px; /* Altura fija */
-         text-align: center;
-         transition: transform 0.3s;
-         cursor: pointer;
-         display: flex;
-         flex-direction: column;
-         justify-content: space-between; /* Espacia elementos internamente */
-         }
-         .producto:hover {
-         transform: scale(1.05);
-         }
-         .producto img {
-         width: 100%;
-         max-height: 200px; /* Altura máxima para evitar deformaciones */
-         object-fit: contain; /* Ajusta la imagen dentro sin cortarla */
-         display: block;
-         margin: auto;
-         border-radius: 10px;
-         }
-         .producto h3 {
-         font-size: 18px;
-         color: #002244;
-         margin: 10px 0;
-         }
-         .producto p {
-         font-size: 16px;
-         color: #666;
-         }
-         .producto span {
-         font-size: 20px;
-         font-weight: bold;
-         color: #fc4b08;
-         }
-         main {
-         flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
-         }
-         /*##########################*/
-         /*#####TITULOS MODERNOS#####*/
-         /*##########################*/
-         .seccion-titulo {
-         font-size: 34px;
-         color: #002244;
-         font-weight: 700;
-         text-align: center;
-         margin-top: 40px;
-         margin-bottom: 40px;
-         font-family: 'Segoe UI', sans-serif;
-         position: relative;
-         }
-         .seccion-titulo::after {
-         content: '';
-         width: 60px;
-         height: 4px;
-         background-color: #f29300;
-         display: block;
-         margin: 10px auto 0;
-         border-radius: 4px;
-         }
-         .titulo-seccion {
-         font-size: 32px;
-         color: #002244;
-         margin: 20px 0 30px;
-         text-align: center;
-         font-weight: bold;
-         }
-         /*##########################*/
-         /*#######PIE DE PÁGINA######*/
-         /*##########################*/
-         footer {
-         background-color: #002244;
-         color: white;
-         text-align: center;
-         padding: 2px;
-         font-size: 18px;
-         width: 100vw;
-         min-height: 60px; /* Ajusta la altura mínima */
-         box-sizing: border-box; /* Evita problemas con márgenes y paddings */
-         position: auto;
-         margin-top: auto; /* Se mantiene abajo automáticamente */
-         bottom: 0;
-         left: 0;
-         }
-      </style>
-   </head>
-   <!-- ######################################### -->
-   <!-- INICIO PARA COLOCAR TODO LO DE LA EMPRESA -->
-   <!-- ######################################### -->
-   <body>
-      <main>
-         <header>
-            <div class="header-left">
-               <img src="principal/general/electro.png" alt="Logo">
-               <nav>
-                  <a href="index.html">Inicio</a>
-               </nav>
-            </div>
-         </header>
-         <section class="hero">
-            <div class="hero-contenido">
-               <h1>Electrodomésticos y Tecnología</h1>
-               <p class="mensaje-potente">
-                  Aproveche hoy mismo nuestras <strong>ofertas exclusivas</strong> con <strong>crédito inmediato</strong> y <strong>entrega garantizada</strong>. ¡Llévese lo mejor a su hogar, sin complicaciones ni demoras!
-               </p>
-               <div class="hero-botones">
-                  <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
-                  <i class="fab fa-whatsapp"></i> Contáctenos
-                  </a>
-                  <a href="https://www.facebook.com/profile.php?id=61554825365190" target="_blank" class="btn facebook">
-                  <i class="fab fa-facebook-f"></i> Síganos
-                  </a>
-               </div>
-            </div>
-         </section>
-         <!-- ########################## -->
-         <!-- SECCIÓN DE OFERTAS DEL MES -->
-         <!-- ########################## -->    
-         <section class="ofertas" id="ofertas">
-            <h2 class="seccion-titulo">🟠 Electrofertas Mayo 🟠</h2>
-            <div class="ofertas-carrusel">
-               <div class="producto-carrusel" onclick="mostrarDetalles(
-                  'Televisor Indurama 58 pulgadas',
-                  'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
-                  '$556')">
-                  <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-                  <h3>Televisor Indurama 58"</h3>
-                  <span>$556</span>
-               </div>
-               <div class="producto-carrusel" onclick="mostrarDetalles(
-                  'Lavadora Indurama 19kg',
-                  'Lavadora de carga superior 19Kg|Disponible en croma|Tapa de vidrio transparente con ralentizador|Tecnología anti-enredo|Dispensador multiuso|Opción de reutilización de agua|Cuatro niveles de agua|Tres opciones de temperatura de agua|Alto: 108.5 cm|Ancho: 64 cm|Profundidad: 68.4 cm|3 años de garantía en el motor y panel',
-                  '$535')">
-                  <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama">
-                  <h3>Lavadora Indurama 19kg</h3>
-                  <span>$535</span>
-               </div>
-               <div class="producto-carrusel" onclick="mostrarDetalles(
-                  'Refrigerador Indurama 262 litros',
-                  '262 Litros|Eficiencia energética A|Disponible en croma|Sistema No Frost|Refrigerante R600a|Puertas en lámina lisa|Balcones transparentes de gran capacidad y durabilidad|Bandeja de vidrio templado|Alto: 147 cm|Ancho: 61.5 cm|Prof: 68 cm|3 años de garantía en el compresor',
-                  '$420')">
-                  <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
-                  <h3>Refrigerador Indurama 262 litros</h3>
-                  <span>$420</span>
-               </div>
-            </div>
-         </section>
-         <!-- ############# -->
-         <!-- SECCIÓN MODAL -->
-         <!-- ############# -->
-         <div id="modal" class="modal">
-            <div class="modal-content">
-               <h2 id="modal-titulo"></h2>
-               <ul id="modal-descripcion"></ul>
-               <p id="modal-precio" class="precio"></p>
-               <div class="modal-buttons">
-                  <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-                  <button class="close" onclick="cerrarModal()">Cerrar</button>
-               </div>
-            </div>
-         </div>
-         <!-- ############# -->
-         <!-- SECCIÓN SCRIPT -->
-         <!-- ############# -->
-         <script>
-            let animado = true;
-            function toggleAnimacion() {
-            const carrusel = document.getElementById("miCarrusel");
-            const wrapper = document.getElementById("wrapper");
-            
-            if (animado) {
-            carrusel.style.animationPlayState = "paused";
-            wrapper.classList.add("scrollable");
-            } else {
-            carrusel.style.animationPlayState = "running";
-            wrapper.classList.remove("scrollable");
-            }
-            
-            animado = !animado;
-            }
-         </script>
-         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-               const carrusel = document.getElementById("miCarrusel");
-               if (!carrusel) return;
-            
-               const contenidoOriginal = carrusel.innerHTML;
-               const repeticiones = 8; // Ajuste según cuán largo desea el loop
-            
-               for (let i = 0; i < repeticiones - 1; i++) {
-                  carrusel.innerHTML += contenidoOriginal;
-               }
-            });
-         </script>
-         <script>
-            function mostrarDetalles(titulo, descripcion, precio) {
-                document.getElementById('modal-titulo').innerText = titulo;
-                // Seleccionar la lista de características
-                let listaDescripcion = document.getElementById('modal-descripcion');
-                listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
-                // Convertir la descripción en una lista
-                let caracteristicas = descripcion.split('|');    
-                caracteristicas.forEach(caracteristica => {
-                    let li = document.createElement('li');
-                    li.textContent = caracteristica.trim();
-                    listaDescripcion.appendChild(li);
-                });
-                // Actualizar el precio
-                document.getElementById('modal-precio').innerText = precio;
-                // Construcción del enlace de WhatsApp
-                let numeroWhatsApp = "593988200116";
-                let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
-                let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-                document.getElementById('whatsapp-link').href = whatsappURL;  
-                // Mostrar el modal
-                document.getElementById('modal').style.display = "flex";
-            }
-            function cerrarModal() {
-                document.getElementById('modal').style.display = "none";
-            }
-         </script>
-      </main>
-      <footer>
-         <p>© 2025 Electromás. Todos los derechos reservados.</p>
-      </footer>
-   </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electromás | Ofertas Exclusivas con Crédito Inmediato</title>
+  <meta name="description" content="Adquiera sus electrodomésticos con ofertas exclusivas, crédito inmediato y entrega garantizada. Solo en Electromás." />
+  <meta name="keywords" content="electrodomésticos, tecnología, crédito inmediato, ofertas Loja Zamora" />
+  <meta property="og:title" content="Electromás - Ofertas de Mayo con Crédito Directo" />
+  <meta property="og:description" content="Lleve lo mejor a su hogar hoy mismo. Crédito sin complicaciones. Promociones limitadas." />
+  <meta property="og:image" content="https://electromas.pages.dev/imagenes/oferta-destacada.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    html, body {
+      margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f8f8f8; color: #002244;
+    }
+    header {
+      background-color: #fff; padding: 15px 30px; border-bottom: 4px solid #f29300; display: flex; align-items: center; justify-content: space-between;
+      position: fixed; top: 0; width: 100%; z-index: 999;
+    }
+    header img { height: 45px; }
+    nav a {
+      text-decoration: none; color: #002244; font-weight: bold; margin-left: 25px; font-size: 18px;
+    }
+    nav a:hover { color: #f29300; }
+    main { padding-top: 80px; }
+
+    .hero {
+      background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('principal/general/ologo.png');
+      background-size: cover; background-position: center;
+      color: white; padding: 60px 20px; text-align: center;
+    }
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 20px; margin: 20px 0; }
+    .btn { background-color: #f29300; color: white; padding: 15px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block; }
+    .btn:hover { background-color: #cc7600; }
+
+    .ofertas { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
+    .ofertas h2 { font-size: 30px; margin-bottom: 20px; }
+    .ofertas-carrusel {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+    }
+    .producto-carrusel {
+      background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px; width: 280px; text-align: center; cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .producto-carrusel:hover { transform: scale(1.05); }
+    .producto-carrusel img { max-width: 100%; height: 180px; object-fit: contain; }
+    .producto-carrusel h3 { font-size: 18px; margin: 10px 0; }
+    .producto-carrusel span { font-size: 20px; font-weight: bold; color: #fc4b08; }
+
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000; }
+    .modal-content {
+      background: white; padding: 20px; border-radius: 10px; text-align: left;
+      width: 90%; max-width: 400px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .modal h2 { font-size: 20px; margin-bottom: 10px; }
+    .modal ul { padding-left: 20px; }
+    .modal ul li { margin-bottom: 6px; font-size: 15px; }
+    .modal .precio { font-weight: bold; color: #fc4b08; font-size: 18px; margin-top: 10px; }
+    .modal-buttons { margin-top: 15px; display: flex; justify-content: space-between; }
+    .whatsapp-btn, .close {
+      padding: 10px 15px; border: none; border-radius: 5px; text-decoration: none; font-weight: bold;
+    }
+    .whatsapp-btn { background-color: #25D366; color: white; }
+    .close { background-color: #fc4b08; color: white; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="principal/general/electro.png" alt="Logo Electromás">
+    <nav>
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Ofertas Especiales de Mayo</h1>
+      <p>Electrodomésticos con <strong>crédito inmediato</strong> y <strong>entrega garantizada</strong> en Loja y Zamora. ¡Promoción limitada!</p>
+      <a href="https://wa.me/593988926331" class="btn">Cotice Ahora por WhatsApp</a>
+    </section>
+
+    <section class="ofertas" id="ofertas">
+      <h2 class="seccion-titulo">Electrofertas del Mes</h2>
+      <div class="ofertas-carrusel">
+        <!-- Producto 1 -->
+        <div class="producto-carrusel" onclick="mostrarDetalles('TV 58\" Indurama', 'Resolución 4K|Procesador Quadcore|Dolby Vision|2 años de garantía', '$556')">
+          <img src="principal/televisor/indurama.png" alt="TV Indurama 58 pulgadas">
+          <h3>TV Indurama 58" UHD</h3>
+          <span>$556</span>
+        </div>
+        <!-- Producto 2 -->
+        <div class="producto-carrusel" onclick="mostrarDetalles('Lavadora 19kg Indurama', 'Tapa de vidrio|Anti-enredo|3 años de garantía', '$535')">
+          <img src="principal/lavadora/indurama.png" alt="Lavadora Indurama 19kg">
+          <h3>Lavadora Indurama 19kg</h3>
+          <span>$535</span>
+        </div>
+        <!-- Producto 3 -->
+        <div class="producto-carrusel" onclick="mostrarDetalles('Refrigerador 262L Indurama', 'No Frost|R600a|3 años de garantía', '$420')">
+          <img src="principal/refrigerador/indurama.png" alt="Refrigerador Indurama 262 litros">
+          <h3>Refrigerador Indurama 262L</h3>
+          <span>$420</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h2 id="modal-titulo"></h2>
+        <ul id="modal-descripcion"></ul>
+        <p id="modal-precio" class="precio"></p>
+        <div class="modal-buttons">
+          <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Solicitar por WhatsApp</a>
+          <button class="close" onclick="cerrarModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p style="text-align: center; padding: 10px; background-color: #002244; color: white;">&copy; 2025 Electromás. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function mostrarDetalles(titulo, descripcion, precio) {
+      document.getElementById('modal-titulo').innerText = titulo;
+      const lista = document.getElementById('modal-descripcion');
+      lista.innerHTML = "";
+      descripcion.split('|').forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item.trim();
+        lista.appendChild(li);
+      });
+      document.getElementById('modal-precio').innerText = precio;
+      const mensaje = `Hola, estoy interesado en el producto *${titulo}* con precio ${precio}. ¿Podrían darme más información?`;
+      const url = `https://wa.me/593988926331?text=${encodeURIComponent(mensaje)}`;
+      document.getElementById('whatsapp-link').href = url;
+      document.getElementById('modal').style.display = 'flex';
+    }
+    function cerrarModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
 </html>
