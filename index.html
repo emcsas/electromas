@@ -339,10 +339,8 @@
          .carousel {
          display: flex;
          gap: 20px;
-         animation: scroll 60s linear infinite;
+         animation: scroll 40s linear infinite;
          animation-play-state: running;
-         width: fit-content;
-         padding-right: 20px; /* ← espacio final para evitar corte */
          }
          .carousel img {
          height: 260px;
@@ -362,17 +360,13 @@
          .carousel-wrapper.scrollable {
             overflow-x: auto;
             cursor: grab;
-            display: flex;
          }
-         .carousel-wrapper.scrollable .carousel {
-   min-width: max-content;
-}
          /*##########################*/
          /*#########ANIMACIÓN########*/
          /*##########################*/
          @keyframes scroll {
-         0% { transform: translateX(0); }
-         100% { transform: translateX(-50%); }
+         0% { transform: translateX(0%); }
+         100% { transform: translateX(-80%); }
          }
          /*#######################################################################*/
          /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
@@ -702,9 +696,15 @@
             </section>
          </div>
       </section>
-      <div class="banner">
-   <div class="carousel-wrapper" id="wrapper">
-   <div class="carousel" id="miCarrusel">
+      <div class="banner" style="position: relative;">
+         <div class="carousel-wrapper" id="wrapper">
+         <div class="carousel" onclick="toggleAnimacion()" id="miCarrusel">
+            <img src="principal/inicio/p1.jpg" alt="Oferta">
+            <img src="principal/inicio/p2.jpg" alt="Oferta">
+            <img src="principal/inicio/p3.jpg" alt="Oferta">
+            <img src="principal/inicio/p4.jpg" alt="Oferta">    
+            <img src="principal/inicio/p5.jpg" alt="Oferta">
+            <!-- repetir las mismas -->
             <img src="principal/inicio/p1.jpg" alt="Oferta">
             <img src="principal/inicio/p2.jpg" alt="Oferta">
             <img src="principal/inicio/p3.jpg" alt="Oferta">
@@ -799,33 +799,7 @@ function toggleAnimacion() {
 
    animado = !animado;
 }
-      </script>
 
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-   const carrusel = document.getElementById("miCarrusel");
-   const imagenes = Array.from(carrusel.children);
-
-   // Repetir todo el bloque original (no solo imágenes individuales)
-   const contenidoHTML = carrusel.innerHTML;
-   carrusel.innerHTML += contenidoHTML; // Duplica todo
-
-   // Esperar a que cargue al menos una imagen para medir
-   const primeraImagen = carrusel.querySelector("img");
-   primeraImagen.onload = () => {
-      const imagenAncho = primeraImagen.offsetWidth;
-      const gap = 20; // igual al gap en .carousel
-      const total = carrusel.children.length;
-      carrusel.style.width = (imagenAncho + gap) * total + "px";
-   };
-});
-</script>
-
-
-
-
-         
-                     <script>
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
              // Seleccionar la lista de características
