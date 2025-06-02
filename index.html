@@ -339,8 +339,9 @@
          .carousel {
          display: flex;
          gap: 20px;
-         animation: scroll 40s linear infinite;
+         animation: scroll 60s linear infinite;
          animation-play-state: running;
+         width: max-content;
          }
          .carousel img {
          height: 260px;
@@ -370,7 +371,7 @@
          /*##########################*/
          @keyframes scroll {
          0% { transform: translateX(0%); }
-         100% { transform: translateX(-80%); }
+         100% { transform: translateX(-50%); }
          }
          /*#######################################################################*/
          /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
