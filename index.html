@@ -799,18 +799,27 @@ function toggleAnimacion() {
    animado = !animado;
 }
       </script>
-         <script>
+
+<script>
 window.addEventListener('DOMContentLoaded', () => {
    const carrusel = document.getElementById("miCarrusel");
    const imagenes = Array.from(carrusel.children);
 
-   // Clona cada imagen y la agrega al final del carrusel
+   // Duplicar las imágenes
    imagenes.forEach(img => {
       const copia = img.cloneNode(true);
       carrusel.appendChild(copia);
    });
+
+   // Calcular el ancho total requerido y aplicarlo
+   const anchoImagen = imagenes[0].offsetWidth + 20; // ancho + gap
+   const totalImagenes = carrusel.children.length;
+   carrusel.style.width = (anchoImagen * totalImagenes) + "px";
 });
-         </script>
+</script>
+
+
+         
                      <script>
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
