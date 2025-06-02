@@ -807,33 +807,71 @@
          </div>
       </div>
       <script>
-      let animado = true;
-         function toggleAnimacion() {
-               const carrusel = document.getElementById("miCarrusel");
-               if (animado) {
-                  carrusel.style.animationPlayState = "paused";
-               } else {
-                  carrusel.style.animationPlayState = "running";
-               }
-               animado = !animado;
-            }
-         function moverCarrusel(direccion) {
-            const carrusel = document.getElementById("miCarrusel");
-            carrusel.style.animation = "none"; // Pausar animación
-            const actual = getComputedStyle(carrusel).transform;
-         
-            if (actual !== 'none') {
-               const matrix = new DOMMatrixReadOnly(actual);
-               const desplazamiento = direccion * (carrusel.offsetWidth / 2);
-               const nuevo = matrix.m41 - desplazamiento;
-               carrusel.style.transform = `translateX(${nuevo}px)`;
-            }
-         
-            // Reinicia animación tras un momento
-            setTimeout(() => {
-               carrusel.style.animation = "scroll 40s linear infinite";
-            }, 3000); // 3 segundos antes de retomar movimiento
-         }
+let animado = true;
+let desplazamientoManual = 0;
+let animacionActiva = true;
+
+function toggleAnimacion() {
+   const carrusel = document.getElementById("miCarrusel");
+
+   if (animado) {
+      carrusel.style.animationPlayState = "paused";
+   } else {
+      carrusel.style.animationPlayState = "running";
+   }
+   animado = !animado;
+}
+
+function moverCarrusel(direccion) {
+   const carrusel = document.getElementById("miCarrusel");
+
+   // Pausar animación
+   carrusel.style.animation = "none";
+
+   // Obtener desplazamiento actual
+   const estilo = getComputedStyle(carrusel);
+   let matrix = new DOMMatrixReadOnly(estilo.transform);
+   desplazamientoManual = matrix.m41 || 0;
+
+   // Calcular nuevo desplazamiento
+   const cantidad = direccion * (carrusel.offsetWidth / 2);
+   desplazamientoManual -= cantidad;
+
+   // Aplicar nuevo transform
+   carrusel.style.transform = `translateX(${desplazamientoManual}px)`;
+
+   // Reanudar animación después de 3 segundos (si estaba activa)
+   if (animado) {
+      setTimeout(() => {
+         carrusel.style.animation = "scroll 40s linear infinite";
+         carrusel.style.transform = "";
+         desplazamientoManual = 0;
+      }, 3000);
+   }
+}
+
+function mostrarDetalles(titulo, descripcion, precio) {
+   document.getElementById('modal-titulo').innerText = titulo;
+   let listaDescripcion = document.getElementById('modal-descripcion');
+   listaDescripcion.innerHTML = "";
+   let caracteristicas = descripcion.split('|');    
+   caracteristicas.forEach(caracteristica => {
+      let li = document.createElement('li');
+      li.textContent = caracteristica.trim();
+      listaDescripcion.appendChild(li);
+   });
+   document.getElementById('modal-precio').innerText = precio;
+   let numeroWhatsApp = "593988200116";
+   let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
+   let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+   document.getElementById('whatsapp-link').href = whatsappURL;  
+   document.getElementById('modal').style.display = "flex";
+}
+
+function cerrarModal() {
+   document.getElementById('modal').style.display = "none";
+}
+
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
              // Seleccionar la lista de características
