@@ -801,20 +801,17 @@ function toggleAnimacion() {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
    const carrusel = document.getElementById("carruselOfertas");
-
    if (!carrusel) return;
 
-   const elementosOriginales = Array.from(carrusel.children); // Captura los productos originales
-   const repeticiones = 5; // Número de veces que se repite el carrusel
+   const contenidoOriginal = carrusel.innerHTML;
+   const repeticiones = 5;
 
    for (let i = 0; i < repeticiones - 1; i++) {
-      elementosOriginales.forEach((el) => {
-         const clon = el.cloneNode(true);
-         carrusel.appendChild(clon);
-      });
+      carrusel.innerHTML += contenidoOriginal;
    }
 });
 </script>
+
 
          
          <script>
