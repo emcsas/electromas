@@ -600,6 +600,9 @@
          bottom: 0;
          left: 0;
          }
+         /*##########################*/
+         /*###FLECHAS DEL CARRUSEL###*/
+         /*##########################*/         
          .arrow {
             position: absolute;
             top: 50%;
@@ -621,6 +624,13 @@
          }
          .arrow:hover {
             background-color: rgba(0, 0, 0, 0.8);
+         }
+         .banner:hover .arrow {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+         }
+         .arrow {
+            opacity: 0;
          }
       </style>
    </head>
