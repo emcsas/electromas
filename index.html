@@ -512,14 +512,15 @@
          /*##########################*/
          /*#####OFERTAS CARRUSEL#####*/
          /*##########################*/
-         .ofertas-carrusel {
-         overflow-x: auto;
-         display: flex;
-         gap: 20px;
-         padding: 20px;
-         scroll-snap-type: x mandatory;
-         -webkit-overflow-scrolling: touch;
-         }
+.ofertas-carrusel {
+   overflow-x: auto;
+   display: flex;
+   gap: 20px;
+   padding: 20px 10px; /* Reducido padding derecho e izquierdo */
+   scroll-snap-type: x mandatory;
+   -webkit-overflow-scrolling: touch;
+   box-sizing: content-box; /* ← importante para evitar recorte */
+}
          .ofertas-carrusel::-webkit-scrollbar {
          display: none;
          }
