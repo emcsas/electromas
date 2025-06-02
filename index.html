@@ -702,9 +702,9 @@
             </section>
          </div>
       </section>
-      <div class="banner" style="position: relative;">
-         <div class="carousel-wrapper" id="wrapper">
-         <div class="carousel" onclick="toggleAnimacion()" id="miCarrusel">
+      <div class="banner">
+   <div class="carousel-wrapper" id="wrapper">
+      <div class="carousel" id="miCarrusel
             <img src="principal/inicio/p1.jpg" alt="Oferta">
             <img src="principal/inicio/p2.jpg" alt="Oferta">
             <img src="principal/inicio/p3.jpg" alt="Oferta">
@@ -806,20 +806,21 @@ window.addEventListener('DOMContentLoaded', () => {
    const carrusel = document.getElementById("miCarrusel");
    const imagenes = Array.from(carrusel.children);
 
-   // Duplicar imágenes
-   imagenes.forEach(img => {
-      const copia = img.cloneNode(true);
-      carrusel.appendChild(copia);
-   });
+   // Repetir todo el bloque original (no solo imágenes individuales)
+   const contenidoHTML = carrusel.innerHTML;
+   carrusel.innerHTML += contenidoHTML; // Duplica todo
 
-   // Ajustar ancho: se mide correctamente considerando márgenes y padding
-   const totalImagenes = carrusel.children.length;
-   const imagenMuestra = carrusel.querySelector("img");
-   const estilo = getComputedStyle(imagenMuestra);
-   const anchoReal = imagenMuestra.offsetWidth + parseInt(estilo.marginLeft) + parseInt(estilo.marginRight) + 20; // +gap
-   carrusel.style.width = (anchoReal * totalImagenes) + "px";
+   // Esperar a que cargue al menos una imagen para medir
+   const primeraImagen = carrusel.querySelector("img");
+   primeraImagen.onload = () => {
+      const imagenAncho = primeraImagen.offsetWidth;
+      const gap = 20; // igual al gap en .carousel
+      const total = carrusel.children.length;
+      carrusel.style.width = (imagenAncho + gap) * total + "px";
+   };
 });
 </script>
+
 
 
 
