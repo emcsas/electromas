@@ -704,12 +704,6 @@
             <img src="principal/inicio/p3.jpg" alt="Oferta">
             <img src="principal/inicio/p4.jpg" alt="Oferta">    
             <img src="principal/inicio/p5.jpg" alt="Oferta">
-            <!-- repetir las mismas -->
-            <img src="principal/inicio/p1.jpg" alt="Oferta">
-            <img src="principal/inicio/p2.jpg" alt="Oferta">
-            <img src="principal/inicio/p3.jpg" alt="Oferta">
-            <img src="principal/inicio/p4.jpg" alt="Oferta">    
-            <img src="principal/inicio/p5.jpg" alt="Oferta">
          </div>
          </div>
       </div>
@@ -783,6 +777,9 @@
             </div>
          </div>
       </div>
+      <!-- ############# -->
+      <!-- SECCIÓN SCRIPT -->
+      <!-- ############# -->
       <script>
       let animado = true;
 function toggleAnimacion() {
@@ -799,7 +796,28 @@ function toggleAnimacion() {
 
    animado = !animado;
 }
+      </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+   const carrusel = document.getElementById("carruselOfertas");
+
+   if (!carrusel) return;
+
+   const elementosOriginales = Array.from(carrusel.children); // Captura los productos originales
+   const repeticiones = 5; // Número de veces que se repite el carrusel
+
+   for (let i = 0; i < repeticiones - 1; i++) {
+      elementosOriginales.forEach((el) => {
+         const clon = el.cloneNode(true);
+         carrusel.appendChild(clon);
+      });
+   }
+});
+</script>
+
+         
+         <script>
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
              // Seleccionar la lista de características
