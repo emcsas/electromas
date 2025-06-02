@@ -772,18 +772,17 @@
          </div>
       </div>
       <script>
+      let animado = true;
+         function toggleAnimacion() {
+               const carrusel = document.getElementById("miCarrusel");
+               if (animado) {
+                  carrusel.style.animationPlayState = "paused";
+               } else {
+                  carrusel.style.animationPlayState = "running";
+               }
+               animado = !animado;
+            }
          function mostrarDetalles(titulo, descripcion, precio) {
-            let animado = true;
-
-function toggleAnimacion() {
-   const carrusel = document.getElementById("miCarrusel");
-   if (animado) {
-      carrusel.style.animationPlayState = "paused";
-   } else {
-      carrusel.style.animationPlayState = "running";
-   }
-   animado = !animado;
-}
              document.getElementById('modal-titulo').innerText = titulo;
              // Seleccionar la lista de características
              let listaDescripcion = document.getElementById('modal-descripcion');
