@@ -352,6 +352,15 @@
          padding: 10px;
          object-fit: contain;
          }
+         .carousel-wrapper {
+            overflow-x: hidden;
+            width: 100%;
+         }
+         
+         .carousel-wrapper.scrollable {
+            overflow-x: auto;
+            cursor: grab;
+         }
          /*##########################*/
          /*#########ANIMACIÓN########*/
          /*##########################*/
@@ -688,6 +697,7 @@
          </div>
       </section>
       <div class="banner" style="position: relative;">
+         <div class="carousel-wrapper" id="wrapper">
          <div class="carousel" onclick="toggleAnimacion()" id="miCarrusel">
             <img src="principal/inicio/p1.jpg" alt="Oferta">
             <img src="principal/inicio/p2.jpg" alt="Oferta">
@@ -700,6 +710,7 @@
             <img src="principal/inicio/p3.jpg" alt="Oferta">
             <img src="principal/inicio/p4.jpg" alt="Oferta">    
             <img src="principal/inicio/p5.jpg" alt="Oferta">
+         </div>
          </div>
       </div>
       <!-- ########################## -->
@@ -774,21 +785,21 @@
       </div>
       <script>
       let animado = true;
-         function toggleAnimacion() {
+function toggleAnimacion() {
    const carrusel = document.getElementById("miCarrusel");
+   const wrapper = document.getElementById("wrapper");
 
    if (animado) {
       carrusel.style.animationPlayState = "paused";
-      carrusel.style.overflowX = "auto"; // Permite mover manualmente
-      carrusel.style.cursor = "grab";
+      wrapper.classList.add("scrollable");
    } else {
       carrusel.style.animationPlayState = "running";
-      carrusel.style.overflowX = "hidden"; // Bloquea movimiento manual
-      carrusel.style.cursor = "pointer";
+      wrapper.classList.remove("scrollable");
    }
 
    animado = !animado;
 }
+
          function mostrarDetalles(titulo, descripcion, precio) {
              document.getElementById('modal-titulo').innerText = titulo;
              // Seleccionar la lista de características
