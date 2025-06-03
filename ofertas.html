@@ -141,6 +141,246 @@
       font-style: italic;
       color: #555;
     }
+    .ubicacion {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 16px;
+      color: #002244;
+    }
+    .ubicacion span {
+      display: inline-block;
+      background-color: #ffe4b3;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    footer {
+      margin-top: 20px;
+      background: #002244;
+      color: white;
+      text-align: center;
+      padding: 20px 15px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="principal/general/electro.png" alt="Electromás" />
+  </header>
+
+  <section class="hero">
+    <h1>ElectroFertas Junio</h1>
+    <p>¡Ahorre entre un 10% y 30%! Promociones exclusivas en electrodomésticos con entrega inmediata en Loja y Zamora.</p>
+    <div id="countdown" class="countdown">Oferta válida hasta el 30 de junio</div>
+  </section>
+
+  <section class="ofertas-section">
+    <h2>🎯 Producto Estrella del Mes</h2>
+    <p class="ahorro">¡Ahorro de hasta el 30%! Solo por junio o hasta agotar stock.</p>
+    <div class="producto">
+      <img src="principal/televisor/indurama.png" alt="Televisor 58" />
+      <h3>Smart TV Indurama 58" UHD 4K</h3>
+      <span>$556</span>
+      <ul>
+        <li>✔ Resolución 4K Ultra HD</li>
+        <li>✔ Bluetooth 5.1 y Wi-Fi doble banda</li>
+        <li>✔ Procesador Quadcore + 2 GB RAM</li>
+        <li>✔ Garantía de 2 años</li>
+      </ul>
+      <p class="urgente">⚠ Solo 10 unidades disponibles. ¡Apresúrese!</p>
+      <div class="formulario">
+        <h3>Solicite esta oferta</h3>
+        <form onsubmit="return enviarWhatsApp(event)">
+          <input type="text" id="nombre" placeholder="Su nombre" required>
+          <input type="text" id="cedula" placeholder="Cédula" required>
+          <input type="text" id="direccion" placeholder="Dirección" required>
+          <input type="text" id="provincia" placeholder="Provincia" required>
+          <input type="text" id="ciudad" placeholder="Ciudad" required>
+          <input type="email" id="correo" placeholder="Correo electrónico" required>
+          <button type="submit">Solicitar vía WhatsApp</button>
+        </form>
+      </div>
+    </div>
+    <div class="testimonial">
+      “Excelente atención y entrega rápida. Electromás superó mis expectativas.” – Cliente satisfecho
+    </div>
+  </section>
+
+  <section class="ubicacion">
+    <p><span>📍 Visítenos también en nuestro local físico: Imbabura entre Sucre y 18 de Noviembre, Loja.</span></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Electromás. Entrega inmediata en Loja y Zamora. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function enviarWhatsApp(event) {
+      event.preventDefault();
+      const nombre = document.getElementById("nombre").value.trim();
+      const cedula = document.getElementById("cedula").value.trim();
+      const direccion = document.getElementById("direccion").value.trim();
+      const provincia = document.getElementById("provincia").value.trim();
+      const ciudad = document.getElementById("ciudad").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+
+      const mensaje = `Hola, soy ${nombre}. Me interesa la oferta del Smart TV Indurama 58" por $556.\n\nMis datos:\nCédula: ${cedula}\nDirección: ${direccion}\nProvincia: ${provincia}\nCiudad: ${ciudad}\nCorreo: ${correo}`;
+      const url = `https://wa.me/593988926331?text=${encodeURIComponent(mensaje)}`;
+
+      window.open(url, '_blank');
+      return false;
+    }
+  </script>
+</body>
+</html>
+<!-- Código actualizado para una landing page profesional con formulario de contacto vía WhatsApp -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroFertas Junio | Electromás</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      padding: 10px 20px;
+      background: white;
+      border-bottom: 3px solid #f29300;
+    }
+    header img {
+      height: 40px;
+    }
+    .hero {
+      background: linear-gradient(to right, #6b6b6b, #a6a6a6);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .countdown {
+      font-size: 20px;
+      color: #ffd700;
+    }
+    .ofertas-section {
+      padding: 40px 20px;
+      background: white;
+      max-width: 700px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .ofertas-section h2 {
+      font-size: 28px;
+      color: #002244;
+      margin-bottom: 10px;
+    }
+    .ahorro {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .producto {
+      text-align: center;
+    }
+    .producto img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    .producto h3 {
+      font-size: 22px;
+      color: #002244;
+    }
+    .producto span {
+      font-size: 24px;
+      color: #fc4b08;
+      font-weight: bold;
+    }
+    .producto ul {
+      text-align: left;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    .producto ul li {
+      margin-bottom: 6px;
+    }
+    .urgente {
+      color: red;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    .cta-button {
+      background: #fc4b08;
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    .cta-button:hover {
+      background: #e55b00;
+    }
+    .formulario {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .formulario h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #002244;
+    }
+    .formulario form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      max-width: 600px;
+      margin: auto;
+    }
+    .formulario input, .formulario button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .formulario input[type="email"] {
+      grid-column: span 2;
+    }
+    .formulario button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      grid-column: span 2;
+    }
+    .formulario button:hover {
+      background-color: #1EBE5D;
+    }
+    .testimonial {
+      margin-top: 30px;
+      font-style: italic;
+      color: #555;
+    }
     footer {
       margin-top: 40px;
       background: #002244;
