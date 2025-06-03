@@ -323,7 +323,7 @@ body {
          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
          padding: 15px;
          width: 280px; /* Tamaño uniforme */
-         height: 300px; /* Altura fija */
+         min-height: 300px; /* ✅ Esto permite que crezca si es necesario */
          text-align: center;
          transition: transform 0.3s;
          cursor: pointer;
@@ -417,7 +417,7 @@ body {
          /*##FORMULARIO PARA LEADS###*/
          /*##########################*/
     .formulario {
-      margin-top: 30px;
+      margin-top: 40px;
       text-align: center;
     }
     .formulario h3 {
