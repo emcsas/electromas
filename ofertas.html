@@ -75,7 +75,7 @@
     }
     .producto img {
       width: 100%;
-      max-width: 450px;
+      max-width: 600px;
       border-radius: 10px;
       margin-top: 20px;
     }
@@ -100,17 +100,6 @@
       color: red;
       font-weight: bold;
       margin: 15px 0;
-    }
-    .cta-button {
-      background: #fc4b08;
-      color: white;
-      padding: 15px 25px;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 15px;
     }
     .formulario {
       margin-top: 30px;
@@ -151,6 +140,12 @@
       margin-top: 30px;
       font-style: italic;
       color: #555;
+    }
+    .visitanos {
+      margin: 40px auto 0;
+      text-align: center;
+      font-weight: bold;
+      color: #002244;
     }
     footer {
       margin-top: 40px;
@@ -203,13 +198,16 @@
       </div>
     </div>
     <div class="testimonial">
-      “Recibí atención rápida, el producto llegó en 24 horas. Excelente experiencia con Electromás.” – Cliente verificado
+      “Excelente atención, recibí mi producto con rapidez y sin complicaciones. ¡Recomendado!” – Cliente verificado
     </div>
   </section>
 
+  <div class="visitanos">
+    📍 Visítenos también en nuestro local físico: Imbabura entre Sucre y 18 de Noviembre, Loja.
+  </div>
+
   <footer>
     <p>© 2025 Electromás. Entrega inmediata en Loja y Zamora. Todos los derechos reservados.</p>
-    <p>📍 Visítenos también en nuestro local físico: Imbabura entre Sucre y 18 de Noviembre, Loja.</p>
   </footer>
 
   <script>
@@ -222,7 +220,7 @@
       const ciudad = document.getElementById("ciudad").value.trim();
       const correo = document.getElementById("correo").value.trim();
 
-      const mensaje = `Hola, soy ${nombre}. Me interesa la oferta del Smart TV Indurama 58" por $556.\n\nMis datos:\nCédula: ${cedula}\nDirección: ${direccion}\nProvincia: ${provincia}\nCiudad: ${ciudad}\nCorreo: ${correo}`;
+      const mensaje = `Hola, soy ${nombre}. Me interesa la oferta del Smart TV Indurama 58\" por $556.\n\nMis datos:\nCédula: ${cedula}\nDirección: ${direccion}\nProvincia: ${provincia}\nCiudad: ${ciudad}\nCorreo: ${correo}`;
       const url = `https://wa.me/593988926331?text=${encodeURIComponent(mensaje)}`;
 
       window.open(url, '_blank');
