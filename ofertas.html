@@ -541,18 +541,32 @@ body {
          <section class="ofertas-section">
     <h2>🎯 Producto Estrella del Mes</h2>
     <p class="ahorro">¡Ahorro de hasta el 30%! Solo por junio o hasta agotar stock.</p>
-    <div class="producto">
-      <img src="principal/televisor/indurama.png" alt="Televisor 58" />
-      <h3>Smart TV Indurama 58" UHD 4K</h3>
-      <span>$556</span>
-      <ul>
-        <li>✔ Resolución 4K Ultra HD</li>
-        <li>✔ Bluetooth 5.1 y Wi-Fi doble banda</li>
-        <li>✔ Procesador Quadcore + 2 GB RAM</li>
-        <li>✔ Garantía de 2 años</li>
-      </ul>
-      <p class="urgente">⚠ Solo 10 unidades disponibles. ¡Apresúrese!</p>
-    </div>
+    <div class="producto" onclick="mostrarDetalles(
+  'Televisor Indurama 58 pulgadas',
+  'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
+  '$556')">
+
+  <img src="principal/televisor/indurama.png" alt="Televisor Indurama" style="width: 100%; max-height: 230px; object-fit: contain; margin-bottom: 10px;">
+
+  <h3 style="font-size: 20px; color: #002244; margin-bottom: 5px;">Smart TV Indurama 58" UHD 4K</h3>
+
+  <span style="font-size: 22px; color: #fc4b08; font-weight: bold;">$556</span>
+
+  <ul style="text-align: left; font-size: 15px; margin: 15px 0; padding-left: 20px;">
+    <li>Resolución ULTRA HIGH DEFINITION 3840 x 2160</li>
+    <li>Nuevo diseño Ultra Slim</li>
+    <li>Color Croma</li>
+    <li>Procesador Quadcore - 1.5GHz</li>
+    <li>16 GB de almacenamiento y 2 GB de RAM</li>
+    <li>Bluetooth 5.1 - Wi-Fi 2.4 & 5G</li>
+    <li>Dolby Vision HDR10</li>
+    <li>Alto: 75 cm | Ancho: 128.5 cm | Profundidad: 8.9 cm</li>
+    <li>2 años de garantía</li>
+  </ul>
+
+  <p class="urgente" style="color: red; font-weight: bold; text-align: center;">⚠ Solo 10 unidades disponibles. ¡Apresúrese!</p>
+</div>
+
    <div class="formulario">
         <h3>Solicite esta oferta</h3>
         <form onsubmit="return enviarWhatsApp(event)">
