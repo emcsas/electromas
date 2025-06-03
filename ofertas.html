@@ -410,15 +410,35 @@ body {
     }
 .producto-horizontal {
   display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   background: white;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  padding: 25px;
-  max-width: 900px;
-  margin: 0 auto 40px auto;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+  flex-wrap: wrap;
 }
+         .producto-imagen {
+  flex: 1;
+  text-align: center;
+}
+
+
+.producto-imagen img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+
+         
+
 
 .producto-horizontal img {
   width: 300px;
@@ -429,35 +449,38 @@ body {
 
 .producto-info {
   flex: 1;
+  text-align: left;
 }
 
 .producto-info h3 {
-  font-size: 22px;
+  font-size: 26px;
   color: #002244;
   margin-bottom: 10px;
 }
 
 .producto-info span {
-  font-size: 24px;
+  font-size: 26px;
   color: #fc4b08;
   font-weight: bold;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .producto-info ul {
   list-style-type: disc;
   padding-left: 20px;
-  margin-top: 10px;
   font-size: 16px;
+  text-align: justify;
+  margin-bottom: 20px;
 }
 
 .producto-info li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .producto-info .urgente {
   color: red;
   font-weight: bold;
-  margin-top: 15px;
 }
 
          
@@ -595,7 +618,9 @@ body {
     <h2>🎯 Producto estrella del Mes</h2>
     <p class="ahorro">¡Ahorro de hasta el 30%! Solo por junio o hasta agotar stock.</p>
 <div class="producto-horizontal">
-  <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
+  <div class="producto-imagen">
+    <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
+  </div>
   <div class="producto-info">
     <h3>Smart TV Indurama 58" UHD 4K</h3>
     <span>$556</span>
@@ -613,6 +638,7 @@ body {
     <p class="urgente">⚠ Solo 10 unidades disponibles. ¡Apresúrese!</p>
   </div>
 </div>
+
 
 
    <div class="formulario">
