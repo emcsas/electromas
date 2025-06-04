@@ -451,9 +451,9 @@
              // Construcción del enlace de WhatsApp
              let numeroWhatsApp = "593988926331"; 
              let mensaje = `Hola, estoy interesado en el siguiente producto:
-               🛒 *Consulta de producto*
-               📌 *Producto:* ${titulo}
+               🛒 *Producto:* ${titulo}
                💲 *Precio:* ${precio}
+               
              📞 ¿Podrían brindarme más información, por favor?`;
              let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
              document.getElementById('whatsapp-link').href = whatsappURL;  
