@@ -599,6 +599,26 @@ body {
   border-radius: 2px;
 }
 
+         .titulo-estrella {
+  font-size: 34px;
+  font-weight: 900;
+  color: #002244;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 0 0 5px rgba(255, 230, 0, 0.5), 0 0 15px rgba(255, 200, 0, 0.3);
+  animation: resplandor 2s infinite alternate;
+  margin-bottom: 20px;
+}
+
+@keyframes resplandor {
+  from {
+    text-shadow: 0 0 5px rgba(255, 230, 0, 0.5), 0 0 15px rgba(255, 200, 0, 0.3);
+  }
+  to {
+    text-shadow: 0 0 10px rgba(255, 255, 0, 0.8), 0 0 25px rgba(255, 200, 0, 0.6);
+  }
+}
+
          
          /*##########################*/
          /*#####TITULOS MODERNOS#####*/
@@ -686,7 +706,7 @@ body {
          <!-- SECCIÓN DE OFERTAS DEL MES -->
          <!-- ########################## -->    
          <section class="ofertas-section">
-    <h2>🎯 Producto estrella del Mes</h2>
+    <h2 class="titulo-estrella">🎯 Producto estrella del Mes</h2>
     <p class="ahorro">¡Ahorro de hasta el 30%! Solo por junio o hasta agotar stock.</p>
 <div class="producto-horizontal">
   <div class="producto-imagen">
