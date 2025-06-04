@@ -43,8 +43,6 @@ body {
          width: auto;
          }
          header a {
-            background: #fc4b08;
-            color: white;
             padding: 10px 20px;
             border-radius: 20px;
             text-decoration: none;
@@ -70,14 +68,16 @@ body {
          gap: 25px;
          background-color: transparent;
          }
-         nav a {
-         color: #002244;
-         text-decoration: none;
-         font-weight: bold;
-         font-size: 22px; /* Letra más grande */
-         padding: 10px 15px; /* Aumenta el área de clic */
-         transition: color 0.3s, transform 0.2s ease;
-         }
+nav a {
+  background: transparent !important;
+  color: #002244;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.2s ease;
+}
          nav a:hover {
          color: #f29300; /* Color llamativo al pasar el mouse */
          transform: scale(1.1); /* Efecto visual de crecimiento */
