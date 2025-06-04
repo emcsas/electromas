@@ -551,29 +551,29 @@ body {
       margin-bottom: 10px;
       color: #002244;
     }
-    .formulario form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      max-width: 700px;
-      margin: auto;
-    }
-    .formulario input, .formulario button {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .formulario input[type="email"] {
-      grid-column: span 2;
-    }
-    .formulario button {
-      background-color: #25D366;
-      color: white;
-      border: none;
-      cursor: pointer;
-      grid-column: span 2;
-    }
+.formulario form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 700px;
+  margin: auto;
+  justify-items: center;
+}
+.formulario input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.formulario input[type="email"] {
+  grid-column: auto; /* ✅ ya no ocupa dos columnas */
+}
+.formulario button {
+  grid-column: span 2;
+  justify-self: center;
+}
     .formulario button:hover {
       background-color: #1EBE5D;
     }
