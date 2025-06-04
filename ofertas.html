@@ -509,6 +509,38 @@ body {
       font-weight: bold;
       margin: 15px 0;
     }
+
+         .boton-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #25D366;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.boton-whatsapp:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-2px);
+}
+
+.boton-whatsapp i {
+  font-size: 20px;
+}
+
+
+
+         
                   /*##########################*/
          /*##FORMULARIO PARA LEADS###*/
          /*##########################*/
@@ -668,7 +700,10 @@ body {
           <input type="text" id="provincia" placeholder="Provincia" required>
           <input type="text" id="ciudad" placeholder="Ciudad" required>
           <input type="email" id="correo" placeholder="Correo electrónico" required>
-          <button type="submit">Solicitar vía WhatsApp</button>
+         <button type="submit" class="boton-whatsapp">
+  <i class="fab fa-whatsapp"></i> Solicitar vía WhatsApp
+</button>
+
         </form>
       </div>
                        <div class="visitanos">
