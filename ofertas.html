@@ -802,8 +802,17 @@ nav a {
       const ciudad = document.getElementById("ciudad").value.trim();
       const correo = document.getElementById("correo").value.trim();
 
-      const mensaje = `Hola, soy ${nombre}. Me interesa la oferta del Smart TV Indurama 58\" por $556.\n\nMis datos:\nCédula: ${cedula}\nDirección: ${direccion}\nProvincia: ${provincia}\nCiudad: ${ciudad}\nCorreo: ${correo}`;
-      const url = `https://wa.me/593988926331?text=${encodeURIComponent(mensaje)}`;
+   const mensaje = `Hola, soy ${nombre}. Me interesa la oferta del Smart TV Indurama 58" por $556.
+
+Mis datos:
+*Cédula:* ${cedula}
+*Dirección:* ${direccion}
+*Provincia:* ${provincia}
+*Ciudad:* ${ciudad}
+*Correo:* ${correo}`;
+
+       
+       const url = `https://wa.me/593988926331?text=${encodeURIComponent(mensaje)}`;
 
       window.open(url, '_blank');
       return false;
