@@ -450,7 +450,10 @@
              document.getElementById('modal-precio').innerText = precio;
              // Construcción del enlace de WhatsApp
              let numeroWhatsApp = "593988926331"; 
-             let mensaje = `Hola, estoy interesado en el *producto* ${titulo} con *precio* de ${precio}. ¿Podrían darme más información?`;
+              let mensaje = `Hola, estoy interesado en el siguiente producto:
+                  *Producto:* ${titulo}
+                  *Precio:* ${precio}
+                  ¿Podrían darme más información?`;
              let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
              document.getElementById('whatsapp-link').href = whatsappURL;  
              // Mostrar el modal
