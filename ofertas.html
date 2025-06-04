@@ -577,6 +577,29 @@ body {
     .formulario button:hover {
       background-color: #1EBE5D;
     }
+
+.titulo-formulario {
+  font-size: 28px;
+  font-weight: 800;
+  color: #002244;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.titulo-formulario::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #25D366;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+         
          /*##########################*/
          /*#####TITULOS MODERNOS#####*/
          /*##########################*/
@@ -690,7 +713,7 @@ body {
 
 
    <div class="formulario">
-        <h3>Solicite esta oferta</h3>
+       <h3 class="titulo-formulario">📋 Solicite esta oferta</h3>
         <form onsubmit="return enviarWhatsApp(event)">
           <input type="text" id="nombre" placeholder="Su nombre" required>
           <input type="text" id="cedula" placeholder="Cédula" required>
