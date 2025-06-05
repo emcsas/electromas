@@ -175,88 +175,6 @@
          margin: 0 10px;
          font-size: 24px;
          }
-         /*###############################*/
-         /*AQUI VIENE: ¿POR QUÉ ELEGIRNOS?*/
-         /*###############################*/
-         .why-section {
-         background-color: #fff;
-         padding: 20px 20px 5px;
-         }
-         .why-section h2 {
-         font-size: 32px;
-         color: #002244;
-         margin-bottom: 30px;
-         }
-         .features {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 25px;
-         max-width: 1200px;
-         margin: auto;
-         }
-         .feature {
-         width: 240px;
-         height: 240px;
-         background-size: cover;
-         background-position: center;
-         border-radius: 16px;
-         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-         overflow: hidden;
-         position: relative;
-         transition: transform 0.3s ease;
-         }
-         .feature:hover {
-         transform: scale(1.03);
-         }
-         .feature img {
-         width: 20px;
-         height: 20px;
-         margin-bottom: 15px;
-         }
-         .feature h3 {
-         color: #f29300;
-         font-size: 26px;
-         margin-bottom: 10px;
-         }
-         .feature p {
-         color: white;
-         font-size: 15px;
-         }
-         .feature .overlay {
-         background-color: rgba(0, 0, 0, 0.55);
-         color: white;
-         padding: 15px;
-         text-align: center;
-         height: 100%;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         }
-         .feature h3 {
-         font-size: 22px; /*Titulo de cada por qué*/
-         color: #f29300;;
-         margin-bottom: 10px;
-         }
-         .feature p {
-         font-size: 16px;
-         line-height: 1.4;
-         }
-         /*##########################*/
-         /*####FONDOS ESPECÍFICOS####*/
-         /*##########################*/
-         .feature.envios {
-         background-image: url('principal/general/envios.png');
-         }
-         .feature.credito {
-         background-image: url('principal/general/credito.png');
-         }
-         .feature.calidad {
-         background-image: url('principal/general/garantia.png');
-         }
-         .feature.promociones {
-         background-image: url('principal/general/promociones.png');
-         }
          /*##########################*/
          /*########productos########*/
          /*##########################*/
@@ -324,48 +242,6 @@
          }
          .producto.hogar {
          background-image: url('principal/sal.jpg');
-         }
-         /*##########################*/
-         /*######BANNER CARRUSEL#####*/
-         /*##########################*/
-         .banner {
-         width: 100%;
-         overflow: hidden;
-         position: relative;
-         margin-top: 20px;
-         background-color: #f4f4f4;
-         padding: 10px 0;
-         }
-         .carousel {
-         display: flex;
-         gap: 20px;
-         animation: scroll 40s linear infinite;
-         animation-play-state: running;
-         }
-         .carousel img {
-         height: 260px;
-         width: auto;
-         flex-shrink: 0;
-         border-radius: 10px;
-         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-         background-color: white;
-         padding: 10px;
-         object-fit: contain;
-         }
-         .carousel-wrapper {
-         overflow-x: hidden;
-         width: 100%;
-         }
-         .carousel-wrapper.scrollable {
-         overflow-x: auto;
-         cursor: grab;
-         }
-         /*##########################*/
-         /*#########ANIMACIÓN########*/
-         /*##########################*/
-         @keyframes scroll {
-         0% { transform: translateX(0%); }
-         100% { transform: translateX(-50%); }
          }
          /*#######################################################################*/
          /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
