@@ -2,201 +2,205 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electromás | Categorías de Electrodomésticos</title>
-  <meta name="description" content="Explore las categorías de electrodomésticos en Electromás y descubra soluciones modernas para su hogar.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <title>Electromás | Electrodomésticos</title>
+  <meta name="description" content="Electromás: categorías de electrodomésticos con ofertas exclusivas. Seleccione su área de interés y descubra nuestras promociones.">
+  <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, cocina, refrigeración, lavado, climatización, electromas">
+  <meta name="author" content="Electromás">
+  <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #1a1a1a;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
     }
     header {
-      background-color: #ffffff;
-      padding: 20px 60px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      padding: 12px 40px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
+      border-bottom: 3px solid #f29300;
     }
-    header img {
-      height: 48px;
+    nav {
+      display: flex;
+      gap: 30px;
     }
     nav a {
-      margin-left: 30px;
+      color: #002244;
       text-decoration: none;
-      color: #1a1a1a;
       font-weight: 600;
-      transition: color 0.3s ease;
+      font-size: 16px;
+      transition: color 0.3s;
     }
     nav a:hover {
       color: #f29300;
     }
     .hero {
-      background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('principal/general/electrodomesticos.png') no-repeat center center/cover;
-      height: 90vh;
+      background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('principal/general/electrodomesticos.png') no-repeat center center/cover;
+      height: 100vh;
+      color: #fff;
       display: flex;
       align-items: center;
-      padding: 0 60px;
-      color: #ffffff;
-    }
-    .hero-content {
-      max-width: 600px;
+      justify-content: flex-start;
+      padding-left: 60px;
     }
     .hero h1 {
       font-size: 48px;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     .hero p {
-      font-size: 18px;
+      font-size: 20px;
+      max-width: 500px;
       line-height: 1.6;
-      margin-bottom: 30px;
     }
-    .hero a.btn {
-      display: inline-block;
-      padding: 12px 28px;
+    .hero .btn {
+      margin-top: 25px;
+      padding: 12px 24px;
       border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
       color: white;
-      background-color: #f29300;
-      transition: background-color 0.3s ease, transform 0.2s;
-      margin-right: 10px;
+      text-decoration: none;
+      transition: transform 0.3s;
     }
-    .hero a.btn:hover {
-      background-color: #cf7d00;
-      transform: translateY(-2px);
+    .hero .btn:hover {
+      transform: scale(1.05);
     }
-    .section {
-      padding: 100px 60px;
+    .btn.whatsapp { background-color: #25D366; }
+    .btn.facebook { background-color: #1877F2; margin-left: 12px; }
+
+    .productos-section {
+      padding: 100px 20px 60px;
+      background-color: #fff;
       text-align: center;
     }
-    .section h2 {
-      font-size: 32px;
+    .productos-section h2 {
+      font-size: 34px;
       color: #002244;
       margin-bottom: 10px;
     }
-    .section p {
-      font-size: 16px;
-      color: #555;
+    .productos-section p {
+      font-size: 17px;
+      color: #666;
       margin-bottom: 50px;
     }
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 30px;
     }
-    .category-card {
+    .producto {
+      width: 260px;
+      height: 260px;
+      position: relative;
       background-size: cover;
       background-position: center;
-      height: 280px;
-      border-radius: 12px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       overflow: hidden;
-      position: relative;
       text-decoration: none;
-      color: white;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       transition: transform 0.3s;
     }
-    .category-card:hover {
-      transform: scale(1.03);
+    .producto:hover {
+      transform: scale(1.05);
     }
-    .category-overlay {
-      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+    .producto .overlay {
+      background-color: rgba(0,0,0,0.55);
+      color: white;
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
+      justify-content: center;
+      padding: 25px;
     }
-    .category-card h3 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 600;
+    .producto h3 {
       color: #f29300;
+      margin-bottom: 10px;
+      font-size: 20px;
     }
-    .category-card p {
-      font-size: 14px;
-      margin-top: 5px;
+    .producto p {
+      font-size: 15px;
       line-height: 1.4;
-      color: #eaeaea;
     }
     footer {
       background-color: #002244;
       color: white;
       text-align: center;
-      padding: 25px 20px;
+      padding: 20px 0;
       font-size: 14px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="principal/general/electro.png" alt="Electromás logo">
+    <div>
+      <img src="principal/general/electro.png" alt="Logo de Electromás" height="40">
+    </div>
     <nav>
       <a href="index.html">Inicio</a>
-      <a href="#categorias">Categorías</a>
+      <a href="#productos">Categorías</a>
     </nav>
   </header>
 
   <section class="hero">
-    <div class="hero-content">
-      <h1>Electrodomésticos que marcan la diferencia</h1>
-      <p>Explore nuestras categorías principales y descubra cómo puede transformar su hogar con tecnología moderna, eficiente y atractiva.</p>
-      <a href="https://wa.me/593988926331" class="btn"><i class="fab fa-whatsapp"></i> Contáctenos</a>
-      <a href="https://www.facebook.com/profile.php?id=61554825365190" class="btn"><i class="fab fa-facebook-f"></i> Síganos</a>
+    <div>
+      <h1>Electrodomésticos que transforman su hogar</h1>
+      <p>Elija su categoría y descubra cómo puede mejorar su día a día con nuestros productos. ¡Ofertas activas hoy mismo!</p>
+      <a href="https://wa.me/593988926331" class="btn whatsapp"><i class="fab fa-whatsapp"></i> Contáctenos</a>
+      <a href="https://www.facebook.com/profile.php?id=61554825365190" class="btn facebook"><i class="fab fa-facebook-f"></i> Síganos</a>
     </div>
   </section>
 
-  <section class="section" id="categorias">
-    <h2>Categorías de Electrodomésticos</h2>
-    <p>Seleccione una categoría para descubrir nuestras ofertas exclusivas.</p>
-    <div class="categories">
-      <a href="cocina.html" class="category-card" style="background-image:url('principal/oferta1.jpg')">
-        <div class="category-overlay">
-          <h3>Cocina Principal</h3>
-          <p>Hornos, cocinas, campanas y más para modernizar su cocina.</p>
+  <section class="productos-section" id="productos">
+    <h2>🔸 Categorías de electrodomésticos 🔸</h2>
+    <p>Seleccione una categoría y descubra nuestros productos destacados</p>
+    <div class="productos">
+      <a href="cocina.html" class="producto" style="background-image:url('principal/oferta1.jpg')">
+        <div class="overlay">
+          <h3>Cocina principal</h3>
+          <p>Modernice su cocina con hornos, cocinas y campanas innovadoras.</p>
         </div>
       </a>
-      <a href="refrigeracion.html" class="category-card" style="background-image:url('principal/oferta1.jpg')">
-        <div class="category-overlay">
+      <a href="refrigeracion.html" class="producto" style="background-image:url('principal/oferta1.jpg')">
+        <div class="overlay">
           <h3>Refrigeración</h3>
-          <p>Refrigeradores y congeladores de última generación.</p>
+          <p>Frigoríficos y congeladores para conservar frescura y sabor.</p>
         </div>
       </a>
-      <a href="lavado.html" class="category-card" style="background-image:url('principal/oferta1.jpg')">
-        <div class="category-overlay">
-          <h3>Lavado y Secado</h3>
-          <p>Soluciones eficientes y modernas para el cuidado de su ropa.</p>
+      <a href="lavado.html" class="producto" style="background-image:url('principal/oferta1.jpg')">
+        <div class="overlay">
+          <h3>Lavado y secado</h3>
+          <p>Soluciones eficientes para mantener su ropa impecable.</p>
         </div>
       </a>
-      <a href="climatizacion.html" class="category-card" style="background-image:url('principal/oferta1.jpg')">
-        <div class="category-overlay">
+      <a href="climatizacion.html" class="producto" style="background-image:url('principal/oferta1.jpg')">
+        <div class="overlay">
           <h3>Climatización</h3>
-          <p>Confort térmico todo el año con aires y ventiladores eficientes.</p>
+          <p>Aires y ventiladores para un confort óptimo en casa.</p>
         </div>
       </a>
-      <a href="alimentos.html" class="category-card" style="background-image:url('principal/oferta1.jpg')">
-        <div class="category-overlay">
-          <h3>Preparación de Alimentos</h3>
-          <p>Licuadoras, freidoras y más para su cocina creativa.</p>
+      <a href="alimentos.html" class="producto" style="background-image:url('principal/oferta1.jpg')">
+        <div class="overlay">
+          <h3>Preparación de alimentos</h3>
+          <p>Freidoras, licuadoras y más para una cocina práctica y sabrosa.</p>
         </div>
       </a>
     </div>
   </section>
 
   <footer>
-    © 2025 Electromás. Todos los derechos reservados. | Contacto: info@electromas.com
+    <p>© 2025 Electromás. Todos los derechos reservados. | Desarrollado para impulsar sus ventas</p>
   </footer>
-
 </body>
 </html>
