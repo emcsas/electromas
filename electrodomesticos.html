@@ -22,10 +22,11 @@
       justify-content: space-between;
       align-items: center;
       padding: 12px 40px;
-      background-color: #fff;
+      background-color: #ffffff;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
       z-index: 1000;
       border-bottom: 3px solid #f29300;
@@ -41,9 +42,42 @@
       font-size: 16px;
       transition: color 0.3s;
     }
+  .navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+     .logo img {
+    height: 42px;
+  }
     nav a:hover {
       color: #f29300;
     }
+.nav-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    color: #001940;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #f29300;
+  }
+
+  /* Para espacio del header en la página */
+  body {
+    margin-top: 80px;
+  }
+    
     .hero {
       background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('principal/general/electrodomesticos.png') no-repeat center center/cover;
       height: 100vh;
@@ -143,15 +177,18 @@
   </style>
 </head>
 <body>
-  <header>
-    <div>
-      <img src="principal/general/electro.png" alt="Logo de Electromás" height="40">
+
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <img src="principal/general/electro.png" alt="Electromás logo">
     </div>
-    <nav>
+    <nav class="nav-links">
       <a href="index.html">Inicio</a>
       <a href="#productos">Categorías</a>
     </nav>
-  </header>
+  </div>
+</header>
 
   <section class="hero">
     <div>
