@@ -222,9 +222,11 @@
             cursor: pointer;
             width: auto;
             max-width: 300px;
+            text-decoration: none; /* ✅ Esto elimina el subrayado */
             transition: background-color 0.3s, transform 0.2s;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
          }
+
          .boton-whatsapp:hover {
             background-color: #1ebe5d;
             transform: translateY(-1px);
@@ -232,6 +234,10 @@
          .boton-whatsapp i {
             font-size: 18px;
          }
+         a.boton-whatsapp {
+            text-decoration: none !important;
+         }
+
          /*#######################################################################*/
          /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
          /*#######################################################################*/
