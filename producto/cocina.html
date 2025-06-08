@@ -1,1 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electromás | Cocina</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #002244;
+    }
+    header, footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    .hero {
+      background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1200x400.png?text=Banner+Cocina');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+    .hero a {
+      background-color: #25D366;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .productos-cocina {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .producto {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+    .producto h3 {
+      font-size: 20px;
+      margin: 15px 0 10px;
+    }
+    .producto p {
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .producto span {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fc4b08;
+      display: block;
+      margin-bottom: 15px;
+    }
+    .producto a {
+      background-color: #25D366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Electromás</h1>
+  </header>
 
+  <section class="hero">
+    <h1>Todo para su Cocina</h1>
+    <p>Modernice su cocina con hornos, cocinas y campanas innovadoras.</p>
+    <a href="https://wa.me/593988926331?text=Hola%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20productos%20de%20cocina">Cotizar por WhatsApp</a>
+  </section>
+
+  <section class="productos-cocina">
+    <div class="producto">
+      <img src="https://via.placeholder.com/300x200.png?text=Horno+Empotrable" alt="Horno empotrable Indurama">
+      <h3>Horno Empotrable Indurama</h3>
+      <p>Acero inoxidable, 65L, grill eléctrico</p>
+      <span>$429</span>
+      <a href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20el%20combo%20de%20cocina.%20%C2%BFPuede%20darme%20m%C3%A1s%20informaci%C3%B3n%3F%0A%0A%F0%9F%94%B9%20**Horno%20Empotrable%20Indurama**%0A%F0%9F%92%B2%20**%24429**%0A%0AIncluye%3A%0A%E2%9C%85%20Acero%20inoxidable%0A%E2%9C%85%2065%20litros%20de%20capacidad%0A%E2%9C%85%20Grill%20el%C3%A9ctrico">Cotizar</a>
+    </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/300x200.png?text=Cocina+a+Gas" alt="Cocina a Gas 5 quemadores">
+      <h3>Cocina a Gas Mabe 5Q</h3>
+      <p>Vidrio templado, encendido eléctrico</p>
+      <span>$529</span>
+      <a href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20el%20combo%20de%20cocina.%20%C2%BFPuede%20darme%20m%C3%A1s%20informaci%C3%B3n%3F%0A%0A%F0%9F%94%B9%20**Cocina%20a%20Gas%20Mabe%205Q**%0A%F0%9F%92%B2%20**%24529**%0A%0AIncluye%3A%0A%E2%9C%85%205%20quemadores%0A%E2%9C%85%20Vidrio%20templado%0A%E2%9C%85%20Encendido%20el%C3%A9ctrico">Cotizar</a>
+    </div>
+    <div class="producto">
+      <img src="https://via.placeholder.com/300x200.png?text=Campana+Extractora" alt="Campana extractora de cocina">
+      <h3>Campana Extractora</h3>
+      <p>3 velocidades, luz LED, 60cm</p>
+      <span>$199</span>
+      <a href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20el%20combo%20de%20cocina.%20%C2%BFPuede%20darme%20m%C3%A1s%20informaci%C3%B3n%3F%0A%0A%F0%9F%94%B9%20**Campana%20Extractora**%0A%F0%9F%92%B2%20**%24199**%0A%0AIncluye%3A%0A%E2%9C%85%203%20velocidades%0A%E2%9C%85%20Luz%20LED%0A%E2%9C%85%2060cm%20de%20ancho">Cotizar</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Electromás. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
