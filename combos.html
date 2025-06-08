@@ -667,6 +667,78 @@
          bottom: 0;
          left: 0;
          }
+         /*##########################*/
+         /*#######COMBOS######*/
+         /*##########################*/
+.combo-banner {
+   position: relative;
+   background: url('ruta/a/su/imagen-horizontal-combos.png') no-repeat center center;
+   background-size: cover;
+   height: 500px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   padding: 0 30px;
+   color: white;
+}
+
+.combo-banner::before {
+   content: "";
+   position: absolute;
+   top: 0; left: 0; right: 0; bottom: 0;
+   background: rgba(0, 0, 0, 0.4);
+   z-index: 0;
+}
+
+.combo-contenido {
+   position: relative;
+   z-index: 1;
+   max-width: 800px;
+   margin: auto;
+   backdrop-filter: blur(2px);
+   padding: 30px;
+   border-radius: 20px;
+   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.combo-contenido h1 {
+   font-size: 40px;
+   font-weight: 800;
+   margin-bottom: 20px;
+   color: #fff;
+   text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.combo-contenido p {
+   font-size: 18px;
+   line-height: 1.8;
+   margin-bottom: 25px;
+   color: #f0f0f0;
+}
+
+.combo-btn {
+   display: inline-block;
+   background-color: #25D366;
+   color: white;
+   font-weight: bold;
+   padding: 14px 24px;
+   border-radius: 30px;
+   text-decoration: none;
+   transition: background-color 0.3s ease;
+}
+
+.combo-btn:hover {
+   background-color: #1ebe5d;
+   color: #fff;
+}
+
+         /*##########################*/
+         /*######### IMAGENES #######*/
+         /*##########################*/
+
+
+         
 
 .categoria.combo1 {
    background-image: url('principal/general/combo-cocina.png');
@@ -693,18 +765,18 @@
                </nav>
             </div>
          </header>
-         <section class="hero">
-            <div class="hero-contenido">
-               <h1>Electrofertas Junio</h1>
-               <p class="mensaje-potente">
-                  <span class="icono">🔥</span> Transforme su hogar hoy: ahorre hasta un <strong>30%</strong> y reciba su producto sin salir de casa. <br> ¡La oferta es por tiempo limitado!
-               </p>
-               <div class="countdown">📅 <span>Oferta válida hasta el <strong>30 de junio</strong></span></div>
-               <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
-               <i class="fab fa-whatsapp"></i> Cotice ahora por WhatsApp
-               </a>
-            </div>
-         </section>
+         <section class="combo-banner">
+   <div class="combo-contenido">
+      <h1>ElectroCombos Junio</h1>
+      <p>¡Lleve más, pague menos! Descubra nuestros combos exclusivos:<br>
+         Cocinas, refrigeradores, lavadoras y más — agrupados con descuentos especiales.<br>
+         Comodidad, eficiencia y estilo en una sola compra.
+      </p>
+      <a href="https://wa.me/593988926331" target="_blank" class="combo-btn">
+         Consultar Combo por WhatsApp
+      </a>
+   </div>
+</section>
          <!-- ########################## -->
          <!-- SECCIÓN DE OFERTAS DEL MES -->
          <!-- ########################## -->    
