@@ -292,16 +292,15 @@
 
 .combo-banner {
    position: relative;
-   background: url('principal/general/combos.png') no-repeat center center;
+   background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('principal/general/combos.png') no-repeat center center;
    background-size: cover;
-   min-height: 650px; /* Aumenta la visibilidad */
+   min-height: 500px;
    display: flex;
    align-items: center;
    justify-content: center;
+   padding: 100px 30px 60px 30px;
    text-align: center;
-   padding: 80px 30px 60px 30px; /* Espaciado interno */
    color: white;
-}
 
 .combo-banner::before {
    content: "";
@@ -311,23 +310,23 @@
    z-index: 0;
 }
 
+
 .combo-contenido {
    position: relative;
    z-index: 1;
    max-width: 800px;
-   margin: auto;
+   background-color: rgba(0, 0, 0, 0.35);
    padding: 40px;
    border-radius: 20px;
-   background-color: rgba(0, 0, 0, 0.25);
-   backdrop-filter: blur(1px);
+   backdrop-filter: blur(2px);
 }
 
-         .combo-contenido h1 {
-   font-size: 40px;
+.combo-contenido h1 {
+   font-size: 46px;
    font-weight: 800;
    margin-bottom: 20px;
-   color: #fff;
-   text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+   color: #ffe600;
+   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
 
 .combo-contenido p {
@@ -337,20 +336,40 @@
    color: #f0f0f0;
 }
 
+   .combo-contenido .mensaje-potente {
+   font-size: 20px;
+   line-height: 1.8;
+   margin-bottom: 25px;
+   color: #f0f0f0;
+}
 .combo-btn {
-   display: inline-block;
    background-color: #25D366;
    color: white;
    font-weight: bold;
    padding: 14px 24px;
    border-radius: 30px;
    text-decoration: none;
-   transition: background-color 0.3s ease;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+   font-size: 18px;
+   display: inline-flex;
+   align-items: center;
+   gap: 10px;
 }
 
+   .combo-contenido .countdown {
+   background-color: rgba(255, 255, 0, 0.2);
+   color: #fff200;
+   padding: 10px 20px;
+   border-radius: 12px;
+   font-size: 18px;
+   font-weight: bold;
+   display: inline-block;
+   margin-bottom: 25px;
+   text-shadow: 1px 1px 2px black;
+}
 .combo-btn:hover {
    background-color: #1ebe5d;
-   color: #fff;
+   transform: translateY(-2px);
 }
 
          
@@ -771,17 +790,19 @@
                </nav>
             </div>
          </header>
-         <section class="combo-banner">
-   <div class="combo-contenido">
-      <h1>ElectroCombos Junio</h1>
-      <p>¡Lleve más, pague menos! Descubra nuestros combos exclusivos:<br>
-         Cocinas, refrigeradores, lavadoras y más — agrupados con descuentos especiales.<br>
-         Comodidad, eficiencia y estilo en una sola compra.
-      </p>
-      <a href="https://wa.me/593988926331" target="_blank" class="combo-btn">
-         Consultar Combo por WhatsApp
-      </a>
-   </div>
+<section class="combo-banner">
+  <div class="combo-contenido">
+    <h1>🎉 ElectroCombos Junio</h1>
+    <p class="mensaje-potente">
+      ¡Equípese al mejor precio! <br>
+      Llévese más por menos con combos exclusivos en cocina, lavado y climatización.<br>
+      Calidad, ahorro y estilo — todo en una sola compra.
+    </p>
+    <div class="countdown">⏰ Oferta válida hasta el 30 de junio</div>
+    <a href="https://wa.me/593988926331" target="_blank" class="combo-btn">
+      <i class="fab fa-whatsapp icono"></i> Cotice ahora por WhatsApp
+    </a>
+  </div>
 </section>
          <!-- ########################## -->
          <!-- SECCIÓN DE OFERTAS DEL MES -->
