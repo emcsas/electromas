@@ -1,141 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiénes Somos | Electromás</title>
-  <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 30px;
-      background-color: #fff;
-      box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      border-bottom: 4px solid #f29300;
-    }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    .header-left img {
-      height: 40px;
-      width: auto;
-    }
-    nav {
-      display: flex;
-      gap: 25px;
-    }
-    nav a {
-      color: #002244;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      padding: 10px 15px;
-      transition: color 0.3s, transform 0.2s ease;
-    }
-    nav a:hover {
-      color: #f29300;
-      transform: scale(1.05);
-    }
-    main {
-      padding-top: 100px;
-      display: flex;
-      justify-content: center;
-    }
-    .contenido {
-      max-width: 800px;
-      background-color: white;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #002244;
-      font-size: 22px;
-      border-bottom: 2px solid #f29300;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
-    p, li {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #333;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .direccion {
-      margin-top: 30px;
-      background-color: #f29300;
-      color: white;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-align: center;
-    }
-    footer {
-      background-color: #002244;
-      color: white;
-      text-align: center;
-      font-size: 14px;
-      padding: 10px;
-      margin-top: 40px;
-    }
-  </style>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=0.5">
+   <title>Electromás | Quiénes Somos</title>
+   <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <style>
+      html, body {
+         height: 100%;
+         margin: 0;
+         padding: 0;
+         font-family: Arial, sans-serif;
+         background-color: #f4f4f4;
+         display: flex;
+         flex-direction: column;
+      }
+
+      header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 10px 30px;
+         background-color: #fff;
+         box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+         position: fixed;
+         top: 0;
+         width: 100%;
+         z-index: 1000;
+         border-bottom: 4px solid #f29300;
+      }
+
+      .header-left {
+         display: flex;
+         align-items: center;
+         gap: 30px;
+      }
+
+      .header-left img {
+         height: 40px;
+         width: auto;
+      }
+
+      nav {
+         display: flex;
+         gap: 25px;
+      }
+
+      nav a {
+         color: #002244;
+         text-decoration: none;
+         font-weight: bold;
+         font-size: 22px;
+         padding: 10px 15px;
+         transition: color 0.3s, transform 0.2s ease;
+      }
+
+      nav a:hover {
+         color: #f29300;
+         transform: scale(1.1);
+      }
+
+      /* CONTENIDO CORPORATIVO */
+      .contenido {
+         margin-top: 140px;
+         background: white;
+         max-width: 85%;
+         width: 800px;
+         padding: 40px;
+         margin-left: auto;
+         margin-right: auto;
+         border-radius: 20px;
+         box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .contenido h2 {
+         font-size: 20px;
+         color: #002244;
+         margin-bottom: 10px;
+         border-bottom: 2px solid #f29300;
+         padding-bottom: 5px;
+      }
+
+      .contenido p {
+         font-size: 14px;
+         color: #333;
+         line-height: 1.6;
+         text-align: justify;
+         margin-bottom: 15px;
+      }
+
+      .contenido ul {
+         font-size: 14px;
+         color: #555;
+         line-height: 1.6;
+         padding-left: 20px;
+      }
+
+      .direccion {
+         background-color: #F18611;
+         color: white;
+         padding: 8px;
+         text-align: center;
+         font-size: 14px;
+         font-weight: bold;
+         border-radius: 4px;
+         margin-top: 20px;
+      }
+
+      footer {
+         background-color: #002244;
+         color: white;
+         text-align: center;
+         padding: 10px;
+         font-size: 16px;
+         width: 100%;
+         margin-top: auto;
+         box-sizing: border-box;
+      }
+   </style>
 </head>
 <body>
-  <header>
-    <div class="header-left">
-      <img src="principal/general/logo.png" alt="Logo Electromás">
-      <nav>
-        <a href="index.html">Inicio</a>
-        <a href="#categorias">Categorías</a>
-        <a href="ofertas.html">Ofertas</a>
-        <a href="combos.html">Combos</a>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <div class="contenido">
-      <h2>¿Quiénes Somos?</h2>
-      <p><strong>Electromás</strong> es una empresa lojana con una trayectoria destacada en la comercialización de productos para el hogar, tecnología, electrodomésticos y más. Nos esforzamos en ofrecer <strong>productos de alta calidad</strong> con precios competitivos y opciones de financiamiento flexibles.</p>
-      <p>Brindamos una experiencia de compra única con atención personalizada y un servicio eficiente de <strong>entrega a domicilio</strong>, asegurando rapidez y seguridad en cada pedido.</p>
+   <header>
+      <div class="header-left">
+         <img src="principal/general/electro.png" alt="Electromás">
+         <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html#categorias">Categorías</a>
+            <a href="ofertas.html">Ofertas</a>
+            <a href="combos.html">Combos</a>
+         </nav>
+      </div>
+   </header>
 
-      <h2>Misión</h2>
-      <p>Proveer a nuestros clientes <strong>productos innovadores y de calidad</strong>, con opciones de pago accesibles y un servicio excepcional, garantizando la mejor experiencia de compra.</p>
+   <div class="contenido">
+      <div class="corporativo">
+         <h2>¿Quiénes Somos?</h2>
+         <p><strong>Electromás</strong> es una empresa lojana con una trayectoria destacada en la comercialización de productos para el hogar, tecnología, electrodomésticos y más. Nos esforzamos en ofrecer <strong>productos de alta calidad</strong> con precios competitivos y opciones de financiamiento flexibles.</p>
+         <p>Brindamos una experiencia de compra única con atención personalizada y un servicio eficiente de <strong>entrega a domicilio</strong>, asegurando rapidez y seguridad en cada pedido.</p>
+      </div>
 
-      <h2>Visión</h2>
-      <p>Posicionarnos como la <strong>empresa líder en el sector comercial</strong> en Loja y la región, siendo reconocidos por nuestra confiabilidad, variedad de productos y excelencia en servicio al cliente.</p>
+      <div class="corporativo">
+         <h2>Misión</h2>
+         <p>Proveer a nuestros clientes <strong>productos innovadores y de calidad</strong>, con opciones de pago accesibles y un servicio excepcional, garantizando la mejor experiencia de compra.</p>
+      </div>
 
-      <h2>Valores</h2>
-      <ul>
-        <li><strong>Compromiso:</strong> Enfocados en la satisfacción del cliente y la mejora continua.</li>
-        <li><strong>Calidad:</strong> Ofrecemos productos garantizados con respaldo de primeras marcas.</li>
-        <li><strong>Innovación:</strong> Mantenemos un catálogo actualizado con las últimas tendencias.</li>
-        <li><strong>Ética y Transparencia:</strong> Actuamos con honestidad y responsabilidad en cada transacción.</li>
-        <li><strong>Trabajo en Equipo:</strong> Creemos en la colaboración para brindar un mejor servicio.</li>
-      </ul>
+      <div class="corporativo">
+         <h2>Visión</h2>
+         <p>Posicionarnos como la <strong>empresa líder en el sector comercial</strong> en Loja y la región, siendo reconocidos por nuestra confiabilidad, variedad de productos y excelencia en servicio al cliente.</p>
+      </div>
+
+      <div class="corporativo">
+         <h2>Valores</h2>
+         <ul>
+            <li><strong>Compromiso:</strong> Enfocados en la satisfacción del cliente y la mejora continua.</li>
+            <li><strong>Calidad:</strong> Ofrecemos productos garantizados con respaldo de primeras marcas.</li>
+            <li><strong>Innovación:</strong> Mantenemos un catálogo actualizado con las últimas tendencias.</li>
+            <li><strong>Ética y Transparencia:</strong> Actuamos con honestidad y responsabilidad en cada transacción.</li>
+            <li><strong>Trabajo en Equipo:</strong> Creemos en la colaboración para brindar un mejor servicio.</li>
+         </ul>
+      </div>
 
       <div class="direccion">
-        Contáctenos al 0988926331 o visítenos en calle Imbabura, entre Sucre y 18 de Noviembre.<br>
-        Loja - Ecuador.
+         Contáctenos al 0988926331 o visítenos en calle Imbabura, entre Sucre y 18 de Noviembre. <br>
+         Loja - Ecuador.
       </div>
-    </div>
-  </main>
-  <footer>
-    © 2025 Electromás. Todos los derechos reservados.
-  </footer>
+   </div>
+
+   <footer>
+      © 2025 Electromás. Todos los derechos reservados.
+   </footer>
 </body>
 </html>
