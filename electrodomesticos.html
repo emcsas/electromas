@@ -1,172 +1,540 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.5">
-  <title>Electromás | Electrodomésticos</title>
-  <meta name="description" content="Electromás: categorías de electrodomésticos con ofertas exclusivas. Seleccione su área de interés y descubra nuestras promociones.">
-  <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, cocina, refrigeración, lavado, climatización, electromas">
-  <meta name="author" content="Electromás">
-  <link rel="shortcut icon" href="../principal/general/logo.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
-  <style>
-    * { box-sizing: border-box; }
-    body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 30px;
-      background-color: #fff;
-      border-bottom: 4px solid #f29300;
-    }
-    .header-left { display: flex; align-items: center; gap: 30px; }
-    .header-left img { height: 40px; width: auto; }
-    nav { display: flex; gap: 20px; }
-    nav a {
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      color: #002244;
-    }
-    nav a:hover { color: #f29300; }
-    .hero {
-      background: url('../principal/general/electrodomesticos.png') no-repeat center top;
-      background-size: cover;
-      height: 600px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
-    .hero-contenido {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 40px;
-      border-radius: 15px;
-    }
-    .hero-contenido h1 {
-      color: #f29300;
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
-    .hero-contenido p { font-size: 18px; margin-bottom: 25px; }
-    .btn {
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 5px;
-    }
-    .whatsapp { background-color: #25D366; color: white; }
-    .facebook { background-color: #1877F2; color: white; }
-    .categorias-section {
-      padding: 30px;
-      background-color: #f4f4f4;
-      text-align: center;
-    }
-    .seccion-titulo {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #002244;
-    }
-    .categorias {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .categoria {
-      width: 220px;
-      height: 220px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      text-decoration: none;
-    }
-    .categoria .overlay {
-      background-color: rgba(0, 0, 0, 0.4);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: white;
-      padding: 20px;
-    }
-    .categoria h3 { margin: 0; font-size: 20px; color: #f29300; }
-    .categoria p { font-size: 14px; margin-top: 10px; }
-    .categoria.cocina { background-image: url('../principal/general/cocina.png'); }
-    .categoria.refrigeracion { background-image: url('../principal/general/refrigeracion.png'); }
-    .categoria.lavado { background-image: url('../principal/general/lavado.png'); }
-    .categoria.climatizacion { background-image: url('../principal/general/ventilación.png'); }
-    .categoria.alimentos { background-image: url('../principal/general/alimentacion.png'); }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="header-left">
-      <img src="../principal/general/electro.png" alt="Logo">
-      <nav>
-        <a href="../index.html">Inicio</a>
-        <a href="../index.html#categorias">Categorías</a>
-        <a href="../ofertas.html">Ofertas</a>
-        <a href="../combos.html">Combos</a>
-      </nav>
-    </div>
-  </header>
-  <section class="hero">
-    <div class="hero-contenido">
-      <h1>Electrodomésticos que transforman su hogar</h1>
-      <p class="mensaje-potente">
-        Elija su categoría y descubra cómo puede mejorar su día a día con nuestros productos. ¡Ofertas activas hoy mismo!
-      </p>
-      <div class="hero-botones">
-        <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
-          <i class="fab fa-whatsapp"></i> Contáctenos
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61554825365190" target="_blank" class="btn facebook">
-          <i class="fab fa-facebook-f"></i> Síganos
-        </a>
-      </div>
-    </div>
-  </section>
-  <section class="categorias-section" id="electrodomesticos">
-    <h2 class="seccion-titulo">🟠 Electrodomésticos 🟠</h2>
-    <div class="categorias">
-      <a href="producto/cocina.html" class="categoria cocina">
-        <div class="overlay">
-          <h3>Cocina</h3>
-          <p>Modernice su cocina con hornos, cocinas y campanas innovadoras.</p>
-        </div>
-      </a>
-      <a href="../refrigeracion.html" class="categoria refrigeracion">
-        <div class="overlay">
-          <h3>Refrigeración</h3>
-          <p>Frigoríficos y congeladores para conservar frescura y sabor.</p>
-        </div>
-      </a>
-      <a href="../lavado.html" class="categoria lavado">
-        <div class="overlay">
-          <h3>Lavado y secado</h3>
-          <p>Soluciones eficientes para mantener su ropa impecable.</p>
-        </div>
-      </a>
-      <a href="../climatizacion.html" class="categoria climatizacion">
-        <div class="overlay">
-          <h3>Climatización</h3>
-          <p>Aires y ventiladores para un confort óptimo en casa.</p>
-        </div>
-      </a>
-      <a href="../alimentos.html" class="categoria alimentos">
-        <div class="overlay">
-          <h3>Preparación de alimentos</h3>
-          <p>Facilite su cocina con electrodomésticos prácticos como freidoras, licuadoras y más..</p>
-        </div>
-      </a>
-    </div>
-  </section>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=0.5">
+      <title>Electromás | Electrodomésticos</title>
+      <meta name="description" content="Electromás: categorías de electrodomésticos con ofertas exclusivas. Seleccione su área de interés y descubra nuestras promociones.">
+      <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, cocina, refrigeración, lavado, climatización, electromas">
+      <meta name="author" content="Electromás">
+      <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
+      <style>
+         html, body {
+         height: 100%;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         flex-direction: column;
+         font-family: Arial, sans-serif;
+         background-color: #f4f4f4;
+         }
+         /*##########################*/
+         /*####SECCIÓN ENCABEZADO####*/
+         /*##########################*/
+         header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 10px 30px;
+         background-color: #fff;
+         box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+         position: fixed;
+         top: 0;
+         width: 100%;
+         z-index: 1000;
+         border-bottom: 4px solid #f29300; /* Línea naranja delgada inferior */
+         }
+         .header-left {
+         display: flex;
+         align-items: center;
+         gap: 30px; /* Es el espacio entre el logo y el menú */
+         }
+         .header-left img {
+         height: 40px;
+         width: auto;
+         }
+         .header-left nav a {
+         border-radius: 5px;
+         padding: 10px;
+         }
+         .header-right {
+         display: flex;
+         align-items: center;
+         gap: 40px;
+         margin-left: 20px;
+         }
+         .header-left nav a:focus,
+         .header-left nav a:active {
+         outline: none;
+         background-color: rgba(242, 147, 0, 0.2); /* Sensación de "clic" */
+         }
+         nav {
+         display: flex;
+         gap: 25px;
+         background-color: transparent;
+         }
+         nav a {
+         color: #002244;
+         text-decoration: none;
+         font-weight: bold;
+         font-size: 22px; /* Letra más grande */
+         padding: 10px 15px; /* Aumenta el área de clic */
+         transition: color 0.3s, transform 0.2s ease;
+         }
+         nav a:hover {
+         color: #f29300; /* Color llamativo al pasar el mouse */
+         transform: scale(1.1); /* Efecto visual de crecimiento */
+         cursor: pointer;
+         }
+         /*##########################*/
+         /*##SECCIÓN PRINCIPAL HERO##*/
+         /*##########################*/
+         .hero {
+            background: url('principal/general/electrodomesticos.png') no-repeat center top;
+            background-size: cover;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            text-align: center;
+            color: white;
+         }
+         .hero-contenido {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 700px;
+            width: 100%;
+         }
+         .hero-contenido h1 {
+            color: #f29300;
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+         }
+         .hero-contenido p {
+         font-size: 20px;
+         line-height: 1.6;
+         margin-bottom: 25px;
+         }
+         .hero-botones {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+         }
+         .btn {
+         padding: 12px 20px;
+         border-radius: 30px;
+         font-weight: bold;
+         font-size: 18px;
+         text-decoration: none;
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         transition: all 0.3s ease;
+         }
+         .mensaje-potente {
+         font-size: 16px;
+         color: white;
+         margin-top: 15px;
+         line-height: 1.6;
+         font-weight: 500;
+         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+         }
+         .btn.whatsapp {
+         background-color: #25D366;
+         color: white;
+         border: none;
+         }
+         .btn.whatsapp:hover {
+         background-color: white;
+         color: #1EBE5D;
+         }
+         .btn.facebook {
+         background-color: #1877F2;
+         color: white;
+         border: none;
+         }
+         .btn.facebook:hover {
+         background-color: white;
+         color: #1877F2;
+         }
+         .cta-buttons {
+         margin-top: 80px;
+         }
+         .cta-buttons a {
+         background-color: #f29300;
+         color: white;
+         text-decoration: none;
+         font-weight: bold;
+         padding: 15px 25px;
+         margin: 0 10px;
+         border-radius: 30px;
+         display: inline-block;
+         transition: background-color 0.3s;
+         }
+         .cta-buttons a:hover {
+         background-color: #cc7600;
+         }
+         .social-icons {
+         margin-top: 15px;
+         }
+         .social-icons a {
+         color: white;
+         margin: 0 10px;
+         font-size: 24px;
+         }
+         /*##########################*/
+         /*########CATEGORIAS########*/
+         /*##########################*/
+         .categorias-section {
+         background-color: #FFFFFF ; /* Naranja opaco */
+         padding: 20px 0px;
+         width: 100%;
+         box-sizing: border-box;
+         }
+         .categorias-section h2 {
+         font-size: 32px;
+         color: #002244;
+         margin-bottom: 30px;
+         }
+         .categorias {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 25px;
+         max-width: 1100px;
+         margin: auto;
+         }
+         .categoria {
+         width: 240px;
+         height: 240px;
+         background-size: cover;
+         background-position: center;
+         border-radius: 16px;
+         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+         position: relative;
+         text-decoration: none;
+         overflow: hidden;
+         transition: transform 0.3s ease;
+         }
+         .categoria:hover {
+         transform: translateY(-5px);
+         }
+         .categoria .overlay {
+         background-color: rgba(0, 0, 0, 0.15);
+         height: 100%;
+         color: white;
+         padding: 20px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         text-align: center;
+         }
+         .categoria h3 {
+         font-size: 22px;
+         margin-bottom: 8px;
+         color: #f29300;
+         }
+         .categoria p {
+         font-size: 16px;
+         line-height: 1.5;
+         }
+         /*##########################*/
+         /*###FONDOS DE CATEGORÍAS###*/
+         /*##########################*/
+         .categoria.cocina {
+         background-image: url('principal/general/cocina.png');
+         }
+         .categoria.refrigeracion {
+         background-image: url('principal/general/refrigeracion.png');
+         }
+         .categoria.lavado {
+         background-image: url('principal/general/lavado.png');
+         }
+         .categoria.climatizacion {
+         background-image: url('principal/general/ventilación.png');
+         }
+         .categoria.alimentos {
+         background-image: url('principal/general/alimentacion.png');
+         }         
+         /*#######################################################################*/
+         /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
+         /*#######################################################################*/
+         .modal {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.5);
+         align-items: center;
+         justify-content: center;
+         z-index: 1000;
+         }
+         .modal-content {
+         background: white;
+         padding: 20px;
+         border-radius: 10px;
+         text-align: center;
+         width: 80%;
+         max-width: 400px;
+         box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+         }
+         .modal-content h2 {
+         font-size: 22px;
+         font-weight: bold;
+         color: #002244;
+         margin-bottom: 15px;
+         }
+         .modal-content ul {
+         text-align: left;
+         padding-left: 20px;
+         font-size: 16px;
+         color: #444;
+         list-style-type: disc; /* Viñetas */
+         }
+         .modal-content ul li {
+         margin-bottom: 8px;
+         }
+         .precio {
+         font-size: 20px;
+         font-weight: bold;
+         color: #fc4b08;
+         text-align: center;
+         margin-top: 15px;
+         }
+         .modal-buttons {
+         display: flex;
+         justify-content: center;
+         gap: 10px;
+         margin-top: 15px;
+         }
+         /*##############################################*/
+         /*#BOTÓN WHATSAPP: Este es el que esta en modal#*/
+         /*##############################################*/
+         .whatsapp-btn {
+         background-color: #085c27;
+         color: white;
+         padding: 10px 15px;
+         border-radius: 5px;
+         text-decoration: none;
+         font-size: 16px;
+         font-weight: bold;
+         display: inline-block;
+         align-items: center;
+         gap: 5px;
+         }
+         .whatsapp-btn:hover {
+         background-color: #1EBE5D;
+         }
+         .close {
+         padding: 10px 15px;
+         background-color: #fc4b08;
+         color: white;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 16px;
+         display: inline-flex;
+         align-items: center;
+         gap: 5px;
+         }
+         .close:hover {
+         background-color: #e63900;
+         }
+         /*##########################*/
+         /*#####TITULOS MODERNOS#####*/
+         /*##########################*/
+         .seccion-titulo {
+         font-size: 34px;
+         color: #002244;
+         font-weight: 700;
+         text-align: center;
+         margin-top: 10px;
+         margin-bottom: 30px;
+         font-family: 'Segoe UI', sans-serif;
+         position: relative;
+         }
+         .seccion-titulo::after {
+         content: '';
+         width: 60px;
+         height: 4px;
+         background-color: #f29300;
+         display: block;
+         margin: 10px auto 0;
+         border-radius: 4px;
+         }
+         .titulo-seccion {
+         font-size: 32px;
+         color: #002244;
+         margin: 20px 0 30px;
+         text-align: center;
+         font-weight: bold;
+         }
+         /*##########################*/
+         /*#######PIE DE PÁGINA######*/
+         /*##########################*/
+         footer {
+         background-color: #002244;
+         color: white;
+         text-align: center;
+         padding: 2px;
+         font-size: 18px;
+         width: 100vw;
+         min-height: 60px; /* Ajusta la altura mínima */
+         box-sizing: border-box; /* Evita problemas con márgenes y paddings */
+         position: auto;
+         margin-top: auto; /* Se mantiene abajo automáticamente */
+         bottom: 0;
+         left: 0;
+         }
+      </style>
+   </head>
+   <!-- ######################################### -->
+   <!-- INICIO PARA COLOCAR TODO LO DE LA EMPRESA -->
+   <!-- ######################################### -->
+   <body>
+      <main>
+         <header>
+            <div class="header-left">
+               <img src="principal/general/electro.png" alt="Logo">
+               <nav>
+                  <a href="index.html">Inicio</a>
+                  <a href="index.html#categorias">Categorías</a>
+                  <a href="ofertas.html">Ofertas</a>
+                  <a href="combos.html">Combos</a>                  
+                </nav>
+            </div>
+         </header>
+         <section class="hero">
+            <div class="hero-contenido">
+               <h1>Electrodomésticos que transforman su hogar</h1>
+               <p class="mensaje-potente">
+                  Elija su categoría y descubra cómo puede mejorar su día a día con nuestros productos. ¡Ofertas activas hoy mismo!
+               </p>
+               <div class="hero-botones">
+                  <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
+                  <i class="fab fa-whatsapp"></i> Contáctenos
+                  </a>
+                  <a href="https://www.facebook.com/profile.php?id=61554825365190" target="_blank" class="btn facebook">
+                  <i class="fab fa-facebook-f"></i> Síganos
+                  </a>
+               </div>
+            </div>
+         </section>
+               <section class="categorias-section" id="electrodomesticos">
+                  <h2 class="seccion-titulo">🟠 Electrodomésticos 🟠</h2>
+                  <div class="categorias">
+                     <a href="cocina.html" class="categoria cocina">
+                        <div class="overlay">
+                           <h3>Cocina</h3>
+                           <p>Modernice su cocina con hornos, cocinas y campanas innovadoras.</p>
+                        </div>
+                     </a>
+                     <a href="refrigeracion.html" class="categoria refrigeracion">
+                        <div class="overlay">
+                           <h3>Refrigeración</h3>
+                           <p>Frigoríficos y congeladores para conservar frescura y sabor.</p>
+                        </div>
+                     </a>
+                     <a href="lavado.html" class="categoria lavado">
+                        <div class="overlay">
+                           <h3>Lavado y secado</h3>
+                           <p>Soluciones eficientes para mantener su ropa impecable.</p>
+                        </div>
+                     </a>
+                     <a href="climatizacion.html" class="categoria climatizacion">
+                        <div class="overlay">
+                           <h3>Climatización</h3>
+                           <p>Aires y ventiladores para un confort óptimo en casa.</p>
+                        </div>
+                     </a>
+                     <a href="alimentos.html" class="categoria alimentos">
+                        <div class="overlay">
+                           <h3>Preparación de alimentos</h3>
+                           <p>Facilite su cocina con electrodomésticos prácticos como freidoras, licuadoras y más..</p>
+                        </div>
+                     </a>
+                  </div>
+               </section>
+         <!-- ############# -->
+         <!-- SECCIÓN MODAL -->
+         <!-- ############# -->
+         <div id="modal" class="modal">
+            <div class="modal-content">
+               <h2 id="modal-titulo"></h2>
+               <ul id="modal-descripcion"></ul>
+               <p id="modal-precio" class="precio"></p>
+               <div class="modal-buttons">
+                  <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+                  <button class="close" onclick="cerrarModal()">Cerrar</button>
+               </div>
+            </div>
+         </div>
+         <!-- ############# -->
+         <!-- SECCIÓN SCRIPT -->
+         <!-- ############# -->
+         <script>
+            let animado = true;
+            function toggleAnimacion() {
+            const carrusel = document.getElementById("miCarrusel");
+            const wrapper = document.getElementById("wrapper");
+            
+            if (animado) {
+            carrusel.style.animationPlayState = "paused";
+            wrapper.classList.add("scrollable");
+            } else {
+            carrusel.style.animationPlayState = "running";
+            wrapper.classList.remove("scrollable");
+            }
+            
+            animado = !animado;
+            }
+         </script>
+         <script>
+            document.addEventListener("DOMContentLoaded", function () {
+               const carrusel = document.getElementById("miCarrusel");
+               if (!carrusel) return;
+            
+               const contenidoOriginal = carrusel.innerHTML;
+               const repeticiones = 8; // Ajuste según cuán largo desea el loop
+            
+               for (let i = 0; i < repeticiones - 1; i++) {
+                  carrusel.innerHTML += contenidoOriginal;
+               }
+            });
+         </script>
+         <script>
+            function mostrarDetalles(titulo, descripcion, precio) {
+                document.getElementById('modal-titulo').innerText = titulo;
+                // Seleccionar la lista de características
+                let listaDescripcion = document.getElementById('modal-descripcion');
+                listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
+                // Convertir la descripción en una lista
+                let caracteristicas = descripcion.split('|');    
+                caracteristicas.forEach(caracteristica => {
+                    let li = document.createElement('li');
+                    li.textContent = caracteristica.trim();
+                    listaDescripcion.appendChild(li);
+                });
+                // Actualizar el precio
+                document.getElementById('modal-precio').innerText = precio;
+                // Construcción del enlace de WhatsApp
+                let numeroWhatsApp = "593988926331";
+                let mensaje = `Hola, estoy interesado en el siguiente producto:
+                  *Producto:* ${titulo}
+                  *Precio:* ${precio}
+                  ¿Podrían brindarme más información, por favor?`;
+                let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+                document.getElementById('whatsapp-link').href = whatsappURL;  
+                // Mostrar el modal
+                document.getElementById('modal').style.display = "flex";
+            }
+            function cerrarModal() {
+                document.getElementById('modal').style.display = "none";
+            }
+         </script>
+      </main>
+      <footer>
+         <p>© 2025 Electromás. Todos los derechos reservados.</p>
+      </footer>
+   </body>
 </html>
