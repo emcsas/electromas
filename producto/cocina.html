@@ -12,16 +12,23 @@
       background-color: #f4f4f4;
       color: #002244;
     }
-    header, footer {
+    header {
       background-color: #002244;
       color: white;
-      text-align: center;
-      padding: 15px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
     }
     nav {
-      display: flex;
-      justify-content: center;
       background-color: #f29300;
+      width: 100%;
+      text-align: center;
       padding: 10px 0;
     }
     nav a {
@@ -79,6 +86,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 20px;
       text-align: center;
+      border: 2px solid #f29300;
     }
     .producto img {
       width: 100%;
@@ -109,6 +117,13 @@
       border-radius: 20px;
       text-decoration: none;
       display: inline-block;
+    }
+    footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
