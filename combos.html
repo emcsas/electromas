@@ -838,19 +838,24 @@
          <!-- ########################## -->
          <!-- ########FORMULARIO######## -->
          <!-- ########################## --> 
-            <div class="formulario">
-            <h3 class="titulo-formulario">📋 Déjenos sus datos </h3>
-            <form onsubmit="return enviarWhatsApp(event)">
-               <input type="text" id="nombre" placeholder="Su nombre" required>
-               <input type="text" id="cedula" placeholder="Cédula" required>
-               <input type="text" id="direccion" placeholder="Dirección" required>
-               <input type="text" id="ciudad" placeholder="Ciudad" required>
-               <input type="text" id="provincia" placeholder="Provincia" required>
-               <input type="email" id="correo" placeholder="Correo electrónico" required>
-               <button type="submit" class="boton-whatsapp">
-               <i class="fab fa-whatsapp"></i> Enviar
-               </button>
-            </form>
+         <div class="producto-horizontal">
+            <div class="producto-imagen">
+               <h3>📋</h3>
+            </div>
+            <div class="producto-info">
+               <h3 style="margin-top: 0;">Déjenos sus datos</h3>
+               <form onsubmit="return enviarWhatsApp(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                  <input type="text" id="nombre" placeholder="Su nombre" required>
+                  <input type="text" id="cedula" placeholder="Cédula" required>
+                  <input type="text" id="direccion" placeholder="Dirección" required>
+                  <input type="text" id="ciudad" placeholder="Ciudad" required>
+                  <input type="text" id="provincia" placeholder="Provincia" required>
+                  <input type="email" id="correo" placeholder="Correo electrónico" required>
+                  <button type="submit" class="boton-whatsapp" style="grid-column: span 2;">
+                     <i class="fab fa-whatsapp"></i> Enviar
+                  </button>
+               </form>
+            </div>
          </div>
          <div class="visitanos">
             📍 Visítenos también en nuestro local físico: Imbabura entre Sucre y 18 de Noviembre, Loja.
