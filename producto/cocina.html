@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <title>Electromás | Cocina</title>
   <meta name="description" content="Electromás: categorías de electrodomésticos con ofertas exclusivas. Seleccione su área de interés y descubra nuestras promociones.">
-  <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, cocina, refrigeración, lavado, climatización, electromas">
+  <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, cocina, microondas, electromas">
   <meta name="author" content="Electromás">
-  <link rel="shortcut icon" href="../principal/general/logo.png" type="image/png">
+  <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
   <style>
@@ -31,142 +31,160 @@
       color: #002244;
     }
     nav a:hover { color: #f29300; }
-    .hero {
-      background: url('../principal/general/electrodomesticos.png') no-repeat center top;
-      background-size: cover;
-      height: 600px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
-    .hero-contenido {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 40px;
-      border-radius: 15px;
-    }
-    .hero-contenido h1 {
-      color: #f29300;
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
-    .hero-contenido p { font-size: 18px; margin-bottom: 25px; }
-    .btn {
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 5px;
-    }
-    .whatsapp { background-color: #25D366; color: white; }
-    .facebook { background-color: #1877F2; color: white; }
-    .categorias-section {
-      padding: 30px;
-      background-color: #f4f4f4;
-      text-align: center;
-    }
-    .seccion-titulo {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #002244;
-    }
-    .categorias {
+    .productos {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-    }
-    .categoria {
-      width: 220px;
-      height: 220px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      text-decoration: none;
-    }
-    .categoria .overlay {
-      background-color: rgba(0, 0, 0, 0.4);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: white;
       padding: 20px;
     }
-    .categoria h3 { margin: 0; font-size: 20px; color: #f29300; }
-    .categoria p { font-size: 14px; margin-top: 10px; }
-    .categoria.cocina { background-image: url('../principal/general/cocina.png'); }
-    .categoria.refrigeracion { background-image: url('../principal/general/refrigeracion.png'); }
-    .categoria.lavado { background-image: url('../principal/general/lavado.png'); }
-    .categoria.climatizacion { background-image: url('../principal/general/ventilación.png'); }
-    .categoria.alimentos { background-image: url('../principal/general/alimentacion.png'); }
+    .producto {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 260px;
+      text-align: center;
+      cursor: pointer;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+    .producto:hover { transform: translateY(-5px); }
+    .producto img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .producto h3 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+    .producto span {
+      font-size: 18px;
+      color: #f29300;
+      font-weight: bold;
+    }
+    .seccion-titulo {
+      text-align: center;
+      color: #002244;
+      font-size: 28px;
+      margin: 30px 0 10px;
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .modal-content h2 { color: #002244; margin-bottom: 10px; }
+    .modal-content ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+    .modal-content .precio {
+      font-size: 20px;
+      font-weight: bold;
+      color: #f29300;
+      margin: 10px 0;
+    }
+    .whatsapp-btn, .close {
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin: 5px;
+      display: inline-block;
+    }
+    .whatsapp-btn {
+      background: #25D366; color: white;
+    }
+    .close {
+      background: #fc4b08; color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-left">
-      <img src="../principal/general/electro.png" alt="Logo">
+      <img src="principal/general/electro.png" alt="Logo">
       <nav>
-        <a href="../index.html">Inicio</a>
-        <a href="../index.html#categorias">Categorías</a>
-        <a href="../ofertas.html">Ofertas</a>
-        <a href="../combos.html">Combos</a>
+        <a href="index.html">Inicio</a>
+        <a href="index.html#categorias">Categorías</a>
+        <a href="ofertas.html">Ofertas</a>
+        <a href="combos.html">Combos</a>
       </nav>
     </div>
   </header>
-  <section class="hero">
-    <div class="hero-contenido">
-      <h1>Electrodomésticos que transforman su hogar</h1>
-      <p class="mensaje-potente">
-        Elija su categoría y descubra cómo puede mejorar su día a día con nuestros productos. ¡Ofertas activas hoy mismo!
-      </p>
-      <div class="hero-botones">
-        <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
-          <i class="fab fa-whatsapp"></i> Contáctenos
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61554825365190" target="_blank" class="btn facebook">
-          <i class="fab fa-facebook-f"></i> Síganos
-        </a>
+
+  <section class="categorias-section" id="productos-cocina">
+    <h2 class="seccion-titulo">🟠 Cocinas 🟠</h2>
+    <div class="productos">
+      <!-- PRODUCTOS COCINA -->
+      <div class="producto" onclick="mostrarDetalles('Kombo-cocineta a gas Pompeya 4Q Inox','100% acero inoxidable|Terminado sin filos cortantes|4 quemadores|Tapa de vidrio templado bajo normas INEN|4 perillas PVC negras resistentes al calor|4 regatones antideslizantes|2 parrillas enlozadas|Alto: 17 cm|Ancho: 61 cm|Prof: 53 cm|18 meses de garantía','$82')">
+        <img src="principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
+        <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3><span>$82</span>
+      </div>
+      <div class="producto" onclick="mostrarDetalles('Indurama Bilbao Spazio Plus 20 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión|Eficiente quemador suelo|Alto: 94 cm|Ancho: 51 cm|Prof: 58 cm|1 año de garantía','$221.40')">
+        <img src="principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20"><h3>Indurama Bilbao Spazio Plus 20"</h3><span>$221.40</span>
+      </div>
+      <div class="producto" onclick="mostrarDetalles('Indurama Milan Zafiro 24 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 60 cm|Prof: 64 cm|1 año de garantía','$372')">
+        <img src="principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24"><h3>Indurama Milan Zafiro 24"</h3><span>$372</span>
+      </div>
+      <div class="producto" onclick="mostrarDetalles('Indurama Galicia Zafiro 30 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|6 quemadores|Encendido electrónico|Timer mecánico|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 76 cm|Prof: 64 cm|1 año de garantía','$517')">
+        <img src="principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30"><h3>Indurama Galicia Zafiro 30"</h3><span>$517</span>
+      </div>
+    </div>
+
+    <h2 class="seccion-titulo">🟠 Microondas 🟠</h2>
+    <div class="productos">
+      <div class="producto" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D','22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía','$115')">
+        <img src="principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D"><h3>Whirlpool 20 litros silver WM1807D</h3><span>$115</span>
+      </div>
+      <div class="producto" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR','Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía','$118')">
+        <img src="principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR"><h3>Indurama 20 litros croma MWI-20CR</h3><span>$118</span>
       </div>
     </div>
   </section>
-  <section class="categorias-section" id="electrodomesticos">
-    <h2 class="seccion-titulo">🟠 Electrodomésticos 🟠</h2>
-    <div class="categorias">
-      <a href="cocina.html" class="categoria cocina">
-        <div class="overlay">
-          <h3>Cocina</h3>
-          <p>Modernice su cocina con hornos, cocinas y campanas innovadoras.</p>
-        </div>
-      </a>
-      <a href="../refrigeracion.html" class="categoria refrigeracion">
-        <div class="overlay">
-          <h3>Refrigeración</h3>
-          <p>Frigoríficos y congeladores para conservar frescura y sabor.</p>
-        </div>
-      </a>
-      <a href="../lavado.html" class="categoria lavado">
-        <div class="overlay">
-          <h3>Lavado y secado</h3>
-          <p>Soluciones eficientes para mantener su ropa impecable.</p>
-        </div>
-      </a>
-      <a href="../climatizacion.html" class="categoria climatizacion">
-        <div class="overlay">
-          <h3>Climatización</h3>
-          <p>Aires y ventiladores para un confort óptimo en casa.</p>
-        </div>
-      </a>
-      <a href="../alimentos.html" class="categoria alimentos">
-        <div class="overlay">
-          <h3>Preparación de alimentos</h3>
-          <p>Facilite su cocina con electrodomésticos prácticos como freidoras, licuadoras y más..</p>
-        </div>
-      </a>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2 id="modal-titulo"></h2>
+      <ul id="modal-descripcion"></ul>
+      <p id="modal-precio" class="precio"></p>
+      <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+      <button class="close" onclick="cerrarModal()">Cerrar</button>
     </div>
-  </section>
+  </div>
+
+  <script>
+    function mostrarDetalles(titulo, descripcion, precio) {
+      document.getElementById('modal-titulo').innerText = titulo;
+      let listaDescripcion = document.getElementById('modal-descripcion');
+      listaDescripcion.innerHTML = "";
+      descripcion.split('|').forEach(caracteristica => {
+        let li = document.createElement('li');
+        li.textContent = caracteristica.trim();
+        listaDescripcion.appendChild(li);
+      });
+      document.getElementById('modal-precio').innerText = precio;
+      let mensaje = `Hola, estoy interesado en el siguiente producto:\n*Producto:* ${titulo}\n*Precio:* ${precio}\n¿Podrían brindarme más información, por favor?`;
+      document.getElementById('whatsapp-link').href = `https://wa.me/593988926331?text=${encodeURIComponent(mensaje)}`;
+      document.getElementById('modal').style.display = "flex";
+    }
+    function cerrarModal() {
+      document.getElementById('modal').style.display = "none";
+    }
+  </script>
 </body>
 </html>
