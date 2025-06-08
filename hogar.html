@@ -82,36 +82,29 @@
          /*##SECCIÓN PRINCIPAL HERO##*/
          /*##########################*/
          .hero {
-         background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('principal/general/hogar.png');
-         background-size: cover;
-         background-position: top center; /* ← Ancla la imagen en la parte superior */
-         height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
-         padding: 50px 400px 40px 40px; /* <-- este padding-top evita el choque */
-         display: flex;
-         align-items: center;
-         position: relative;
-         color: #f29300;
-         overflow: hidden; /* ← Oculta cualquier contenido que sobresalga */
+            background: url('principal/general/hogar.png') no-repeat center top;
+            background-size: cover;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            text-align: center;
+            color: white;
          }
-         .hero::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-          }
          .hero-contenido {
-         max-width: 500px;
-         text-align: left;
-         font-family: 'Segoe UI', sans-serif;
-         margin-left: 40px; /* ← Separación del borde izquierdo */
-         margin-right: auto;
-         position: relative;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 700px;
+            width: 100%;
          }
          .hero-contenido h1 {
-         font-size: 32px;
-         font-weight: 700;
-         margin-bottom: 15px;
+            color: #f29300;
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
          }
          .hero-contenido p {
          font-size: 20px;
@@ -119,9 +112,11 @@
          margin-bottom: 25px;
          }
          .hero-botones {
-         display: flex;
-         gap: 15px;
-         flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
          }
          .btn {
          padding: 12px 20px;
