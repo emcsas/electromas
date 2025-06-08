@@ -81,7 +81,7 @@
          /*##SECCIÓN PRINCIPAL HERO##*/
          /*##########################*/
          .hero {
-         background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('principal/general/fondo.png');
+         background: url('principal/general/fondo.png') no-repeat center center;
          background-size: cover;
          background-position: top center; /* ← Ancla la imagen en la parte superior */
          height: 700px; /* ← Ajuste la altura según cuánto desee mostrar */
@@ -92,11 +92,13 @@
          overflow: hidden; /* ← Oculta cualquier contenido que sobresalga */
          }
          .hero-contenido {
-         max-width: 500px;
-         text-align: left;
-         font-family: 'Segoe UI', sans-serif;
-         margin-left: 40px; /* ← Separación del borde izquierdo */
-         margin-right: auto;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.45);
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
          }
          .hero-contenido h1 {
          font-size: 32px;
@@ -107,6 +109,11 @@
          font-size: 20px;
          line-height: 1.6;
          margin-bottom: 25px;
+         }
+         .hero-contenido h1,
+         .hero-contenido p {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+            color: white;
          }
          .hero-botones {
          display: flex;
