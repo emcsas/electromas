@@ -7,12 +7,12 @@
   <meta name="description" content="Electromás: categorías de electrodomésticos con ofertas exclusivas. Seleccione su área de interés y descubra nuestras promociones.">
   <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, cocina, microondas, electromas">
   <meta name="author" content="Electromás">
-  <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
+  <link rel="shortcut icon" href="../principal/general/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
   <style>
     * { box-sizing: border-box; }
-    body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+    body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; }
     header {
       display: flex;
       justify-content: space-between;
@@ -68,7 +68,6 @@
       font-size: 28px;
       margin: 30px 0 10px;
     }
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -112,17 +111,24 @@
       background: #fc4b08; color: white;
       cursor: pointer;
     }
+    footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-left">
-      <img src="principal/general/electro.png" alt="Logo">
+      <img src="../principal/general/electro.png" alt="Logo">
       <nav>
-        <a href="index.html">Inicio</a>
-        <a href="index.html#categorias">Categorías</a>
-        <a href="ofertas.html">Ofertas</a>
-        <a href="combos.html">Combos</a>
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#categorias">Categorías</a>
+        <a href="../ofertas.html">Ofertas</a>
+        <a href="../combos.html">Combos</a>
       </nav>
     </div>
   </header>
@@ -130,29 +136,28 @@
   <section class="categorias-section" id="productos-cocina">
     <h2 class="seccion-titulo">🟠 Cocinas 🟠</h2>
     <div class="productos">
-      <!-- PRODUCTOS COCINA -->
       <div class="producto" onclick="mostrarDetalles('Kombo-cocineta a gas Pompeya 4Q Inox','100% acero inoxidable|Terminado sin filos cortantes|4 quemadores|Tapa de vidrio templado bajo normas INEN|4 perillas PVC negras resistentes al calor|4 regatones antideslizantes|2 parrillas enlozadas|Alto: 17 cm|Ancho: 61 cm|Prof: 53 cm|18 meses de garantía','$82')">
-        <img src="principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
+        <img src="../principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
         <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3><span>$82</span>
       </div>
       <div class="producto" onclick="mostrarDetalles('Indurama Bilbao Spazio Plus 20 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión|Eficiente quemador suelo|Alto: 94 cm|Ancho: 51 cm|Prof: 58 cm|1 año de garantía','$221.40')">
-        <img src="principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20"><h3>Indurama Bilbao Spazio Plus 20"</h3><span>$221.40</span>
+        <img src="../principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20"><h3>Indurama Bilbao Spazio Plus 20"</h3><span>$221.40</span>
       </div>
       <div class="producto" onclick="mostrarDetalles('Indurama Milan Zafiro 24 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 60 cm|Prof: 64 cm|1 año de garantía','$372')">
-        <img src="principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24"><h3>Indurama Milan Zafiro 24"</h3><span>$372</span>
+        <img src="../principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24"><h3>Indurama Milan Zafiro 24"</h3><span>$372</span>
       </div>
       <div class="producto" onclick="mostrarDetalles('Indurama Galicia Zafiro 30 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|6 quemadores|Encendido electrónico|Timer mecánico|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 76 cm|Prof: 64 cm|1 año de garantía','$517')">
-        <img src="principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30"><h3>Indurama Galicia Zafiro 30"</h3><span>$517</span>
+        <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30"><h3>Indurama Galicia Zafiro 30"</h3><span>$517</span>
       </div>
     </div>
 
     <h2 class="seccion-titulo">🟠 Microondas 🟠</h2>
     <div class="productos">
       <div class="producto" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D','22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía','$115')">
-        <img src="principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D"><h3>Whirlpool 20 litros silver WM1807D</h3><span>$115</span>
+        <img src="../principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D"><h3>Whirlpool 20 litros silver WM1807D</h3><span>$115</span>
       </div>
       <div class="producto" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR','Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía','$118')">
-        <img src="principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR"><h3>Indurama 20 litros croma MWI-20CR</h3><span>$118</span>
+        <img src="../principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR"><h3>Indurama 20 litros croma MWI-20CR</h3><span>$118</span>
       </div>
     </div>
   </section>
@@ -167,19 +172,23 @@
     </div>
   </div>
 
+  <footer>
+    <p>© 2025 Electromás. Todos los derechos reservados.</p>
+  </footer>
+
   <script>
     function mostrarDetalles(titulo, descripcion, precio) {
       document.getElementById('modal-titulo').innerText = titulo;
-      let listaDescripcion = document.getElementById('modal-descripcion');
-      listaDescripcion.innerHTML = "";
-      descripcion.split('|').forEach(caracteristica => {
-        let li = document.createElement('li');
-        li.textContent = caracteristica.trim();
-        listaDescripcion.appendChild(li);
+      const lista = document.getElementById('modal-descripcion');
+      lista.innerHTML = "";
+      descripcion.split('|').forEach(texto => {
+        const li = document.createElement('li');
+        li.textContent = texto.trim();
+        lista.appendChild(li);
       });
       document.getElementById('modal-precio').innerText = precio;
-      let mensaje = `Hola, estoy interesado en el siguiente producto:\n*Producto:* ${titulo}\n*Precio:* ${precio}\n¿Podrían brindarme más información, por favor?`;
-      document.getElementById('whatsapp-link').href = `https://wa.me/593988926331?text=${encodeURIComponent(mensaje)}`;
+      const msg = `Hola, estoy interesado en el siguiente producto:\n*Producto:* ${titulo}\n*Precio:* ${precio}\n¿Podrían brindarme más información, por favor?`;
+      document.getElementById('whatsapp-link').href = `https://wa.me/593988926331?text=${encodeURIComponent(msg)}`;
       document.getElementById('modal').style.display = "flex";
     }
     function cerrarModal() {
