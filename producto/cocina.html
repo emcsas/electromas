@@ -18,6 +18,19 @@
       text-align: center;
       padding: 15px;
     }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f29300;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
     .hero {
       background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1200x400.png?text=Banner+Cocina');
       background-size: cover;
@@ -44,13 +57,21 @@
       text-decoration: none;
       display: inline-block;
     }
+    .seccion {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .seccion h2 {
+      font-size: 32px;
+      color: #f29300;
+      text-align: center;
+      margin-bottom: 30px;
+    }
     .productos-cocina {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
     }
     .producto {
       background: white;
@@ -96,33 +117,70 @@
     <h1>Electromás</h1>
   </header>
 
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="index.html#categorias">Categorías</a>
+    <a href="ofertas.html">Ofertas</a>
+    <a href="combos.html">Combos</a>
+  </nav>
+
   <section class="hero">
     <h1>Todo para su Cocina</h1>
-    <p>Modernice su cocina con hornos, cocinas y campanas innovadoras.</p>
+    <p>Modernice su cocina con hornos, cocinas y microondas innovadores.</p>
     <a href="https://wa.me/593988926331?text=Hola%2C%20deseo%20m%C3%A1s%20informaci%C3%B3n%20sobre%20productos%20de%20cocina">Cotizar por WhatsApp</a>
   </section>
 
-  <section class="productos-cocina">
-    <div class="producto">
-      <img src="https://via.placeholder.com/300x200.png?text=Horno+Empotrable" alt="Horno empotrable Indurama">
-      <h3>Horno Empotrable Indurama</h3>
-      <p>Acero inoxidable, 65L, grill eléctrico</p>
-      <span>$429</span>
-      <a href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20el%20combo%20de%20cocina.%20%C2%BFPuede%20darme%20m%C3%A1s%20informaci%C3%B3n%3F%0A%0A%F0%9F%94%B9%20**Horno%20Empotrable%20Indurama**%0A%F0%9F%92%B2%20**%24429**%0A%0AIncluye%3A%0A%E2%9C%85%20Acero%20inoxidable%0A%E2%9C%85%2065%20litros%20de%20capacidad%0A%E2%9C%85%20Grill%20el%C3%A9ctrico">Cotizar</a>
+  <section class="seccion">
+    <h2>🟠 Cocinas 🟠</h2>
+    <div class="productos-cocina">
+      <div class="producto">
+        <img src="principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
+        <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3>
+        <p>Acero inoxidable, 4 quemadores, tapa de vidrio templado</p>
+        <span>$82</span>
+        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Kombo-cocineta%20a%20gas%20Pompeya%204Q%20Inox%20por%20$82">Cotizar</a>
+      </div>
+      <div class="producto">
+        <img src="principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20">
+        <h3>Indurama Bilbao Spazio Plus 20"</h3>
+        <p>Vidrio templado, acero inoxidable, encendido electrónico</p>
+        <span>$221.40</span>
+        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Indurama%20Bilbao%20Spazio%20Plus%2020%20por%20$221.40">Cotizar</a>
+      </div>
+      <div class="producto">
+        <img src="principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24">
+        <h3>Indurama Milan Zafiro 24"</h3>
+        <p>Acero inoxidable, grill a gas, sistema cortagas</p>
+        <span>$372</span>
+        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Indurama%20Milan%20Zafiro%2024%20por%20$372">Cotizar</a>
+      </div>
+      <div class="producto">
+        <img src="principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30">
+        <h3>Indurama Galicia Zafiro 30"</h3>
+        <p>6 quemadores, acero inoxidable, sistema cortagas</p>
+        <span>$517</span>
+        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Indurama%20Galicia%20Zafiro%2030%20por%20$517">Cotizar</a>
+      </div>
     </div>
-    <div class="producto">
-      <img src="https://via.placeholder.com/300x200.png?text=Cocina+a+Gas" alt="Cocina a Gas 5 quemadores">
-      <h3>Cocina a Gas Mabe 5Q</h3>
-      <p>Vidrio templado, encendido eléctrico</p>
-      <span>$529</span>
-      <a href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20el%20combo%20de%20cocina.%20%C2%BFPuede%20darme%20m%C3%A1s%20informaci%C3%B3n%3F%0A%0A%F0%9F%94%B9%20**Cocina%20a%20Gas%20Mabe%205Q**%0A%F0%9F%92%B2%20**%24529**%0A%0AIncluye%3A%0A%E2%9C%85%205%20quemadores%0A%E2%9C%85%20Vidrio%20templado%0A%E2%9C%85%20Encendido%20el%C3%A9ctrico">Cotizar</a>
-    </div>
-    <div class="producto">
-      <img src="https://via.placeholder.com/300x200.png?text=Campana+Extractora" alt="Campana extractora de cocina">
-      <h3>Campana Extractora</h3>
-      <p>3 velocidades, luz LED, 60cm</p>
-      <span>$199</span>
-      <a href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20el%20combo%20de%20cocina.%20%C2%BFPuede%20darme%20m%C3%A1s%20informaci%C3%B3n%3F%0A%0A%F0%9F%94%B9%20**Campana%20Extractora**%0A%F0%9F%92%B2%20**%24199**%0A%0AIncluye%3A%0A%E2%9C%85%203%20velocidades%0A%E2%9C%85%20Luz%20LED%0A%E2%9C%85%2060cm%20de%20ancho">Cotizar</a>
+  </section>
+
+  <section class="seccion">
+    <h2>🟠 Microondas 🟠</h2>
+    <div class="productos-cocina">
+      <div class="producto">
+        <img src="principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D">
+        <h3>Whirlpool 20 litros WM1807D</h3>
+        <p>Silver acabado espejo, LED, 22 funciones</p>
+        <span>$115</span>
+        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Whirlpool%2020%20litros%20WM1807D%20por%20$115">Cotizar</a>
+      </div>
+      <div class="producto">
+        <img src="principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR">
+        <h3>Indurama MWI-20CR</h3>
+        <p>Cavidad blanca, push button, LED, 20 litros</p>
+        <span>$118</span>
+        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Indurama%20MWI-20CR%20por%20$118">Cotizar</a>
+      </div>
     </div>
   </section>
 
