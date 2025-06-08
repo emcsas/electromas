@@ -105,19 +105,21 @@
          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
-      footer {
+         footer {
          background-color: #002244;
          color: white;
          text-align: center;
-         padding: 12px 0;
+         padding: 2px;
          font-size: 18px;
-         width: 100%;
-         box-sizing: border-box;
-         margin-top: auto;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-      }
+         width: 100vw;
+         min-height: 60px; /* Ajusta la altura mínima */
+         box-sizing: border-box; /* Evita problemas con márgenes y paddings */
+         position: auto;
+         margin-top: auto; /* Se mantiene abajo automáticamente */
+         bottom: 0;
+         left: 0;
+         }
+      
    </style>
 </head>
 <body>
@@ -167,8 +169,8 @@
       </div>
    </div>
 
-   <footer>
-      © 2025 Electromás. Todos los derechos reservados.
-   </footer>
+      <footer>
+         <p>© 2025 Electromás. Todos los derechos reservados.</p>
+      </footer>
 </body>
 </html>
