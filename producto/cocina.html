@@ -3,223 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
-  <title>Electromás | Cocina</title>
-  <meta name="description" content="Electromás: selección de productos para cocina con ofertas exclusivas. Cocinas, hornos y microondas a precios accesibles.">
-  <meta name="keywords" content="cocinas, hornos, microondas, electrodomésticos, cocina, electromas">
+  <title>Electromás | Electrodomésticos</title>
+  <meta name="description" content="Electromás: categorías de electrodomésticos con ofertas exclusivas. Seleccione su área de interés y descubra nuestras promociones.">
+  <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, cocina, refrigeración, lavado, climatización, electromas">
   <meta name="author" content="Electromás">
-  <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
+  <link rel="shortcut icon" href="../principal/general/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #002244;
-    }
+    * { box-sizing: border-box; }
+    body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
     header {
-      background-color: #fff;
-      padding: 10px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 10px 30px;
+      background-color: #fff;
       border-bottom: 4px solid #f29300;
-      box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
     }
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    .header-left img {
-      height: 40px;
-      width: auto;
-    }
-    nav {
-      display: flex;
-      gap: 25px;
-    }
+    .header-left { display: flex; align-items: center; gap: 30px; }
+    .header-left img { height: 40px; width: auto; }
+    nav { display: flex; gap: 20px; }
     nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
       color: #002244;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-      padding: 10px 15px;
-      transition: color 0.3s, transform 0.2s ease;
     }
-    nav a:hover {
-      color: #f29300;
-      transform: scale(1.1);
-    }
+    nav a:hover { color: #f29300; }
     .hero {
-      background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://via.placeholder.com/1200x400.png?text=Banner+Cocina');
+      background: url('../principal/general/electrodomesticos.png') no-repeat center top;
       background-size: cover;
-      background-position: center;
-      color: white;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 100px 20px;
-      margin-top: 80px;
-    }
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 25px;
-    }
-    .hero a {
-      background-color: #25D366;
       color: white;
-      padding: 14px 30px;
-      border-radius: 30px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
     }
-    .seccion {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .hero-contenido {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 15px;
     }
-    .seccion h2 {
-      font-size: 32px;
+    .hero-contenido h1 {
       color: #f29300;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .productos-cocina {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .producto {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-      border: 2px solid #f29300;
-    }
-    .producto img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      border-radius: 10px;
-    }
-    .producto h3 {
-      font-size: 20px;
-      margin: 15px 0 10px;
-    }
-    .producto p {
-      font-size: 15px;
-      color: #444;
-      margin-bottom: 10px;
-    }
-    .producto span {
-      font-size: 18px;
-      font-weight: bold;
-      color: #fc4b08;
-      display: block;
+      font-size: 36px;
       margin-bottom: 15px;
     }
-    .producto a {
-      background-color: #25D366;
-      color: white;
+    .hero-contenido p { font-size: 18px; margin-bottom: 25px; }
+    .btn {
       padding: 10px 20px;
       border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 5px;
+    }
+    .whatsapp { background-color: #25D366; color: white; }
+    .facebook { background-color: #1877F2; color: white; }
+    .categorias-section {
+      padding: 30px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    .seccion-titulo {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #002244;
+    }
+    .categorias {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .categoria {
+      width: 220px;
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
       text-decoration: none;
     }
-    footer {
-      background-color: #002244;
+    .categoria .overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       color: white;
-      text-align: center;
       padding: 20px;
-      margin-top: 40px;
     }
+    .categoria h3 { margin: 0; font-size: 20px; color: #f29300; }
+    .categoria p { font-size: 14px; margin-top: 10px; }
+    .categoria.cocina { background-image: url('../principal/general/cocina.png'); }
+    .categoria.refrigeracion { background-image: url('../principal/general/refrigeracion.png'); }
+    .categoria.lavado { background-image: url('../principal/general/lavado.png'); }
+    .categoria.climatizacion { background-image: url('../principal/general/ventilación.png'); }
+    .categoria.alimentos { background-image: url('../principal/general/alimentacion.png'); }
   </style>
 </head>
 <body>
   <header>
     <div class="header-left">
-      <img src="principal/general/electro.png" alt="Logo">
+      <img src="../principal/general/electro.png" alt="Logo">
       <nav>
-        <a href="index.html">Inicio</a>
-        <a href="index.html#categorias">Categorías</a>
-        <a href="ofertas.html">Ofertas</a>
-        <a href="combos.html">Combos</a>
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#categorias">Categorías</a>
+        <a href="../ofertas.html">Ofertas</a>
+        <a href="../combos.html">Combos</a>
       </nav>
     </div>
   </header>
-
   <section class="hero">
-    <h1>Todo para su Cocina</h1>
-    <p>Modernice su cocina con hornos, cocinas y microondas innovadores.</p>
-    <a href="https://wa.me/593988926331?text=Hola,%20me%20interesan%20los%20productos%20de%20cocina.%20%C2%BFPodr%C3%ADa%20brindarme%20m%C3%A1s%20informaci%C3%B3n?">Cotizar por WhatsApp</a>
-  </section>
-
-  <section class="seccion">
-     <h2>🟠 Cocinas 🟠</h2>
-    <div class="productos-cocina">
-      <div class="producto">
-        <img src="principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
-        <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3>
-        <p>Acero inoxidable, 4 quemadores, tapa de vidrio templado</p>
-        <span>$82</span>
-        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Kombo-cocineta%20a%20gas%20Pompeya%204Q%20Inox%20por%20$82">Cotizar</a>
-      </div>
-      <div class="producto">
-        <img src="principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20">
-        <h3>Indurama Bilbao Spazio Plus 20"</h3>
-        <p>Vidrio templado, acero inoxidable, encendido electrónico</p>
-        <span>$221.40</span>
-        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Indurama%20Bilbao%20Spazio%20Plus%2020%20por%20$221.40">Cotizar</a>
-      </div>
-      <div class="producto">
-        <img src="principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24">
-        <h3>Indurama Milan Zafiro 24"</h3>
-        <p>Acero inoxidable, grill a gas, sistema cortagas</p>
-        <span>$372</span>
-        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Indurama%20Milan%20Zafiro%2024%20por%20$372">Cotizar</a>
-      </div>
-      <div class="producto">
-        <img src="principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30">
-        <h3>Indurama Galicia Zafiro 30"</h3>
-        <p>6 quemadores, acero inoxidable, sistema cortagas</p>
-        <span>$517</span>
-        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Indurama%20Galicia%20Zafiro%2030%20por%20$517">Cotizar</a>
+    <div class="hero-contenido">
+      <h1>Electrodomésticos que transforman su hogar</h1>
+      <p class="mensaje-potente">
+        Elija su categoría y descubra cómo puede mejorar su día a día con nuestros productos. ¡Ofertas activas hoy mismo!
+      </p>
+      <div class="hero-botones">
+        <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
+          <i class="fab fa-whatsapp"></i> Contáctenos
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61554825365190" target="_blank" class="btn facebook">
+          <i class="fab fa-facebook-f"></i> Síganos
+        </a>
       </div>
     </div>
   </section>
-
-  <section class="seccion">
-    <h2>🟠 Microondas 🟠</h2>
-    <div class="productos-cocina">
-      <div class="producto">
-        <img src="principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D">
-        <h3>Whirlpool 20 litros WM1807D</h3>
-        <p>Silver acabado espejo, LED, 22 funciones</p>
-        <span>$115</span>
-        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Whirlpool%2020%20litros%20WM1807D%20por%20$115">Cotizar</a>
-      </div>
-      <div class="producto">
-        <img src="principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR">
-        <h3>Indurama MWI-20CR</h3>
-        <p>Cavidad blanca, push button, LED, 20 litros</p>
-        <span>$118</span>
-        <a href="https://wa.me/593988926331?text=Hola,%20estoy%20interesado%20en:%20Indurama%20MWI-20CR%20por%20$118">Cotizar</a>
-      </div>
+  <section class="categorias-section" id="electrodomesticos">
+    <h2 class="seccion-titulo">🟠 Electrodomésticos 🟠</h2>
+    <div class="categorias">
+      <a href="cocina.html" class="categoria cocina">
+        <div class="overlay">
+          <h3>Cocina</h3>
+          <p>Modernice su cocina con hornos, cocinas y campanas innovadoras.</p>
+        </div>
+      </a>
+      <a href="../refrigeracion.html" class="categoria refrigeracion">
+        <div class="overlay">
+          <h3>Refrigeración</h3>
+          <p>Frigoríficos y congeladores para conservar frescura y sabor.</p>
+        </div>
+      </a>
+      <a href="../lavado.html" class="categoria lavado">
+        <div class="overlay">
+          <h3>Lavado y secado</h3>
+          <p>Soluciones eficientes para mantener su ropa impecable.</p>
+        </div>
+      </a>
+      <a href="../climatizacion.html" class="categoria climatizacion">
+        <div class="overlay">
+          <h3>Climatización</h3>
+          <p>Aires y ventiladores para un confort óptimo en casa.</p>
+        </div>
+      </a>
+      <a href="../alimentos.html" class="categoria alimentos">
+        <div class="overlay">
+          <h3>Preparación de alimentos</h3>
+          <p>Facilite su cocina con electrodomésticos prácticos como freidoras, licuadoras y más..</p>
+        </div>
+      </a>
     </div>
   </section>
-
-  <footer>
-    <p>© 2025 Electromás. Todos los derechos reservados.</p>
-  </footer>
 </body>
 </html>
