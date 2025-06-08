@@ -285,67 +285,58 @@
          gap: 10px;
          margin-top: 15px;
          }
-
          /*##########################*/
          /*#######COMBO BANNER#######*/
          /*##########################*/
-
-.combo-banner {
-   position: relative;
-   background: url('principal/general/combos.png') no-repeat center center;
-   background-size: cover;
-   height: 520px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding: 100px 30px 60px 30px;
-   text-align: center;
-   color: white;
-}
-
-.combo-contenido {
-   background-color: rgba(0, 0, 0, 0.5); /* Oscurece SOLO el texto */
-   padding: 40px 30px;
-   border-radius: 15px;
-   max-width: 1000px;
-   box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-.combo-contenido h1 {
-   font-size: 48px;
-   font-weight: 800;
-   margin-bottom: 15px;
-   color: #ffe600;
-   text-shadow: 1px 1px 2px #000;
-}
-
-.combo-contenido p {
-   font-size: 20px;
-   line-height: 1.6;
-   margin-bottom: 20px;
-   color: #f0f0f0;
-}
-
-.combo-btn {
-   background-color: #25D366;
-   color: white;
-   padding: 14px 24px;
-   border-radius: 30px;
-   font-weight: bold;
-   font-size: 18px;
-   text-decoration: none;
-   display: inline-flex;
-   align-items: center;
-   gap: 10px;
-   transition: background-color 0.3s ease;
-}
-
-.combo-btn:hover {
-   background-color: #1ebe5d;
-   transform: translateY(-2px);
-}
-
-         
+         .combo-banner {
+         position: relative;
+         background: url('principal/general/combos.png') no-repeat center center;
+         background-size: cover;
+         height: 520px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding: 100px 30px 60px 30px;
+         text-align: center;
+         color: white;
+         }
+         .combo-contenido {
+         background-color: rgba(0, 0, 0, 0.5); /* Oscurece SOLO el texto */
+         padding: 40px 30px;
+         border-radius: 15px;
+         max-width: 1000px;
+         box-shadow: 0 0 20px rgba(0,0,0,0.5);
+         }
+         .combo-contenido h1 {
+         font-size: 48px;
+         font-weight: 800;
+         margin-bottom: 15px;
+         color: #ffe600;
+         text-shadow: 1px 1px 2px #000;
+         }
+         .combo-contenido p {
+         font-size: 20px;
+         line-height: 1.6;
+         margin-bottom: 20px;
+         color: #f0f0f0;
+         }
+         .combo-btn {
+         background-color: #25D366;
+         color: white;
+         padding: 14px 24px;
+         border-radius: 30px;
+         font-weight: bold;
+         font-size: 18px;
+         text-decoration: none;
+         display: inline-flex;
+         align-items: center;
+         gap: 10px;
+         transition: background-color 0.3s ease;
+         }
+         .combo-btn:hover {
+         background-color: #1ebe5d;
+         transform: translateY(-2px);
+         }
          /*##############################################*/
          /*#BOTÓN WHATSAPP: Este es el que esta en modal#*/
          /*##############################################*/
@@ -728,22 +719,18 @@
          bottom: 0;
          left: 0;
          }
-     
          /*##########################*/
          /*######### IMAGENES #######*/
          /*##########################*/
-       
-
-.categoria.combo1 {
-   background-image: url('principal/general/combo-cocina.png');
-}
-.categoria.combo2 {
-   background-image: url('principal/general/combo-lavado.png');
-}
-.categoria.combo3 {
-   background-image: url('principal/general/combo-clima.png');
-}
-        
+         .categoria.combo1 {
+         background-image: url('principal/general/combo-cocina.png');
+         }
+         .categoria.combo2 {
+         background-image: url('principal/general/combo-lavado.png');
+         }
+         .categoria.combo3 {
+         background-image: url('principal/general/combo-clima.png');
+         }
       </style>
    </head>
    <!-- ######################################### -->
@@ -756,71 +743,68 @@
                <img src="principal/general/electro.png" alt="Logo">
                <nav>
                   <a href="index.html">Inicio</a>
+                  <a href="index.html#categorias">Categorías</a>
+                  <a href="combos.html">Combos</a> 
+                  <a href="somos.html">Quiénes somos</a> 
                </nav>
             </div>
          </header>
-<section class="combo-banner">
-  <div class="combo-contenido">
-    <h1>🎉 Electrocombos</h1>
-    <p class="mensaje-potente">
-      ¡Equípese al mejor precio! <br>
-      Llévese más por menos con combos exclusivos en cocina, lavado y climatización.<br>
-      Calidad, ahorro y estilo — todo en una sola compra.
-    </p>
-     <a href="https://wa.me/593988926331" target="_blank" class="combo-btn">
-      <i class="fab fa-whatsapp icono"></i> Cotice ahora por WhatsApp
-    </a>
-  </div>
-</section>
+         <section class="combo-banner">
+            <div class="combo-contenido">
+               <h1>🎉 Electrocombos</h1>
+               <p class="mensaje-potente">
+                  ¡Equípese al mejor precio! <br>
+                  Llévese más por menos con combos exclusivos en cocina, lavado y climatización.<br>
+                  Calidad, ahorro y estilo — todo en una sola compra.
+               </p>
+               <a href="https://wa.me/593988926331" target="_blank" class="combo-btn">
+               <i class="fab fa-whatsapp icono"></i> Cotice ahora por WhatsApp
+               </a>
+            </div>
+         </section>
          <!-- ########################## -->
          <!-- SECCIÓN DE OFERTAS DEL MES -->
          <!-- ########################## -->    
-        <section class="categorias-section combos-section" id="combos">
-   <h2 class="seccion-titulo">🟠 Combos Destacados 🟠</h2>
-   <div class="categorias">
-      <a href="combo1.html" class="categoria combo1">
-         <div class="overlay">
-            <h3>Combo Cocina Premium</h3>
-            <p>Incluye horno, cocina y campana en una sola oferta.</p>
-         </div>
-      </a>
-      <a href="combo2.html" class="categoria combo2">
-         <div class="overlay">
-            <h3>Combo Lavado Total</h3>
-            <p>Lavadora y secadora con envío gratis.</p>
-         </div>
-      </a>
-      <a href="combo3.html" class="categoria combo3">
-         <div class="overlay">
-            <h3>Combo Clima Ideal</h3>
-            <p>Aire acondicionado más ventilador silencioso.</p>
-         </div>
-      </a>
-   </div>
-</section>
-         
-         
-         
-         
-         
-         
+         <section class="categorias-section combos-section" id="combos">
+            <h2 class="seccion-titulo">🟠 Combos Destacados 🟠</h2>
+            <div class="categorias">
+               <a href="combo1.html" class="categoria combo1">
+                  <div class="overlay">
+                     <h3>Combo Cocina Premium</h3>
+                     <p>Incluye horno, cocina y campana en una sola oferta.</p>
+                  </div>
+               </a>
+               <a href="combo2.html" class="categoria combo2">
+                  <div class="overlay">
+                     <h3>Combo Lavado Total</h3>
+                     <p>Lavadora y secadora con envío gratis.</p>
+                  </div>
+               </a>
+               <a href="combo3.html" class="categoria combo3">
+                  <div class="overlay">
+                     <h3>Combo Clima Ideal</h3>
+                     <p>Aire acondicionado más ventilador silencioso.</p>
+                  </div>
+               </a>
+            </div>
+         </section>
          <div class="formulario">
-               <h3 class="titulo-formulario">📋 Déjenos sus datos </h3>
-               <form onsubmit="return enviarWhatsApp(event)">
-                  <input type="text" id="nombre" placeholder="Su nombre" required>
-                  <input type="text" id="cedula" placeholder="Cédula" required>
-                  <input type="text" id="direccion" placeholder="Dirección" required>
-                  <input type="text" id="ciudad" placeholder="Ciudad" required>
-                  <input type="text" id="provincia" placeholder="Provincia" required>
-                  <input type="email" id="correo" placeholder="Correo electrónico" required>
-                  <button type="submit" class="boton-whatsapp">
-                  <i class="fab fa-whatsapp"></i> Enviar
-                  </button>
-               </form>
-            </div>
-            <div class="visitanos">
-               📍 Visítenos también en nuestro local físico: Imbabura entre Sucre y 18 de Noviembre, Loja.
-            </div>
+            <h3 class="titulo-formulario">📋 Déjenos sus datos </h3>
+            <form onsubmit="return enviarWhatsApp(event)">
+               <input type="text" id="nombre" placeholder="Su nombre" required>
+               <input type="text" id="cedula" placeholder="Cédula" required>
+               <input type="text" id="direccion" placeholder="Dirección" required>
+               <input type="text" id="ciudad" placeholder="Ciudad" required>
+               <input type="text" id="provincia" placeholder="Provincia" required>
+               <input type="email" id="correo" placeholder="Correo electrónico" required>
+               <button type="submit" class="boton-whatsapp">
+               <i class="fab fa-whatsapp"></i> Enviar
+               </button>
+            </form>
+         </div>
+         <div class="visitanos">
+            📍 Visítenos también en nuestro local físico: Imbabura entre Sucre y 18 de Noviembre, Loja.
+         </div>
          </section>
          <!-- ############# -->
          <!-- SECCIÓN MODAL -->
