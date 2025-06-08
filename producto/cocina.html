@@ -12,62 +12,116 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
   <style>
     * { box-sizing: border-box; }
-    body, html { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: #f4f4f4; }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* ENCABEZADO FIJO */
     header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 30px;
       background-color: #fff;
       border-bottom: 4px solid #f29300;
+      height: 70px;
     }
-    .header-left { display: flex; align-items: center; gap: 30px; }
-    .header-left img { height: 40px; width: auto; }
-    nav { display: flex; gap: 20px; }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .header-left img {
+      height: 40px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
     nav a {
       text-decoration: none;
       font-weight: bold;
       font-size: 18px;
       color: #002244;
     }
-    nav a:hover { color: #f29300; }
-    .productos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
+
+    nav a:hover {
+      color: #f29300;
     }
-    .producto {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 260px;
+
+    /* ESPACIADO SUPERIOR PARA COMPENSAR ENCABEZADO */
+    body {
+      padding-top: 80px;
+    }
+
+    .seccion-titulo {
       text-align: center;
+      color: #002244;
+      font-size: 28px;
+      margin: 40px 0 20px;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 40px 5%;
+      background-color: #f9f9f9;
+    }
+
+    .producto {
+      background-color: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
       cursor: pointer;
-      padding: 15px;
-      transition: transform 0.3s;
     }
-    .producto:hover { transform: translateY(-5px); }
+
+    .producto:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
     .producto img {
-      max-width: 100%;
-      border-radius: 8px;
+      width: 100%;
+      height: auto;
+      max-height: 200px;
+      object-fit: contain;
+      margin-bottom: 15px;
     }
+
     .producto h3 {
       font-size: 16px;
-      margin: 10px 0 5px;
+      font-weight: 600;
+      color: #002244;
+      text-align: center;
+      margin: 0 0 8px;
     }
+
     .producto span {
       font-size: 18px;
       color: #f29300;
       font-weight: bold;
     }
-    .seccion-titulo {
-      text-align: center;
-      color: #002244;
-      font-size: 28px;
-      margin: 30px 0 10px;
-    }
+
     .modal {
       display: none;
       position: fixed;
@@ -78,6 +132,7 @@
       align-items: center;
       z-index: 1000;
     }
+
     .modal-content {
       background: white;
       padding: 20px;
@@ -86,17 +141,20 @@
       max-width: 400px;
       text-align: center;
     }
+
     .modal-content h2 { color: #002244; margin-bottom: 10px; }
     .modal-content ul {
       text-align: left;
       padding-left: 20px;
     }
+
     .modal-content .precio {
       font-size: 20px;
       font-weight: bold;
       color: #f29300;
       margin: 10px 0;
     }
+
     .whatsapp-btn, .close {
       padding: 10px 15px;
       border-radius: 5px;
@@ -104,13 +162,16 @@
       margin: 5px;
       display: inline-block;
     }
+
     .whatsapp-btn {
       background: #25D366; color: white;
     }
+
     .close {
       background: #fc4b08; color: white;
       cursor: pointer;
     }
+
     footer {
       background-color: #002244;
       color: white;
@@ -150,16 +211,6 @@
         <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30"><h3>Indurama Galicia Zafiro 30"</h3><span>$517</span>
       </div>
     </div>
-
-    <h2 class="seccion-titulo">🟠 Microondas 🟠</h2>
-    <div class="productos">
-      <div class="producto" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D','22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía','$115')">
-        <img src="../principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D"><h3>Whirlpool 20 litros silver WM1807D</h3><span>$115</span>
-      </div>
-      <div class="producto" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR','Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía','$118')">
-        <img src="../principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR"><h3>Indurama 20 litros croma MWI-20CR</h3><span>$118</span>
-      </div>
-    </div>
   </section>
 
   <div id="modal" class="modal">
@@ -191,6 +242,7 @@
       document.getElementById('whatsapp-link').href = `https://wa.me/593988926331?text=${encodeURIComponent(msg)}`;
       document.getElementById('modal').style.display = "flex";
     }
+
     function cerrarModal() {
       document.getElementById('modal').style.display = "none";
     }
