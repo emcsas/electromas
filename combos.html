@@ -667,6 +667,17 @@
          bottom: 0;
          left: 0;
          }
+
+.categoria.combo1 {
+   background-image: url('principal/general/combo-cocina.png');
+}
+.categoria.combo2 {
+   background-image: url('principal/general/combo-lavado.png');
+}
+.categoria.combo3 {
+   background-image: url('principal/general/combo-clima.png');
+}
+        
       </style>
    </head>
    <!-- ######################################### -->
@@ -697,31 +708,36 @@
          <!-- ########################## -->
          <!-- SECCIÓN DE OFERTAS DEL MES -->
          <!-- ########################## -->    
-         <section class="ofertas-section">
-            <h2 class="titulo-estrella-destacado">🎯 Producto estrella del Mes</h2>
-            <p class="ahorro">¡Ahorro de hasta el 30%! Solo por junio o hasta agotar stock.</p>
-            <div class="producto-horizontal">
-               <div class="producto-imagen">
-                  <img src="principal/televisor/indurama.png" alt="Televisor Indurama">
-               </div>
-               <div class="producto-info">
-                  <h3>Smart TV Indurama 58" UHD 4K</h3>
-                  <span>$556</span>
-                  <ul>
-                     <li>Resolución ULTRA HIGH DEFINITION 3840 x 2160</li>
-                     <li>Nuevo diseño Ultra Slim</li>
-                     <li>Color Croma</li>
-                     <li>Procesador Quadcore - 1.5GHz</li>
-                     <li>16 GB de almacenamiento y 2 GB de RAM</li>
-                     <li>Bluetooth 5.1 - Wi-Fi 2.4 & 5G</li>
-                     <li>Dolby Vision HDR10</li>
-                     <li>Alto: 75 cm | Ancho: 128.5 cm | Profundidad: 8.9 cm</li>
-                     <li>2 años de garantía</li>
-                  </ul>
-                  <p class="urgente">⚠ Solo 10 unidades disponibles. ¡Apresúrese!</p>
-               </div>
-            </div>
-            <div class="formulario">
+        <section class="categorias-section combos-section" id="combos">
+   <h2 class="seccion-titulo">🟠 Combos Destacados 🟠</h2>
+   <div class="categorias">
+      <a href="combo1.html" class="categoria combo1">
+         <div class="overlay">
+            <h3>Combo Cocina Premium</h3>
+            <p>Incluye horno, cocina y campana en una sola oferta.</p>
+         </div>
+      </a>
+      <a href="combo2.html" class="categoria combo2">
+         <div class="overlay">
+            <h3>Combo Lavado Total</h3>
+            <p>Lavadora y secadora con envío gratis.</p>
+         </div>
+      </a>
+      <a href="combo3.html" class="categoria combo3">
+         <div class="overlay">
+            <h3>Combo Clima Ideal</h3>
+            <p>Aire acondicionado más ventilador silencioso.</p>
+         </div>
+      </a>
+   </div>
+</section>
+         
+         
+         
+         
+         
+         
+         <div class="formulario">
                <h3 class="titulo-formulario">📋 Solicite esta oferta vía WhatsApp</h3>
                <form onsubmit="return enviarWhatsApp(event)">
                   <input type="text" id="nombre" placeholder="Su nombre" required>
