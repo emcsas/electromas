@@ -436,15 +436,20 @@
       box-shadow: 0 1px 4px #efd5d55f;
     }
     .close-img:hover { background: #c13b3b; }
-    footer {
-      background: var(--azul-electro);
-      color: white;
-      text-align: center;
-      padding: 13px 10px 12px 10px;
-      font-size: 16px;
-      letter-spacing: 0.3px;
-      margin-top: 80px;
-    }
+         footer {
+         background-color: #002244;
+         color: white;
+         text-align: center;
+         padding: 2px;
+         font-size: 18px;
+         width: 100vw;
+         min-height: 60px; /* Ajusta la altura mínima */
+         box-sizing: border-box; /* Evita problemas con márgenes y paddings */
+         position: auto;
+         margin-top: auto; /* Se mantiene abajo automáticamente */
+         bottom: 0;
+         left: 0;
+         }
     @media (max-width: 700px) {
       .productos { padding: 16px 1%; }
       .producto { min-height: 330px; }
