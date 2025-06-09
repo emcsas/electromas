@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Electromás | Cocina</title>
+  <title>Electromás | Cocinas</title>
   <meta name="description" content="Electromás: electrodomésticos con ofertas exclusivas. Descubra nuestras promociones.">
   <meta name="keywords" content="electrodomésticos, cocina, microondas, ofertas, hogar">
   <meta name="author" content="Electromás">
@@ -57,6 +57,9 @@
       font-size: 30px;
       margin: 40px 0 20px;
       letter-spacing: 1px;
+      font-weight: 800;
+      background: none;
+      padding: 0;
     }
     .productos {
       display: grid;
@@ -76,7 +79,7 @@
       padding: 28px 18px 18px 18px;
       cursor: pointer;
       position: relative;
-      min-height: 420px;
+      min-height: 370px;
     }
     .producto:hover {
       transform: translateY(-7px) scale(1.035);
@@ -92,18 +95,6 @@
       background: #f5f7fb;
       border-radius: 12px;
       padding: 10px;
-    }
-    .oferta {
-      position: absolute;
-      top: 18px; left: 18px;
-      background: linear-gradient(90deg, #ff8900, #ffb700 80%);
-      color: #fff;
-      padding: 5px 16px 5px 12px;
-      border-radius: 0 10px 10px 0;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      box-shadow: 0 1.5px 8px rgba(255,137,0,0.14);
     }
     .producto h3 {
       font-size: 17px;
@@ -121,25 +112,28 @@
       letter-spacing: 0.5px;
       text-shadow: 0 1px 2px #f4efe5a2;
     }
-    .urgencia {
-      color: #d32f2f;
-      font-size: 14px;
-      margin-top: 7px;
-      text-align: center;
-      font-weight: 500;
-      letter-spacing: 0.1px;
-    }
     .garantia {
       display: flex;
       align-items: center;
-      font-size: 13px;
-      color: #22b06a;
-      gap: 5px;
-      margin-top: 10px;
+      font-size: 14px;
+      color: #189e53;
+      gap: 7px;
+      margin-top: 18px;
+      margin-bottom: 0;
       justify-content: center;
       width: 100%;
+      font-weight: 600;
+      letter-spacing: 0.1px;
     }
-    .garantia i { font-size: 15px; }
+    .garantia i {
+      font-size: 18px;
+      color: #26cc8c;
+      background: #e6f8ee;
+      border-radius: 50%;
+      padding: 3px;
+      border: 1.2px solid #bdf2dd;
+      margin-right: 2px;
+    }
     .botones-producto {
       margin-top: 18px;
       display: flex;
@@ -262,7 +256,8 @@
     }
     @media (max-width: 700px) {
       .productos { padding: 20px 2%; }
-      .producto { min-height: 390px; }
+      .producto { min-height: 320px; }
+      .seccion-titulo { font-size: 22px; }
     }
   </style>
 </head>
@@ -277,16 +272,14 @@
   </header>
 
   <section class="categorias-section" id="productos-cocina">
-    <h2 class="seccion-titulo">🟠 Cocinas 🟠</h2>
+    <h2 class="seccion-titulo">Cocinas</h2>
     <div class="productos">
       <!-- Producto 1 -->
       <div class="producto">
-        <span class="oferta"><i class="fa fa-bolt"></i> OFERTA</span>
         <img src="../principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
         <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3>
         <span class="precio">$82</span>
-        <div class="urgencia"><i class="fa fa-fire"></i> ¡Quedan pocas unidades!</div>
-        <div class="garantia"><i class="fa fa-shield"></i> 18 meses de garantía</div>
+        <div class="garantia"><i class="fa fa-award"></i> 18 meses de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Kombo-cocineta a gas Pompeya 4Q Inox','$82')">
             <i class="fa fa-shopping-cart"></i> Comprar ahora
@@ -298,12 +291,10 @@
       </div>
       <!-- Producto 2 -->
       <div class="producto">
-        <span class="oferta"><i class="fa fa-bolt"></i> OFERTA</span>
         <img src="../principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20">
         <h3>Indurama Bilbao Spazio Plus 20"</h3>
         <span class="precio">$221.40</span>
-        <div class="urgencia"><i class="fa fa-fire"></i> ¡Quedan pocas unidades!</div>
-        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Indurama Bilbao Spazio Plus 20 pulgadas','$221.40')">
             <i class="fa fa-shopping-cart"></i> Comprar ahora
@@ -318,8 +309,7 @@
         <img src="../principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24">
         <h3>Indurama Milan Zafiro 24"</h3>
         <span class="precio">$372</span>
-        <div class="urgencia"><i class="fa fa-fire"></i> ¡Quedan pocas unidades!</div>
-        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Indurama Milan Zafiro 24 pulgadas','$372')">
             <i class="fa fa-shopping-cart"></i> Comprar ahora
@@ -334,8 +324,7 @@
         <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30">
         <h3>Indurama Galicia Zafiro 30"</h3>
         <span class="precio">$517</span>
-        <div class="urgencia"><i class="fa fa-fire"></i> ¡Quedan pocas unidades!</div>
-        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Indurama Galicia Zafiro 30 pulgadas','$517')">
             <i class="fa fa-shopping-cart"></i> Comprar ahora
@@ -349,16 +338,14 @@
   </section>
 
   <section class="categorias-section" id="productos-microondas">
-    <h2 class="seccion-titulo">🟠 Microondas 🟠</h2>
+    <h2 class="seccion-titulo">Microondas</h2>
     <div class="productos">
       <!-- Producto 5 -->
       <div class="producto">
-        <span class="oferta"><i class="fa fa-bolt"></i> OFERTA</span>
         <img src="../principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D">
         <h3>Whirlpool 20 litros silver WM1807D</h3>
         <span class="precio">$115</span>
-        <div class="urgencia"><i class="fa fa-fire"></i> ¡Quedan pocas unidades!</div>
-        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Whirlpool 20 litros silver WM1807D','$115')">
             <i class="fa fa-shopping-cart"></i> Comprar ahora
@@ -373,8 +360,7 @@
         <img src="../principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR">
         <h3>Indurama 20 litros croma MWI-20CR</h3>
         <span class="precio">$118</span>
-        <div class="urgencia"><i class="fa fa-fire"></i> ¡Quedan pocas unidades!</div>
-        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Indurama 20 litros croma MWI-20CR','$118')">
             <i class="fa fa-shopping-cart"></i> Comprar ahora
