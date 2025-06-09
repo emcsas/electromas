@@ -11,7 +11,7 @@
     body, html {
       margin: 0; padding: 0;
       font-family: 'Montserrat', sans-serif;
-      background: #eef1f5;
+      background: #f7f9fb;
     }
     body { padding-top: 80px; }
     header {
@@ -23,7 +23,7 @@
       align-items: center;
       padding: 10px 30px;
       background: #fff;
-      border-bottom: 3px solid #ff8900;
+      border-bottom: 2.5px solid #f29118;
       height: 70px;
     }
     .header-left {
@@ -42,36 +42,35 @@
     }
     .btn-atras {
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 18px;
-      color: #19395c;
-      padding: 8px 16px;
-      border-radius: 7px;
-      transition: background 0.16s;
-      border: none;
+      color: #23395d;
+      padding: 7px 16px;
+      border-radius: 6px;
       background: transparent;
       cursor: pointer;
+      border: none;
       outline: none;
-      margin-right: 2px;
+      margin-right: 3px;
+      transition: color 0.14s;
     }
-    .btn-atras:hover { background: #f2f2f7; color: #ff8900; }
-    /* Menú desplegable */
+    .btn-atras:hover { color: #f29118; background: #f6f3eb; }
     .dropdown {
       position: relative;
       display: inline-block;
     }
     .dropbtn {
-      background: #f5f7fb;
+      background: none;
       color: #1a2639;
       font-weight: 700;
       font-size: 17px;
       border: none;
       border-radius: 7px;
-      padding: 8px 28px 8px 16px;
+      padding: 8px 28px 8px 14px;
       cursor: pointer;
-      transition: background 0.16s, color 0.16s;
+      transition: color 0.16s;
       outline: none;
-      box-shadow: 0 1px 6px #e5e7fa10;
+      box-shadow: none;
       position: relative;
     }
     .dropbtn:after {
@@ -79,161 +78,175 @@
       font-family: "Font Awesome 6 Free";
       font-weight: 900;
       font-size: 13px;
-      color: #19395c;
+      color: #284171;
       position: absolute;
-      right: 12px; top: 13px;
+      right: 8px; top: 13px;
       pointer-events: none;
     }
     .dropbtn:hover, .dropdown:hover .dropbtn {
-      background: #edeff5;
-      color: #ff8900;
+      color: #f29118;
+      background: none;
     }
     .dropdown-content {
       display: none;
       position: absolute;
       background: #fff;
       min-width: 150px;
-      box-shadow: 0 3px 16px #19191918;
-      border-radius: 9px;
+      box-shadow: 0 4px 20px #19191917;
+      border-radius: 8px;
       z-index: 1001;
       top: 110%;
       left: 0;
-      overflow: hidden;
       border: 1px solid #f2f2f7;
       padding: 0;
+      margin-top: 5px;
     }
     .dropdown-content a {
-      color: #19395c;
+      color: #223556;
       padding: 12px 18px;
       text-decoration: none;
       display: block;
-      font-size: 16px;
-      transition: background 0.14s, color 0.14s;
+      font-size: 15.5px;
       font-weight: 600;
       background: #fff;
+      border-bottom: 1px solid #f6f7fa;
+      transition: background 0.13s, color 0.13s;
     }
+    .dropdown-content a:last-child { border-bottom: none; }
     .dropdown-content a:hover {
-      background: #ff8900;
+      background: #f29118;
       color: #fff;
     }
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+    /* Título sección */
     .seccion-titulo {
       text-align: center;
-      color: #1a2639;
-      font-size: 38px;
-      margin: 45px 0 24px;
+      color: #223556;
+      font-size: 2.5rem;
+      margin: 55px 0 30px;
       font-weight: 800;
-      letter-spacing: 1.3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      text-shadow: 0 2px 18px #f5ba7038;
+      position: relative;
+    }
+    .seccion-titulo:after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg,#f29118 55%,#fff0 100%);
+      margin: 14px auto 0;
+      border-radius: 3px;
+      opacity: .9;
     }
     .productos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
       gap: 32px;
       padding: 40px 6%;
-      background: #f8fafc;
+      background: #f7f9fb;
     }
     .producto {
       background: #fff;
       border-radius: 18px;
-      box-shadow: 0 3px 24px rgba(25,57,92,0.10), 0 1.5px 6px rgba(255,137,0,0.08);
-      transition: transform 0.23s cubic-bezier(.45,.85,.52,1.2), box-shadow 0.23s;
+      box-shadow: 0 6px 34px rgba(34,53,86,0.10);
+      transition: transform 0.18s cubic-bezier(.45,.85,.52,1.2), box-shadow 0.18s;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 28px 18px 18px 18px;
+      padding: 32px 18px 24px 18px;
       position: relative;
-      min-height: 370px;
+      min-height: 410px;
+      border: 1.2px solid #f4f6fa;
     }
     .producto:hover {
-      transform: translateY(-7px) scale(1.035);
-      box-shadow: 0 10px 36px rgba(25,57,92,0.14), 0 4px 10px rgba(255,137,0,0.09);
+      transform: translateY(-5px) scale(1.026);
+      box-shadow: 0 12px 42px #22355619;
+      border: 1.5px solid #f29118;
     }
     .img-container {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 19px;
     }
     .producto img {
-      width: 88%;
-      max-width: 180px;
-      max-height: 170px;
+      width: 90%;
+      max-width: 190px;
+      max-height: 178px;
       object-fit: contain;
-      background: #f7f7fa;
-      border-radius: 13px;
-      padding: 10px;
-      border: 2.5px solid #f2f2f7;
-      box-shadow: 0 2px 8px #f1e7cf2a;
-      transition: box-shadow 0.2s, border 0.2s;
+      background: #f6f7fa;
+      border-radius: 16px;
+      padding: 12px;
+      border: 2.5px solid #f5f5f5;
+      box-shadow: 0 2px 10px #2235560b;
+      transition: box-shadow 0.19s, border 0.17s;
       cursor: zoom-in;
     }
     .producto img:hover {
-      box-shadow: 0 4px 24px #ffb70055;
-      border: 2.5px solid #ff8900;
+      box-shadow: 0 6px 24px #f2911850;
+      border: 2.5px solid #f29118;
     }
     .producto h3 {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 800;
-      color: #1a2639;
+      color: #223556;
       text-align: center;
-      margin: 0 0 8px 0;
+      margin: 0 0 12px 0;
       min-height: 45px;
-      letter-spacing: 0.25px;
+      letter-spacing: 0.3px;
     }
     .precio {
-      font-size: 25px;
-      color: #ff8900;
-      font-weight: 800;
-      margin: 5px 0 0 0;
-      letter-spacing: 0.7px;
-      text-shadow: 0 1px 2px #f4efe5a2;
+      font-size: 26px;
+      color: #f29118;
+      font-weight: 900;
+      margin: 4px 0 0 0;
+      letter-spacing: 0.6px;
     }
     .garantia {
       display: flex;
       align-items: center;
-      font-size: 15px;
-      color: #159f67;
+      font-size: 16px;
+      color: #0a7a3d;
       gap: 7px;
       margin-top: 18px;
       margin-bottom: 0;
       justify-content: center;
       width: 100%;
       font-weight: 700;
-      letter-spacing: 0.12px;
     }
     .garantia i {
       font-size: 19px;
-      color: #22b06a;
-      background: #e6f8ee;
+      color: #2ecc71;
+      background: #e9fbf1;
       border-radius: 50%;
-      padding: 3.5px;
-      border: 1.2px solid #bdf2dd;
+      padding: 3px;
+      border: 1.2px solid #bef2d8;
       margin-right: 2px;
     }
     .botones-producto {
-      margin-top: 18px;
+      margin-top: 22px;
       display: flex;
       width: 100%;
-      gap: 9px;
+      gap: 12px;
       justify-content: center;
     }
     .comprar-btn {
-      background: linear-gradient(90deg,#22b06a 70%,#19a55b 100%);
+      background: #159944;
       color: #fff;
       border: none;
-      padding: 12px 0;
+      padding: 13px 0;
       border-radius: 8px;
       font-size: 16px;
       font-weight: 800;
       cursor: pointer;
       flex: 2 1 0;
-      box-shadow: 0 2px 7px rgba(34,176,106,0.09);
-      transition: background 0.17s, box-shadow 0.17s;
+      box-shadow: 0 2px 7px #1599440b;
+      transition: background 0.17s;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -244,12 +257,12 @@
       font-size: 19px;
       margin-right: 1px;
     }
-    .comprar-btn:hover { background: #1a8f4b; }
+    .comprar-btn:hover { background: #0a7a3d; }
     .detalles-btn {
-      background: #eaf3fc;
-      color: #225ca7;
-      border: 1.2px solid #c3c7da;
-      padding: 11px 0;
+      background: #fff;
+      color: #223556;
+      border: 1.2px solid #c6d2e1;
+      padding: 13px 0;
       border-radius: 8px;
       font-size: 15px;
       font-weight: 700;
@@ -262,9 +275,9 @@
       letter-spacing: 0.12px;
     }
     .detalles-btn:hover {
-      background: #deecfa;
-      border-color: #ff8900;
-      color: #ff8900;
+      background: #f29118;
+      border-color: #f29118;
+      color: #fff;
     }
     /* Modal de detalles */
     .modal {
@@ -279,39 +292,38 @@
     }
     .modal-content {
       background: #fff;
-      padding: 30px 20px 22px 20px;
+      padding: 32px 20px 22px 20px;
       border-radius: 14px;
       width: 95%;
       max-width: 430px;
       text-align: center;
-      box-shadow: 0 2.5px 30px rgba(25,57,92,0.13);
+      box-shadow: 0 2.5px 30px #22355622;
       position: relative;
     }
     .modal-content h2 {
-      color: #225ca7;
+      color: #23395d;
       margin-bottom: 15px;
-      font-size: 22px;
+      font-size: 23px;
       font-weight: 800;
-      letter-spacing: 0.1px;
     }
     .modal-content ul {
       text-align: left;
       padding-left: 20px;
       font-size: 15px;
       margin-bottom: 16px;
-      color: #303040;
+      color: #223556;
     }
     .modal-content .precio {
       font-size: 23px;
       font-weight: bold;
-      color: #ff8900;
+      color: #f29118;
       margin: 8px 0 18px 0;
     }
     .whatsapp-btn, .close {
-      padding: 12px 20px;
+      padding: 13px 20px;
       border-radius: 7px;
       text-decoration: none;
-      margin: 6px 6px 0 6px;
+      margin: 7px 7px 0 7px;
       display: inline-block;
       font-size: 15px;
       font-weight: 700;
@@ -368,7 +380,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 40px #19395c90;
+      box-shadow: 0 6px 40px #22355690;
       position: relative;
     }
     .modal-img-content img {
@@ -395,7 +407,7 @@
     }
     .close-img:hover { background: #c13b3b; }
     footer {
-      background: #19395c;
+      background: #23395d;
       color: white;
       text-align: center;
       padding: 10px;
@@ -403,10 +415,10 @@
       letter-spacing: 0.3px;
     }
     @media (max-width: 700px) {
-      .productos { padding: 20px 2%; }
-      .producto { min-height: 320px; }
-      .seccion-titulo { font-size: 23px; }
-      .modal-content { max-width: 98vw; }
+      .productos { padding: 16px 1%; }
+      .producto { min-height: 330px; }
+      .seccion-titulo { font-size: 21px; }
+      .modal-content { max-width: 99vw; }
     }
   </style>
 </head>
@@ -421,7 +433,7 @@
           <div class="dropdown-content">
             <a href="#productos-cocina">Cocinas</a>
             <a href="#productos-microondas">Microondas</a>
-            <!-- Puede añadir más categorías aquí -->
+            <!-- Más categorías -->
           </div>
         </div>
       </nav>
@@ -501,9 +513,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Puede agregar aquí sección microondas, etc. -->
-  <!-- ... -->
 
   <!-- MODAL DETALLES -->
   <div id="modal" class="modal">
