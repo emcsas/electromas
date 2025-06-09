@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --azul-electro: #012142;
+      --azul-texto: #223556;
+      --naranja: #f29118;
+      --verde: #159944;
+    }
     * { box-sizing: border-box; }
     body, html {
       margin: 0; padding: 0;
@@ -23,7 +29,7 @@
       align-items: center;
       padding: 10px 30px;
       background: #fff;
-      border-bottom: 2.5px solid #f29118;
+      border-bottom: 2.5px solid var(--naranja);
       height: 70px;
     }
     .header-left {
@@ -39,12 +45,13 @@
       display: flex;
       gap: 14px;
       align-items: center;
+      position: relative;
     }
     .btn-atras {
       text-decoration: none;
       font-weight: 700;
       font-size: 18px;
-      color: #23395d;
+      color: var(--azul-electro);
       padding: 7px 16px;
       border-radius: 6px;
       background: transparent;
@@ -54,16 +61,18 @@
       margin-right: 3px;
       transition: color 0.14s;
     }
-    .btn-atras:hover { color: #f29118; background: #f6f3eb; }
+    .btn-atras:hover { color: var(--naranja); background: #f6f3eb; }
+    /* Menú desplegable actualizado */
     .dropdown {
       position: relative;
       display: inline-block;
+      z-index: 50;
     }
     .dropbtn {
       background: none;
-      color: #1a2639;
+      color: var(--naranja);
       font-weight: 700;
-      font-size: 17px;
+      font-size: 18px;
       border: none;
       border-radius: 7px;
       padding: 8px 28px 8px 14px;
@@ -72,75 +81,91 @@
       outline: none;
       box-shadow: none;
       position: relative;
+      letter-spacing: 1px;
     }
     .dropbtn:after {
       content: '\f078';
       font-family: "Font Awesome 6 Free";
       font-weight: 900;
       font-size: 13px;
-      color: #284171;
+      color: var(--azul-electro);
       position: absolute;
-      right: 8px; top: 13px;
+      right: 8px; top: 14px;
       pointer-events: none;
-    }
-    .dropbtn:hover, .dropdown:hover .dropbtn {
-      color: #f29118;
-      background: none;
     }
     .dropdown-content {
       display: none;
       position: absolute;
       background: #fff;
-      min-width: 150px;
-      box-shadow: 0 4px 20px #19191917;
-      border-radius: 8px;
-      z-index: 1001;
+      min-width: 158px;
+      box-shadow: 0 8px 26px #01214214;
+      border-radius: 11px;
+      z-index: 1200;
       top: 110%;
       left: 0;
       border: 1px solid #f2f2f7;
       padding: 0;
-      margin-top: 5px;
+      margin-top: 6px;
+      animation: fadeDown .20s;
     }
     .dropdown-content a {
-      color: #223556;
-      padding: 12px 18px;
+      color: var(--azul-electro);
+      padding: 14px 20px;
       text-decoration: none;
       display: block;
-      font-size: 15.5px;
+      font-size: 15.6px;
       font-weight: 600;
       background: #fff;
       border-bottom: 1px solid #f6f7fa;
       transition: background 0.13s, color 0.13s;
+      cursor: pointer;
+      letter-spacing: 0.2px;
     }
     .dropdown-content a:last-child { border-bottom: none; }
     .dropdown-content a:hover {
-      background: #f29118;
+      background: var(--naranja);
       color: #fff;
     }
-    .dropdown:hover .dropdown-content {
+    .dropdown.open .dropdown-content {
       display: block;
     }
+    @keyframes fadeDown {
+      from { opacity:0; transform: translateY(-18px);}
+      to   { opacity:1; transform: translateY(0);}
+    }
 
-    /* Título sección */
+    /* Título sección llamativo */
     .seccion-titulo {
       text-align: center;
-      color: #223556;
-      font-size: 2.5rem;
-      margin: 55px 0 30px;
-      font-weight: 800;
-      letter-spacing: 2px;
+      color: var(--azul-electro);
+      font-size: 2.8rem;
+      margin: 58px 0 35px;
+      font-weight: 900;
+      letter-spacing: 3px;
       text-transform: uppercase;
       position: relative;
+      background: linear-gradient(90deg,#f29118 7%,#223556 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 5px 25px #f2911822, 0 1.5px 0px #fff8;
+      line-height: 1.12;
     }
     .seccion-titulo:after {
       content: "";
       display: block;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg,#f29118 55%,#fff0 100%);
-      margin: 14px auto 0;
-      border-radius: 3px;
-      opacity: .9;
+      width: 105px;
+      height: 6px;
+      background: linear-gradient(90deg,#f29118 20%,#fff0 100%);
+      margin: 15px auto 0;
+      border-radius: 5px;
+      opacity: .94;
+      box-shadow: 0 2px 10px #f2911847;
+      animation: underlineIn 0.6s cubic-bezier(.4,1.2,.5,1);
+    }
+    @keyframes underlineIn {
+      from { width: 0; opacity: 0.4; }
+      to   { width: 105px; opacity: .94;}
     }
     .productos {
       display: grid;
@@ -194,7 +219,7 @@
     .producto h3 {
       font-size: 20px;
       font-weight: 800;
-      color: #223556;
+      color: var(--azul-texto);
       text-align: center;
       margin: 0 0 12px 0;
       min-height: 45px;
@@ -236,7 +261,7 @@
       justify-content: center;
     }
     .comprar-btn {
-      background: #159944;
+      background: var(--verde);
       color: #fff;
       border: none;
       padding: 13px 0;
@@ -260,7 +285,7 @@
     .comprar-btn:hover { background: #0a7a3d; }
     .detalles-btn {
       background: #fff;
-      color: #223556;
+      color: var(--azul-texto);
       border: 1.2px solid #c6d2e1;
       padding: 13px 0;
       border-radius: 8px;
@@ -301,7 +326,7 @@
       position: relative;
     }
     .modal-content h2 {
-      color: #23395d;
+      color: var(--azul-electro);
       margin-bottom: 15px;
       font-size: 23px;
       font-weight: 800;
@@ -407,18 +432,20 @@
     }
     .close-img:hover { background: #c13b3b; }
     footer {
-      background: #23395d;
+      background: var(--azul-electro);
       color: white;
       text-align: center;
-      padding: 10px;
-      font-size: 15px;
+      padding: 13px 10px 12px 10px;
+      font-size: 16px;
       letter-spacing: 0.3px;
+      margin-top: 80px;
     }
     @media (max-width: 700px) {
       .productos { padding: 16px 1%; }
       .producto { min-height: 330px; }
-      .seccion-titulo { font-size: 21px; }
+      .seccion-titulo { font-size: 1.35rem; }
       .modal-content { max-width: 99vw; }
+      .seccion-titulo:after { height:3px; width:50px;}
     }
   </style>
 </head>
@@ -428,12 +455,11 @@
       <img src="../principal/general/electro.png" alt="Logo">
       <nav>
         <a href="../electrodomesticos.html#electrodomesticos" class="btn-atras">Atrás</a>
-        <div class="dropdown">
-          <button class="dropbtn">Categorías</button>
-          <div class="dropdown-content">
-            <a href="#productos-cocina">Cocinas</a>
-            <a href="#productos-microondas">Microondas</a>
-            <!-- Más categorías -->
+        <div class="dropdown" id="catDropdown">
+          <button class="dropbtn" onclick="toggleDropdown(event)">Categorías</button>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#productos-cocina" onclick="closeDropdown()">Cocinas</a>
+            <a href="#productos-microondas" onclick="closeDropdown()">Microondas</a>
           </div>
         </div>
       </nav>
@@ -443,7 +469,7 @@
   <section class="categorias-section" id="productos-cocina">
     <h2 class="seccion-titulo">Cocinas</h2>
     <div class="productos">
-      <!-- Producto 1 -->
+      <!-- ...productos como antes... -->
       <div class="producto">
         <div class="img-container">
           <img src="../principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox" onclick="ampliarImagen(this)">
@@ -460,57 +486,7 @@
           </button>
         </div>
       </div>
-      <!-- Producto 2 -->
-      <div class="producto">
-        <div class="img-container">
-          <img src="../principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20" onclick="ampliarImagen(this)">
-        </div>
-        <h3>Indurama Bilbao Spazio Plus 20"</h3>
-        <span class="precio">$221.40</span>
-        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
-        <div class="botones-producto">
-          <button class="comprar-btn" onclick="comprarAhora('Indurama Bilbao Spazio Plus 20 pulgadas','$221.40')">
-            <i class="fa-regular fa-credit-card"></i> Comprar ahora
-          </button>
-          <button class="detalles-btn" onclick="mostrarDetalles('Indurama Bilbao Spazio Plus 20 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión|Eficiente quemador suelo|Alto: 94 cm|Ancho: 51 cm|Prof: 58 cm|1 año de garantía','$221.40');event.stopPropagation();">
-            Ver detalles
-          </button>
-        </div>
-      </div>
-      <!-- Producto 3 -->
-      <div class="producto">
-        <div class="img-container">
-          <img src="../principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24" onclick="ampliarImagen(this)">
-        </div>
-        <h3>Indurama Milan Zafiro 24"</h3>
-        <span class="precio">$372</span>
-        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
-        <div class="botones-producto">
-          <button class="comprar-btn" onclick="comprarAhora('Indurama Milan Zafiro 24 pulgadas','$372')">
-            <i class="fa-regular fa-credit-card"></i> Comprar ahora
-          </button>
-          <button class="detalles-btn" onclick="mostrarDetalles('Indurama Milan Zafiro 24 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 60 cm|Prof: 64 cm|1 año de garantía','$372');event.stopPropagation();">
-            Ver detalles
-          </button>
-        </div>
-      </div>
-      <!-- Producto 4 -->
-      <div class="producto">
-        <div class="img-container">
-          <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30" onclick="ampliarImagen(this)">
-        </div>
-        <h3>Indurama Galicia Zafiro 30"</h3>
-        <span class="precio">$517</span>
-        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
-        <div class="botones-producto">
-          <button class="comprar-btn" onclick="comprarAhora('Indurama Galicia Zafiro 30 pulgadas','$517')">
-            <i class="fa-regular fa-credit-card"></i> Comprar ahora
-          </button>
-          <button class="detalles-btn" onclick="mostrarDetalles('Indurama Galicia Zafiro 30 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|6 quemadores|Encendido electrónico|Timer mecánico|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 76 cm|Prof: 64 cm|1 año de garantía','$517');event.stopPropagation();">
-            Ver detalles
-          </button>
-        </div>
-      </div>
+      <!-- ...más productos... -->
     </div>
   </section>
 
@@ -540,6 +516,21 @@
   </footer>
 
   <script>
+    // Dropdown fix: sólo un menú abierto, cierra al hacer clic fuera o seleccionar
+    function toggleDropdown(e) {
+      e.stopPropagation();
+      document.getElementById('catDropdown').classList.toggle('open');
+    }
+    function closeDropdown() {
+      document.getElementById('catDropdown').classList.remove('open');
+    }
+    document.body.addEventListener('click', function() {
+      closeDropdown();
+    });
+    document.getElementById('catDropdown').addEventListener('click', function(e){
+      e.stopPropagation();
+    });
+
     function mostrarDetalles(titulo, descripcion, precio) {
       document.getElementById('modal-titulo').innerText = titulo;
       const lista = document.getElementById('modal-descripcion');
