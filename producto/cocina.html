@@ -18,14 +18,10 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #f4f4f4;
     }
-
     body { padding-top: 80px; }
-
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 999;
       display: flex;
       justify-content: space-between;
@@ -35,44 +31,36 @@
       border-bottom: 4px solid #f29300;
       height: 70px;
     }
-
     .header-left {
       display: flex;
       align-items: center;
       gap: 30px;
     }
-
     .header-left img {
       height: 40px;
       width: auto;
     }
-
     nav {
       display: flex;
       gap: 20px;
     }
-
     nav a {
       text-decoration: none;
       font-weight: bold;
       font-size: 18px;
       color: #002244;
     }
-
     nav a:hover { color: #f29300; }
-
     .seccion-titulo {
       text-align: center;
       color: #002244;
       font-size: 28px;
       margin: 40px 0 20px;
     }
-
     .categorias-section {
       margin-bottom: 60px;
       padding-top: 20px;
     }
-
     .productos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -80,7 +68,6 @@
       padding: 40px 5%;
       background-color: #f9f9f9;
     }
-
     .producto {
       background-color: #ffffff;
       border-radius: 16px;
@@ -90,15 +77,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 20px 15px 15px 15px;
       cursor: pointer;
+      position: relative;
     }
-
     .producto:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
     }
-
     .producto img {
       width: 100%;
       height: auto;
@@ -106,7 +92,6 @@
       object-fit: contain;
       margin-bottom: 15px;
     }
-
     .producto h3 {
       font-size: 16px;
       font-weight: 600;
@@ -114,13 +99,56 @@
       text-align: center;
       margin: 0 0 8px;
     }
-
-    .producto span {
+    .producto span.precio {
       font-size: 18px;
       color: #f29300;
       font-weight: bold;
+      display: block;
     }
-
+    .oferta {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: #f29300;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      z-index: 10;
+    }
+    .urgencia {
+      color: #fc4b08;
+      font-size: 13px;
+      margin-top: 6px;
+      text-align: center;
+    }
+    .comprar-btn {
+      background: #25D366;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .comprar-btn:hover { background: #128C7E; }
+    .garantia {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      color: #008a2e;
+      gap: 5px;
+      margin-top: 8px;
+      margin-bottom: 0;
+      justify-content: center;
+      width: 100%;
+    }
+    .garantia i { font-size: 15px; }
     .modal {
       display: none;
       position: fixed;
@@ -131,7 +159,6 @@
       align-items: center;
       z-index: 1000;
     }
-
     .modal-content {
       background: white;
       padding: 20px;
@@ -140,20 +167,17 @@
       max-width: 400px;
       text-align: center;
     }
-
     .modal-content h2 { color: #002244; margin-bottom: 10px; }
     .modal-content ul {
       text-align: left;
       padding-left: 20px;
     }
-
     .modal-content .precio {
       font-size: 20px;
       font-weight: bold;
       color: #f29300;
       margin: 10px 0;
     }
-
     .whatsapp-btn, .close {
       padding: 10px 15px;
       border-radius: 5px;
@@ -161,16 +185,13 @@
       margin: 5px;
       display: inline-block;
     }
-
     .whatsapp-btn {
       background: #25D366; color: white;
     }
-
     .close {
       background: #fc4b08; color: white;
       cursor: pointer;
     }
-
     footer {
       background-color: #002244;
       color: white;
@@ -193,18 +214,43 @@
   <section class="categorias-section" id="productos-cocina">
     <h2 class="seccion-titulo">🟠 Cocinas 🟠</h2>
     <div class="productos">
+      <!-- Producto 1 -->
       <div class="producto" onclick="mostrarDetalles('Kombo-cocineta a gas Pompeya 4Q Inox','100% acero inoxidable|Terminado sin filos cortantes|4 quemadores|Tapa de vidrio templado bajo normas INEN|4 perillas PVC negras resistentes al calor|4 regatones antideslizantes|2 parrillas enlozadas|Alto: 17 cm|Ancho: 61 cm|Prof: 53 cm|18 meses de garantía','$82')">
+        <span class="oferta">¡OFERTA!</span>
         <img src="../principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
-        <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3><span>$82</span>
+        <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3>
+        <span class="precio">$82</span>
+        <div class="urgencia">¡Quedan pocas unidades!</div>
+        <div class="garantia"><i class="fa fa-shield"></i> 18 meses de garantía</div>
+        <button class="comprar-btn" onclick="event.stopPropagation(); comprarAhora('Kombo-cocineta a gas Pompeya 4Q Inox','$82')">Comprar ahora</button>
       </div>
+      <!-- Producto 2 -->
       <div class="producto" onclick="mostrarDetalles('Indurama Bilbao Spazio Plus 20 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión|Eficiente quemador suelo|Alto: 94 cm|Ancho: 51 cm|Prof: 58 cm|1 año de garantía','$221.40')">
-        <img src="../principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20"><h3>Indurama Bilbao Spazio Plus 20"</h3><span>$221.40</span>
+        <span class="oferta">¡OFERTA!</span>
+        <img src="../principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20">
+        <h3>Indurama Bilbao Spazio Plus 20"</h3>
+        <span class="precio">$221.40</span>
+        <div class="urgencia">¡Quedan pocas unidades!</div>
+        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <button class="comprar-btn" onclick="event.stopPropagation(); comprarAhora('Indurama Bilbao Spazio Plus 20 pulgadas','$221.40')">Comprar ahora</button>
       </div>
+      <!-- Producto 3 -->
       <div class="producto" onclick="mostrarDetalles('Indurama Milan Zafiro 24 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 60 cm|Prof: 64 cm|1 año de garantía','$372')">
-        <img src="../principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24"><h3>Indurama Milan Zafiro 24"</h3><span>$372</span>
+        <img src="../principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24">
+        <h3>Indurama Milan Zafiro 24"</h3>
+        <span class="precio">$372</span>
+        <div class="urgencia">¡Quedan pocas unidades!</div>
+        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <button class="comprar-btn" onclick="event.stopPropagation(); comprarAhora('Indurama Milan Zafiro 24 pulgadas','$372')">Comprar ahora</button>
       </div>
+      <!-- Producto 4 -->
       <div class="producto" onclick="mostrarDetalles('Indurama Galicia Zafiro 30 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|6 quemadores|Encendido electrónico|Timer mecánico|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 76 cm|Prof: 64 cm|1 año de garantía','$517')">
-        <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30"><h3>Indurama Galicia Zafiro 30"</h3><span>$517</span>
+        <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30">
+        <h3>Indurama Galicia Zafiro 30"</h3>
+        <span class="precio">$517</span>
+        <div class="urgencia">¡Quedan pocas unidades!</div>
+        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <button class="comprar-btn" onclick="event.stopPropagation(); comprarAhora('Indurama Galicia Zafiro 30 pulgadas','$517')">Comprar ahora</button>
       </div>
     </div>
   </section>
@@ -212,19 +258,24 @@
   <section class="categorias-section" id="productos-microondas">
     <h2 class="seccion-titulo">🟠 Microondas 🟠</h2>
     <div class="productos">
-      <div class="producto" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D',
-        '22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía',
-        '$115')">
+      <!-- Producto 5 -->
+      <div class="producto" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D','22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía','$115')">
+        <span class="oferta">¡OFERTA!</span>
         <img src="../principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D">
         <h3>Whirlpool 20 litros silver WM1807D</h3>
-        <span>$115</span>
+        <span class="precio">$115</span>
+        <div class="urgencia">¡Quedan pocas unidades!</div>
+        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <button class="comprar-btn" onclick="event.stopPropagation(); comprarAhora('Whirlpool 20 litros silver WM1807D','$115')">Comprar ahora</button>
       </div>
-      <div class="producto" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR',
-        'Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía',
-        '$118')">
+      <!-- Producto 6 -->
+      <div class="producto" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR','Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía','$118')">
         <img src="../principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR">
         <h3>Indurama 20 litros croma MWI-20CR</h3>
-        <span>$118</span>
+        <span class="precio">$118</span>
+        <div class="urgencia">¡Quedan pocas unidades!</div>
+        <div class="garantia"><i class="fa fa-shield"></i> 1 año de garantía</div>
+        <button class="comprar-btn" onclick="event.stopPropagation(); comprarAhora('Indurama 20 litros croma MWI-20CR','$118')">Comprar ahora</button>
       </div>
     </div>
   </section>
@@ -261,6 +312,11 @@
 
     function cerrarModal() {
       document.getElementById('modal').style.display = "none";
+    }
+
+    function comprarAhora(producto, precio) {
+      const msg = `Hola, quiero comprar el siguiente producto:\n*${producto}* por *${precio}*.\n¿Está disponible?`;
+      window.open(`https://wa.me/593988926331?text=${encodeURIComponent(msg)}`, '_blank');
     }
   </script>
 </body>
