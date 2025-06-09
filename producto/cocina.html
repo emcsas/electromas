@@ -75,50 +75,68 @@
 
     .productos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
       padding: 40px 5%;
-      background-color: #f9f9f9;
+      background-color: #ffffff;
     }
 
     .producto {
-      background-color: #ffffff;
-      border-radius: 16px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 20px 15px;
+      position: relative;
       cursor: pointer;
     }
 
     .producto:hover {
       transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
     .producto img {
       width: 100%;
-      height: auto;
-      max-height: 200px;
+      height: 180px;
       object-fit: contain;
       margin-bottom: 15px;
     }
 
     .producto h3 {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 600;
       color: #002244;
+      margin: 0 0 10px;
       text-align: center;
-      margin: 0 0 8px;
     }
 
     .producto span {
-      font-size: 18px;
+      font-size: 20px;
       color: #f29300;
       font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .producto::after {
+      content: "Ver más detalles";
+      font-size: 14px;
+      color: white;
+      background-color: #f29300;
+      padding: 6px 12px;
+      border-radius: 20px;
+      position: absolute;
+      bottom: 15px;
+      transition: background 0.3s;
+    }
+
+    .producto:hover::after {
+      background-color: #d87e00;
     }
 
     .modal {
@@ -212,16 +230,12 @@
   <section class="categorias-section" id="productos-microondas">
     <h2 class="seccion-titulo">🟠 Microondas 🟠</h2>
     <div class="productos">
-      <div class="producto" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D',
-        '22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía',
-        '$115')">
+      <div class="producto" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D','22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía','$115')">
         <img src="../principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D">
         <h3>Whirlpool 20 litros silver WM1807D</h3>
         <span>$115</span>
       </div>
-      <div class="producto" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR',
-        'Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía',
-        '$118')">
+      <div class="producto" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR','Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía','$118')">
         <img src="../principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR">
         <h3>Indurama 20 litros croma MWI-20CR</h3>
         <span>$118</span>
