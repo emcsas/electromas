@@ -2,145 +2,266 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <title>Electromás | Cocina</title>
   <meta name="description" content="Electromás: electrodomésticos con ofertas exclusivas. Descubra nuestras promociones.">
   <meta name="keywords" content="electrodomésticos, cocina, microondas, ofertas, hogar">
   <meta name="author" content="Electromás">
+  <link rel="shortcut icon" href="../principal/general/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
+    * { box-sizing: border-box; }
+    body, html {
+      margin: 0;
+      padding: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: #f4f4f4;
-      color: #333;
     }
+
+    body { padding-top: 80px; }
+
     header {
-      background: #fff;
-      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 10px 30px;
+      background-color: #fff;
+      border-bottom: 4px solid #f29300;
+      height: 70px;
     }
-    header img { height: 40px; }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .header-left img {
+      height: 40px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
     nav a {
-      margin-left: 2rem;
       text-decoration: none;
-      color: #002244;
       font-weight: bold;
+      font-size: 18px;
+      color: #002244;
     }
+
     nav a:hover { color: #f29300; }
 
-    .contenedor {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
     .seccion-titulo {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
       text-align: center;
       color: #002244;
+      font-size: 28px;
+      margin: 40px 0 20px;
+    }
+
+    .categorias-section {
+      margin-bottom: 60px;
+      padding-top: 20px;
     }
 
     .productos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 40px 5%;
+      background-color: #f9f9f9;
     }
 
     .producto {
-      background: #fff;
+      background-color: #ffffff;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      cursor: pointer;
     }
 
     .producto:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
     }
 
     .producto img {
       width: 100%;
-      height: 200px;
+      height: auto;
+      max-height: 200px;
       object-fit: contain;
-      background: #fafafa;
-      padding: 10px;
+      margin-bottom: 15px;
     }
 
-    .producto-info {
-      padding: 1rem;
-      border-top: 1px solid #eee;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .producto-info h3 {
-      font-size: 1.1rem;
+    .producto h3 {
+      font-size: 16px;
+      font-weight: 600;
       color: #002244;
-      margin-bottom: 0.5rem;
+      text-align: center;
+      margin: 0 0 8px;
+    }
+
+    .producto span {
+      font-size: 18px;
+      color: #f29300;
+      font-weight: bold;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
       text-align: center;
     }
 
-    .producto-info span {
-      font-size: 1.3rem;
-      color: #f29300;
+    .modal-content h2 { color: #002244; margin-bottom: 10px; }
+    .modal-content ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .modal-content .precio {
+      font-size: 20px;
       font-weight: bold;
+      color: #f29300;
+      margin: 10px 0;
+    }
+
+    .whatsapp-btn, .close {
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    .whatsapp-btn {
+      background: #25D366; color: white;
+    }
+
+    .close {
+      background: #fc4b08; color: white;
+      cursor: pointer;
     }
 
     footer {
       background-color: #002244;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
+      padding: 10px;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="../principal/general/electro.png" alt="Logo">
-    <nav>
-      <a href="../electrodomesticos.html#electrodomesticos">Atrás</a>
-    </nav>
+    <div class="header-left">
+      <img src="../principal/general/electro.png" alt="Logo">
+      <nav>
+        <a href="../electrodomesticos.html#electrodomesticos">Atrás</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="contenedor">
-    <h2 class="seccion-titulo">Cocinas</h2>
+  <section class="categorias-section" id="productos-cocina">
+    <h2 class="seccion-titulo">🟠 Cocinas 🟠</h2>
     <div class="productos">
-      <div class="producto">
-        <img src="../principal/cocina/pompeya.png" alt="Pompeya">
-        <div class="producto-info">
-          <h3>Kombo-cocineta Pompeya 4Q Inox</h3>
-          <span>$82</span>
-        </div>
+      <div class="producto" onclick="mostrarDetalles('Kombo-cocineta a gas Pompeya 4Q Inox','100% acero inoxidable|Terminado sin filos cortantes|4 quemadores|Tapa de vidrio templado bajo normas INEN|4 perillas PVC negras resistentes al calor|4 regatones antideslizantes|2 parrillas enlozadas|Alto: 17 cm|Ancho: 61 cm|Prof: 53 cm|18 meses de garantía','$82')">
+        <img src="../principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
+        <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3><span>$82</span>
+      </div>
+      <div class="producto" onclick="mostrarDetalles('Indurama Bilbao Spazio Plus 20 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión|Eficiente quemador suelo|Alto: 94 cm|Ancho: 51 cm|Prof: 58 cm|1 año de garantía','$221.40')">
+        <img src="../principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20"><h3>Indurama Bilbao Spazio Plus 20"</h3><span>$221.40</span>
+      </div>
+      <div class="producto" onclick="mostrarDetalles('Indurama Milan Zafiro 24 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 60 cm|Prof: 64 cm|1 año de garantía','$372')">
+        <img src="../principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24"><h3>Indurama Milan Zafiro 24"</h3><span>$372</span>
+      </div>
+      <div class="producto" onclick="mostrarDetalles('Indurama Galicia Zafiro 30 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|6 quemadores|Encendido electrónico|Timer mecánico|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 76 cm|Prof: 64 cm|1 año de garantía','$517')">
+        <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30"><h3>Indurama Galicia Zafiro 30"</h3><span>$517</span>
       </div>
     </div>
+  </section>
 
-    <h2 class="seccion-titulo" style="margin-top:3rem;">Microondas</h2>
+  <section class="categorias-section" id="productos-microondas">
+    <h2 class="seccion-titulo">🟠 Microondas 🟠</h2>
     <div class="productos">
-      <div class="producto">
-        <img src="../principal/microondas/wm1807d.png" alt="WM1807D">
-        <div class="producto-info">
-          <h3>Whirlpool 20L Silver WM1807D</h3>
-          <span>$115</span>
-        </div>
+      <div class="producto" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D',
+        '22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía',
+        '$115')">
+        <img src="../principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D">
+        <h3>Whirlpool 20 litros silver WM1807D</h3>
+        <span>$115</span>
       </div>
+      <div class="producto" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR',
+        'Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía',
+        '$118')">
+        <img src="../principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR">
+        <h3>Indurama 20 litros croma MWI-20CR</h3>
+        <span>$118</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2 id="modal-titulo"></h2>
+      <ul id="modal-descripcion"></ul>
+      <p id="modal-precio" class="precio"></p>
+      <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+      <button class="close" onclick="cerrarModal()">Cerrar</button>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 Electromás. Todos los derechos reservados.</p>
+    <p>© 2025 Electromás. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    function mostrarDetalles(titulo, descripcion, precio) {
+      document.getElementById('modal-titulo').innerText = titulo;
+      const lista = document.getElementById('modal-descripcion');
+      lista.innerHTML = "";
+      descripcion.split('|').forEach(texto => {
+        const li = document.createElement('li');
+        li.textContent = texto.trim();
+        lista.appendChild(li);
+      });
+      document.getElementById('modal-precio').innerText = precio;
+      const msg = `Hola, estoy interesado en el siguiente producto:\n*Producto:* ${titulo}\n*Precio:* ${precio}\n¿Podrían brindarme más información, por favor?`;
+      document.getElementById('whatsapp-link').href = `https://wa.me/593988926331?text=${encodeURIComponent(msg)}`;
+      document.getElementById('modal').style.display = "flex";
+    }
+
+    function cerrarModal() {
+      document.getElementById('modal').style.display = "none";
+    }
+  </script>
 </body>
 </html>
