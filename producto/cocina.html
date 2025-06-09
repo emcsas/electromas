@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electromás | Cocinas</title>
-  <meta name="description" content="Electromás: electrodomésticos con ofertas exclusivas. Descubra nuestras promociones.">
-  <link rel="shortcut icon" href="../principal/general/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
     body, html {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'Montserrat', sans-serif;
       background: #eef1f5;
     }
@@ -32,19 +29,96 @@
     .header-left {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 24px;
     }
     .header-left img {
       height: 40px;
       width: auto;
     }
-    nav a {
+    nav {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .btn-atras {
       text-decoration: none;
       font-weight: bold;
       font-size: 18px;
       color: #19395c;
+      padding: 8px 16px;
+      border-radius: 7px;
+      transition: background 0.16s;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      outline: none;
+      margin-right: 2px;
     }
-    nav a:hover { color: #ff8900; }
+    .btn-atras:hover { background: #f2f2f7; color: #ff8900; }
+    /* Menú desplegable */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropbtn {
+      background: #f5f7fb;
+      color: #1a2639;
+      font-weight: 700;
+      font-size: 17px;
+      border: none;
+      border-radius: 7px;
+      padding: 8px 28px 8px 16px;
+      cursor: pointer;
+      transition: background 0.16s, color 0.16s;
+      outline: none;
+      box-shadow: 0 1px 6px #e5e7fa10;
+      position: relative;
+    }
+    .dropbtn:after {
+      content: '\f078';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 13px;
+      color: #19395c;
+      position: absolute;
+      right: 12px; top: 13px;
+      pointer-events: none;
+    }
+    .dropbtn:hover, .dropdown:hover .dropbtn {
+      background: #edeff5;
+      color: #ff8900;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #fff;
+      min-width: 150px;
+      box-shadow: 0 3px 16px #19191918;
+      border-radius: 9px;
+      z-index: 1001;
+      top: 110%;
+      left: 0;
+      overflow: hidden;
+      border: 1px solid #f2f2f7;
+      padding: 0;
+    }
+    .dropdown-content a {
+      color: #19395c;
+      padding: 12px 18px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      transition: background 0.14s, color 0.14s;
+      font-weight: 600;
+      background: #fff;
+    }
+    .dropdown-content a:hover {
+      background: #ff8900;
+      color: #fff;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
     .seccion-titulo {
       text-align: center;
       color: #1a2639;
@@ -71,7 +145,6 @@
       flex-direction: column;
       align-items: center;
       padding: 28px 18px 18px 18px;
-      cursor: pointer;
       position: relative;
       min-height: 370px;
     }
@@ -186,13 +259,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
       letter-spacing: 0.12px;
-    }
-    .detalles-btn i {
-      font-size: 17px;
-      color: #225ca7;
-      margin-right: 1px;
     }
     .detalles-btn:hover {
       background: #deecfa;
@@ -348,7 +415,15 @@
     <div class="header-left">
       <img src="../principal/general/electro.png" alt="Logo">
       <nav>
-        <a href="../electrodomesticos.html#electrodomesticos">Atrás</a>
+        <a href="../electrodomesticos.html#electrodomesticos" class="btn-atras">Atrás</a>
+        <div class="dropdown">
+          <button class="dropbtn">Categorías</button>
+          <div class="dropdown-content">
+            <a href="#productos-cocina">Cocinas</a>
+            <a href="#productos-microondas">Microondas</a>
+            <!-- Puede añadir más categorías aquí -->
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -369,7 +444,7 @@
             <i class="fa-regular fa-credit-card"></i> Comprar ahora
           </button>
           <button class="detalles-btn" onclick="mostrarDetalles('Kombo-cocineta a gas Pompeya 4Q Inox','100% acero inoxidable|Terminado sin filos cortantes|4 quemadores|Tapa de vidrio templado bajo normas INEN|4 perillas PVC negras resistentes al calor|4 regatones antideslizantes|2 parrillas enlozadas|Alto: 17 cm|Ancho: 61 cm|Prof: 53 cm|18 meses de garantía','$82');event.stopPropagation();">
-            <i class="fa-regular fa-eye"></i> Ver detalles
+            Ver detalles
           </button>
         </div>
       </div>
@@ -386,7 +461,7 @@
             <i class="fa-regular fa-credit-card"></i> Comprar ahora
           </button>
           <button class="detalles-btn" onclick="mostrarDetalles('Indurama Bilbao Spazio Plus 20 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión|Eficiente quemador suelo|Alto: 94 cm|Ancho: 51 cm|Prof: 58 cm|1 año de garantía','$221.40');event.stopPropagation();">
-            <i class="fa-regular fa-eye"></i> Ver detalles
+            Ver detalles
           </button>
         </div>
       </div>
@@ -403,7 +478,7 @@
             <i class="fa-regular fa-credit-card"></i> Comprar ahora
           </button>
           <button class="detalles-btn" onclick="mostrarDetalles('Indurama Milan Zafiro 24 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 60 cm|Prof: 64 cm|1 año de garantía','$372');event.stopPropagation();">
-            <i class="fa-regular fa-eye"></i> Ver detalles
+            Ver detalles
           </button>
         </div>
       </div>
@@ -420,12 +495,15 @@
             <i class="fa-regular fa-credit-card"></i> Comprar ahora
           </button>
           <button class="detalles-btn" onclick="mostrarDetalles('Indurama Galicia Zafiro 30 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|6 quemadores|Encendido electrónico|Timer mecánico|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 76 cm|Prof: 64 cm|1 año de garantía','$517');event.stopPropagation();">
-            <i class="fa-regular fa-eye"></i> Ver detalles
+            Ver detalles
           </button>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Puede agregar aquí sección microondas, etc. -->
+  <!-- ... -->
 
   <!-- MODAL DETALLES -->
   <div id="modal" class="modal">
