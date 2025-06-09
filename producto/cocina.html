@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electromás | Cocinas</title>
   <meta name="description" content="Electromás: electrodomésticos con ofertas exclusivas. Descubra nuestras promociones.">
-  <meta name="keywords" content="electrodomésticos, cocina, microondas, ofertas, hogar">
-  <meta name="author" content="Electromás">
   <link rel="shortcut icon" href="../principal/general/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
     body, html {
@@ -40,10 +38,6 @@
       height: 40px;
       width: auto;
     }
-    nav {
-      display: flex;
-      gap: 20px;
-    }
     nav a {
       text-decoration: none;
       font-weight: bold;
@@ -54,12 +48,12 @@
     .seccion-titulo {
       text-align: center;
       color: #1a2639;
-      font-size: 30px;
-      margin: 40px 0 20px;
-      letter-spacing: 1px;
+      font-size: 38px;
+      margin: 45px 0 24px;
       font-weight: 800;
-      background: none;
-      padding: 0;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 18px #f5ba7038;
     }
     .productos {
       display: grid;
@@ -85,52 +79,66 @@
       transform: translateY(-7px) scale(1.035);
       box-shadow: 0 10px 36px rgba(25,57,92,0.14), 0 4px 10px rgba(255,137,0,0.09);
     }
+    .img-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 18px;
+    }
     .producto img {
-      width: 85%;
+      width: 88%;
       max-width: 180px;
-      max-height: 180px;
+      max-height: 170px;
       object-fit: contain;
-      margin-bottom: 16px;
-      filter: drop-shadow(0 1px 7px rgba(25,57,92,0.06));
-      background: #f5f7fb;
-      border-radius: 12px;
+      background: #f7f7fa;
+      border-radius: 13px;
       padding: 10px;
+      border: 2.5px solid #f2f2f7;
+      box-shadow: 0 2px 8px #f1e7cf2a;
+      transition: box-shadow 0.2s, border 0.2s;
+      cursor: zoom-in;
+    }
+    .producto img:hover {
+      box-shadow: 0 4px 24px #ffb70055;
+      border: 2.5px solid #ff8900;
     }
     .producto h3 {
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 19px;
+      font-weight: 800;
       color: #1a2639;
       text-align: center;
       margin: 0 0 8px 0;
       min-height: 45px;
+      letter-spacing: 0.25px;
     }
     .precio {
-      font-size: 24px;
+      font-size: 25px;
       color: #ff8900;
-      font-weight: 700;
+      font-weight: 800;
       margin: 5px 0 0 0;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.7px;
       text-shadow: 0 1px 2px #f4efe5a2;
     }
     .garantia {
       display: flex;
       align-items: center;
-      font-size: 14px;
-      color: #189e53;
+      font-size: 15px;
+      color: #159f67;
       gap: 7px;
       margin-top: 18px;
       margin-bottom: 0;
       justify-content: center;
       width: 100%;
-      font-weight: 600;
-      letter-spacing: 0.1px;
+      font-weight: 700;
+      letter-spacing: 0.12px;
     }
     .garantia i {
-      font-size: 18px;
-      color: #26cc8c;
+      font-size: 19px;
+      color: #22b06a;
       background: #e6f8ee;
       border-radius: 50%;
-      padding: 3px;
+      padding: 3.5px;
       border: 1.2px solid #bdf2dd;
       margin-right: 2px;
     }
@@ -145,10 +153,10 @@
       background: linear-gradient(90deg,#22b06a 70%,#19a55b 100%);
       color: #fff;
       border: none;
-      padding: 11px 0;
+      padding: 12px 0;
       border-radius: 8px;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       cursor: pointer;
       flex: 2 1 0;
       box-shadow: 0 2px 7px rgba(34,176,106,0.09);
@@ -156,31 +164,42 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      letter-spacing: 0.2px;
+      gap: 7px;
+      letter-spacing: 0.22px;
+    }
+    .comprar-btn i {
+      font-size: 19px;
+      margin-right: 1px;
     }
     .comprar-btn:hover { background: #1a8f4b; }
     .detalles-btn {
-      background: #f2f3f8;
-      color: #19395c;
+      background: #eaf3fc;
+      color: #225ca7;
       border: 1.2px solid #c3c7da;
-      padding: 10px 0;
+      padding: 11px 0;
       border-radius: 8px;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       flex: 1 1 0;
       transition: border 0.13s, background 0.13s, color 0.13s;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 6px;
+      letter-spacing: 0.12px;
+    }
+    .detalles-btn i {
+      font-size: 17px;
+      color: #225ca7;
+      margin-right: 1px;
     }
     .detalles-btn:hover {
-      background: #edeff5;
+      background: #deecfa;
       border-color: #ff8900;
       color: #ff8900;
     }
+    /* Modal de detalles */
     .modal {
       display: none;
       position: fixed;
@@ -194,7 +213,7 @@
     .modal-content {
       background: #fff;
       padding: 30px 20px 22px 20px;
-      border-radius: 12px;
+      border-radius: 14px;
       width: 95%;
       max-width: 430px;
       text-align: center;
@@ -202,10 +221,11 @@
       position: relative;
     }
     .modal-content h2 {
-      color: #1a2639;
-      margin-bottom: 12px;
-      font-size: 21px;
-      font-weight: 700;
+      color: #225ca7;
+      margin-bottom: 15px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.1px;
     }
     .modal-content ul {
       text-align: left;
@@ -221,31 +241,92 @@
       margin: 8px 0 18px 0;
     }
     .whatsapp-btn, .close {
-      padding: 11px 18px;
+      padding: 12px 20px;
       border-radius: 7px;
       text-decoration: none;
-      margin: 5px 4px 0 4px;
+      margin: 6px 6px 0 6px;
       display: inline-block;
       font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       border: none;
       outline: none;
+      box-shadow: 0 1px 4px #d0ece15f;
     }
     .whatsapp-btn {
-      background: linear-gradient(90deg, #22b06a 85%, #19a55b 100%);
+      background: #25d366;
       color: #fff;
-      box-shadow: 0 1px 8px #22b06a20;
-      transition: background 0.16s;
+      border: 1.2px solid #1ebea5;
+      transition: background 0.16s, border 0.13s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
     }
-    .whatsapp-btn:hover { background: #1a8f4b; }
+    .whatsapp-btn i {
+      font-size: 20px;
+      color: #fff;
+      margin-right: 2px;
+      filter: drop-shadow(0 2px 2px #17e68c22);
+    }
+    .whatsapp-btn:hover {
+      background: #1ebea5;
+      border-color: #25d366;
+    }
     .close {
       background: #eb5555;
       color: white;
       cursor: pointer;
       font-size: 15px;
-      font-weight: 600;
-      margin-left: 8px;
+      font-weight: 700;
+      border: none;
+      outline: none;
+      box-shadow: 0 1px 4px #efd5d55f;
     }
+    /* Modal de imagen grande */
+    .modal-img {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(20, 20, 30, 0.92);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-img-content {
+      background: transparent;
+      padding: 0;
+      border-radius: 16px;
+      max-width: 96vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 40px #19395c90;
+      position: relative;
+    }
+    .modal-img-content img {
+      border-radius: 14px;
+      max-width: 96vw;
+      max-height: 86vh;
+      box-shadow: 0 5px 26px #fff2d6c8;
+      background: #fff;
+      padding: 12px;
+    }
+    .close-img {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: #eb5555;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 7px 14px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 3050;
+      box-shadow: 0 1px 4px #efd5d55f;
+    }
+    .close-img:hover { background: #c13b3b; }
     footer {
       background: #19395c;
       color: white;
@@ -257,7 +338,8 @@
     @media (max-width: 700px) {
       .productos { padding: 20px 2%; }
       .producto { min-height: 320px; }
-      .seccion-titulo { font-size: 22px; }
+      .seccion-titulo { font-size: 23px; }
+      .modal-content { max-width: 98vw; }
     }
   </style>
 </head>
@@ -276,112 +358,93 @@
     <div class="productos">
       <!-- Producto 1 -->
       <div class="producto">
-        <img src="../principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox">
+        <div class="img-container">
+          <img src="../principal/cocina/pompeya.png" alt="Kombo-cocineta a gas Pompeya 4Q Inox" onclick="ampliarImagen(this)">
+        </div>
         <h3>Kombo-cocineta a gas Pompeya 4Q Inox</h3>
         <span class="precio">$82</span>
         <div class="garantia"><i class="fa fa-award"></i> 18 meses de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Kombo-cocineta a gas Pompeya 4Q Inox','$82')">
-            <i class="fa fa-shopping-cart"></i> Comprar ahora
+            <i class="fa-regular fa-credit-card"></i> Comprar ahora
           </button>
           <button class="detalles-btn" onclick="mostrarDetalles('Kombo-cocineta a gas Pompeya 4Q Inox','100% acero inoxidable|Terminado sin filos cortantes|4 quemadores|Tapa de vidrio templado bajo normas INEN|4 perillas PVC negras resistentes al calor|4 regatones antideslizantes|2 parrillas enlozadas|Alto: 17 cm|Ancho: 61 cm|Prof: 53 cm|18 meses de garantía','$82');event.stopPropagation();">
-            <i class="fa fa-info-circle"></i> Ver detalles
+            <i class="fa-regular fa-eye"></i> Ver detalles
           </button>
         </div>
       </div>
       <!-- Producto 2 -->
       <div class="producto">
-        <img src="../principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20">
+        <div class="img-container">
+          <img src="../principal/cocina/Bilbao20.png" alt="Indurama Bilbao Spazio Plus 20" onclick="ampliarImagen(this)">
+        </div>
         <h3>Indurama Bilbao Spazio Plus 20"</h3>
         <span class="precio">$221.40</span>
         <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Indurama Bilbao Spazio Plus 20 pulgadas','$221.40')">
-            <i class="fa fa-shopping-cart"></i> Comprar ahora
+            <i class="fa-regular fa-credit-card"></i> Comprar ahora
           </button>
           <button class="detalles-btn" onclick="mostrarDetalles('Indurama Bilbao Spazio Plus 20 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión|Eficiente quemador suelo|Alto: 94 cm|Ancho: 51 cm|Prof: 58 cm|1 año de garantía','$221.40');event.stopPropagation();">
-            <i class="fa fa-info-circle"></i> Ver detalles
+            <i class="fa-regular fa-eye"></i> Ver detalles
           </button>
         </div>
       </div>
       <!-- Producto 3 -->
       <div class="producto">
-        <img src="../principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24">
+        <div class="img-container">
+          <img src="../principal/cocina/Milan24.png" alt="Indurama Milan Zafiro 24" onclick="ampliarImagen(this)">
+        </div>
         <h3>Indurama Milan Zafiro 24"</h3>
         <span class="precio">$372</span>
         <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Indurama Milan Zafiro 24 pulgadas','$372')">
-            <i class="fa fa-shopping-cart"></i> Comprar ahora
+            <i class="fa-regular fa-credit-card"></i> Comprar ahora
           </button>
           <button class="detalles-btn" onclick="mostrarDetalles('Indurama Milan Zafiro 24 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|4 quemadores|Encendido electrónico|Quemadores sellados|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 60 cm|Prof: 64 cm|1 año de garantía','$372');event.stopPropagation();">
-            <i class="fa fa-info-circle"></i> Ver detalles
+            <i class="fa-regular fa-eye"></i> Ver detalles
           </button>
         </div>
       </div>
       <!-- Producto 4 -->
       <div class="producto">
-        <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30">
+        <div class="img-container">
+          <img src="../principal/cocina/Zafiro30.png" alt="Indurama Galicia Zafiro 30" onclick="ampliarImagen(this)">
+        </div>
         <h3>Indurama Galicia Zafiro 30"</h3>
         <span class="precio">$517</span>
         <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
         <div class="botones-producto">
           <button class="comprar-btn" onclick="comprarAhora('Indurama Galicia Zafiro 30 pulgadas','$517')">
-            <i class="fa fa-shopping-cart"></i> Comprar ahora
+            <i class="fa-regular fa-credit-card"></i> Comprar ahora
           </button>
           <button class="detalles-btn" onclick="mostrarDetalles('Indurama Galicia Zafiro 30 pulgadas','Tapa de vidrio templado|Tablero de acero inoxidable|6 quemadores|Encendido electrónico|Timer mecánico|Termoprecisión con sistema de seguridad cortagas|Grill a gas|1 parrilla cromada|Alto: 95 cm|Ancho: 76 cm|Prof: 64 cm|1 año de garantía','$517');event.stopPropagation();">
-            <i class="fa fa-info-circle"></i> Ver detalles
+            <i class="fa-regular fa-eye"></i> Ver detalles
           </button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="categorias-section" id="productos-microondas">
-    <h2 class="seccion-titulo">Microondas</h2>
-    <div class="productos">
-      <!-- Producto 5 -->
-      <div class="producto">
-        <img src="../principal/microondas/wm1807d.png" alt="Whirlpool 20 litros silver WM1807D">
-        <h3>Whirlpool 20 litros silver WM1807D</h3>
-        <span class="precio">$115</span>
-        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
-        <div class="botones-producto">
-          <button class="comprar-btn" onclick="comprarAhora('Whirlpool 20 litros silver WM1807D','$115')">
-            <i class="fa fa-shopping-cart"></i> Comprar ahora
-          </button>
-          <button class="detalles-btn" onclick="mostrarDetalles('Whirlpool 20 litros silver WM1807D','22 funciones preprogramadas|Silver acabado espejo|Galanz-prov|Pantalla y control digital con LED|20 litros|Encendido electrónico|Luz interior|Alto: 26.2 cm|Ancho: 45.5 cm|Prof: 31.5 cm|1 año de garantía','$115');event.stopPropagation();">
-            <i class="fa fa-info-circle"></i> Ver detalles
-          </button>
-        </div>
-      </div>
-      <!-- Producto 6 -->
-      <div class="producto">
-        <img src="../principal/microondas/mwi-20cr.png" alt="Indurama 20 litros croma MWI-20CR">
-        <h3>Indurama 20 litros croma MWI-20CR</h3>
-        <span class="precio">$118</span>
-        <div class="garantia"><i class="fa fa-award"></i> 1 año de garantía</div>
-        <div class="botones-producto">
-          <button class="comprar-btn" onclick="comprarAhora('Indurama 20 litros croma MWI-20CR','$118')">
-            <i class="fa fa-shopping-cart"></i> Comprar ahora
-          </button>
-          <button class="detalles-btn" onclick="mostrarDetalles('Indurama 20 litros croma MWI-20CR','Disponible en croma|Puerta vidrio espejo|Push buttom|Display LED con reloj|Seguro para niños|Luz cavidad interior blanca|Plato giratorio|Alto: 22.6 cm|Ancho: 45.2 cm|Prof: 33.5 cm|1 año de garantía','$118');event.stopPropagation();">
-            <i class="fa fa-info-circle"></i> Ver detalles
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- MODAL DETALLES -->
   <div id="modal" class="modal">
     <div class="modal-content">
       <h2 id="modal-titulo"></h2>
       <ul id="modal-descripcion"></ul>
       <p id="modal-precio" class="precio"></p>
       <a id="whatsapp-link" target="_blank" class="whatsapp-btn">
-        <i class="fa fa-whatsapp"></i> Contactar por WhatsApp
+        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
       </a>
       <button class="close" onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- MODAL IMAGEN GRANDE -->
+  <div id="modal-img" class="modal-img">
+    <div class="modal-img-content">
+      <button class="close-img" onclick="cerrarModalImg()">Cerrar</button>
+      <img id="img-ampliada" src="" alt="Imagen Ampliada">
     </div>
   </div>
 
@@ -411,13 +474,32 @@
       const msg = `Hola, quiero comprar el siguiente producto:\n*${producto}* por *${precio}*.\n¿Está disponible?`;
       window.open(`https://wa.me/593988926331?text=${encodeURIComponent(msg)}`, '_blank');
     }
-    // Cierra modal con tecla Escape
+    // MODAL IMAGEN AMPLIADA
+    function ampliarImagen(imgElem) {
+      var modalImg = document.getElementById('modal-img');
+      var imgAmpliada = document.getElementById('img-ampliada');
+      imgAmpliada.src = imgElem.src;
+      imgAmpliada.alt = imgElem.alt;
+      modalImg.style.display = "flex";
+    }
+    function cerrarModalImg() {
+      document.getElementById('modal-img').style.display = "none";
+      document.getElementById('img-ampliada').src = "";
+    }
+    // Tecla Escape para ambos modales
     document.addEventListener('keydown', function(e) {
-      if(e.key === "Escape") cerrarModal();
+      if(e.key === "Escape") {
+        cerrarModal();
+        cerrarModalImg();
+      }
     });
-    // Cierra modal al hacer clic fuera del contenido
+    // Cerrar modal de detalles clic fuera
     document.getElementById('modal').onclick = function(e) {
       if(e.target === this) cerrarModal();
+    };
+    // Cerrar modal imagen clic fuera
+    document.getElementById('modal-img').onclick = function(e) {
+      if(e.target === this) cerrarModalImg();
     };
   </script>
 </body>
