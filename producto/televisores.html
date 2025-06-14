@@ -1,1 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=0.5">
+      <title>Electromás | Electrodomésticos</title>
+      <meta name="description" content="Electromás: categorías de electrodomésticos con ofertas exclusivas. Seleccione su área de interés y descubra nuestras promociones.">
+      <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, cocina, refrigeración, lavado, climatización, electromas">
+      <meta name="author" content="Electromás">
+      <link rel="shortcut icon" href="../principal/general/logo.png" type="image/png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-electro: #012142;
+      --naranja: #f29118;
+      --verde: #159944;
+      --gris-fondo: #f7f9fb;
+    }
+    * { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0;
+      font-family: Arial, sans-serif;
+      background: var(--gris-fondo);
+    }
+    body { padding-top: 80px; }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background: #fff;
+      border-bottom: 4px solid var(--naranja);
+      height: 70px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .header-left img {
+      height: 40px;
+      width: auto;
+    }
+    nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      position: relative;
+    }
+    .btn-atras {
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 23px;
+      color: var(--azul-electro);
+      padding: 7px 22px 7px 12px;
+      border-radius: 7px;
+      background: transparent;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      margin-right: 3px;
+      letter-spacing: 0.5px;
+      transition: color 0.16s, background 0.12s;
+    }
+    .btn-atras:hover { color: var(--naranja); background: #f6f3eb; }
+    /* Menú desplegable */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      z-index: 50;
+    }
+    .dropbtn {
+      background: none;
+      color: var(--azul-electro);
+      font-weight: 900;
+      font-size: 23px;
+      border: none;
+      border-radius: 7px;
+      padding: 8px 28px 8px 18px;
+      cursor: pointer;
+      transition: color 0.16s;
+      outline: none;
+      box-shadow: none;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    .dropbtn:after {
+      content: '\f078';
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 14px;
+      color: var(--azul-electro);
+      position: absolute;
+      right: 8px; top: 14px;
+      pointer-events: none;
+    }
+    .dropbtn:hover, .dropdown.open .dropbtn {
+      color: var(--naranja);
+      background: #f6f3eb;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #fff;
+      min-width: 170px;
+      box-shadow: 0 8px 26px #01214216;
+      border-radius: 11px;
+      z-index: 1200;
+      top: 110%;
+      left: 0;
+      border: 1px solid #f2f2f7;
+      padding: 0;
+      margin-top: 6px;
+      animation: fadeDown .20s;
+    }
+    .dropdown-content a {
+      color: var(--azul-electro);
+      padding: 15px 22px;
+      text-decoration: none;
+      display: block;
+      font-size: 17px;
+      font-weight: 800;
+      background: #fff;
+      border-bottom: 1px solid #f6f7fa;
+      transition: background 0.13s, color 0.13s;
+      cursor: pointer;
+      letter-spacing: 0.2px;
+    }
+    .dropdown-content a:last-child { border-bottom: none; }
+    .dropdown-content a:hover {
+      background: var(--naranja);
+      color: #fff;
+    }
+    .dropdown.open .dropdown-content {
+      display: block;
+    }
+    @keyframes fadeDown {
+      from { opacity:0; transform: translateY(-18px);}
+      to   { opacity:1; transform: translateY(0);}
+    }
+    /* Título sección llamativo */
+    .seccion-titulo {
+      text-align: center;
+      font-size: 2.8rem;
+      margin: 58px 0 35px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      position: relative;
+      background: linear-gradient(90deg,#f29118 10%,#9c8b78 40%,#012142 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 5px 25px #f2911830, 0 1.5px 0px #fff8;
+      line-height: 1.12;
+      filter: drop-shadow(0 1px 10px #ffe6b799);
+    }
+    .seccion-titulo:after {
+      content: "";
+      display: block;
+      width: 110px;
+      height: 7px;
+      background: linear-gradient(90deg,#f29118 30%,#fff0 100%);
+      margin: 16px auto 0;
+      border-radius: 6px;
+      opacity: .99;
+      box-shadow: 0 2px 10px #f2911847;
+      animation: underlineIn 0.7s cubic-bezier(.4,1.2,.5,1);
+    }
+    @keyframes underlineIn {
+      from { width: 0; opacity: 0.4; }
+      to   { width: 110px; opacity: .99;}
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+      gap: 32px;
+      padding: 40px 6%;
+      background: var(--gris-fondo);
+    }
+    .producto {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 6px 34px rgba(34,53,86,0.10);
+      transition: transform 0.18s cubic-bezier(.45,.85,.52,1.2), box-shadow 0.18s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 32px 18px 24px 18px;
+      position: relative;
+      min-height: 410px;
+      border: 1.2px solid #f4f6fa;
+    }
+    .producto:hover {
+      transform: translateY(-5px) scale(1.026);
+      box-shadow: 0 12px 42px #22355619;
+      border: 1.5px solid #f29118;
+    }
+    .img-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 19px;
+    }
+    .producto img {
+      width: 90%;
+      max-width: 190px;
+      max-height: 178px;
+      object-fit: contain;
+      background: #f6f7fa;
+      border-radius: 16px;
+      padding: 12px;
+      border: 2.5px solid #f5f5f5;
+      box-shadow: 0 2px 10px #2235560b;
+      transition: box-shadow 0.19s, border 0.17s;
+      cursor: zoom-in;
+    }
+    .producto img:hover {
+      box-shadow: 0 6px 24px #f2911850;
+      border: 2.5px solid #f29118;
+    }
+    .producto h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--azul-electro);
+      text-align: center;
+      margin: 0 0 12px 0;
+      min-height: 45px;
+      letter-spacing: 0.3px;
+    }
+    .precio {
+      font-size: 26px;
+      color: #f29118;
+      font-weight: 900;
+      margin: 4px 0 0 0;
+      letter-spacing: 0.6px;
+    }
+    .garantia {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      color: #0a7a3d;
+      gap: 7px;
+      margin-top: 18px;
+      margin-bottom: 0;
+      justify-content: center;
+      width: 100%;
+      font-weight: 700;
+    }
+    .garantia i {
+      font-size: 19px;
+      color: #2ecc71;
+      background: #e9fbf1;
+      border-radius: 50%;
+      padding: 3px;
+      border: 1.2px solid #bef2d8;
+      margin-right: 2px;
+    }
+    .botones-producto {
+      margin-top: 22px;
+      display: flex;
+      width: 100%;
+      gap: 12px;
+      justify-content: center;
+    }
+    .comprar-btn {
+      background: var(--verde);
+      color: #fff;
+      border: none;
+      padding: 13px 0;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      flex: 2 1 0;
+      box-shadow: 0 2px 7px #1599440b;
+      transition: background 0.17s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      letter-spacing: 0.22px;
+    }
+    .comprar-btn i {
+      font-size: 19px;
+      margin-right: 1px;
+    }
+    .comprar-btn:hover { background: #0a7a3d; }
+    .detalles-btn {
+      background: #fff;
+      color: var(--azul-electro);
+      border: 1.2px solid #c6d2e1;
+      padding: 13px 0;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      flex: 1 1 0;
+      transition: border 0.13s, background 0.13s, color 0.13s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.12px;
+    }
+    .detalles-btn:hover {
+      background: #f29118;
+      border-color: #f29118;
+      color: #fff;
+    }
+    /* Modal de detalles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.43);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 32px 20px 22px 20px;
+      border-radius: 14px;
+      width: 95%;
+      max-width: 430px;
+      text-align: center;
+      box-shadow: 0 2.5px 30px #22355622;
+      position: relative;
+    }
+    .modal-content h2 {
+      color: var(--azul-electro);
+      margin-bottom: 15px;
+      font-size: 23px;
+      font-weight: 800;
+    }
+    .modal-content ul {
+      text-align: left;
+      padding-left: 20px;
+      font-size: 15px;
+      margin-bottom: 16px;
+      color: #223556;
+    }
+    .modal-content .precio {
+      font-size: 23px;
+      font-weight: bold;
+      color: #f29118;
+      margin: 8px 0 18px 0;
+    }
+    .whatsapp-btn, .close {
+      padding: 13px 20px;
+      border-radius: 7px;
+      text-decoration: none;
+      margin: 7px 7px 0 7px;
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      outline: none;
+      box-shadow: 0 1px 4px #d0ece15f;
+    }
+    .whatsapp-btn {
+      background: #25d366;
+      color: #fff;
+      border: 1.2px solid #1ebea5;
+      transition: background 0.16s, border 0.13s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+    }
+    .whatsapp-btn i {
+      font-size: 20px;
+      color: #fff;
+      margin-right: 2px;
+      filter: drop-shadow(0 2px 2px #17e68c22);
+    }
+    .whatsapp-btn:hover {
+      background: #1ebea5;
+      border-color: #25d366;
+    }
+    .close {
+      background: #eb5555;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      outline: none;
+      box-shadow: 0 1px 4px #efd5d55f;
+    }
+    /* Modal de imagen grande */
+    .modal-img {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(20, 20, 30, 0.92);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-img-content {
+      background: transparent;
+      padding: 0;
+      border-radius: 16px;
+      max-width: 96vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 40px #22355690;
+      position: relative;
+    }
+    .modal-img-content img {
+      border-radius: 14px;
+      max-width: 96vw;
+      max-height: 86vh;
+      box-shadow: 0 5px 26px #fff2d6c8;
+      background: #fff;
+      padding: 12px;
+    }
+    .close-img {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: #eb5555;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 7px 14px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 3050;
+      box-shadow: 0 1px 4px #efd5d55f;
+    }
+    .close-img:hover { background: #c13b3b; }
+         footer {
+         background-color: #002244;
+         color: white;
+         text-align: center;
+         padding: 2px;
+         font-size: 18px;
+         width: 100vw;
+         min-height: 60px; /* Ajusta la altura mínima */
+         box-sizing: border-box; /* Evita problemas con márgenes y paddings */
+         position: auto;
+         margin-top: auto; /* Se mantiene abajo automáticamente */
+         bottom: 0;
+         left: 0;
+         }
+    @media (max-width: 700px) {
+      .productos { padding: 16px 1%; }
+      .producto { min-height: 330px; }
+      .seccion-titulo { font-size: 1.35rem; }
+      .modal-content { max-width: 99vw; }
+      .seccion-titulo:after { height:3px; width:50px;}
+      .btn-atras, .dropbtn {font-size: 17px;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="../principal/general/electro.png" alt="Logo">
+      <nav>
+        <a href="../electrodomesticos.html#electrodomesticos" class="btn-atras">Atrás</a>
+        <div class="dropdown" id="catDropdown">
+          <button class="dropbtn" onclick="toggleDropdown(event)">Categorías</button>
+          <div class="dropdown-content" id="dropdown-content">
+            <a href="#productos-televisores" onclick="closeDropdown()">Televisores</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- ################ -->
+  <!-- 🟠 Televisores 🟠 -->
+  <!-- ################ -->
+<section class="categorias-section" id="productos-televisores">
+  <h2 class="seccion-titulo">🟠 Televisores 🟠</h2>
+  <div class="productos">
+    <!-- PRODUCTO 1 -->
+    <div class="producto">
+      <div class="img-container">
+        <img src="../principal/televisor/indurama.png" alt="Televisor Indurama 32 pulgadas" onclick="ampliarImagen(this)">
+      </div>
+      <h3>Televisor Indurama 32"</h3>
+      <span class="precio">$222</span>
+      <div class="garantia"><i class="fa fa-award"></i> 2 años de garantía</div>
+      <div class="botones-producto">
+        <button class="comprar-btn" onclick="comprarAhora('Televisor Indurama 32 pulgadas','$222')">
+          <i class="fa-regular fa-credit-card"></i> Comprar ahora
+        </button>
+        <button class="detalles-btn" onclick="mostrarDetalles(
+          'Televisor Indurama 32 pulgadas',
+          'Resolución HIGH DEFINITION 1366 x 768|Nuevo diseño Ultra Slim|Color Croma|Procesador CA55 Quadcore - 1.45GHz|8 Gb de Almacenamiento y 1 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Audio|Alto: 42.6 cm|Ancho: 72.8 cm|Profundidad: 11.5 cm|2 años de garantía',
+          '$222');event.stopPropagation();">
+          Ver detalles
+        </button>
+      </div>
+    </div>
+    <!-- PRODUCTO 2 -->
+    <div class="producto">
+      <div class="img-container">
+        <img src="../principal/televisor/indurama.png" alt="Televisor Indurama 43 pulgadas" onclick="ampliarImagen(this)">
+      </div>
+      <h3>Televisor Indurama 43"</h3>
+      <span class="precio">$351</span>
+      <div class="garantia"><i class="fa fa-award"></i> 2 años de garantía</div>
+      <div class="botones-producto">
+        <button class="comprar-btn" onclick="comprarAhora('Televisor Indurama 43 pulgadas','$351')">
+          <i class="fa-regular fa-credit-card"></i> Comprar ahora
+        </button>
+        <button class="detalles-btn" onclick="mostrarDetalles(
+          'Televisor Indurama 43 pulgadas',
+          'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 61.5 cm|Ancho: 97.1 cm|Profundidad: 8.0 cm|2 años de garantía',
+          '$351');event.stopPropagation();">
+          Ver detalles
+        </button>
+      </div>
+    </div>
+    <!-- PRODUCTO 3 -->
+    <div class="producto">
+      <div class="img-container">
+        <img src="../principal/televisor/indurama.png" alt="Televisor Indurama 58 pulgadas" onclick="ampliarImagen(this)">
+      </div>
+      <h3>Televisor Indurama 58"</h3>
+      <span class="precio">$556</span>
+      <div class="garantia"><i class="fa fa-award"></i> 2 años de garantía</div>
+      <div class="botones-producto">
+        <button class="comprar-btn" onclick="comprarAhora('Televisor Indurama 58 pulgadas','$556')">
+          <i class="fa-regular fa-credit-card"></i> Comprar ahora
+        </button>
+        <button class="detalles-btn" onclick="mostrarDetalles(
+          'Televisor Indurama 58 pulgadas',
+          'Resolución ULTRA HIGH DEFINITION 3840 x 2160|Nuevo diseño Ultra Slim|Color Croma|Procesador Quadcore - 1.5GHz|16 Gb de Almacenamiento y 2 Gb de Memoria RAM|Bluetooth 5.1 - WIFI 2.4&5G|Dolby Vision HDR10|Alto: 75 cm|Ancho: 128.5 cm|Profundidad: 8.9 cm|2 años de garantía',
+          '$556');event.stopPropagation();">
+          Ver detalles
+        </button>
+      </div>
+    </div>
+    <!-- PRODUCTO 4 -->
+    <div class="producto">
+      <div class="img-container">
+        <img src="../principal/televisor/tcl.png" alt="Televisor TCL 43 pulgadas" onclick="ampliarImagen(this)">
+      </div>
+      <h3>Televisor TCL 43"</h3>
+      <span class="precio">$370</span>
+      <div class="garantia"><i class="fa fa-award"></i> 2 años de garantía</div>
+      <div class="botones-producto">
+        <button class="comprar-btn" onclick="comprarAhora('Televisor TCL 43 pulgadas','$370')">
+          <i class="fa-regular fa-credit-card"></i> Comprar ahora
+        </button>
+        <button class="detalles-btn" onclick="mostrarDetalles(
+          'Televisor TCL 43 pulgadas',
+          'Resolución 3840 x 2160|Dolby AC4, Dolby TrueHD|Procesador Dolby Atmos, DTS Virtual-X, Virtualization & upmix|Alto: 55.8 cm|Ancho: 95.7 cm|Profundidad: 7.9 cm|2 años de garantía',
+          '$370');event.stopPropagation();">
+          Ver detalles
+        </button>
+      </div>
+    </div>
+    <!-- PRODUCTO 5 -->
+    <div class="producto">
+      <div class="img-container">
+        <img src="../principal/televisor/tcl.png" alt="Televisor TCL 55 pulgadas" onclick="ampliarImagen(this)">
+      </div>
+      <h3>Televisor TCL 55"</h3>
+      <span class="precio">$516</span>
+      <div class="garantia"><i class="fa fa-award"></i> 2 años de garantía</div>
+      <div class="botones-producto">
+        <button class="comprar-btn" onclick="comprarAhora('Televisor TCL 55 pulgadas','$516')">
+          <i class="fa-regular fa-credit-card"></i> Comprar ahora
+        </button>
+        <button class="detalles-btn" onclick="mostrarDetalles(
+          'Televisor TCL 55 pulgadas',
+          'Resolución 3840 x 2160|Dolby AC4, Dolby TrueHD|Procesador Dolby Atmos, DTS Virtual-X, Virtualization & upmix|Alto: 71.1 cm|Ancho: 122.6 cm|Profundidad: 7.2 cm|2 años de garantía',
+          '$516');event.stopPropagation();">
+          Ver detalles
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- #################### -->
+  <!-- 🟠 MODAL DETALLES🟠 -->
+  <!-- #################### -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2 id="modal-titulo"></h2>
+      <ul id="modal-descripcion"></ul>
+      <p id="modal-precio" class="precio"></p>
+      <a id="whatsapp-link" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+      </a>
+      <button class="close" onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- MODAL IMAGEN GRANDE -->
+  <div id="modal-img" class="modal-img">
+    <div class="modal-img-content">
+      <button class="close-img" onclick="cerrarModalImg()">Cerrar</button>
+      <img id="img-ampliada" src="" alt="Imagen Ampliada">
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Electromás. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Dropdown fix: sólo un menú abierto, cierra al hacer clic fuera o seleccionar
+    function toggleDropdown(e) {
+      e.stopPropagation();
+      document.getElementById('catDropdown').classList.toggle('open');
+    }
+    function closeDropdown() {
+      document.getElementById('catDropdown').classList.remove('open');
+    }
+    document.body.addEventListener('click', function() {
+      closeDropdown();
+    });
+    document.getElementById('catDropdown').addEventListener('click', function(e){
+      e.stopPropagation();
+    });
+
+    function mostrarDetalles(titulo, descripcion, precio) {
+      document.getElementById('modal-titulo').innerText = titulo;
+      const lista = document.getElementById('modal-descripcion');
+      lista.innerHTML = "";
+      descripcion.split('|').forEach(texto => {
+        const li = document.createElement('li');
+        li.textContent = texto.trim();
+        lista.appendChild(li);
+      });
+      document.getElementById('modal-precio').innerText = precio;
+      const msg = `Hola, estoy interesado en el siguiente producto:\n*Producto:* ${titulo}\n*Precio:* ${precio}\n¿Podrían brindarme más información, por favor?`;
+      document.getElementById('whatsapp-link').href = `https://wa.me/593988926331?text=${encodeURIComponent(msg)}`;
+      document.getElementById('modal').style.display = "flex";
+    }
+    function cerrarModal() {
+      document.getElementById('modal').style.display = "none";
+    }
+    function comprarAhora(producto, precio) {
+      const msg = `Hola, quiero comprar el siguiente producto:\n*${producto}* por *${precio}*.\n¿Está disponible?`;
+      window.open(`https://wa.me/593988926331?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+    // MODAL IMAGEN AMPLIADA
+    function ampliarImagen(imgElem) {
+      var modalImg = document.getElementById('modal-img');
+      var imgAmpliada = document.getElementById('img-ampliada');
+      imgAmpliada.src = imgElem.src;
+      imgAmpliada.alt = imgElem.alt;
+      modalImg.style.display = "flex";
+    }
+    function cerrarModalImg() {
+      document.getElementById('modal-img').style.display = "none";
+      document.getElementById('img-ampliada').src = "";
+    }
+    // Tecla Escape para ambos modales
+    document.addEventListener('keydown', function(e) {
+      if(e.key === "Escape") {
+        cerrarModal();
+        cerrarModalImg();
+      }
+    });
+    // Cerrar modal de detalles clic fuera
+    document.getElementById('modal').onclick = function(e) {
+      if(e.target === this) cerrarModal();
+    };
+    // Cerrar modal imagen clic fuera
+    document.getElementById('modal-img').onclick = function(e) {
+      if(e.target === this) cerrarModalImg();
+    };
+  </script>
+</body>
+</html>
 
