@@ -1,0 +1,12 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "color-no-invalid-hex": true,
+    "font-family-name-quotes": "always-where-recommended",
+    "function-comma-newline-after": "never-multi-line",
+    "number-leading-zero": "always",
+    "selector-list-comma-newline-after": "always",
+    "unit-no-unknown": true,
+    "no-empty-source": null
+  }
+}
