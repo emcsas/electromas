@@ -25,11 +25,12 @@
          --azul-comercial: #162b4e;
          --blanco: #ffffff;
          --naranja: #ffa500;
-         --naranja-hover: #e09200;
+         --naranja-hover: #e19300;
          --fondo-suave: #f5f6f8;
          --borde: rgba(32, 32, 31, 0.12);
-         --sombra: 0 22px 55px rgba(32, 32, 31, 0.16);
-         --sombra-suave: 0 14px 34px rgba(32, 32, 31, 0.10);
+         --sombra-fuerte: 0 24px 60px rgba(32, 32, 31, 0.18);
+         --sombra-media: 0 16px 38px rgba(32, 32, 31, 0.12);
+         --sombra-suave: 0 10px 24px rgba(32, 32, 31, 0.08);
       }
 
       * {
@@ -57,8 +58,12 @@
       }
 
       .contenedor {
-         width: min(1200px, 90%);
+         width: min(1220px, 92%);
          margin: 0 auto;
+      }
+
+      .texto-naranja {
+         color: var(--naranja);
       }
 
       /* ============================= */
@@ -68,21 +73,22 @@
       .barra-superior {
          background-color: var(--gris-oscuro);
          color: var(--blanco);
-         font-size: 14px;
+         font-size: 13px;
       }
 
       .barra-superior .contenedor {
-         min-height: 40px;
+         min-height: 38px;
          display: flex;
          align-items: center;
          justify-content: space-between;
-         gap: 24px;
+         gap: 18px;
       }
 
-      .barra-info {
+      .barra-info,
+      .barra-redes {
          display: flex;
          align-items: center;
-         gap: 22px;
+         gap: 18px;
          flex-wrap: wrap;
       }
 
@@ -93,21 +99,17 @@
          color: rgba(255, 255, 255, 0.88);
       }
 
-      .barra-info i,
-      .barra-redes a:hover {
+      .barra-info i {
          color: var(--naranja);
-      }
-
-      .barra-redes {
-         display: flex;
-         align-items: center;
-         gap: 15px;
       }
 
       .barra-redes a {
          color: var(--blanco);
-         font-size: 15px;
          transition: color 0.2s ease;
+      }
+
+      .barra-redes a:hover {
+         color: var(--naranja);
       }
 
       /* ============================= */
@@ -118,35 +120,35 @@
          position: sticky;
          top: 0;
          z-index: 1000;
-         background-color: rgba(255, 255, 255, 0.96);
+         background-color: rgba(255, 255, 255, 0.98);
          backdrop-filter: blur(12px);
-         border-bottom: 1px solid rgba(32, 32, 31, 0.10);
-         box-shadow: 0 10px 30px rgba(32, 32, 31, 0.08);
+         border-bottom: 1px solid var(--borde);
+         box-shadow: 0 10px 28px rgba(32, 32, 31, 0.08);
       }
 
       .header-principal {
-         min-height: 82px;
-         display: flex;
+         min-height: 76px;
+         display: grid;
+         grid-template-columns: auto 1fr auto;
          align-items: center;
-         justify-content: space-between;
-         gap: 32px;
+         gap: 28px;
       }
 
       .logo {
-         display: flex;
+         display: inline-flex;
          align-items: center;
-         min-width: 160px;
       }
 
       .logo img {
-         height: 50px;
+         height: 48px;
          width: auto;
       }
 
       .menu-principal {
          display: flex;
+         justify-content: center;
          align-items: center;
-         gap: 28px;
+         gap: 24px;
       }
 
       .menu-principal a {
@@ -160,38 +162,91 @@
          color: var(--naranja);
       }
 
-      .btn-menu {
+      .acciones-header {
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
+
+      .btn-header {
          display: inline-flex;
          align-items: center;
          justify-content: center;
          gap: 8px;
          background-color: var(--naranja);
-         color: var(--blanco) !important;
-         padding: 13px 20px;
-         border-radius: 999px;
+         color: var(--blanco);
+         padding: 12px 18px;
+         border-radius: 10px;
          font-weight: 900;
+         font-size: 14px;
          box-shadow: 0 12px 26px rgba(255, 165, 0, 0.28);
          transition: transform 0.2s ease, background-color 0.2s ease;
       }
 
-      .btn-menu:hover {
+      .btn-header:hover {
          background-color: var(--naranja-hover);
          transform: translateY(-2px);
       }
 
+      .icono-header {
+         width: 42px;
+         height: 42px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         border: 1px solid var(--borde);
+         border-radius: 10px;
+         color: var(--azul-comercial);
+         background-color: var(--blanco);
+      }
+
       /* ============================= */
-      /* HERO PROFESIONAL */
+      /* FRANJA DE ACCESOS */
+      /* ============================= */
+
+      .nav-comercial {
+         background-color: var(--azul-comercial);
+      }
+
+      .nav-comercial .contenedor {
+         min-height: 46px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 14px;
+         overflow-x: auto;
+      }
+
+      .nav-comercial a,
+      .nav-comercial span {
+         color: var(--blanco);
+         font-size: 14px;
+         font-weight: 800;
+         white-space: nowrap;
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+      }
+
+      .nav-comercial .destacado-nav {
+         background-color: var(--naranja);
+         color: var(--blanco);
+         padding: 10px 14px;
+         border-radius: 999px;
+      }
+
+      /* ============================= */
+      /* HERO */
       /* ============================= */
 
       .hero {
          position: relative;
          overflow: hidden;
          background:
-            radial-gradient(circle at 82% 18%, rgba(255, 165, 0, 0.22), transparent 28%),
-            radial-gradient(circle at 12% 22%, rgba(255, 255, 255, 0.10), transparent 26%),
-            linear-gradient(135deg, var(--gris-oscuro) 0%, var(--azul-comercial) 58%, #1f3358 100%);
+            radial-gradient(circle at 76% 18%, rgba(255, 165, 0, 0.24), transparent 28%),
+            linear-gradient(135deg, var(--gris-oscuro) 0%, var(--azul-comercial) 58%, #243a63 100%);
          color: var(--blanco);
-         padding: 86px 0 96px;
+         padding: 56px 0 74px;
       }
 
       .hero::before {
@@ -199,8 +254,8 @@
          position: absolute;
          inset: 0;
          background-image:
-            linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
          background-size: 42px 42px;
          pointer-events: none;
       }
@@ -209,17 +264,17 @@
          position: relative;
          z-index: 2;
          display: grid;
-         grid-template-columns: 1fr 0.98fr;
+         grid-template-columns: 0.95fr 1.05fr;
          align-items: center;
-         gap: 64px;
+         gap: 56px;
       }
 
-      .hero-texto small {
+      .hero-label {
          display: inline-flex;
          align-items: center;
          gap: 9px;
-         background-color: rgba(255, 255, 255, 0.09);
-         border: 1px solid rgba(255, 255, 255, 0.16);
+         background-color: rgba(255, 255, 255, 0.10);
+         border: 1px solid rgba(255, 255, 255, 0.18);
          border-left: 4px solid var(--naranja);
          padding: 10px 14px;
          color: var(--blanco);
@@ -230,32 +285,28 @@
          margin-bottom: 22px;
       }
 
-      .hero-texto h1 {
+      .hero h1 {
          margin: 0;
          max-width: 680px;
-         font-size: clamp(42px, 5.7vw, 68px);
+         font-size: clamp(42px, 5.6vw, 68px);
          line-height: 0.98;
-         letter-spacing: -2.3px;
+         letter-spacing: -2.2px;
          font-weight: 900;
       }
 
-      .hero-texto h1 span {
-         color: var(--naranja);
-      }
-
-      .hero-texto p {
-         max-width: 620px;
-         margin: 26px 0 0;
-         color: rgba(255, 255, 255, 0.82);
-         font-size: 19px;
-         line-height: 1.7;
+      .hero p {
+         max-width: 610px;
+         margin: 24px 0 0;
+         color: rgba(255, 255, 255, 0.84);
+         font-size: 18px;
+         line-height: 1.65;
       }
 
       .hero-acciones {
          display: flex;
          flex-wrap: wrap;
-         gap: 14px;
-         margin-top: 34px;
+         gap: 13px;
+         margin-top: 32px;
       }
 
       .btn {
@@ -263,11 +314,11 @@
          align-items: center;
          justify-content: center;
          gap: 9px;
-         padding: 15px 23px;
-         border-radius: 999px;
+         padding: 15px 22px;
+         border-radius: 12px;
          font-size: 16px;
          font-weight: 900;
-         transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+         transition: transform 0.2s ease, background-color 0.2s ease;
       }
 
       .btn:hover {
@@ -277,7 +328,7 @@
       .btn-principal {
          background-color: var(--naranja);
          color: var(--blanco);
-         box-shadow: 0 14px 30px rgba(255, 165, 0, 0.25);
+         box-shadow: 0 14px 30px rgba(255, 165, 0, 0.28);
       }
 
       .btn-principal:hover {
@@ -293,89 +344,86 @@
          background-color: #f0f0f0;
       }
 
-      .hero-datos {
+      .hero-beneficios {
          display: grid;
          grid-template-columns: repeat(3, 1fr);
-         gap: 14px;
-         max-width: 650px;
-         margin-top: 38px;
+         gap: 12px;
+         margin-top: 34px;
       }
 
-      .hero-datos div {
-         background-color: rgba(255, 255, 255, 0.08);
+      .hero-beneficios div {
+         background-color: rgba(255, 255, 255, 0.09);
          border: 1px solid rgba(255, 255, 255, 0.16);
-         padding: 18px;
          border-radius: 16px;
+         padding: 17px;
       }
 
-      .hero-datos strong {
+      .hero-beneficios strong {
          display: block;
          color: var(--naranja);
-         font-size: 24px;
+         font-size: 22px;
          margin-bottom: 4px;
       }
 
-      .hero-datos span {
+      .hero-beneficios span {
          display: block;
          color: rgba(255, 255, 255, 0.80);
-         font-size: 14px;
-         line-height: 1.35;
+         font-size: 13px;
+         line-height: 1.4;
       }
 
-      .hero-visual {
-         position: relative;
-      }
-
-      .showcase {
+      .hero-panel {
          position: relative;
          display: grid;
-         grid-template-columns: 1fr 0.62fr;
-         gap: 16px;
+         grid-template-columns: 1.18fr 0.82fr;
+         gap: 18px;
       }
 
-      .showcase-principal,
-      .showcase-secundario {
-         background-color: rgba(255, 255, 255, 0.11);
+      .panel-imagen-principal,
+      .panel-lateral {
          border: 1px solid rgba(255, 255, 255, 0.18);
-         border-radius: 26px;
+         background-color: rgba(255, 255, 255, 0.10);
+         border-radius: 28px;
          padding: 14px;
-         box-shadow: var(--sombra);
+         box-shadow: var(--sombra-fuerte);
       }
 
-      .showcase-principal img {
+      .panel-imagen-principal img {
          width: 100%;
          height: 455px;
          object-fit: cover;
-         border-radius: 20px;
+         border-radius: 22px;
       }
 
-      .showcase-secundario {
+      .panel-lateral {
          display: flex;
          flex-direction: column;
          gap: 16px;
       }
 
-      .mini-card {
+      .promo-mini {
          background-color: var(--blanco);
-         border-radius: 20px;
+         border-radius: 22px;
          padding: 12px;
+         position: relative;
+         overflow: hidden;
       }
 
-      .mini-card img {
+      .promo-mini img {
          width: 100%;
-         height: 170px;
+         height: 145px;
          object-fit: cover;
-         border-radius: 15px;
+         border-radius: 16px;
       }
 
-      .mini-card strong {
+      .promo-mini strong {
          display: block;
-         margin-top: 12px;
+         margin-top: 11px;
          color: var(--azul-comercial);
          font-size: 15px;
       }
 
-      .mini-card span {
+      .promo-mini span {
          display: block;
          margin-top: 4px;
          color: var(--gris-principal);
@@ -383,116 +431,122 @@
          line-height: 1.35;
       }
 
-      .tarjeta-flotante {
+      .etiqueta-promo {
          position: absolute;
-         left: -28px;
-         bottom: 30px;
-         width: 265px;
+         top: 22px;
+         left: 22px;
+         background-color: var(--naranja);
+         color: var(--blanco);
+         padding: 7px 10px;
+         border-radius: 999px;
+         font-size: 12px;
+         font-weight: 900;
+      }
+
+      .tarjeta-credito {
+         position: absolute;
+         left: -26px;
+         bottom: 28px;
+         width: 260px;
          background-color: var(--blanco);
          color: var(--gris-oscuro);
-         border-radius: 18px;
+         border-radius: 20px;
          padding: 20px;
-         box-shadow: var(--sombra);
+         box-shadow: var(--sombra-fuerte);
          border-top: 5px solid var(--naranja);
       }
 
-      .tarjeta-flotante strong {
+      .tarjeta-credito strong {
          display: block;
          color: var(--azul-comercial);
          font-size: 19px;
-         margin-bottom: 7px;
+         margin-bottom: 6px;
       }
 
-      .tarjeta-flotante span {
+      .tarjeta-credito span {
          color: var(--gris-principal);
          font-size: 14px;
          line-height: 1.45;
       }
 
       /* ============================= */
-      /* FRANJA DE CONFIANZA */
+      /* CATEGORÍAS RÁPIDAS */
       /* ============================= */
 
-      .confianza {
-         margin-top: -42px;
+      .categorias-rapidas {
          position: relative;
          z-index: 5;
+         margin-top: -35px;
       }
 
-      .confianza-grid {
+      .categorias-rapidas-grid {
          display: grid;
-         grid-template-columns: repeat(4, 1fr);
+         grid-template-columns: repeat(6, 1fr);
+         gap: 12px;
          background-color: var(--blanco);
-         border-radius: 22px;
-         overflow: hidden;
-         box-shadow: var(--sombra);
          border: 1px solid var(--borde);
+         border-radius: 22px;
+         padding: 14px;
+         box-shadow: var(--sombra-media);
       }
 
-      .confianza-item {
-         padding: 30px 24px;
-         border-right: 1px solid var(--borde);
+      .categoria-rapida {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+         padding: 14px;
+         border-radius: 16px;
+         background-color: var(--fondo-suave);
+         color: var(--azul-comercial);
+         font-weight: 900;
+         font-size: 14px;
+         transition: transform 0.2s ease, background-color 0.2s ease;
       }
 
-      .confianza-item:last-child {
-         border-right: none;
+      .categoria-rapida:hover {
+         transform: translateY(-2px);
+         background-color: rgba(255, 165, 0, 0.12);
       }
 
-      .confianza-item i {
-         width: 46px;
-         height: 46px;
+      .categoria-rapida i {
+         width: 38px;
+         height: 38px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
-         background-color: rgba(255, 165, 0, 0.13);
+         background-color: var(--blanco);
          color: var(--naranja);
-         border-radius: 14px;
-         font-size: 22px;
-         margin-bottom: 16px;
-      }
-
-      .confianza-item h3 {
-         margin: 0 0 8px;
-         color: var(--azul-comercial);
-         font-size: 19px;
-      }
-
-      .confianza-item p {
-         margin: 0;
-         color: var(--gris-principal);
-         font-size: 14px;
-         line-height: 1.55;
+         border-radius: 12px;
+         box-shadow: var(--sombra-suave);
       }
 
       /* ============================= */
-      /* CATEGORÍAS */
+      /* PRODUCTOS DESTACADOS */
       /* ============================= */
 
-      .categorias {
-         padding: 90px 0 78px;
+      .productos-destacados {
+         padding: 82px 0 74px;
          background-color: var(--fondo-suave);
       }
 
-      .titulo-seccion {
+      .encabezado-seccion {
          display: flex;
-         align-items: flex-end;
          justify-content: space-between;
-         gap: 32px;
-         margin-bottom: 38px;
+         align-items: flex-end;
+         gap: 30px;
+         margin-bottom: 34px;
       }
 
-      .titulo-seccion small {
-         display: inline-block;
+      .encabezado-seccion small {
          color: var(--naranja);
          font-size: 14px;
          font-weight: 900;
          text-transform: uppercase;
          letter-spacing: 0.8px;
-         margin-bottom: 8px;
       }
 
-      .titulo-seccion h2 {
-         margin: 0;
+      .encabezado-seccion h2 {
+         margin: 8px 0 0;
          max-width: 650px;
          color: var(--azul-comercial);
          font-size: clamp(32px, 4.2vw, 48px);
@@ -500,12 +554,113 @@
          letter-spacing: -1.2px;
       }
 
-      .titulo-seccion p {
-         max-width: 430px;
+      .encabezado-seccion p {
          margin: 0;
+         max-width: 420px;
          color: var(--gris-principal);
          font-size: 16px;
-         line-height: 1.65;
+         line-height: 1.6;
+      }
+
+      .productos-grid {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         gap: 20px;
+      }
+
+      .producto-card {
+         position: relative;
+         overflow: hidden;
+         background-color: var(--blanco);
+         border: 1px solid var(--borde);
+         border-radius: 22px;
+         box-shadow: var(--sombra-suave);
+         transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .producto-card:hover {
+         transform: translateY(-5px);
+         box-shadow: var(--sombra-media);
+      }
+
+      .producto-imagen {
+         position: relative;
+         background-color: #fafafa;
+         padding: 18px;
+      }
+
+      .producto-imagen img {
+         width: 100%;
+         height: 190px;
+         object-fit: contain;
+      }
+
+      .badge-descuento {
+         position: absolute;
+         top: 14px;
+         left: 14px;
+         background-color: var(--naranja);
+         color: var(--blanco);
+         border-radius: 999px;
+         padding: 7px 10px;
+         font-size: 12px;
+         font-weight: 900;
+      }
+
+      .producto-info {
+         padding: 20px;
+      }
+
+      .producto-info small {
+         color: var(--gris-principal);
+         font-size: 12px;
+         text-transform: uppercase;
+         font-weight: 900;
+         letter-spacing: 0.5px;
+      }
+
+      .producto-info h3 {
+         margin: 9px 0 12px;
+         color: var(--azul-comercial);
+         font-size: 18px;
+         line-height: 1.25;
+      }
+
+      .producto-info p {
+         margin: 0 0 16px;
+         color: var(--gris-principal);
+         font-size: 14px;
+         line-height: 1.45;
+      }
+
+      .producto-cuota {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 10px;
+         padding-top: 14px;
+         border-top: 1px solid var(--borde);
+      }
+
+      .producto-cuota span {
+         color: var(--gris-principal);
+         font-size: 13px;
+         font-weight: 800;
+      }
+
+      .producto-cuota a {
+         color: var(--naranja);
+         font-size: 14px;
+         font-weight: 900;
+      }
+
+      /* ============================= */
+      /* CATEGORÍAS GRANDES */
+      /* ============================= */
+
+      .categorias {
+         padding: 78px 0;
+         background-color: var(--blanco);
       }
 
       .categorias-grid {
@@ -517,16 +672,16 @@
       .categoria {
          position: relative;
          overflow: hidden;
-         min-height: 390px;
-         border-radius: 24px;
+         min-height: 380px;
+         border-radius: 26px;
          background-color: var(--gris-oscuro);
-         box-shadow: var(--sombra-suave);
+         box-shadow: var(--sombra-media);
       }
 
       .categoria img {
          width: 100%;
          height: 100%;
-         min-height: 390px;
+         min-height: 380px;
          object-fit: cover;
          transition: transform 0.45s ease;
       }
@@ -539,7 +694,7 @@
          content: "";
          position: absolute;
          inset: 0;
-         background: linear-gradient(180deg, rgba(32, 32, 31, 0.08) 0%, rgba(32, 32, 31, 0.84) 100%);
+         background: linear-gradient(180deg, rgba(32, 32, 31, 0.08) 0%, rgba(32, 32, 31, 0.86) 100%);
       }
 
       .categoria-contenido {
@@ -571,114 +726,15 @@
 
       .categoria p {
          margin: 0 0 18px;
-         color: rgba(255, 255, 255, 0.82);
+         color: rgba(255, 255, 255, 0.84);
          font-size: 15px;
          line-height: 1.55;
       }
 
       .categoria span {
-         display: inline-flex;
-         align-items: center;
-         gap: 8px;
          color: var(--naranja);
          font-size: 15px;
          font-weight: 900;
-      }
-
-      /* ============================= */
-      /* BLOQUE COMERCIAL */
-      /* ============================= */
-
-      .bloque-comercial {
-         padding: 84px 0;
-         background-color: var(--blanco);
-      }
-
-      .comercial-grid {
-         display: grid;
-         grid-template-columns: 0.95fr 1.05fr;
-         gap: 54px;
-         align-items: center;
-      }
-
-      .comercial-imagen {
-         position: relative;
-         border-radius: 28px;
-         overflow: hidden;
-         box-shadow: var(--sombra);
-      }
-
-      .comercial-imagen img {
-         width: 100%;
-         height: 470px;
-         object-fit: cover;
-      }
-
-      .comercial-badge {
-         position: absolute;
-         right: 20px;
-         bottom: 20px;
-         background-color: var(--naranja);
-         color: var(--blanco);
-         padding: 18px 22px;
-         border-radius: 18px;
-         font-weight: 900;
-         box-shadow: var(--sombra);
-      }
-
-      .comercial-texto small {
-         color: var(--naranja);
-         font-size: 14px;
-         font-weight: 900;
-         text-transform: uppercase;
-         letter-spacing: 0.8px;
-      }
-
-      .comercial-texto h2 {
-         margin: 12px 0 18px;
-         color: var(--azul-comercial);
-         font-size: clamp(32px, 4.2vw, 50px);
-         line-height: 1.08;
-         letter-spacing: -1.3px;
-      }
-
-      .comercial-texto p {
-         margin: 0;
-         color: var(--gris-principal);
-         font-size: 17px;
-         line-height: 1.7;
-      }
-
-      .lista-comercial {
-         display: grid;
-         grid-template-columns: repeat(2, 1fr);
-         gap: 16px;
-         margin-top: 30px;
-      }
-
-      .lista-comercial div {
-         background-color: var(--fondo-suave);
-         border: 1px solid var(--borde);
-         border-radius: 16px;
-         padding: 20px;
-      }
-
-      .lista-comercial i {
-         color: var(--naranja);
-         font-size: 21px;
-         margin-bottom: 12px;
-      }
-
-      .lista-comercial strong {
-         display: block;
-         color: var(--azul-comercial);
-         margin-bottom: 5px;
-      }
-
-      .lista-comercial span {
-         color: var(--gris-principal);
-         font-size: 14px;
-         line-height: 1.45;
       }
 
       /* ============================= */
@@ -695,9 +751,9 @@
 
       .cta-box {
          display: grid;
-         grid-template-columns: 1.25fr 0.75fr;
+         grid-template-columns: 1.2fr 0.8fr;
          align-items: center;
-         gap: 36px;
+         gap: 34px;
       }
 
       .cta-box small {
@@ -718,7 +774,7 @@
       .cta-box p {
          max-width: 680px;
          margin: 0;
-         color: rgba(255, 255, 255, 0.82);
+         color: rgba(255, 255, 255, 0.84);
          font-size: 17px;
          line-height: 1.65;
       }
@@ -749,16 +805,16 @@
       }
 
       /* ============================= */
-      /* OFERTAS */
+      /* OFERTAS CARRUSEL */
       /* ============================= */
 
       .ofertas {
-         padding: 82px 0;
+         padding: 78px 0;
          background-color: var(--fondo-suave);
       }
 
       .ofertas-header {
-         margin-bottom: 34px;
+         margin-bottom: 32px;
       }
 
       .ofertas-header small {
@@ -793,7 +849,7 @@
       }
 
       .carousel img {
-         height: 260px;
+         height: 248px;
          width: auto;
          flex-shrink: 0;
          object-fit: contain;
@@ -805,13 +861,8 @@
       }
 
       @keyframes scroll {
-         0% {
-            transform: translateX(0);
-         }
-
-         100% {
-            transform: translateX(-50%);
-         }
+         0% { transform: translateX(0); }
+         100% { transform: translateX(-50%); }
       }
 
       /* ============================= */
@@ -834,7 +885,7 @@
          width: min(470px, 100%);
          border-radius: 22px;
          padding: 30px;
-         box-shadow: var(--sombra);
+         box-shadow: var(--sombra-fuerte);
       }
 
       .modal-content h2 {
@@ -870,10 +921,6 @@
          font-weight: 900;
       }
 
-      .whatsapp-btn:hover {
-         background-color: #1ebe5d;
-      }
-
       .close {
          background-color: var(--azul-comercial);
          color: var(--blanco);
@@ -882,10 +929,6 @@
          border-radius: 999px;
          font-weight: 900;
          cursor: pointer;
-      }
-
-      .close:hover {
-         background-color: var(--gris-oscuro);
       }
 
       /* ============================= */
@@ -897,15 +940,15 @@
          right: 22px;
          bottom: 22px;
          z-index: 1500;
-         width: 60px;
-         height: 60px;
+         width: 58px;
+         height: 58px;
          border-radius: 50%;
          background-color: #25D366;
          color: var(--blanco);
          display: flex;
          align-items: center;
          justify-content: center;
-         font-size: 31px;
+         font-size: 30px;
          box-shadow: 0 18px 38px rgba(37, 211, 102, 0.38);
          transition: transform 0.2s ease;
       }
@@ -915,56 +958,116 @@
       }
 
       /* ============================= */
-      /* FOOTER */
+      /* FOOTER COMPACTO */
       /* ============================= */
 
       footer {
          background-color: var(--gris-oscuro);
          color: var(--blanco);
-         padding: 30px 0;
-         text-align: center;
+         padding: 18px 0;
       }
 
-      footer p {
+      .footer-compacto {
+         display: grid;
+         grid-template-columns: 1fr auto auto;
+         align-items: center;
+         gap: 22px;
+      }
+
+      .footer-marca {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+      }
+
+      .footer-marca img {
+         height: 32px;
+         width: auto;
+         background-color: var(--blanco);
+         border-radius: 8px;
+         padding: 4px;
+      }
+
+      .footer-marca p {
          margin: 0;
-         color: rgba(255, 255, 255, 0.84);
-         font-size: 15px;
+         color: rgba(255, 255, 255, 0.78);
+         font-size: 13px;
+      }
+
+      .footer-links {
+         display: flex;
+         align-items: center;
+         gap: 16px;
+         flex-wrap: wrap;
+      }
+
+      .footer-links a {
+         color: rgba(255, 255, 255, 0.82);
+         font-size: 13px;
+         font-weight: 800;
+      }
+
+      .footer-links a:hover {
+         color: var(--naranja);
+      }
+
+      .footer-social {
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
+
+      .footer-social a {
+         width: 34px;
+         height: 34px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         color: var(--blanco);
+         background-color: rgba(255, 255, 255, 0.10);
+         border-radius: 10px;
+      }
+
+      .footer-social a:hover {
+         background-color: var(--naranja);
       }
 
       /* ============================= */
       /* RESPONSIVE */
       /* ============================= */
 
-      @media (max-width: 1100px) {
+      @media (max-width: 1120px) {
+         .header-principal {
+            grid-template-columns: auto 1fr;
+         }
+
+         .acciones-header {
+            display: none;
+         }
+
          .hero-grid,
-         .comercial-grid,
          .cta-box {
             grid-template-columns: 1fr;
          }
 
-         .showcase {
-            max-width: 760px;
+         .hero-panel {
+            max-width: 840px;
          }
 
-         .cta-acciones {
-            justify-content: flex-start;
+         .categorias-rapidas-grid {
+            grid-template-columns: repeat(3, 1fr);
          }
 
-         .confianza-grid {
+         .productos-grid {
             grid-template-columns: repeat(2, 1fr);
-         }
-
-         .confianza-item:nth-child(2) {
-            border-right: none;
-         }
-
-         .confianza-item:nth-child(1),
-         .confianza-item:nth-child(2) {
-            border-bottom: 1px solid var(--borde);
          }
 
          .categorias-grid {
             grid-template-columns: repeat(2, 1fr);
+         }
+
+         .cta-acciones {
+            justify-content: flex-start;
          }
       }
 
@@ -976,12 +1079,15 @@
          .header-principal {
             min-height: auto;
             padding: 14px 0;
-            align-items: flex-start;
-            flex-direction: column;
+            display: block;
+         }
+
+         .logo {
+            margin-bottom: 12px;
          }
 
          .menu-principal {
-            width: 100%;
+            justify-content: flex-start;
             overflow-x: auto;
             gap: 20px;
             padding-bottom: 4px;
@@ -991,73 +1097,76 @@
             white-space: nowrap;
          }
 
-         .btn-menu {
-            display: none;
+         .nav-comercial .contenedor {
+            justify-content: flex-start;
          }
 
          .hero {
-            padding: 54px 0 82px;
+            padding: 46px 0 74px;
          }
 
-         .hero-datos {
+         .hero-panel {
             grid-template-columns: 1fr;
          }
 
-         .showcase {
-            grid-template-columns: 1fr;
-         }
-
-         .showcase-principal img {
+         .panel-imagen-principal img {
             height: 330px;
          }
 
-         .showcase-secundario {
+         .panel-lateral {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
          }
 
-         .tarjeta-flotante {
+         .tarjeta-credito {
             position: static;
             width: 100%;
             margin-top: 16px;
          }
 
-         .titulo-seccion {
-            display: block;
-         }
-
-         .titulo-seccion p {
-            margin-top: 14px;
-         }
-
-         .categorias-grid,
-         .lista-comercial {
+         .hero-beneficios {
             grid-template-columns: 1fr;
          }
 
-         .comercial-imagen img {
-            height: 330px;
+         .encabezado-seccion {
+            display: block;
+         }
+
+         .encabezado-seccion p {
+            margin-top: 14px;
+         }
+
+         .categorias-rapidas-grid,
+         .categorias-grid {
+            grid-template-columns: 1fr;
          }
 
          .carousel img {
             height: 210px;
          }
+
+         .footer-compacto {
+            grid-template-columns: 1fr;
+            text-align: center;
+            justify-items: center;
+            gap: 12px;
+         }
       }
 
       @media (max-width: 560px) {
          .contenedor {
-            width: min(92%, 1200px);
+            width: min(93%, 1220px);
          }
 
          .logo img {
             height: 42px;
          }
 
-         .hero-texto h1 {
+         .hero h1 {
             letter-spacing: -1.4px;
          }
 
-         .hero-texto p {
+         .hero p {
             font-size: 17px;
          }
 
@@ -1069,25 +1178,16 @@
             width: 100%;
          }
 
-         .showcase-secundario {
+         .panel-lateral {
             grid-template-columns: 1fr;
          }
 
-         .mini-card img {
-            height: 190px;
+         .promo-mini img {
+            height: 180px;
          }
 
-         .confianza-grid {
+         .productos-grid {
             grid-template-columns: 1fr;
-         }
-
-         .confianza-item {
-            border-right: none;
-            border-bottom: 1px solid var(--borde);
-         }
-
-         .confianza-item:last-child {
-            border-bottom: none;
          }
 
          .categoria,
@@ -1095,8 +1195,8 @@
             min-height: 330px;
          }
 
-         .cta {
-            padding: 62px 0;
+         .footer-links {
+            justify-content: center;
          }
 
          .whatsapp-flotante {
@@ -1149,8 +1249,8 @@
    <div class="barra-superior">
       <div class="contenedor">
          <div class="barra-info">
-            <span><i class="fas fa-location-dot"></i> Entrega en Loja y Zamora</span>
-            <span><i class="fas fa-credit-card"></i> Crédito directo disponible</span>
+            <span><i class="fas fa-location-dot"></i> Loja y Zamora</span>
+            <span><i class="fas fa-credit-card"></i> Crédito directo</span>
             <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
          </div>
 
@@ -1158,7 +1258,6 @@
             <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer" aria-label="Facebook Electromás">
                <i class="fab fa-facebook-f"></i>
             </a>
-
             <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Electromás">
                <i class="fab fa-whatsapp"></i>
             </a>
@@ -1177,26 +1276,43 @@
             <a href="ofertas.html">Ofertas</a>
             <a href="combos.html">Combos</a>
             <a href="somos.html">Quiénes somos</a>
+         </nav>
 
-            <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn-menu">
+         <div class="acciones-header">
+            <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer" class="icono-header" aria-label="Facebook Electromás">
+               <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn-header">
                <i class="fab fa-whatsapp"></i>
                Comprar ahora
             </a>
-         </nav>
+         </div>
       </div>
    </header>
+
+   <section class="nav-comercial">
+      <div class="contenedor">
+         <span><i class="fas fa-bars"></i> Líneas principales</span>
+         <a href="ofertas.html" class="destacado-nav">Promociones</a>
+         <a href="combos.html">Combos</a>
+         <a href="electrodomesticos.html">Electrodomésticos</a>
+         <a href="tecnologia.html">Tecnología</a>
+         <a href="hogar.html">Hogar</a>
+         <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer">Crédito directo</a>
+      </div>
+   </section>
 
    <main>
       <section class="hero">
          <div class="contenedor hero-grid">
             <div class="hero-texto">
-               <small><i class="fas fa-bolt"></i> Electromás Loja y Zamora</small>
+               <div class="hero-label"><i class="fas fa-bolt"></i> Electromás Loja y Zamora</div>
 
-               <h1>Electrodomésticos y tecnología para comprar <span>con facilidad.</span></h1>
+               <h1>Ofertas, crédito y productos para equipar su hogar.</h1>
 
                <p>
-                  Productos para el hogar, tecnología y promociones seleccionadas con crédito directo,
-                  atención personalizada y entrega local en Loja y Zamora.
+                  Electrodomésticos, tecnología y artículos para el hogar con atención directa,
+                  promociones disponibles y entrega local en Loja y Zamora.
                </p>
 
                <div class="hero-acciones">
@@ -1207,82 +1323,149 @@
 
                   <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn btn-secundario">
                      <i class="fab fa-whatsapp"></i>
-                     Solicitar asesoría
+                     Consultar por WhatsApp
                   </a>
                </div>
 
-               <div class="hero-datos">
+               <div class="hero-beneficios">
                   <div>
                      <strong>Crédito</strong>
-                     <span>Opciones de pago para facilitar su compra.</span>
+                     <span>Facilidades de pago para comprar con mayor comodidad.</span>
                   </div>
 
                   <div>
                      <strong>Entrega</strong>
-                     <span>Cobertura local en Loja y Zamora.</span>
+                     <span>Cobertura local especializada en Loja y Zamora.</span>
                   </div>
 
                   <div>
-                     <strong>Garantía</strong>
-                     <span>Productos seleccionados con respaldo.</span>
+                     <strong>Asesoría</strong>
+                     <span>Orientación para elegir mejor antes de comprar.</span>
                   </div>
                </div>
             </div>
 
             <div class="hero-visual">
-               <div class="showcase">
-                  <div class="showcase-principal">
+               <div class="hero-panel">
+                  <div class="panel-imagen-principal">
                      <img src="principal/general/fondo.png" alt="Electrodomésticos y tecnología Electromás">
                   </div>
 
-                  <div class="showcase-secundario">
-                     <div class="mini-card">
+                  <div class="panel-lateral">
+                     <div class="promo-mini">
+                        <span class="etiqueta-promo">Oferta</span>
                         <img src="principal/inicio/p1.jpg" alt="Promoción Electromás">
                         <strong>Promociones activas</strong>
-                        <span>Revise productos disponibles para su hogar.</span>
+                        <span>Consulte disponibilidad y formas de pago.</span>
                      </div>
 
-                     <div class="mini-card">
-                        <img src="principal/inicio/p2.jpg" alt="Oferta Electromás">
-                        <strong>Compra asesorada</strong>
-                        <span>Reciba ayuda antes de decidir.</span>
+                     <div class="promo-mini">
+                        <span class="etiqueta-promo">Combo</span>
+                        <img src="principal/inicio/p2.jpg" alt="Combo Electromás">
+                        <strong>Combos para el hogar</strong>
+                        <span>Opciones prácticas para equipar su espacio.</span>
                      </div>
                   </div>
                </div>
 
-               <div class="tarjeta-flotante">
-                  <strong>Compra más segura</strong>
-                  <span>Asesoría, crédito directo y entrega local en una sola atención.</span>
+               <div class="tarjeta-credito">
+                  <strong>Crédito directo</strong>
+                  <span>Consulte opciones de compra y reciba atención personalizada.</span>
                </div>
             </div>
          </div>
       </section>
 
-      <section class="confianza">
+      <section class="categorias-rapidas" aria-label="Accesos rápidos">
          <div class="contenedor">
-            <div class="confianza-grid">
-               <article class="confianza-item">
-                  <i class="fas fa-credit-card"></i>
-                  <h3>Crédito directo</h3>
-                  <p>Facilidades de pago para comprar sin procesos innecesarios.</p>
+            <div class="categorias-rapidas-grid">
+               <a href="electrodomesticos.html" class="categoria-rapida"><i class="fas fa-kitchen-set"></i> Cocina</a>
+               <a href="electrodomesticos.html" class="categoria-rapida"><i class="fas fa-soap"></i> Lavado</a>
+               <a href="tecnologia.html" class="categoria-rapida"><i class="fas fa-mobile-screen-button"></i> Celulares</a>
+               <a href="tecnologia.html" class="categoria-rapida"><i class="fas fa-tv"></i> Televisores</a>
+               <a href="hogar.html" class="categoria-rapida"><i class="fas fa-couch"></i> Hogar</a>
+               <a href="combos.html" class="categoria-rapida"><i class="fas fa-tags"></i> Combos</a>
+            </div>
+         </div>
+      </section>
+
+      <section class="productos-destacados">
+         <div class="contenedor">
+            <div class="encabezado-seccion">
+               <div>
+                  <small>Promociones destacadas</small>
+                  <h2>Productos para consultar y comprar con asesoría.</h2>
+               </div>
+
+               <p>
+                  Una presentación más comercial, tipo catálogo, con productos visibles,
+                  beneficios claros y acceso directo a WhatsApp.
+               </p>
+            </div>
+
+            <div class="productos-grid">
+               <article class="producto-card">
+                  <div class="producto-imagen">
+                     <span class="badge-descuento">Oferta</span>
+                     <img src="principal/inicio/p1.jpg" alt="Producto destacado Electromás 1">
+                  </div>
+                  <div class="producto-info">
+                     <small>Electromás</small>
+                     <h3>Producto destacado para el hogar</h3>
+                     <p>Consulte precio, disponibilidad y opciones de crédito directo.</p>
+                     <div class="producto-cuota">
+                        <span>Asesoría inmediata</span>
+                        <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer">Ver más</a>
+                     </div>
+                  </div>
                </article>
 
-               <article class="confianza-item">
-                  <i class="fas fa-truck-fast"></i>
-                  <h3>Entrega local</h3>
-                  <p>Atención enfocada en clientes de Loja y Zamora.</p>
+               <article class="producto-card">
+                  <div class="producto-imagen">
+                     <span class="badge-descuento">Crédito</span>
+                     <img src="principal/inicio/p2.jpg" alt="Producto destacado Electromás 2">
+                  </div>
+                  <div class="producto-info">
+                     <small>Promoción</small>
+                     <h3>Opción seleccionada para equipar</h3>
+                     <p>Reciba orientación según necesidad, presupuesto y entrega.</p>
+                     <div class="producto-cuota">
+                        <span>Compra guiada</span>
+                        <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer">Ver más</a>
+                     </div>
+                  </div>
                </article>
 
-               <article class="confianza-item">
-                  <i class="fas fa-box-open"></i>
-                  <h3>Productos seleccionados</h3>
-                  <p>Electrodomésticos, tecnología y artículos útiles para el hogar.</p>
+               <article class="producto-card">
+                  <div class="producto-imagen">
+                     <span class="badge-descuento">Combo</span>
+                     <img src="principal/inicio/p3.jpg" alt="Producto destacado Electromás 3">
+                  </div>
+                  <div class="producto-info">
+                     <small>Hogar</small>
+                     <h3>Soluciones prácticas para su casa</h3>
+                     <p>Productos para renovar, mejorar o completar su hogar.</p>
+                     <div class="producto-cuota">
+                        <span>Entrega local</span>
+                        <a href="combos.html">Ver más</a>
+                     </div>
+                  </div>
                </article>
 
-               <article class="confianza-item">
-                  <i class="fas fa-headset"></i>
-                  <h3>Asesoría personalizada</h3>
-                  <p>Le ayudamos a elegir según necesidad, presupuesto y disponibilidad.</p>
+               <article class="producto-card">
+                  <div class="producto-imagen">
+                     <span class="badge-descuento">Nuevo</span>
+                     <img src="principal/inicio/p4.jpg" alt="Producto destacado Electromás 4">
+                  </div>
+                  <div class="producto-info">
+                     <small>Tecnología</small>
+                     <h3>Equipos y tecnología para uso diario</h3>
+                     <p>Consulte opciones disponibles y beneficios de compra.</p>
+                     <div class="producto-cuota">
+                        <span>Atención rápida</span>
+                        <a href="tecnologia.html">Ver más</a>
+                     </div>
+                  </div>
                </article>
             </div>
          </div>
@@ -1290,15 +1473,15 @@
 
       <section class="categorias" id="categorias">
          <div class="contenedor">
-            <div class="titulo-seccion">
+            <div class="encabezado-seccion">
                <div>
                   <small>Categorías principales</small>
-                  <h2>Soluciones para equipar su hogar con criterio.</h2>
+                  <h2>Compre por línea de producto.</h2>
                </div>
 
                <p>
-                  Acceda directamente a las líneas de productos principales:
-                  electrodomésticos, tecnología y artículos para el hogar.
+                  Acceda directamente a las secciones principales del sitio y mantenga
+                  la navegación hacia sus páginas ya creadas.
                </p>
             </div>
 
@@ -1336,53 +1519,6 @@
          </div>
       </section>
 
-      <section class="bloque-comercial">
-         <div class="contenedor comercial-grid">
-            <div class="comercial-imagen">
-               <img src="principal/inicio/p3.jpg" alt="Oferta comercial Electromás">
-               <div class="comercial-badge">
-                  Crédito directo
-               </div>
-            </div>
-
-            <div class="comercial-texto">
-               <small>Compra con respaldo</small>
-               <h2>Una experiencia más clara para comprar mejor.</h2>
-
-               <p>
-                  Electromás no solo muestra productos. Le orienta, revisa disponibilidad,
-                  informa promociones y le ayuda a escoger la mejor opción para su hogar.
-               </p>
-
-               <div class="lista-comercial">
-                  <div>
-                     <i class="fas fa-check-circle"></i>
-                     <strong>Atención directa</strong>
-                     <span>Comunicación rápida mediante WhatsApp.</span>
-                  </div>
-
-                  <div>
-                     <i class="fas fa-check-circle"></i>
-                     <strong>Promociones vigentes</strong>
-                     <span>Ofertas y combos disponibles para consultar.</span>
-                  </div>
-
-                  <div>
-                     <i class="fas fa-check-circle"></i>
-                     <strong>Cobertura local</strong>
-                     <span>Entrega especializada en Loja y Zamora.</span>
-                  </div>
-
-                  <div>
-                     <i class="fas fa-check-circle"></i>
-                     <strong>Compra asesorada</strong>
-                     <span>Orientación antes de tomar una decisión.</span>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
       <section class="cta">
          <div class="contenedor cta-box">
             <div>
@@ -1409,8 +1545,8 @@
 
       <section class="ofertas">
          <div class="contenedor ofertas-header">
-            <small>Promociones destacadas</small>
-            <h2>Ofertas disponibles</h2>
+            <small>Catálogo visual</small>
+            <h2>Más promociones disponibles</h2>
          </div>
 
          <div class="carousel-wrapper">
@@ -1420,7 +1556,6 @@
                <img src="principal/inicio/p3.jpg" alt="Oferta destacada Electromás 3" loading="lazy">
                <img src="principal/inicio/p4.jpg" alt="Oferta destacada Electromás 4" loading="lazy">
                <img src="principal/inicio/p5.jpg" alt="Oferta destacada Electromás 5" loading="lazy">
-
                <img src="principal/inicio/p1.jpg" alt="Oferta destacada Electromás 1" loading="lazy">
                <img src="principal/inicio/p2.jpg" alt="Oferta destacada Electromás 2" loading="lazy">
                <img src="principal/inicio/p3.jpg" alt="Oferta destacada Electromás 3" loading="lazy">
@@ -1453,8 +1588,27 @@
    </a>
 
    <footer>
-      <div class="contenedor">
-         <p>© <span id="anioActual"></span> Electromás. Todos los derechos reservados.</p>
+      <div class="contenedor footer-compacto">
+         <div class="footer-marca">
+            <img src="principal/general/electro.png" alt="Electromás">
+            <p>© <span id="anioActual"></span> Electromás. Todos los derechos reservados.</p>
+         </div>
+
+         <div class="footer-links">
+            <a href="ofertas.html">Ofertas</a>
+            <a href="combos.html">Combos</a>
+            <a href="somos.html">Quiénes somos</a>
+            <a href="#categorias">Categorías</a>
+         </div>
+
+         <div class="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer" aria-label="Facebook Electromás">
+               <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Electromás">
+               <i class="fab fa-whatsapp"></i>
+            </a>
+         </div>
       </div>
    </footer>
 
