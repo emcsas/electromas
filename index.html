@@ -1677,6 +1677,278 @@
             transition: none !important;
          }
       }
+   
+
+      /* ========================= */
+      /* AJUSTES FINALES ECOMMERCE */
+      /* ========================= */
+
+      .header-main {
+         grid-template-columns: 175px minmax(360px, 1fr) auto;
+         min-height: 70px;
+      }
+
+      .acciones-header {
+         justify-content: flex-end;
+      }
+
+      .header-whatsapp {
+         height: 44px;
+         display: inline-grid;
+         grid-template-columns: 24px auto;
+         grid-template-rows: auto auto;
+         column-gap: 8px;
+         align-items: center;
+         padding: 0 14px;
+         border-radius: 14px;
+         background: #128C7E;
+         color: var(--blanco);
+         font-weight: 850;
+         box-shadow: 0 12px 24px rgba(18, 140, 126, 0.22);
+         transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+         white-space: nowrap;
+      }
+
+      .header-whatsapp i {
+         grid-row: 1 / 3;
+         font-size: 20px;
+      }
+
+      .header-whatsapp span {
+         font-size: 13px;
+         line-height: 1;
+      }
+
+      .header-whatsapp strong {
+         font-size: 11px;
+         line-height: 1;
+         opacity: 0.86;
+      }
+
+      .header-whatsapp:hover {
+         transform: translateY(-2px);
+         background: #0f7c70;
+         box-shadow: 0 16px 30px rgba(18, 140, 126, 0.28);
+      }
+
+      .departamentos {
+         border-top: 1px solid rgba(255,255,255,0.08);
+         box-shadow: inset 0 -1px 0 rgba(255,255,255,0.08);
+      }
+
+      .departamentos .contenedor {
+         justify-content: space-between;
+         gap: 18px;
+         min-height: 62px;
+      }
+
+      .menu-principal {
+         flex: 1 1 auto;
+      }
+
+      .menu-link {
+         min-height: 44px;
+         padding: 0 16px;
+         border: 1px solid rgba(255,255,255,0.10);
+         background: rgba(255,255,255,0.055);
+      }
+
+      .menu-link:hover,
+      .menu-item:focus-within .menu-link {
+         background: rgba(255,255,255,0.13);
+         border-color: rgba(255,255,255,0.22);
+      }
+
+      .nav-comercial {
+         flex: 0 0 auto;
+         display: flex;
+         align-items: center;
+         gap: 9px;
+      }
+
+      .nav-action {
+         min-height: 40px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         padding: 0 14px;
+         border-radius: 999px;
+         color: var(--blanco);
+         background: rgba(255,255,255,0.10);
+         border: 1px solid rgba(255,255,255,0.18);
+         font-size: 13px;
+         font-weight: 850;
+         box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+         transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+         white-space: nowrap;
+      }
+
+      .nav-action i {
+         color: var(--naranja);
+      }
+
+      .nav-action:hover {
+         transform: translateY(-2px);
+         background: rgba(255,255,255,0.16);
+         border-color: rgba(255,255,255,0.30);
+      }
+
+      .nav-action-primary {
+         background: var(--naranja);
+         border-color: var(--naranja);
+         color: var(--blanco);
+      }
+
+      .nav-action-primary i {
+         color: var(--blanco);
+      }
+
+      .nav-action-primary:hover {
+         background: var(--naranja-oscuro);
+         border-color: var(--naranja-oscuro);
+      }
+
+      .hero {
+         background:
+            radial-gradient(circle at 80% 18%, rgba(255, 165, 0, 0.18), transparent 26%),
+            linear-gradient(135deg, #111827 0%, var(--azul) 52%, #244b82 100%);
+      }
+
+      .hero-card img,
+      .compact-offer img,
+      .producto-img img {
+         filter: saturate(1.05) contrast(1.02);
+      }
+
+      .hero-botones {
+         gap: 12px;
+      }
+
+      .proceso-compra {
+         background: var(--blanco);
+      }
+
+      .catalogo {
+         background: linear-gradient(180deg, #f7f8fb 0%, #ffffff 100%);
+      }
+
+      .footer-profesional {
+         background: #f3f4f6;
+         color: var(--negro);
+         border-top: 1px solid var(--linea);
+      }
+
+      .footer-grid {
+         display: grid;
+         grid-template-columns: 1.35fr 0.75fr 0.9fr 1fr;
+         gap: 34px;
+         padding: 44px 0 30px;
+      }
+
+      .footer-col h4,
+      .footer-marca h3 {
+         color: var(--azul);
+      }
+
+      .footer-col a,
+      .footer-col p,
+      .footer-marca p {
+         color: rgba(32,32,31,0.76);
+      }
+
+      .footer-col a:hover {
+         color: var(--naranja-oscuro);
+      }
+
+      .footer-lead input {
+         background: var(--blanco);
+      }
+
+      .footer-bottom {
+         border-top: 1px solid var(--linea);
+         color: rgba(32,32,31,0.68);
+      }
+
+      @media (max-width: 1120px) {
+         .header-main {
+            grid-template-columns: 160px 1fr;
+         }
+
+         .acciones-header {
+            grid-column: 2;
+            grid-row: 1;
+         }
+
+         .departamentos .contenedor {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 10px 0;
+         }
+
+         .menu-principal,
+         .nav-comercial {
+            justify-content: center;
+            flex-wrap: wrap;
+         }
+      }
+
+      @media (max-width: 760px) {
+         .header-main {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+         }
+
+         .logo {
+            margin-bottom: 0;
+         }
+
+         .busqueda-wrap {
+            grid-column: 1 / -1;
+         }
+
+         .acciones-header {
+            grid-column: auto;
+            grid-row: auto;
+            margin-top: 0;
+         }
+
+         .header-whatsapp {
+            width: 46px;
+            height: 46px;
+            padding: 0;
+            display: inline-flex;
+            justify-content: center;
+         }
+
+         .header-whatsapp span,
+         .header-whatsapp strong {
+            display: none;
+         }
+
+         .nav-comercial {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+         }
+
+         .nav-action {
+            width: 100%;
+            padding: 0 10px;
+         }
+
+         .footer-grid {
+            grid-template-columns: 1fr;
+         }
+      }
+
+      @media (max-width: 520px) {
+         .nav-comercial {
+            grid-template-columns: 1fr;
+         }
+      }
+
    </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -1736,10 +2008,10 @@
 </div>
 </div>
 <div class="acciones-header">
-<a class="header-link" href="ofertas.html"><i class="fas fa-tags"></i><span>Ofertas</span></a>
-<a class="header-link" href="combos.html"><i class="fas fa-layer-group"></i><span>Combos</span></a>
-<a class="header-link header-cta" href="https://wa.me/593988926331" rel="noopener noreferrer" target="_blank">
-<i class="fab fa-whatsapp"></i><span>Comprar</span>
+<a class="header-whatsapp" href="https://wa.me/593988926331" rel="noopener noreferrer" target="_blank" aria-label="Contactar por WhatsApp">
+<i class="fab fa-whatsapp"></i>
+<span>WhatsApp</span>
+<strong>098 892 6331</strong>
 </a>
 </div>
 </div>
@@ -1804,7 +2076,11 @@
 </div>
 </li>
 </ul>
-
+<div class="nav-comercial" aria-label="Accesos comerciales">
+<a class="nav-action" href="ofertas.html"><i class="fas fa-tags"></i><span>Ofertas</span></a>
+<a class="nav-action" href="combos.html"><i class="fas fa-layer-group"></i><span>Combos</span></a>
+<a class="nav-action nav-action-primary" href="#catalogo"><i class="fas fa-sliders"></i><span>Filtrar productos</span></a>
+</div>
 </div>
 </nav>
 </header>
@@ -1821,12 +2097,12 @@
 <div class="hero-botones">
 <a class="btn btn-primary" href="#catalogo">Ver productos <i class="fas fa-arrow-right"></i></a>
 <a class="btn btn-white" href="https://wa.me/593988926331" rel="noopener noreferrer" target="_blank"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
-<a class="btn btn-outline" href="#como-comprar">Cómo comprar</a>
+
 </div>
 </div>
 <div class="hero-panel">
 <a class="hero-card" href="#catalogo">
-<img alt="Electrodomésticos y tecnología Electromás" src="principal/general/fondo.png"/>
+<img alt="Electrodomésticos y tecnología para el hogar" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80" onerror="this.onerror=null;this.src='principal/general/fondo.png';"/>
 <div class="hero-card-info">
 <strong>Elija, cotice y compre con asesoría</strong>
 <span>Catálogo claro, filtros útiles y atención directa por WhatsApp.</span>
@@ -1834,14 +2110,14 @@
 </a>
 <div class="hero-side">
 <a class="compact-offer" href="electrodomesticos.html">
-<img alt="Electrodomésticos destacados" src="principal/inicio/p3.jpg"/>
+<img alt="Electrodomésticos destacados" src="https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=900&q=80" onerror="this.onerror=null;this.src='principal/inicio/p3.jpg';"/>
 <div class="compact-offer-info">
 <strong>Electrodomésticos</strong>
 <span>Línea blanca para el hogar.</span>
 </div>
 </a>
 <a class="compact-offer" href="tecnologia.html">
-<img alt="Tecnología destacada" src="principal/inicio/p1.jpg"/>
+<img alt="Tecnología destacada" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" onerror="this.onerror=null;this.src='principal/inicio/p1.jpg';"/>
 <div class="compact-offer-info">
 <strong>Tecnología</strong>
 <span>Celulares, televisores y equipos.</span>
@@ -1876,11 +2152,11 @@
 <div class="contenedor">
 <div class="section-head compact-head">
 <div>
-<span class="section-eyebrow">Compra rápida</span>
-<h2 class="section-title">Menos pasos. Más claridad para decidir.</h2>
+<span class="section-eyebrow">Atención comercial</span>
+<h2 class="section-title">Cotice rápido, compare opciones y compre con respaldo.</h2>
 </div>
 <p class="section-text">
-                  La página guía al cliente desde la búsqueda hasta la cotización, sin repetir categorías ni saturar la navegación.
+                  Pensado para clientes que quieren resolver precio, crédito, disponibilidad y entrega sin perder tiempo.
                </p>
 </div>
 <div class="pasos-grid">
@@ -1888,19 +2164,19 @@
 <div class="paso-numero">01</div>
 <i class="fas fa-magnifying-glass"></i>
 <h3>Busque o filtre</h3>
-<p>Encuentre productos por categoría, subcategoría o necesidad: crédito, entrega o promoción.</p>
+<p>Encuentre rápido lo que necesita por categoría, subcategoría o beneficio comercial.</p>
 </article>
 <article class="paso-card destacado">
 <div class="paso-numero">02</div>
 <i class="fab fa-whatsapp"></i>
 <h3>Cotice por WhatsApp</h3>
-<p>El mensaje llega con el producto seleccionado para responder precio, disponibilidad y crédito.</p>
+<p>El asesor recibe el producto de interés y puede responder precio, crédito y disponibilidad.</p>
 </article>
 <article class="paso-card">
 <div class="paso-numero">03</div>
 <i class="fas fa-truck-fast"></i>
-<h3>Coordine la entrega</h3>
-<p>Atención comercial para Loja y Zamora, con respaldo y orientación antes de comprar.</p>
+<h3>Coordine la compra</h3>
+<p>Defina forma de pago, entrega local y detalles finales con atención directa.</p>
 </article>
 </div>
 </div>
@@ -2107,7 +2383,8 @@
             categoria: "Tecnología",
             subcategoria: "Celulares",
             descripcion: "Smartphones disponibles para consultar características, crédito y disponibilidad.",
-            imagen: "principal/inicio/p1.jpg",
+            imagen: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+            fallback: "principal/inicio/p1.jpg",
             url: "producto/celulares.html",
             beneficios: ["Crédito", "Oferta", "Entrega"],
             badge: "Cotizable",
@@ -2118,7 +2395,8 @@
             categoria: "Electrodomésticos",
             subcategoria: "Refrigeración",
             descripcion: "Refrigeradoras y equipos de conservación para uso familiar.",
-            imagen: "principal/inicio/p3.jpg",
+            imagen: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=80",
+            fallback: "principal/inicio/p3.jpg",
             url: "producto/refrigeracion.html",
             beneficios: ["Crédito", "Entrega"],
             badge: "Hogar",
@@ -2129,7 +2407,8 @@
             categoria: "Electrodomésticos",
             subcategoria: "Cocina",
             descripcion: "Cocinas, hornos y productos de preparación para equipar mejor su cocina.",
-            imagen: "principal/inicio/p4.jpg",
+            imagen: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=80",
+            fallback: "principal/inicio/p4.jpg",
             url: "producto/cocina.html",
             beneficios: ["Crédito", "Oferta", "Entrega"],
             badge: "Oferta",
@@ -2140,7 +2419,8 @@
             categoria: "Electrodomésticos",
             subcategoria: "Lavado",
             descripcion: "Lavadoras y soluciones prácticas para lavandería familiar.",
-            imagen: "principal/inicio/p5.jpg",
+            imagen: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=900&q=80",
+            fallback: "principal/inicio/p5.jpg",
             url: "producto/lavado.html",
             beneficios: ["Crédito", "Entrega"],
             badge: "Crédito",
@@ -2151,7 +2431,8 @@
             categoria: "Tecnología",
             subcategoria: "Televisores",
             descripcion: "Pantallas y Smart TV para entretenimiento en casa.",
-            imagen: "principal/inicio/p2.jpg",
+            imagen: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=900&q=80",
+            fallback: "principal/inicio/p2.jpg",
             url: "producto/televisores.html",
             beneficios: ["Crédito", "Oferta"],
             badge: "Tecnología",
@@ -2162,7 +2443,8 @@
             categoria: "Tecnología",
             subcategoria: "Computadoras",
             descripcion: "Equipos para estudio, trabajo y uso diario.",
-            imagen: "principal/tec.jpg",
+            imagen: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+            fallback: "principal/tec.jpg",
             url: "producto/computadoras.html",
             beneficios: ["Crédito", "Entrega"],
             badge: "Equipos",
@@ -2173,7 +2455,8 @@
             categoria: "Hogar",
             subcategoria: "Confort",
             descripcion: "Productos orientados a comodidad, descanso y uso diario.",
-            imagen: "principal/sal.jpg",
+            imagen: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=900&q=80",
+            fallback: "principal/sal.jpg",
             url: "producto/confort.html",
             beneficios: ["Entrega"],
             badge: "Hogar",
@@ -2184,7 +2467,8 @@
             categoria: "Hogar",
             subcategoria: "Organización",
             descripcion: "Soluciones para ordenar espacios y mejorar funcionalidad.",
-            imagen: "principal/inicio/p4.jpg",
+            imagen: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=80",
+            fallback: "principal/inicio/p4.jpg",
             url: "producto/organizacion.html",
             beneficios: ["Entrega", "Oferta"],
             badge: "Orden",
@@ -2248,7 +2532,7 @@
                <article class="producto-card">
                   <div class="producto-img">
                      <span class="badge">${producto.badge}</span>
-                     <img src="${producto.imagen}" alt="${producto.nombre}">
+                     <img src="${producto.imagen}" alt="${producto.nombre}" onerror="this.onerror=null;this.src='${producto.fallback || 'principal/general/fondo.png'}';">
                   </div>
                   <div class="producto-body">
                      <div class="producto-meta">
