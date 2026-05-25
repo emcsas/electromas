@@ -4,16 +4,13 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Electromás | Electrodomésticos, Tecnología y Hogar en Loja y Zamora</title>
-
    <meta name="description" content="Electromás ofrece electrodomésticos, tecnología y productos para el hogar con crédito directo, garantía y atención por WhatsApp para las provincias de Loja y Zamora.">
    <meta name="keywords" content="Electromás, electrodomésticos Loja, tecnología Loja, hogar Loja, crédito directo, celulares, televisores, refrigeradoras, lavadoras, cocina, Zamora">
    <meta name="author" content="Electromás">
-
    <meta property="og:title" content="Electromás | Electrodomésticos, Tecnología y Hogar">
    <meta property="og:description" content="Ventas para las provincias de Loja y Zamora. Crédito directo, garantía y asesoría por WhatsApp.">
    <meta property="og:image" content="principal/general/fondo.png">
    <meta property="og:type" content="website">
-
    <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -21,17 +18,17 @@
       :root {
          --azul: #142b52;
          --azul-2: #1f4175;
-         --azul-3: #edf3ff;
+         --azul-3: #eef4ff;
          --naranja: #ffa500;
-         --naranja-2: #e99100;
-         --negro: #1f242c;
-         --gris: #5f6c7f;
-         --gris-2: #dfe5ef;
+         --naranja-2: #e99400;
+         --verde: #25D366;
+         --negro: #1d2430;
+         --gris: #617087;
+         --gris-2: #dce4ef;
          --fondo: #f5f7fb;
          --blanco: #ffffff;
-         --whatsapp: #25D366;
-         --borde: rgba(20, 43, 82, 0.12);
-         --sombra: 0 18px 45px rgba(20, 43, 82, 0.13);
+         --borde: rgba(20, 43, 82, 0.13);
+         --sombra: 0 18px 42px rgba(20, 43, 82, 0.13);
          --sombra-suave: 0 10px 26px rgba(20, 43, 82, 0.08);
          --radio: 22px;
       }
@@ -54,8 +51,8 @@
       }
 
       img {
-         display: block;
          max-width: 100%;
+         display: block;
       }
 
       a {
@@ -90,15 +87,15 @@
          display: flex;
          align-items: center;
          justify-content: space-between;
-         gap: 16px;
+         gap: 14px;
       }
 
       .topbar-info,
       .topbar-links {
          display: flex;
          align-items: center;
-         gap: 16px;
          flex-wrap: wrap;
+         gap: 16px;
       }
 
       .topbar span,
@@ -137,8 +134,8 @@
       }
 
       .logo img {
-         height: 50px;
          width: auto;
+         height: 50px;
       }
 
       .busqueda {
@@ -153,8 +150,8 @@
       }
 
       .busqueda input {
-         width: 100%;
          min-width: 0;
+         width: 100%;
          height: 48px;
          border: 0;
          outline: 0;
@@ -178,7 +175,7 @@
          gap: 9px;
          padding: 0 18px;
          border-radius: 16px;
-         background: var(--whatsapp);
+         background: var(--verde);
          color: var(--blanco);
          font-size: 14px;
          font-weight: 900;
@@ -192,76 +189,72 @@
       }
 
       .menu .contenedor {
-         min-height: 54px;
+         min-height: 56px;
          display: flex;
          align-items: center;
          justify-content: space-between;
-         gap: 14px;
+         gap: 16px;
       }
 
       .menu-grupo {
+         min-width: 0;
          display: flex;
          align-items: center;
-         gap: 8px;
-         min-width: 0;
+         gap: 9px;
          flex-wrap: wrap;
       }
 
       .menu-link {
-         min-height: 36px;
+         min-height: 38px;
          display: inline-flex;
          align-items: center;
-         justify-content: center;
          gap: 8px;
          padding: 0 14px;
          border-radius: 999px;
-         border: 1px solid rgba(255, 255, 255, 0.18);
-         background: rgba(255, 255, 255, 0.08);
          color: var(--blanco);
+         background: rgba(255, 255, 255, 0.08);
+         border: 1px solid rgba(255, 255, 255, 0.12);
          font-size: 13px;
          font-weight: 850;
          white-space: nowrap;
-         transition: background 0.2s ease, transform 0.2s ease;
+         transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
       }
 
-      .menu-link i {
-         color: var(--naranja);
-      }
-
-      .menu-link:hover {
-         background: rgba(255, 255, 255, 0.16);
+      .menu-link:hover,
+      .menu-link.activo {
+         color: var(--azul);
+         background: var(--naranja);
          transform: translateY(-1px);
       }
 
       .hero {
          position: relative;
          overflow: hidden;
-         background:
-            radial-gradient(circle at 82% 8%, rgba(255, 165, 0, 0.25), transparent 28%),
-            linear-gradient(135deg, #111827 0%, var(--azul) 55%, var(--azul-2) 100%);
          color: var(--blanco);
+         background:
+            radial-gradient(circle at 82% 16%, rgba(255,165,0,0.25), transparent 24%),
+            linear-gradient(135deg, #101c31 0%, var(--azul) 54%, #213c6c 100%);
       }
 
       .hero::before {
          content: "";
          position: absolute;
          inset: 0;
-         opacity: 0.18;
+         opacity: 0.22;
          background-image:
             linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
             linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-         background-size: 46px 46px;
+         background-size: 44px 44px;
       }
 
       .hero .contenedor {
          position: relative;
          z-index: 2;
-         min-height: 470px;
          display: grid;
-         grid-template-columns: minmax(0, 1.05fr) minmax(310px, 0.95fr);
+         grid-template-columns: 1.08fr 0.92fr;
+         gap: 38px;
          align-items: center;
-         gap: 46px;
-         padding: 58px 0 64px;
+         padding: 64px 0;
       }
 
       .hero-etiqueta {
@@ -269,26 +262,23 @@
          align-items: center;
          gap: 8px;
          margin-bottom: 18px;
-         padding: 9px 13px;
+         padding: 9px 12px;
          border-radius: 999px;
-         border: 1px solid rgba(255,255,255,0.18);
-         background: rgba(255,255,255,0.08);
+         background: rgba(255,255,255,0.10);
+         border: 1px solid rgba(255,255,255,0.16);
+         color: rgba(255,255,255,0.92);
          font-size: 12px;
          font-weight: 900;
-         letter-spacing: 0.35px;
+         letter-spacing: 0.45px;
          text-transform: uppercase;
       }
 
-      .hero-etiqueta i {
-         color: var(--naranja);
-      }
-
       .hero h1 {
-         margin: 0;
          max-width: 690px;
-         font-size: clamp(34px, 4.8vw, 56px);
-         line-height: 1.04;
-         letter-spacing: -1.2px;
+         margin: 0;
+         font-size: clamp(36px, 4.5vw, 58px);
+         line-height: 1.02;
+         letter-spacing: -1.15px;
          font-weight: 950;
       }
 
@@ -297,19 +287,18 @@
       }
 
       .hero p {
-         margin: 20px 0 0;
          max-width: 610px;
+         margin: 18px 0 0;
          color: rgba(255,255,255,0.84);
          font-size: 16px;
-         line-height: 1.62;
+         line-height: 1.6;
       }
 
-      .hero-acciones {
+      .hero-actions {
          display: flex;
-         align-items: center;
          flex-wrap: wrap;
          gap: 12px;
-         margin-top: 26px;
+         margin-top: 28px;
       }
 
       .btn {
@@ -323,7 +312,7 @@
          border-radius: 14px;
          font-size: 14px;
          font-weight: 900;
-         transition: transform 0.2s ease, background 0.2s ease, filter 0.2s ease;
+         transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
       }
 
       .btn:hover {
@@ -333,7 +322,7 @@
       .btn-naranja {
          background: var(--naranja);
          color: var(--blanco);
-         box-shadow: 0 16px 34px rgba(255, 165, 0, 0.26);
+         box-shadow: 0 16px 32px rgba(255,165,0,0.24);
       }
 
       .btn-naranja:hover {
@@ -341,8 +330,9 @@
       }
 
       .btn-whatsapp {
-         background: var(--whatsapp);
+         background: var(--verde);
          color: var(--blanco);
+         box-shadow: 0 16px 32px rgba(37,211,102,0.20);
       }
 
       .hero-panel {
@@ -350,81 +340,134 @@
          gap: 16px;
       }
 
-      .venta-card {
+      .cotiza-box {
          overflow: hidden;
          border-radius: 28px;
-         background: rgba(255,255,255,0.96);
+         background: var(--blanco);
          color: var(--negro);
          box-shadow: var(--sombra);
       }
 
-      .venta-card-head {
-         padding: 24px;
-         background:
-            linear-gradient(135deg, rgba(255,165,0,0.18), rgba(20,43,82,0.06)),
-            var(--blanco);
+      .cotiza-head {
+         padding: 20px 22px;
+         background: linear-gradient(135deg, #ffffff, #fff3dd);
          border-bottom: 1px solid var(--borde);
       }
 
-      .venta-card-head strong {
+      .cotiza-head strong {
          display: block;
          color: var(--azul);
-         font-size: 22px;
+         font-size: 20px;
          line-height: 1.2;
       }
 
-      .venta-card-head span {
+      .cotiza-head span {
          display: block;
-         margin-top: 8px;
+         margin-top: 6px;
          color: var(--gris);
+         font-size: 13px;
+         line-height: 1.5;
+      }
+
+      .cotiza-body {
+         padding: 22px;
+      }
+
+      .cotiza-form {
+         display: grid;
+         gap: 12px;
+      }
+
+      .campo label {
+         display: block;
+         margin-bottom: 6px;
+         color: var(--azul);
+         font-size: 12px;
+         font-weight: 900;
+      }
+
+      .campo input,
+      .campo select,
+      .campo textarea {
+         width: 100%;
+         border: 1px solid var(--gris-2);
+         border-radius: 13px;
+         outline: 0;
+         background: #f9fbff;
+         color: var(--negro);
+         font-size: 13px;
+      }
+
+      .campo input,
+      .campo select {
+         height: 42px;
+         padding: 0 12px;
+      }
+
+      .campo textarea {
+         min-height: 74px;
+         resize: vertical;
+         padding: 12px;
+      }
+
+      .campo input:focus,
+      .campo select:focus,
+      .campo textarea:focus {
+         border-color: var(--naranja);
+         box-shadow: 0 0 0 4px rgba(255,165,0,0.13);
+      }
+
+      .cotiza-form button {
+         min-height: 44px;
+         border: 0;
+         border-radius: 14px;
+         background: var(--verde);
+         color: var(--blanco);
          font-size: 14px;
-         line-height: 1.45;
+         font-weight: 950;
       }
 
-      .venta-card-body {
-         padding: 20px 24px 24px;
+      .confianza-grid {
          display: grid;
+         grid-template-columns: repeat(2, minmax(0, 1fr));
          gap: 12px;
       }
 
-      .venta-linea {
+      .confianza-item {
+         min-width: 0;
          display: grid;
-         grid-template-columns: 40px minmax(0, 1fr);
-         gap: 12px;
-         align-items: start;
-         padding: 13px;
+         grid-template-columns: 42px 1fr;
+         gap: 11px;
+         align-items: center;
+         padding: 14px;
          border-radius: 18px;
-         background: #f7faff;
-         border: 1px solid var(--borde);
+         background: rgba(255,255,255,0.10);
+         border: 1px solid rgba(255,255,255,0.15);
       }
 
-      .venta-linea i {
-         width: 40px;
-         height: 40px;
+      .confianza-item i {
+         width: 42px;
+         height: 42px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
-         border-radius: 14px;
-         background: var(--azul);
+         border-radius: 13px;
          color: var(--naranja);
+         background: rgba(255,255,255,0.10);
       }
 
-      .venta-linea strong {
+      .confianza-item strong {
          display: block;
-         color: var(--azul);
-         font-size: 14px;
+         color: var(--blanco);
+         font-size: 13px;
       }
 
-      .venta-linea span {
+      .confianza-item span {
          display: block;
          margin-top: 3px;
-         color: var(--gris);
-         font-size: 13px;
+         color: rgba(255,255,255,0.76);
+         font-size: 12px;
          line-height: 1.35;
-      }
-
-      .venta-card .btn {
-         width: 100%;
       }
 
       .section {
@@ -461,59 +504,126 @@
       }
 
       .section-text {
-         width: min(470px, 100%);
+         width: min(500px, 100%);
          margin: 0;
          color: var(--gris);
          font-size: 15px;
          line-height: 1.6;
       }
 
+      .atajos-grid {
+         display: grid;
+         grid-template-columns: repeat(3, minmax(0, 1fr));
+         gap: 18px;
+      }
+
+      .atajo-card {
+         min-height: 154px;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         padding: 22px;
+         border-radius: 24px;
+         background: var(--blanco);
+         border: 1px solid var(--borde);
+         box-shadow: var(--sombra-suave);
+         transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      }
+
+      .atajo-card:hover {
+         transform: translateY(-3px);
+         border-color: rgba(255,165,0,0.65);
+         box-shadow: var(--sombra);
+      }
+
+      .atajo-icono {
+         width: 46px;
+         height: 46px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 15px;
+         color: var(--naranja);
+         background: var(--azul-3);
+      }
+
+      .atajo-card h3 {
+         margin: 16px 0 6px;
+         color: var(--azul);
+         font-size: 21px;
+      }
+
+      .atajo-card p {
+         margin: 0;
+         color: var(--gris);
+         font-size: 14px;
+         line-height: 1.5;
+      }
+
+      .atajo-card span {
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         margin-top: 16px;
+         color: var(--azul);
+         font-size: 13px;
+         font-weight: 950;
+      }
+
       .catalogo {
          background: var(--blanco);
       }
 
+      .catalogo-layout {
+         display: grid;
+         grid-template-columns: 285px minmax(0, 1fr);
+         gap: 22px;
+         align-items: start;
+      }
+
       .filtros-panel {
-         margin-bottom: 24px;
-         padding: 18px;
+         position: sticky;
+         top: 154px;
+         padding: 20px;
          border: 1px solid var(--borde);
          border-radius: 24px;
          background: #f8faff;
          box-shadow: var(--sombra-suave);
       }
 
-      .filtros-top {
-         display: flex;
-         align-items: center;
-         justify-content: space-between;
-         gap: 14px;
-         margin-bottom: 14px;
-      }
-
-      .filtros-top strong {
+      .filtros-panel h3 {
+         margin: 0 0 6px;
          color: var(--azul);
-         font-size: 16px;
+         font-size: 18px;
       }
 
-      .filtros-top span {
+      .filtros-panel p {
+         margin: 0 0 18px;
          color: var(--gris);
          font-size: 13px;
+         line-height: 1.45;
       }
 
       .filtros {
          display: grid;
-         grid-template-columns: minmax(260px, 1.35fr) minmax(180px, 0.8fr) minmax(170px, 0.65fr) auto;
-         gap: 12px;
-         align-items: center;
+         gap: 14px;
+      }
+
+      .filtro-campo label {
+         display: block;
+         margin-bottom: 7px;
+         color: var(--azul);
+         font-size: 12px;
+         font-weight: 950;
       }
 
       .busqueda-catalogo {
          position: relative;
-         min-width: 0;
       }
 
       .busqueda-catalogo i {
          position: absolute;
-         left: 15px;
+         left: 14px;
          top: 50%;
          transform: translateY(-50%);
          color: var(--naranja-2);
@@ -523,21 +633,21 @@
       .filtros select {
          width: 100%;
          min-width: 0;
-         height: 46px;
-         border: 1px solid var(--borde);
-         border-radius: 15px;
+         height: 44px;
+         border: 1px solid var(--gris-2);
+         border-radius: 14px;
          outline: 0;
          background: var(--blanco);
          color: var(--negro);
-         font-size: 14px;
+         font-size: 13px;
       }
 
       .busqueda-catalogo input {
-         padding: 0 14px 0 42px;
+         padding: 0 13px 0 40px;
       }
 
       .filtros select {
-         padding: 0 13px;
+         padding: 0 12px;
       }
 
       .busqueda-catalogo input:focus,
@@ -547,15 +657,22 @@
       }
 
       .btn-limpiar {
-         height: 46px;
-         padding: 0 15px;
+         width: 100%;
+         min-height: 44px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
          border: 1px solid var(--borde);
-         border-radius: 15px;
+         border-radius: 14px;
          background: var(--blanco);
          color: var(--azul);
          font-size: 13px;
-         font-weight: 900;
-         white-space: nowrap;
+         font-weight: 950;
+      }
+
+      .catalogo-contenido {
+         min-width: 0;
       }
 
       .catalogo-meta {
@@ -574,13 +691,15 @@
 
       .producto-grid {
          display: grid;
-         grid-template-columns: repeat(4, minmax(0, 1fr));
+         grid-template-columns: repeat(3, minmax(0, 1fr));
          gap: 18px;
       }
 
       .producto-card {
          min-width: 0;
          overflow: hidden;
+         display: flex;
+         flex-direction: column;
          border-radius: 24px;
          background: var(--blanco);
          border: 1px solid var(--borde);
@@ -595,15 +714,12 @@
       }
 
       .producto-media {
-         position: relative;
-         height: 196px;
+         height: 205px;
          display: flex;
          align-items: center;
          justify-content: center;
          padding: 18px;
-         background:
-            radial-gradient(circle at 82% 10%, rgba(255,165,0,0.22), transparent 30%),
-            linear-gradient(145deg, #f9fbff, #eef3fb);
+         background: linear-gradient(145deg, #f8fbff, #eef3fb);
          border-bottom: 1px solid var(--borde);
       }
 
@@ -616,8 +732,8 @@
 
       .producto-media.sin-imagen::after {
          content: attr(data-icon);
-         width: 72px;
-         height: 72px;
+         width: 76px;
+         height: 76px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
@@ -626,31 +742,20 @@
          color: var(--blanco);
          font-family: "Font Awesome 6 Free";
          font-weight: 900;
-         font-size: 30px;
-      }
-
-      .producto-tag {
-         position: absolute;
-         left: 14px;
-         top: 14px;
-         display: inline-flex;
-         align-items: center;
-         gap: 6px;
-         padding: 7px 10px;
-         border-radius: 999px;
-         background: rgba(20, 43, 82, 0.94);
-         color: var(--blanco);
-         font-size: 11px;
-         font-weight: 900;
+         font-size: 31px;
       }
 
       .producto-body {
+         display: flex;
+         flex: 1;
+         flex-direction: column;
          padding: 18px;
       }
 
       .producto-ruta {
          display: flex;
          align-items: center;
+         flex-wrap: wrap;
          gap: 6px;
          color: var(--naranja-2);
          font-size: 11px;
@@ -662,17 +767,37 @@
       .producto-body h3 {
          margin: 10px 0 8px;
          color: var(--azul);
-         font-size: 17px;
+         font-size: 18px;
          line-height: 1.24;
          letter-spacing: -0.2px;
       }
 
       .producto-body p {
          margin: 0;
-         min-height: 56px;
          color: var(--gris);
          font-size: 13px;
          line-height: 1.45;
+      }
+
+      .precio-linea {
+         display: flex;
+         align-items: baseline;
+         justify-content: space-between;
+         gap: 10px;
+         margin-top: 16px;
+         padding: 14px 0;
+         border-top: 1px solid var(--borde);
+         border-bottom: 1px solid var(--borde);
+      }
+
+      .precio-linea small {
+         color: var(--gris);
+         font-size: 12px;
+      }
+
+      .precio-linea strong {
+         color: var(--azul);
+         font-size: 20px;
       }
 
       .producto-final {
@@ -680,9 +805,8 @@
          grid-template-columns: minmax(0, 1fr) auto;
          align-items: center;
          gap: 12px;
-         margin-top: 16px;
+         margin-top: auto;
          padding-top: 14px;
-         border-top: 1px solid var(--borde);
       }
 
       .producto-link {
@@ -706,7 +830,7 @@
          gap: 8px;
          padding: 0 12px;
          border-radius: 13px;
-         background: var(--whatsapp);
+         background: var(--verde);
          color: var(--blanco);
          font-size: 13px;
          font-weight: 950;
@@ -723,26 +847,30 @@
          text-align: center;
       }
 
-      .servicio {
+      .bloque-venta {
          background: var(--fondo);
       }
 
-      .servicio-grid {
+      .venta-grid {
          display: grid;
-         grid-template-columns: 1.1fr 0.9fr;
+         grid-template-columns: 1fr 0.92fr;
          gap: 24px;
          align-items: stretch;
       }
 
-      .servicio-card {
-         padding: 28px;
+      .venta-card,
+      .consulta-card {
          border-radius: 28px;
-         background: var(--blanco);
-         border: 1px solid var(--borde);
          box-shadow: var(--sombra-suave);
       }
 
-      .servicio-card h2 {
+      .venta-card {
+         padding: 30px;
+         background: var(--blanco);
+         border: 1px solid var(--borde);
+      }
+
+      .venta-card h2 {
          margin: 0 0 12px;
          color: var(--azul);
          font-size: clamp(26px, 3vw, 38px);
@@ -750,124 +878,126 @@
          letter-spacing: -0.6px;
       }
 
-      .servicio-card p {
+      .venta-card p {
          margin: 0;
          color: var(--gris);
          line-height: 1.6;
       }
 
-      .servicio-lista {
+      .venta-lista {
          display: grid;
-         gap: 12px;
-         margin-top: 20px;
+         gap: 14px;
+         margin-top: 22px;
       }
 
-      .servicio-item {
+      .venta-item {
          display: grid;
-         grid-template-columns: 38px minmax(0, 1fr);
+         grid-template-columns: 46px 1fr;
+         align-items: center;
          gap: 12px;
-         align-items: start;
       }
 
-      .servicio-item i {
-         width: 38px;
-         height: 38px;
+      .venta-item i {
+         width: 46px;
+         height: 46px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
-         border-radius: 14px;
+         border-radius: 15px;
          background: var(--azul-3);
-         color: var(--naranja-2);
+         color: var(--naranja);
       }
 
-      .servicio-item strong {
+      .venta-item strong {
          display: block;
          color: var(--azul);
          font-size: 14px;
       }
 
-      .servicio-item span {
+      .venta-item span {
          display: block;
-         margin-top: 2px;
+         margin-top: 3px;
          color: var(--gris);
          font-size: 13px;
-         line-height: 1.4;
       }
 
-      .contacto-card {
-         background:
-            radial-gradient(circle at 12% 14%, rgba(255,165,0,0.18), transparent 28%),
-            linear-gradient(135deg, var(--azul), var(--azul-2));
+      .consulta-card {
+         padding: 30px;
+         background: var(--azul);
          color: var(--blanco);
       }
 
-      .contacto-card h3 {
-         margin: 0 0 10px;
-         font-size: 24px;
+      .consulta-card h2 {
+         margin: 0 0 12px;
+         font-size: clamp(24px, 2.8vw, 34px);
+         line-height: 1.16;
       }
 
-      .contacto-card p {
-         color: rgba(255,255,255,0.82);
-      }
-
-      .contacto-card .btn {
-         margin-top: 20px;
-         width: 100%;
-      }
-
-      .cta-final {
-         background:
-            radial-gradient(circle at 14% 18%, rgba(255,165,0,0.22), transparent 26%),
-            linear-gradient(135deg, var(--negro), var(--azul));
-         color: var(--blanco);
-      }
-
-      .cta-box {
-         display: grid;
-         grid-template-columns: minmax(0, 1fr) auto;
-         align-items: center;
-         gap: 24px;
-         padding: 42px 0;
-      }
-
-      .cta-box h2 {
-         margin: 0 0 10px;
-         font-size: clamp(25px, 3vw, 38px);
-         line-height: 1.12;
-         letter-spacing: -0.7px;
-      }
-
-      .cta-box p {
-         margin: 0;
-         max-width: 700px;
-         color: rgba(255,255,255,0.82);
+      .consulta-card p {
+         margin: 0 0 22px;
+         color: rgba(255,255,255,0.83);
          line-height: 1.6;
       }
 
       .footer {
-         background: #f0f3f8;
-         color: var(--negro);
+         background: #f1f4f8;
          border-top: 1px solid var(--borde);
       }
 
       .footer-main {
          display: grid;
-         grid-template-columns: 1.22fr 0.8fr 0.9fr 1fr;
+         grid-template-columns: 1.25fr 0.85fr 0.85fr 0.95fr;
          gap: 34px;
          padding: 44px 0;
       }
 
       .footer-logo img {
-         height: 48px;
          width: auto;
-         margin-bottom: 14px;
+         height: 48px;
+         margin-bottom: 16px;
       }
 
       .footer p {
          margin: 0;
          color: var(--gris);
          font-size: 14px;
-         line-height: 1.55;
+         line-height: 1.6;
+      }
+
+      .footer-whatsapp-box {
+         margin-top: 18px;
+         padding: 16px;
+         border-radius: 20px;
+         background: var(--blanco);
+         border: 1px solid var(--borde);
+      }
+
+      .footer-whatsapp-box strong {
+         display: block;
+         color: var(--azul);
+         font-size: 15px;
+      }
+
+      .footer-whatsapp-box span {
+         display: block;
+         margin: 5px 0 12px;
+         color: var(--gris);
+         font-size: 13px;
+         line-height: 1.45;
+      }
+
+      .footer-whatsapp-box a {
+         width: 100%;
+         min-height: 40px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         border-radius: 13px;
+         background: var(--verde);
+         color: var(--blanco);
+         font-size: 13px;
+         font-weight: 950;
       }
 
       .footer h3 {
@@ -879,15 +1009,15 @@
       .footer-links,
       .footer-contacto {
          display: grid;
-         gap: 10px;
+         gap: 11px;
       }
 
       .footer-links a,
       .footer-contacto span,
       .footer-contacto a {
-         display: flex;
+         display: inline-flex;
          align-items: flex-start;
-         gap: 10px;
+         gap: 9px;
          color: var(--gris);
          font-size: 14px;
          line-height: 1.35;
@@ -895,20 +1025,17 @@
 
       .footer-links a:hover,
       .footer-contacto a:hover {
-         color: var(--azul);
+         color: var(--naranja-2);
       }
 
       .footer-links i,
       .footer-contacto i {
-         width: 17px;
+         color: var(--naranja);
          margin-top: 2px;
-         color: var(--naranja-2);
-         text-align: center;
       }
 
       .footer-social {
          display: flex;
-         align-items: center;
          gap: 10px;
          margin-top: 16px;
       }
@@ -929,65 +1056,59 @@
       }
 
       .footer-bottom {
-         padding: 15px 0;
          border-top: 1px solid var(--borde);
+         background: var(--blanco);
       }
 
       .footer-bottom .contenedor {
+         min-height: 48px;
          display: flex;
          align-items: center;
          justify-content: space-between;
-         gap: 16px;
+         gap: 14px;
          color: var(--gris);
-         font-size: 12px;
+         font-size: 13px;
       }
 
-      .footer-bottom a {
+      .footer-bottom strong {
          color: var(--azul);
-         font-weight: 850;
       }
 
       .whatsapp-flotante {
          position: fixed;
          right: 20px;
          bottom: 20px;
-         z-index: 1200;
+         z-index: 1700;
          width: 58px;
          height: 58px;
-         display: flex;
+         display: inline-flex;
          align-items: center;
          justify-content: center;
          border-radius: 50%;
-         background: var(--whatsapp);
+         background: var(--verde);
          color: var(--blanco);
          font-size: 27px;
-         box-shadow: 0 16px 34px rgba(37, 211, 102, 0.34);
+         box-shadow: 0 18px 34px rgba(37,211,102,0.32);
       }
 
-      .whatsapp-flotante:hover {
-         transform: translateY(-2px);
-      }
-
-      @media (max-width: 1080px) {
+      @media (max-width: 1120px) {
          .header-main {
-            grid-template-columns: 154px minmax(220px, 1fr) auto;
+            grid-template-columns: 162px 1fr;
+         }
+
+         .header-whatsapp {
+            grid-column: 2;
+            justify-self: end;
+            margin-top: -8px;
          }
 
          .hero .contenedor,
-         .servicio-grid {
+         .venta-grid {
             grid-template-columns: 1fr;
          }
 
-         .hero-panel {
-            max-width: 720px;
-         }
-
-         .filtros {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-         }
-
          .producto-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
          }
 
          .footer-main {
@@ -995,105 +1116,122 @@
          }
       }
 
-      @media (max-width: 820px) {
+      @media (max-width: 900px) {
+         .catalogo-layout {
+            grid-template-columns: 1fr;
+         }
+
+         .filtros-panel {
+            position: static;
+         }
+
+         .atajos-grid {
+            grid-template-columns: 1fr;
+         }
+      }
+
+      @media (max-width: 760px) {
          .topbar {
             display: none;
          }
 
          .header-main {
-            grid-template-columns: 1fr auto;
+            display: block;
+            min-height: auto;
             padding: 12px 0;
-            gap: 12px;
          }
 
          .logo img {
-            height: 42px;
+            height: 44px;
          }
 
          .busqueda {
-            grid-column: 1 / -1;
-            order: 3;
-         }
-
-         .header-whatsapp span {
-            display: none;
+            margin-top: 12px;
+            grid-template-columns: minmax(0, 1fr) 50px;
          }
 
          .header-whatsapp {
-            width: 46px;
-            height: 46px;
-            min-height: 46px;
-            padding: 0;
-            border-radius: 14px;
-            font-size: 19px;
+            width: 100%;
+            margin-top: 12px;
          }
 
          .menu .contenedor {
-            justify-content: flex-start;
-            overflow-x: auto;
+            display: block;
             padding: 10px 0;
-            scrollbar-width: thin;
          }
 
          .menu-grupo {
+            gap: 8px;
+            overflow-x: auto;
             flex-wrap: nowrap;
-            flex-shrink: 0;
+            padding-bottom: 6px;
          }
 
-         .section-head,
-         .filtros-top,
-         .catalogo-meta {
+         .menu-grupo + .menu-grupo {
+            margin-top: 6px;
+         }
+
+         .hero .contenedor {
+            padding: 48px 0;
+         }
+
+         .hero h1 {
+            font-size: 38px;
+         }
+
+         .confianza-grid {
+            grid-template-columns: 1fr;
+         }
+
+         .section {
+            padding: 46px 0;
+         }
+
+         .section-head {
             display: block;
          }
 
-         .section-text,
-         .filtros-top span,
-         .catalogo-meta span + span {
-            display: block;
+         .section-text {
             margin-top: 10px;
          }
 
          .producto-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: 1fr;
          }
 
-         .cta-box {
+         .footer-main {
             grid-template-columns: 1fr;
+            gap: 26px;
+         }
+
+         .footer-bottom .contenedor {
+            display: block;
+            padding: 14px 0;
+            text-align: center;
          }
       }
 
-      @media (max-width: 560px) {
+      @media (max-width: 520px) {
          .contenedor {
             width: min(100% - 22px, 1180px);
          }
 
-         .hero .contenedor {
-            padding: 42px 0 46px;
-         }
-
          .hero h1 {
-            font-size: clamp(32px, 9vw, 46px);
+            font-size: 34px;
          }
 
-         .hero-acciones,
-         .cta-box .btn {
-            width: 100%;
-         }
-
+         .hero-actions,
          .btn {
             width: 100%;
          }
 
-         .filtros {
-            grid-template-columns: 1fr;
+         .catalogo-meta {
+            display: block;
          }
 
-         .producto-grid {
-            grid-template-columns: 1fr;
-         }
-
-         .producto-media {
-            height: 210px;
+         .catalogo-meta span + span {
+            display: block;
+            margin-top: 6px;
          }
 
          .producto-final {
@@ -1104,57 +1242,22 @@
             width: 100%;
          }
 
-         .footer-main {
-            grid-template-columns: 1fr;
-            gap: 26px;
-         }
-
-         .footer-bottom .contenedor {
-            display: block;
-            text-align: center;
-         }
-
-         .footer-bottom span {
-            display: block;
-            margin-top: 8px;
-         }
-
          .whatsapp-flotante {
-            right: 15px;
-            bottom: 15px;
             width: 52px;
             height: 52px;
-            font-size: 24px;
+            right: 15px;
+            bottom: 15px;
          }
       }
    </style>
-
-   <!-- Meta Pixel Code -->
-   <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '30263697303244203');
-      fbq('track', 'PageView');
-   </script>
-   <noscript>
-      <img height="1" width="1" style="display:none" alt=""
-      src="https://www.facebook.com/tr?id=30263697303244203&ev=PageView&noscript=1">
-   </noscript>
-   <!-- End Meta Pixel Code -->
 </head>
 
 <body>
    <div class="topbar">
       <div class="contenedor">
          <div class="topbar-info">
-            <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja, Loja</span>
-            <span><i class="fas fa-truck-fast"></i> Ventas para las provincias de Loja y Zamora</span>
+            <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja</span>
+            <span><i class="fas fa-truck-fast"></i> Ventas para Loja y Zamora</span>
             <span><i class="fas fa-credit-card"></i> Crédito directo</span>
          </div>
          <div class="topbar-links">
@@ -1171,7 +1274,7 @@
          </a>
 
          <form class="busqueda" id="formBusqueda" autocomplete="off">
-            <input type="search" id="campoBusqueda" placeholder="Buscar refrigeradora, celular, televisor, cocina..." aria-label="Buscar productos">
+            <input type="search" id="campoBusqueda" placeholder="Buscar refrigeradora, celular, televisor, cocina..." aria-label="Buscar productos o categorías">
             <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
          </form>
 
@@ -1183,6 +1286,7 @@
       <nav class="menu" aria-label="Menú principal">
          <div class="contenedor">
             <div class="menu-grupo">
+               <a href="index.html" class="menu-link activo"><i class="fas fa-house"></i> Inicio</a>
                <a href="electrodomesticos.html" class="menu-link"><i class="fas fa-plug"></i> Electrodomésticos</a>
                <a href="tecnologia.html" class="menu-link"><i class="fas fa-laptop"></i> Tecnología</a>
                <a href="hogar.html" class="menu-link"><i class="fas fa-couch"></i> Hogar</a>
@@ -1190,6 +1294,7 @@
             <div class="menu-grupo">
                <a href="ofertas.html" class="menu-link"><i class="fas fa-tags"></i> Ofertas</a>
                <a href="combos.html" class="menu-link"><i class="fas fa-layer-group"></i> Combos</a>
+               <a href="somos.html" class="menu-link"><i class="fas fa-store"></i> Quiénes somos</a>
             </div>
          </div>
       </nav>
@@ -1200,140 +1305,203 @@
          <div class="contenedor">
             <div class="hero-copy">
                <div class="hero-etiqueta"><i class="fas fa-bolt"></i> Electromás Loja y Zamora</div>
-               <h1>Compre para su hogar con <span>asesoría directa</span> y crédito.</h1>
+               <h1>Equipamos su hogar con <span>crédito directo</span> y atención real.</h1>
                <p>
-                  Electrodomésticos, tecnología y productos para el hogar con atención comercial para las provincias de Loja y Zamora. Consulte precio, disponibilidad, garantía y entrega por WhatsApp.
+                  Electrodomésticos, tecnología y productos para el hogar con cotización por WhatsApp, garantía y cobertura comercial para las provincias de Loja y Zamora.
                </p>
-
-               <div class="hero-acciones">
-                  <a href="#catalogo" class="btn btn-naranja"><i class="fas fa-store"></i> Ver catálogo destacado</a>
+               <div class="hero-actions">
+                  <a href="ofertas.html" class="btn btn-naranja"><i class="fas fa-tags"></i> Ver ofertas</a>
                   <a href="https://wa.me/593988926331?text=Hola%2C%20quiero%20cotizar%20un%20producto%20de%20Electrom%C3%A1s.%20Estoy%20en%20Loja%20o%20Zamora." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
                </div>
             </div>
 
-            <aside class="hero-panel" aria-label="Atención comercial Electromás">
-               <div class="venta-card">
-                  <div class="venta-card-head">
-                     <strong>Atención rápida por WhatsApp</strong>
-                     <span>Un asesor confirma precio, modelos disponibles, crédito directo y cobertura de entrega.</span>
+            <div class="hero-panel">
+               <div class="cotiza-box">
+                  <div class="cotiza-head">
+                     <strong>Cotización rápida</strong>
+                     <span>Indique el producto, la provincia y su forma de pago preferida. Un asesor revisará disponibilidad.</span>
                   </div>
-                  <div class="venta-card-body">
-                     <div class="venta-linea">
-                        <i class="fas fa-location-dot"></i>
-                        <div><strong>Loja y Zamora</strong><span>Ventas y coordinación para ambas provincias.</span></div>
-                     </div>
-                     <div class="venta-linea">
-                        <i class="fas fa-credit-card"></i>
-                        <div><strong>Crédito directo</strong><span>Consulta de opciones de pago antes de comprar.</span></div>
-                     </div>
-                     <div class="venta-linea">
-                        <i class="fas fa-shield-halved"></i>
-                        <div><strong>Productos con garantía</strong><span>Compra asistida con respaldo comercial.</span></div>
-                     </div>
-                     <a href="https://wa.me/593988926331?text=Hola%2C%20deseo%20recibir%20asesor%C3%ADa%20para%20comprar%20en%20Electrom%C3%A1s." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Hablar con asesor</a>
+                  <div class="cotiza-body">
+                     <form class="cotiza-form" id="formCotizacion">
+                        <div class="campo">
+                           <label for="cotizaProducto">Producto o necesidad</label>
+                           <input type="text" id="cotizaProducto" placeholder="Ej.: refrigeradora, celular, lavadora">
+                        </div>
+                        <div class="campo">
+                           <label for="cotizaProvincia">Provincia</label>
+                           <select id="cotizaProvincia">
+                              <option value="Loja">Loja</option>
+                              <option value="Zamora">Zamora</option>
+                           </select>
+                        </div>
+                        <div class="campo">
+                           <label for="cotizaComentario">Comentario opcional</label>
+                           <textarea id="cotizaComentario" placeholder="Ej.: deseo consultar crédito directo, entrega o marca específica..."></textarea>
+                        </div>
+                        <button type="submit"><i class="fab fa-whatsapp"></i> Enviar consulta</button>
+                     </form>
                   </div>
                </div>
-            </aside>
+
+               <div class="confianza-grid">
+                  <div class="confianza-item"><i class="fas fa-credit-card"></i><div><strong>Crédito directo</strong><span>Opciones de pago según producto.</span></div></div>
+                  <div class="confianza-item"><i class="fas fa-truck-fast"></i><div><strong>Entrega local</strong><span>Cobertura en Loja y Zamora.</span></div></div>
+                  <div class="confianza-item"><i class="fas fa-shield-halved"></i><div><strong>Garantía</strong><span>Productos respaldados.</span></div></div>
+                  <div class="confianza-item"><i class="fab fa-whatsapp"></i><div><strong>Compra asistida</strong><span>Atención directa por WhatsApp.</span></div></div>
+               </div>
+            </div>
          </div>
       </section>
 
-      <section class="section catalogo" id="catalogo">
+      <section class="section">
          <div class="contenedor">
             <div class="section-head">
                <div>
-                  <span class="eyebrow"><i class="fas fa-cart-shopping"></i> Catálogo destacado</span>
-                  <h2 class="section-title">Productos que el cliente suele consultar.</h2>
+                  <span class="eyebrow"><i class="fas fa-grid-2"></i> Categorías principales</span>
+                  <h2 class="section-title">Elija una línea y avance al catálogo.</h2>
                </div>
-               <p class="section-text">
-                  Búsqueda directa, líneas claras y enlace a la categoría correspondiente. Sin saturar la navegación principal.
-               </p>
+               <p class="section-text">Las categorías principales enlazan a sus páginas HTML independientes. El inicio funciona como acceso rápido y vitrina de productos consultados.</p>
             </div>
 
-            <div class="filtros-panel">
-               <div class="filtros-top">
-                  <strong>Filtrar productos destacados</strong>
-                  <span>Use los filtros para ubicar rápido una línea y cotizar por WhatsApp.</span>
-               </div>
-               <form class="filtros" id="filtrosProducto">
-                  <div class="busqueda-catalogo">
-                     <i class="fas fa-magnifying-glass"></i>
-                     <input type="search" id="buscarProducto" placeholder="Buscar por nombre o línea">
+            <div class="atajos-grid">
+               <a href="electrodomesticos.html" class="atajo-card">
+                  <div>
+                     <div class="atajo-icono"><i class="fas fa-plug"></i></div>
+                     <h3>Electrodomésticos</h3>
+                     <p>Refrigeración, cocina, lavado, climatización y productos esenciales para el hogar.</p>
                   </div>
-                  <select id="lineaProducto" aria-label="Filtrar por línea">
-                     <option value="todos">Todas las líneas</option>
-                     <option value="refrigeracion">Refrigeración</option>
-                     <option value="cocina">Cocina</option>
-                     <option value="lavado">Lavado</option>
-                     <option value="climatizacion">Climatización</option>
-                     <option value="planchado">Planchado</option>
-                     <option value="celulares">Celulares</option>
-                     <option value="televisores">Televisores</option>
-                     <option value="computadoras">Computadoras</option>
-                     <option value="accesorios">Accesorios</option>
-                     <option value="confort">Confort</option>
-                     <option value="organizacion">Organización</option>
-                     <option value="alimentos">Alimentos</option>
-                  </select>
-                  <select id="ordenProducto" aria-label="Ordenar productos">
-                     <option value="recomendados">Orden recomendado</option>
-                     <option value="az">Nombre A-Z</option>
-                     <option value="categoria">Categoría</option>
-                  </select>
-                  <button class="btn-limpiar" type="button" id="limpiarFiltros"><i class="fas fa-rotate-left"></i> Limpiar</button>
-               </form>
-            </div>
+                  <span>Ver categoría <i class="fas fa-arrow-right"></i></span>
+               </a>
 
-            <div class="catalogo-meta">
-               <span id="resumenCatalogo"><strong>0</strong> productos destacados.</span>
-               <span>Atención directa: <strong>098 892 6331</strong></span>
-            </div>
+               <a href="tecnologia.html" class="atajo-card">
+                  <div>
+                     <div class="atajo-icono"><i class="fas fa-laptop"></i></div>
+                     <h3>Tecnología</h3>
+                     <p>Celulares, televisores, computadoras, accesorios y equipos para uso diario.</p>
+                  </div>
+                  <span>Ver categoría <i class="fas fa-arrow-right"></i></span>
+               </a>
 
-            <div class="producto-grid" id="productoGrid"></div>
-            <div class="sin-resultados" id="sinResultados">
-               No hay productos con esos filtros. Limpie la búsqueda o consulte por WhatsApp para revisar disponibilidad.
+               <a href="hogar.html" class="atajo-card">
+                  <div>
+                     <div class="atajo-icono"><i class="fas fa-couch"></i></div>
+                     <h3>Hogar</h3>
+                     <p>Confort, organización, cocina y soluciones prácticas para cada ambiente.</p>
+                  </div>
+                  <span>Ver categoría <i class="fas fa-arrow-right"></i></span>
+               </a>
             </div>
          </div>
       </section>
 
-      <section class="section servicio">
-         <div class="contenedor servicio-grid">
-            <div class="servicio-card">
-               <span class="eyebrow"><i class="fas fa-handshake"></i> Compra asistida</span>
-               <h2>Una página web para vender, no para repetir secciones.</h2>
-               <p>
-                  La estructura guía al cliente hacia productos, categorías reales del sitio y contacto por WhatsApp. La navegación principal lleva a páginas HTML independientes; el catálogo de inicio sirve como vitrina de productos consultados.
-               </p>
-               <div class="servicio-lista">
-                  <div class="servicio-item">
-                     <i class="fas fa-map-location-dot"></i>
-                     <div><strong>Cobertura comercial</strong><span>Ventas para las provincias de Loja y Zamora.</span></div>
+      <section class="section catalogo" id="productos">
+         <div class="contenedor">
+            <div class="section-head">
+               <div>
+                  <span class="eyebrow"><i class="fas fa-star"></i> Más consultados</span>
+                  <h2 class="section-title">Productos listos para consultar.</h2>
+               </div>
+               <p class="section-text">Filtro práctico en columna para encontrar rápido una línea, revisar rango de precio y cotizar por WhatsApp.</p>
+            </div>
+
+            <div class="catalogo-layout">
+               <aside class="filtros-panel" aria-label="Filtros de productos">
+                  <h3>Filtrar productos</h3>
+                  <p>Seleccione línea, precio u orden. Los enlaces llevan a las páginas reales del sitio.</p>
+
+                  <form class="filtros" id="filtrosProducto">
+                     <div class="filtro-campo">
+                        <label for="buscarProducto">Buscar</label>
+                        <div class="busqueda-catalogo">
+                           <i class="fas fa-search"></i>
+                           <input type="search" id="buscarProducto" placeholder="Nombre o línea">
+                        </div>
+                     </div>
+
+                     <div class="filtro-campo">
+                        <label for="lineaProducto">Categoría o línea</label>
+                        <select id="lineaProducto">
+                           <option value="todos">Todas</option>
+                           <option value="electrodomesticos">Electrodomésticos</option>
+                           <option value="refrigeracion">Refrigeración</option>
+                           <option value="cocina">Cocina</option>
+                           <option value="lavado">Lavado</option>
+                           <option value="climatizacion">Climatización</option>
+                           <option value="tecnologia">Tecnología</option>
+                           <option value="celulares">Celulares</option>
+                           <option value="televisores">Televisores</option>
+                           <option value="computadoras">Computadoras</option>
+                           <option value="accesorios">Accesorios</option>
+                           <option value="hogar">Hogar</option>
+                           <option value="confort">Confort</option>
+                           <option value="organizacion">Organización</option>
+                           <option value="alimentos">Cocina y alimentos</option>
+                        </select>
+                     </div>
+
+                     <div class="filtro-campo">
+                        <label for="precioProducto">Rango de precio</label>
+                        <select id="precioProducto">
+                           <option value="todos">Todos los precios</option>
+                           <option value="0-100">Hasta $100</option>
+                           <option value="101-300">$101 a $300</option>
+                           <option value="301-600">$301 a $600</option>
+                           <option value="601-900">$601 a $900</option>
+                           <option value="901-99999">Más de $900</option>
+                        </select>
+                     </div>
+
+                     <div class="filtro-campo">
+                        <label for="ordenProducto">Ordenar</label>
+                        <select id="ordenProducto">
+                           <option value="recomendado">Orden recomendado</option>
+                           <option value="precio-asc">Menor precio</option>
+                           <option value="precio-desc">Mayor precio</option>
+                           <option value="az">Nombre A-Z</option>
+                           <option value="categoria">Categoría</option>
+                        </select>
+                     </div>
+
+                     <button type="button" class="btn-limpiar" id="limpiarFiltros"><i class="fas fa-rotate-left"></i> Limpiar filtros</button>
+                  </form>
+               </aside>
+
+               <div class="catalogo-contenido">
+                  <div class="catalogo-meta">
+                     <span id="resumenCatalogo"><strong>0</strong> productos destacados.</span>
+                     <span>Atención directa: <strong>098 892 6331</strong></span>
                   </div>
-                  <div class="servicio-item">
-                     <i class="fas fa-comments"></i>
-                     <div><strong>Cotización sin fricción</strong><span>WhatsApp directo desde cada producto.</span></div>
-                  </div>
-                  <div class="servicio-item">
-                     <i class="fas fa-layer-group"></i>
-                     <div><strong>Arquitectura web clara</strong><span>Categorías y subcategorías enlazadas a sus archivos HTML.</span></div>
+
+                  <div class="producto-grid" id="productoGrid"></div>
+
+                  <div class="sin-resultados" id="sinResultados">
+                     No hay productos con esos filtros. Limpie la búsqueda o consulte por WhatsApp para revisar disponibilidad.
                   </div>
                </div>
             </div>
+         </div>
+      </section>
 
-            <div class="servicio-card contacto-card">
-               <h3>¿Necesita precio o crédito?</h3>
-               <p>Escriba por WhatsApp. Indique el producto que busca y la ciudad desde donde consulta para revisar disponibilidad y entrega.</p>
+      <section class="section bloque-venta">
+         <div class="contenedor venta-grid">
+            <div class="venta-card">
+               <span class="eyebrow"><i class="fas fa-handshake"></i> Atención comercial</span>
+               <h2>Compra asistida para Loja y Zamora.</h2>
+               <p>
+                  Electromás ayuda a elegir el producto correcto, revisar disponibilidad, confirmar precio y coordinar entrega según la ciudad desde donde consulte el cliente.
+               </p>
+               <div class="venta-lista">
+                  <div class="venta-item"><i class="fas fa-location-dot"></i><div><strong>Cobertura comercial</strong><span>Ventas para las provincias de Loja y Zamora.</span></div></div>
+                  <div class="venta-item"><i class="fas fa-credit-card"></i><div><strong>Crédito directo</strong><span>Opciones de pago según el producto consultado.</span></div></div>
+                  <div class="venta-item"><i class="fas fa-shield-halved"></i><div><strong>Garantía y respaldo</strong><span>Compra acompañada por asesoría comercial.</span></div></div>
+               </div>
+            </div>
+
+            <div class="consulta-card">
+               <h2>¿Necesita precio, crédito o disponibilidad?</h2>
+               <p>Escriba por WhatsApp. Indique el producto que busca y la ciudad desde donde consulta para revisar opciones de compra.</p>
                <a href="https://wa.me/593988926331?text=Hola%2C%20quiero%20consultar%20precio%2C%20cr%C3%A9dito%20y%20disponibilidad%20de%20un%20producto%20para%20Loja%20o%20Zamora." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Consultar ahora</a>
             </div>
-         </div>
-      </section>
-
-      <section class="cta-final">
-         <div class="contenedor cta-box">
-            <div>
-               <h2>Consulte antes de comprar.</h2>
-               <p>Precio, crédito directo, garantía y disponibilidad para Loja y Zamora en una conversación por WhatsApp.</p>
-            </div>
-            <a href="https://wa.me/593988926331?text=Hola%2C%20quiero%20recibir%20asesor%C3%ADa%20para%20comprar%20en%20Electrom%C3%A1s." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Hablar con asesor</a>
          </div>
       </section>
    </main>
@@ -1345,64 +1513,69 @@
                <img src="principal/general/electro.png" alt="Electromás">
             </a>
             <p>
-               Electromás ofrece electrodomésticos, tecnología y productos para el hogar con atención comercial para Loja y Zamora, crédito directo y asesoría por WhatsApp.
+               Electrodomésticos, tecnología y productos para el hogar con ventas para las provincias de Loja y Zamora, crédito directo y asesoría por WhatsApp.
             </p>
-            <div class="footer-social">
-               <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-               <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <div class="footer-whatsapp-box">
+               <strong>Reciba atención por WhatsApp</strong>
+               <span>Consulte ofertas, disponibilidad, crédito y entrega.</span>
+               <a href="https://wa.me/593988926331?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20de%20productos%20y%20ofertas%20de%20Electrom%C3%A1s." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Escribir ahora</a>
             </div>
          </div>
 
          <div>
             <h3>Categorías</h3>
             <div class="footer-links">
-               <a href="electrodomesticos.html"><i class="fas fa-plug"></i> Electrodomésticos</a>
-               <a href="tecnologia.html"><i class="fas fa-laptop"></i> Tecnología</a>
-               <a href="hogar.html"><i class="fas fa-couch"></i> Hogar</a>
-               <a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a>
-               <a href="combos.html"><i class="fas fa-layer-group"></i> Combos</a>
+               <a href="electrodomesticos.html"><i class="fas fa-angle-right"></i> Electrodomésticos</a>
+               <a href="tecnologia.html"><i class="fas fa-angle-right"></i> Tecnología</a>
+               <a href="hogar.html"><i class="fas fa-angle-right"></i> Hogar</a>
+               <a href="ofertas.html"><i class="fas fa-angle-right"></i> Ofertas</a>
+               <a href="combos.html"><i class="fas fa-angle-right"></i> Combos</a>
             </div>
          </div>
 
          <div>
-            <h3>Más consultado</h3>
+            <h3>Más consultados</h3>
             <div class="footer-links">
-               <a href="producto/refrigeracion.html"><i class="fas fa-snowflake"></i> Refrigeración</a>
-               <a href="producto/cocina.html"><i class="fas fa-fire-burner"></i> Cocina</a>
-               <a href="producto/lavado.html"><i class="fas fa-soap"></i> Lavado</a>
-               <a href="producto/celulares.html"><i class="fas fa-mobile-screen"></i> Celulares</a>
-               <a href="producto/televisores.html"><i class="fas fa-tv"></i> Televisores</a>
+               <a href="producto/refrigeracion.html"><i class="fas fa-angle-right"></i> Refrigeración</a>
+               <a href="producto/cocina.html"><i class="fas fa-angle-right"></i> Cocina</a>
+               <a href="producto/lavado.html"><i class="fas fa-angle-right"></i> Lavado</a>
+               <a href="producto/celulares.html"><i class="fas fa-angle-right"></i> Celulares</a>
+               <a href="producto/televisores.html"><i class="fas fa-angle-right"></i> Televisores</a>
+               <a href="producto/computadoras.html"><i class="fas fa-angle-right"></i> Computadoras</a>
+               <a href="producto/confort.html"><i class="fas fa-angle-right"></i> Confort</a>
+               <a href="producto/organizacion.html"><i class="fas fa-angle-right"></i> Organización</a>
             </div>
          </div>
 
          <div>
-            <h3>Información y contacto</h3>
+            <h3>Contacto</h3>
             <div class="footer-contacto">
-               <a href="quienes-somos.html"><i class="fas fa-building"></i> Quiénes somos</a>
                <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja, Loja</span>
                <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 098 892 6331</a>
                <span><i class="fas fa-truck-fast"></i> Ventas para Loja y Zamora</span>
-               <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
+               <a href="somos.html"><i class="fas fa-store"></i> Quiénes somos</a>
+            </div>
+            <div class="footer-social">
+               <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer" aria-label="Facebook Electromás"><i class="fab fa-facebook-f"></i></a>
+               <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Electromás"><i class="fab fa-whatsapp"></i></a>
             </div>
          </div>
       </div>
 
       <div class="footer-bottom">
          <div class="contenedor">
-            <div>© <span id="anioActual"></span> Electromás. Todos los derechos reservados.</div>
-            <span>Compra asistida por <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer">WhatsApp</a></span>
+            <span>Electromás</span>
+            <span>Desarrollado por <strong>Neodat Consultores</strong>.</span>
          </div>
       </div>
    </footer>
 
-   <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="whatsapp-flotante" aria-label="Contactar por WhatsApp">
+   <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="whatsapp-flotante" aria-label="Comprar por WhatsApp">
       <i class="fab fa-whatsapp"></i>
    </a>
 
    <script>
       const WHATSAPP = "593988926331";
-      const anioActual = document.getElementById("anioActual");
-      if (anioActual) anioActual.textContent = new Date().getFullYear();
 
       const LABELS = {
          electrodomesticos: "Electrodomésticos",
@@ -1419,7 +1592,7 @@
          accesorios: "Accesorios",
          confort: "Confort",
          organizacion: "Organización",
-         alimentos: "Alimentos"
+         alimentos: "Cocina y alimentos"
       };
 
       const CATEGORY_URLS = {
@@ -1442,10 +1615,10 @@
 
       const ICONOS = {
          refrigeracion: "\\f2dc",
-         cocina: "\\e4e5",
+         cocina: "\\e4de",
          lavado: "\\e06e",
          climatizacion: "\\f2dc",
-         planchado: "\\f553",
+         planchado: "\\f0e7",
          celulares: "\\f3cd",
          televisores: "\\f26c",
          computadoras: "\\f109",
@@ -1456,150 +1629,45 @@
       };
 
       const PRODUCTOS = [
-         {
-            nombre: "Refrigeradora familiar",
-            categoria: "electrodomesticos",
-            linea: "refrigeracion",
-            descripcion: "Equipo esencial para conservación diaria. Consulte capacidad, medidas y crédito directo.",
-            imagen: "principal/inicio/p3.jpg",
-            etiqueta: "Alta rotación",
-            orden: 1
-         },
-         {
-            nombre: "Congelador horizontal",
-            categoria: "electrodomesticos",
-            linea: "refrigeracion",
-            descripcion: "Solución práctica para hogares y pequeños negocios que requieren mayor almacenamiento.",
-            imagen: "principal/oferta1.jpg",
-            etiqueta: "Más consultado",
-            orden: 2
-         },
-         {
-            nombre: "Cocina a gas",
-            categoria: "electrodomesticos",
-            linea: "cocina",
-            descripcion: "Opciones para uso familiar con asesoría sobre tamaño, quemadores y disponibilidad.",
-            imagen: "principal/inicio/p4.jpg",
-            etiqueta: "Hogar",
-            orden: 3
-         },
-         {
-            nombre: "Horno microondas",
-            categoria: "electrodomesticos",
-            linea: "cocina",
-            descripcion: "Equipo compacto para preparación rápida de alimentos y mejor uso del espacio.",
-            imagen: "principal/general/fondo.png",
-            etiqueta: "Práctico",
-            orden: 9
-         },
-         {
-            nombre: "Lavadora automática",
-            categoria: "electrodomesticos",
-            linea: "lavado",
-            descripcion: "Consulte capacidad, ciclos de lavado, disponibilidad y opciones de pago.",
-            imagen: "principal/inicio/p5.jpg",
-            etiqueta: "Crédito directo",
-            orden: 4
-         },
-         {
-            nombre: "Secadora de ropa",
-            categoria: "electrodomesticos",
-            linea: "lavado",
-            descripcion: "Alternativa funcional para hogares que necesitan secado más rápido y cómodo.",
-            imagen: "principal/inicio/p5.jpg",
-            etiqueta: "Lavado",
-            orden: 12
-         },
-         {
-            nombre: "Aire acondicionado",
-            categoria: "electrodomesticos",
-            linea: "climatizacion",
-            descripcion: "Opciones para casa, oficina o negocio. Consulte capacidad y disponibilidad.",
-            imagen: "principal/inicio/p2.jpg",
-            etiqueta: "Climatización",
-            orden: 11
-         },
-         {
-            nombre: "Plancha de ropa",
-            categoria: "electrodomesticos",
-            linea: "planchado",
-            descripcion: "Producto práctico para cuidado diario de prendas y uso doméstico.",
-            imagen: "principal/general/fondo.png",
-            etiqueta: "Hogar práctico",
-            orden: 16
-         },
-         {
-            nombre: "Celular Android",
-            categoria: "tecnologia",
-            linea: "celulares",
-            descripcion: "Equipos para comunicación, trabajo y entretenimiento. Consulte modelos disponibles.",
-            imagen: "principal/inicio/p1.jpg",
-            etiqueta: "Tecnología",
-            orden: 5
-         },
-         {
-            nombre: "Smart TV",
-            categoria: "tecnologia",
-            linea: "televisores",
-            descripcion: "Pantallas para entretenimiento familiar, streaming y conexión inteligente.",
-            imagen: "principal/tec.jpg",
-            etiqueta: "Entretenimiento",
-            orden: 6
-         },
-         {
-            nombre: "Laptop",
-            categoria: "tecnologia",
-            linea: "computadoras",
-            descripcion: "Equipo para estudio, trabajo y uso diario. Se cotiza según necesidad.",
-            imagen: "principal/tec.jpg",
-            etiqueta: "Estudio y trabajo",
-            orden: 7
-         },
-         {
-            nombre: "Computadora de escritorio",
-            categoria: "tecnologia",
-            linea: "computadoras",
-            descripcion: "Solución para oficina, estudio o negocio con asesoría según uso requerido.",
-            imagen: "principal/tec.jpg",
-            etiqueta: "Oficina",
-            orden: 13
-         },
-         {
-            nombre: "Audífonos y accesorios",
-            categoria: "tecnologia",
-            linea: "accesorios",
-            descripcion: "Complementos para audio, carga, conectividad y uso diario de dispositivos.",
-            imagen: "principal/inicio/p2.jpg",
-            etiqueta: "Complementos",
-            orden: 14
-         },
-         {
-            nombre: "Muebles de confort",
-            categoria: "hogar",
-            linea: "confort",
-            descripcion: "Productos para mejorar comodidad, descanso y funcionalidad del hogar.",
-            imagen: "principal/sal.jpg",
-            etiqueta: "Confort",
-            orden: 8
-         },
-         {
-            nombre: "Organizadores para hogar",
-            categoria: "hogar",
-            linea: "organizacion",
-            descripcion: "Soluciones para ordenar espacios y aprovechar mejor cada ambiente.",
-            imagen: "principal/sal.jpg",
-            etiqueta: "Orden",
-            orden: 10
-         },
-         {
-            nombre: "Artículos para cocina",
-            categoria: "hogar",
-            linea: "alimentos",
-            descripcion: "Productos útiles para preparación, conservación y organización diaria.",
-            imagen: "principal/inicio/p4.jpg",
-            etiqueta: "Uso diario",
-            orden: 15
-         }
+         { nombre: "Refrigeradora familiar", categoria: "electrodomesticos", linea: "refrigeracion", descripcion: "Equipo esencial para conservación diaria. Consulte capacidad, medidas y crédito directo.", imagen: "principal/inicio/p3.jpg", precio: 621, orden: 1 },
+         { nombre: "Congelador horizontal", categoria: "electrodomesticos", linea: "refrigeracion", descripcion: "Solución práctica para hogares y pequeños negocios que requieren mayor almacenamiento.", imagen: "principal/oferta1.jpg", precio: 489, orden: 2 },
+         { nombre: "Cocina a gas", categoria: "electrodomesticos", linea: "cocina", descripcion: "Opciones para uso familiar con asesoría sobre tamaño, quemadores y disponibilidad.", imagen: "principal/inicio/p4.jpg", precio: 517, orden: 3 },
+         { nombre: "Encimera para cocina", categoria: "electrodomesticos", linea: "cocina", descripcion: "Formato práctico para espacios compactos y preparación diaria de alimentos.", imagen: "principal/inicio/p4.jpg", precio: 229, orden: 11 },
+         { nombre: "Horno microondas", categoria: "electrodomesticos", linea: "cocina", descripcion: "Equipo compacto para preparación rápida y mejor aprovechamiento del espacio.", imagen: "principal/general/fondo.png", precio: 139, orden: 12 },
+         { nombre: "Lavadora automática", categoria: "electrodomesticos", linea: "lavado", descripcion: "Consulte capacidad, ciclos de lavado, disponibilidad y opciones de pago.", imagen: "principal/inicio/p5.jpg", precio: 534, orden: 4 },
+         { nombre: "Secadora de ropa", categoria: "electrodomesticos", linea: "lavado", descripcion: "Alternativa funcional para hogares que necesitan secado más rápido y cómodo.", imagen: "principal/inicio/p5.jpg", precio: 499, orden: 13 },
+         { nombre: "Aire acondicionado", categoria: "electrodomesticos", linea: "climatizacion", descripcion: "Opciones para casa, oficina o negocio. Consulte capacidad y disponibilidad.", imagen: "principal/inicio/p2.jpg", precio: 649, orden: 14 },
+         { nombre: "Plancha de ropa", categoria: "electrodomesticos", linea: "planchado", descripcion: "Producto práctico para cuidado diario de prendas y uso doméstico.", imagen: "principal/general/fondo.png", precio: 39, orden: 20 },
+         { nombre: "Celular Android", categoria: "tecnologia", linea: "celulares", descripcion: "Equipos para comunicación, trabajo y entretenimiento. Consulte modelos disponibles.", imagen: "principal/inicio/p1.jpg", precio: 189, orden: 5 },
+         { nombre: "Smart TV", categoria: "tecnologia", linea: "televisores", descripcion: "Pantallas para entretenimiento familiar, streaming y conexión inteligente.", imagen: "principal/tec.jpg", precio: 329, orden: 6 },
+         { nombre: "Laptop", categoria: "tecnologia", linea: "computadoras", descripcion: "Equipo para estudio, trabajo y uso diario. Se cotiza según necesidad.", imagen: "principal/tec.jpg", precio: 499, orden: 7 },
+         { nombre: "Computadora de escritorio", categoria: "tecnologia", linea: "computadoras", descripcion: "Solución para oficina, estudio o negocio con asesoría según uso requerido.", imagen: "principal/tec.jpg", precio: 599, orden: 15 },
+         { nombre: "Tablet", categoria: "tecnologia", linea: "computadoras", descripcion: "Equipo portátil para estudio, entretenimiento y tareas diarias.", imagen: "principal/tec.jpg", precio: 149, orden: 16 },
+         { nombre: "Audífonos y accesorios", categoria: "tecnologia", linea: "accesorios", descripcion: "Complementos para audio, carga, conectividad y uso diario de dispositivos.", imagen: "principal/inicio/p2.jpg", precio: 29, orden: 17 },
+         { nombre: "Parlante bluetooth", categoria: "tecnologia", linea: "accesorios", descripcion: "Audio portátil para casa, reuniones y entretenimiento diario.", imagen: "principal/inicio/p2.jpg", precio: 89, orden: 18 },
+         { nombre: "Muebles de confort", categoria: "hogar", linea: "confort", descripcion: "Productos para mejorar comodidad, descanso y funcionalidad del hogar.", imagen: "principal/sal.jpg", precio: 199, orden: 8 },
+         { nombre: "Colchón", categoria: "hogar", linea: "confort", descripcion: "Opciones para descanso diario con asesoría según tamaño requerido.", imagen: "principal/sal.jpg", precio: 249, orden: 19 },
+         { nombre: "Organizadores para hogar", categoria: "hogar", linea: "organizacion", descripcion: "Soluciones para ordenar espacios y aprovechar mejor cada ambiente.", imagen: "principal/sal.jpg", precio: 49, orden: 9 },
+         { nombre: "Comedor familiar", categoria: "hogar", linea: "confort", descripcion: "Producto para renovar espacios sociales del hogar con opciones de compra asistida.", imagen: "principal/sal.jpg", precio: 399, orden: 21 },
+         { nombre: "Artículos para cocina", categoria: "hogar", linea: "alimentos", descripcion: "Productos útiles para preparación, conservación y organización diaria.", imagen: "principal/inicio/p4.jpg", precio: 35, orden: 10 }
+      ];
+
+      const PAGINAS_BASE = [
+         { title: "Inicio", url: "index.html", keywords: "inicio electromas electrodomésticos tecnología hogar crédito directo loja zamora ofertas" },
+         { title: "Ofertas", url: "ofertas.html", keywords: "ofertas promociones descuentos productos destacados" },
+         { title: "Combos", url: "combos.html", keywords: "combos paquetes promociones crédito directo" },
+         { title: "Quiénes somos", url: "somos.html", keywords: "quienes somos electromas empresa tienda" },
+         { title: "Electrodomésticos", url: "electrodomesticos.html", keywords: "electrodomésticos refrigeradoras cocinas lavadoras línea blanca" },
+         { title: "Tecnología", url: "tecnologia.html", keywords: "tecnología celulares televisores laptops computadores" },
+         { title: "Hogar", url: "hogar.html", keywords: "hogar sala muebles organización confort decoración" },
+         { title: "Refrigeración", url: "producto/refrigeracion.html", keywords: "refrigeración refrigeradoras congeladores neveras" },
+         { title: "Cocina", url: "producto/cocina.html", keywords: "cocina cocinas hornos línea blanca electrodomésticos" },
+         { title: "Lavado", url: "producto/lavado.html", keywords: "lavado lavadoras secadoras lavandería" },
+         { title: "Celulares", url: "producto/celulares.html", keywords: "celulares smartphones teléfonos android tecnología" },
+         { title: "Televisores", url: "producto/televisores.html", keywords: "televisores tv smart tv pantallas tecnología" },
+         { title: "Computadoras", url: "producto/computadoras.html", keywords: "computadoras laptops portátiles tecnología" },
+         { title: "Confort", url: "producto/confort.html", keywords: "confort hogar comodidad descanso" },
+         { title: "Organización", url: "producto/organizacion.html", keywords: "organización hogar muebles espacios" }
       ];
 
       const productoGrid = document.getElementById("productoGrid");
@@ -1607,8 +1675,13 @@
       const resumenCatalogo = document.getElementById("resumenCatalogo");
       const buscarProducto = document.getElementById("buscarProducto");
       const lineaProducto = document.getElementById("lineaProducto");
+      const precioProducto = document.getElementById("precioProducto");
       const ordenProducto = document.getElementById("ordenProducto");
       const campoBusqueda = document.getElementById("campoBusqueda");
+      const formBusqueda = document.getElementById("formBusqueda");
+      const filtrosProducto = document.getElementById("filtrosProducto");
+      const limpiarFiltros = document.getElementById("limpiarFiltros");
+      const formCotizacion = document.getElementById("formCotizacion");
 
       function normalizar(texto) {
          return String(texto || "")
@@ -1626,12 +1699,20 @@
             "",
             `Producto: ${producto.nombre}`,
             `Categoría: ${LABELS[producto.categoria]} / ${LABELS[producto.linea]}`,
+            `Precio referencial desde: $${producto.precio}`,
             "Provincia: Loja o Zamora",
             "",
-            "Quisiera consultar precio, disponibilidad, garantía y crédito directo."
+            "Quisiera consultar precio final, disponibilidad, garantía y crédito directo."
          ].join("\n");
 
          return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+      }
+
+      function coincideRangoPrecio(producto) {
+         const valor = precioProducto.value;
+         if (valor === "todos") return true;
+         const [min, max] = valor.split("-").map(Number);
+         return producto.precio >= min && producto.precio <= max;
       }
 
       function productoCoincide(producto) {
@@ -1641,19 +1722,26 @@
             producto.nombre,
             producto.descripcion,
             LABELS[producto.categoria],
-            LABELS[producto.linea],
-            producto.etiqueta
+            LABELS[producto.linea]
          ].join(" "));
 
          const coincideTexto = !textoBusqueda || textoProducto.includes(textoBusqueda);
-         const coincideLinea = linea === "todos" || producto.linea === linea;
+         const coincideLinea = linea === "todos" || producto.linea === linea || producto.categoria === linea;
 
-         return coincideTexto && coincideLinea;
+         return coincideTexto && coincideLinea && coincideRangoPrecio(producto);
       }
 
       function ordenarProductos(productos) {
          const orden = ordenProducto.value;
          const copia = [...productos];
+
+         if (orden === "precio-asc") {
+            return copia.sort((a, b) => a.precio - b.precio);
+         }
+
+         if (orden === "precio-desc") {
+            return copia.sort((a, b) => b.precio - a.precio);
+         }
 
          if (orden === "az") {
             return copia.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
@@ -1676,13 +1764,16 @@
          productoGrid.innerHTML = productosFiltrados.map(producto => `
             <article class="producto-card">
                <div class="producto-media" data-icon="${ICONOS[producto.linea] || "\\f1b2"}">
-                  <span class="producto-tag"><i class="fas fa-star"></i> ${producto.etiqueta}</span>
                   <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy" onerror="this.closest('.producto-media').classList.add('sin-imagen'); this.remove();">
                </div>
                <div class="producto-body">
                   <div class="producto-ruta"><i class="fas fa-layer-group"></i> ${LABELS[producto.categoria]} · ${LABELS[producto.linea]}</div>
                   <h3>${producto.nombre}</h3>
                   <p>${producto.descripcion}</p>
+                  <div class="precio-linea">
+                     <small>Desde</small>
+                     <strong>$${producto.precio}</strong>
+                  </div>
                   <div class="producto-final">
                      <a href="${CATEGORY_URLS[producto.linea] || CATEGORY_URLS[producto.categoria]}" class="producto-link">Ver categoría <i class="fas fa-arrow-right"></i></a>
                      <a href="${crearWhatsAppProducto(producto)}" target="_blank" rel="noopener noreferrer" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a>
@@ -1695,25 +1786,66 @@
          sinResultados.style.display = productosFiltrados.length ? "none" : "block";
       }
 
-      [buscarProducto, lineaProducto, ordenProducto].forEach(campo => {
+      [buscarProducto, lineaProducto, precioProducto, ordenProducto].forEach(campo => {
          campo.addEventListener("input", renderProductos);
          campo.addEventListener("change", renderProductos);
       });
 
-      document.getElementById("limpiarFiltros").addEventListener("click", function() {
+      filtrosProducto.addEventListener("submit", event => {
+         event.preventDefault();
+      });
+
+      limpiarFiltros.addEventListener("click", () => {
          buscarProducto.value = "";
          lineaProducto.value = "todos";
-         ordenProducto.value = "recomendados";
+         precioProducto.value = "todos";
+         ordenProducto.value = "recomendado";
          renderProductos();
       });
 
-      document.getElementById("formBusqueda").addEventListener("submit", function(event) {
+      formBusqueda.addEventListener("submit", event => {
          event.preventDefault();
+         const query = normalizar(campoBusqueda.value);
+
+         if (!query) return;
+
+         const pagina = PAGINAS_BASE
+            .map(item => {
+               const texto = normalizar(`${item.title} ${item.keywords}`);
+               const terminos = query.split(" ").filter(Boolean);
+               const score = terminos.filter(term => texto.includes(term)).length;
+               return { ...item, score };
+            })
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score)[0];
+
+         if (pagina) {
+            window.location.href = pagina.url;
+            return;
+         }
+
          buscarProducto.value = campoBusqueda.value;
-         lineaProducto.value = "todos";
-         ordenProducto.value = "recomendados";
+         document.getElementById("productos").scrollIntoView({ behavior: "smooth" });
          renderProductos();
-         document.getElementById("catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      formCotizacion.addEventListener("submit", event => {
+         event.preventDefault();
+         const producto = document.getElementById("cotizaProducto").value.trim();
+         const provincia = document.getElementById("cotizaProvincia").value;
+         const comentario = document.getElementById("cotizaComentario").value.trim();
+
+         const mensaje = [
+            "Hola, quiero realizar una consulta en Electromás.",
+            "",
+            `Producto o necesidad: ${producto || "Por definir"}`,
+            `Provincia: ${provincia}`,
+            comentario ? `Comentario: ${comentario}` : "",
+            "",
+            "Quisiera consultar precio, disponibilidad, crédito directo y entrega."
+         ].filter(Boolean).join("\n");
+
+         window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener,noreferrer");
       });
 
       renderProductos();
