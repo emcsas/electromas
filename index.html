@@ -3,16 +3,1293 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Electromás | Electrodomésticos</title>
-   <meta name="description" content="Electrodomésticos y línea blanca para el hogar con crédito directo y entrega local.">
+   <title>Electromás | Electrodomésticos, Tecnología y Crédito Directo</title>
+
+   <meta name="description" content="Electromás ofrece electrodomésticos, tecnología y productos para el hogar con crédito directo, promociones y entrega en Loja y Zamora.">
+   <meta name="keywords" content="electrodomésticos, tecnología, hogar, crédito directo, ofertas, celulares, computadores, portátiles, Electromás, Loja, Zamora">
    <meta name="author" content="Electromás">
-   <meta property="og:title" content="Electromás | Electrodomésticos">
-   <meta property="og:description" content="Electrodomésticos y línea blanca para el hogar con crédito directo y entrega local.">
+
+   <meta property="og:title" content="Electromás | Electrodomésticos y Tecnología">
+   <meta property="og:description" content="Crédito directo, ofertas, combos y entrega local en Loja y Zamora.">
    <meta property="og:image" content="principal/general/fondo.png">
    <meta property="og:type" content="website">
+
    <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   <link rel="stylesheet" href="assets/css/styles.css">
+
+   <style>
+      :root {
+         --gris: #3c3c3c;
+         --negro: #20201f;
+         --azul: #162b4e;
+         --blanco: #ffffff;
+         --naranja: #ffa500;
+         --naranja-oscuro: #e99400;
+         --fondo: #f4f5f7;
+         --linea: rgba(32, 32, 31, 0.12);
+         --linea-clara: rgba(255, 255, 255, 0.18);
+         --sombra: 0 20px 50px rgba(32, 32, 31, 0.16);
+         --sombra-media: 0 12px 28px rgba(32, 32, 31, 0.12);
+      }
+
+      * {
+         box-sizing: border-box;
+      }
+
+      html {
+         scroll-behavior: smooth;
+      }
+
+      body {
+         margin: 0;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+         color: var(--negro);
+         background: var(--fondo);
+      }
+
+      img {
+         max-width: 100%;
+         display: block;
+      }
+
+      a {
+         text-decoration: none;
+         color: inherit;
+      }
+
+      button,
+      input {
+         font: inherit;
+      }
+
+      .contenedor {
+         width: min(1180px, 90%);
+         margin: 0 auto;
+      }
+
+      /* ========================= */
+      /* TOP BAR */
+      /* ========================= */
+
+      .topbar {
+         background: var(--negro);
+         color: var(--blanco);
+         font-size: 12px;
+      }
+
+      .topbar .contenedor {
+         min-height: 34px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 22px;
+      }
+
+      .topbar-info {
+         display: flex;
+         align-items: center;
+         gap: 18px;
+         flex-wrap: wrap;
+      }
+
+      .topbar-info span {
+         display: inline-flex;
+         align-items: center;
+         gap: 7px;
+         color: rgba(255, 255, 255, 0.86);
+         white-space: nowrap;
+      }
+
+      .topbar-info i {
+         color: var(--naranja);
+      }
+
+      .topbar-social {
+         display: flex;
+         align-items: center;
+         gap: 12px;
+      }
+
+      .topbar-social a {
+         color: rgba(255, 255, 255, 0.9);
+         transition: color 0.2s ease;
+      }
+
+      .topbar-social a:hover {
+         color: var(--naranja);
+      }
+
+      /* ========================= */
+      /* HEADER */
+      /* ========================= */
+
+      .header {
+         position: sticky;
+         top: 0;
+         z-index: 1000;
+         background: var(--blanco);
+         border-bottom: 1px solid var(--linea);
+         box-shadow: 0 8px 24px rgba(32, 32, 31, 0.08);
+      }
+
+      .header-main {
+         min-height: 74px;
+         display: grid;
+         grid-template-columns: 175px minmax(280px, 1fr) auto;
+         gap: 22px;
+         align-items: center;
+      }
+
+      .logo img {
+         height: 46px;
+         width: auto;
+      }
+
+      .busqueda-wrap {
+         position: relative;
+         z-index: 15;
+      }
+
+      .busqueda {
+         display: grid;
+         grid-template-columns: 1fr 58px;
+         border: 2px solid var(--azul);
+         background: var(--blanco);
+         border-radius: 10px;
+         overflow: hidden;
+         box-shadow: 0 8px 18px rgba(22, 43, 78, 0.08);
+      }
+
+      .busqueda input {
+         width: 100%;
+         border: 0;
+         outline: none;
+         padding: 0 18px;
+         height: 48px;
+         color: var(--negro);
+         font-size: 14px;
+      }
+
+      .busqueda input::placeholder {
+         color: rgba(60, 60, 60, 0.68);
+      }
+
+      .busqueda button {
+         border: 0;
+         background: var(--azul);
+         color: var(--blanco);
+         cursor: pointer;
+         font-size: 20px;
+         transition: background 0.2s ease;
+      }
+
+      .busqueda button:hover {
+         background: var(--negro);
+      }
+
+      .resultado-busqueda {
+         display: none;
+         position: absolute;
+         left: 0;
+         right: 0;
+         top: calc(100% + 8px);
+         background: var(--blanco);
+         border: 1px solid var(--linea);
+         border-radius: 16px;
+         box-shadow: var(--sombra);
+         overflow: hidden;
+      }
+
+      .resultado-busqueda.activo {
+         display: block;
+      }
+
+      .resultado-head {
+         padding: 14px 16px;
+         border-bottom: 1px solid var(--linea);
+         color: var(--gris);
+         font-size: 12px;
+         display: flex;
+         justify-content: space-between;
+         gap: 14px;
+      }
+
+      .resultado-lista {
+         max-height: 350px;
+         overflow: auto;
+      }
+
+      .resultado-item {
+         display: grid;
+         grid-template-columns: 1fr auto;
+         gap: 16px;
+         padding: 15px 16px;
+         border-bottom: 1px solid var(--linea);
+         color: var(--negro);
+         transition: background 0.2s ease;
+      }
+
+      .resultado-item:hover {
+         background: #f6f7f9;
+      }
+
+      .resultado-item:last-child {
+         border-bottom: 0;
+      }
+
+      .resultado-item strong {
+         color: var(--azul);
+         font-size: 14px;
+      }
+
+      .resultado-item small {
+         display: block;
+         margin-top: 5px;
+         color: var(--gris);
+         font-size: 12px;
+      }
+
+      .resultado-tags {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         flex-wrap: wrap;
+         gap: 5px;
+      }
+
+      .resultado-tags span {
+         background: rgba(255, 165, 0, 0.16);
+         color: var(--negro);
+         padding: 4px 7px;
+         border-radius: 999px;
+         font-size: 11px;
+         font-weight: 800;
+      }
+
+      .resultado-vacio {
+         padding: 18px;
+         color: var(--gris);
+         font-size: 14px;
+      }
+
+      .acciones-header {
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
+
+      .header-link {
+         height: 40px;
+         min-width: 44px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         border: 1px solid var(--linea);
+         border-radius: 12px;
+         color: var(--azul);
+         background: var(--blanco);
+         font-weight: 700;
+         font-size: 14px;
+         transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .header-link:hover {
+         transform: translateY(-2px);
+         border-color: var(--naranja);
+      }
+
+      .header-cta {
+         background: var(--naranja);
+         color: var(--blanco);
+         border-color: var(--naranja);
+         padding: 0 16px;
+      }
+
+      .header-cta:hover {
+         background: var(--naranja-oscuro);
+         border-color: var(--naranja-oscuro);
+      }
+
+      /* ========================= */
+      /* DEPARTMENT BAR */
+      /* ========================= */
+
+      .departamentos {
+         background: var(--azul);
+         color: var(--blanco);
+      }
+
+      .departamentos .contenedor {
+         display: flex;
+         align-items: center;
+         gap: 0;
+         overflow-x: auto;
+         scrollbar-width: thin;
+      }
+
+      .departamentos a {
+         display: inline-flex;
+         align-items: center;
+         gap: 7px;
+         min-height: 40px;
+         padding: 0 15px;
+         color: var(--blanco);
+         font-size: 13px;
+         font-weight: 700;
+         white-space: nowrap;
+         border-right: 1px solid rgba(255, 255, 255, 0.12);
+         transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .departamentos a:hover {
+         background: rgba(255, 255, 255, 0.10);
+         color: var(--naranja);
+      }
+
+      /* ========================= */
+      /* HERO */
+      /* ========================= */
+
+      .hero {
+         position: relative;
+         overflow: hidden;
+         background:
+            radial-gradient(circle at 84% 12%, rgba(255, 165, 0, 0.24), transparent 28%),
+            linear-gradient(135deg, var(--negro) 0%, var(--azul) 54%, #1f3d70 100%);
+         color: var(--blanco);
+         min-height: 500px;
+      }
+
+      .hero::before {
+         content: "";
+         position: absolute;
+         inset: 0;
+         opacity: 0.34;
+         background-image:
+            linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+         background-size: 44px 44px;
+      }
+
+      .hero .contenedor {
+         position: relative;
+         z-index: 2;
+         display: grid;
+         grid-template-columns: 0.92fr 1.08fr;
+         gap: 44px;
+         align-items: center;
+         padding: 54px 0 62px;
+      }
+
+      .hero-copy .kicker {
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         background: rgba(255, 255, 255, 0.10);
+         border: 1px solid var(--linea-clara);
+         border-left: 4px solid var(--naranja);
+         padding: 10px 14px;
+         margin-bottom: 18px;
+         text-transform: uppercase;
+         letter-spacing: 0.8px;
+         font-size: 11px;
+         font-weight: 800;
+      }
+
+      .hero h1 {
+         margin: 0;
+         max-width: 680px;
+         font-size: clamp(34px, 4vw, 48px);
+         line-height: 1.08;
+         letter-spacing: -0.9px;
+         font-weight: 800;
+      }
+
+      .hero h1 span {
+         color: var(--naranja);
+      }
+
+      .hero-copy p {
+         max-width: 600px;
+         margin: 20px 0 0;
+         color: rgba(255,255,255,0.84);
+         font-size: 16px;
+         line-height: 1.58;
+      }
+
+      .hero-botones {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 13px;
+         margin-top: 26px;
+      }
+
+      .btn {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 9px;
+         min-height: 40px;
+         padding: 0 18px;
+         border: 0;
+         border-radius: 12px;
+         font-size: 14px;
+         font-weight: 700;
+         cursor: pointer;
+         transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover {
+         transform: translateY(-2px);
+      }
+
+      .btn-primary {
+         background: var(--naranja);
+         color: var(--blanco);
+         box-shadow: 0 14px 30px rgba(255,165,0,0.28);
+      }
+
+      .btn-primary:hover {
+         background: var(--naranja-oscuro);
+      }
+
+      .btn-white {
+         background: var(--blanco);
+         color: var(--azul);
+      }
+
+      .btn-dark {
+         background: var(--azul);
+         color: var(--blanco);
+      }
+
+      .hero-metrics {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 12px;
+         margin-top: 26px;
+         max-width: 620px;
+      }
+
+      .hero-metrics div {
+         padding: 14px;
+         border-radius: 16px;
+         background: rgba(255,255,255,0.09);
+         border: 1px solid var(--linea-clara);
+      }
+
+      .hero-metrics strong {
+         display: block;
+         color: var(--naranja);
+         font-size: 16px;
+         margin-bottom: 4px;
+      }
+
+      .hero-metrics span {
+         display: block;
+         color: rgba(255,255,255,0.82);
+         font-size: 12px;
+         line-height: 1.35;
+      }
+
+      .hero-panel {
+         display: grid;
+         grid-template-columns: 1fr 0.68fr;
+         gap: 16px;
+      }
+
+      .hero-card {
+         position: relative;
+         overflow: hidden;
+         min-height: 380px;
+         border-radius: 26px;
+         background: var(--blanco);
+         box-shadow: var(--sombra);
+      }
+
+      .hero-card img {
+         width: 100%;
+         height: 100%;
+         min-height: 380px;
+         object-fit: cover;
+      }
+
+      .hero-card::after {
+         content: "";
+         position: absolute;
+         inset: 0;
+         background: linear-gradient(180deg, transparent 35%, rgba(32,32,31,0.78) 100%);
+      }
+
+      .hero-card-info {
+         position: absolute;
+         left: 22px;
+         right: 22px;
+         bottom: 22px;
+         z-index: 2;
+      }
+
+      .hero-card-info strong {
+         display: block;
+         font-size: 20px;
+         margin-bottom: 7px;
+      }
+
+      .hero-card-info span {
+         display: block;
+         color: rgba(255,255,255,0.82);
+         line-height: 1.45;
+         font-size: 14px;
+      }
+
+      .oferta-side {
+         display: grid;
+         gap: 16px;
+      }
+
+      .mini-oferta {
+         position: relative;
+         overflow: hidden;
+         border-radius: 22px;
+         background: var(--blanco);
+         box-shadow: var(--sombra-media);
+         min-height: 180px;
+      }
+
+      .mini-oferta img {
+         width: 100%;
+         height: 180px;
+         object-fit: cover;
+      }
+
+      .mini-oferta-label {
+         position: absolute;
+         left: 12px;
+         right: 12px;
+         bottom: 12px;
+         background: rgba(255,255,255,0.94);
+         border-left: 4px solid var(--naranja);
+         border-radius: 12px;
+         padding: 12px;
+      }
+
+      .mini-oferta-label strong {
+         display: block;
+         color: var(--azul);
+         font-size: 14px;
+      }
+
+      .mini-oferta-label span {
+         color: var(--gris);
+         font-size: 12px;
+      }
+
+      /* ========================= */
+      /* PROMO MARQUEE */
+      /* ========================= */
+
+      .promo-strip {
+         background: var(--blanco);
+         border-bottom: 1px solid var(--linea);
+         overflow: hidden;
+      }
+
+      .promo-track {
+         display: flex;
+         width: max-content;
+         gap: 0;
+         animation: promo-marquee 22s linear infinite;
+      }
+
+      .promo-strip:hover .promo-track {
+         animation-play-state: paused;
+      }
+
+      .promo-item {
+         min-width: 310px;
+         display: inline-flex;
+         align-items: center;
+         gap: 10px;
+         padding: 12px 28px;
+         color: var(--azul);
+         font-size: 14px;
+         font-weight: 800;
+         white-space: nowrap;
+         border-right: 1px solid var(--linea);
+      }
+
+      .promo-item i {
+         color: var(--naranja);
+      }
+
+      @keyframes promo-marquee {
+         from { transform: translateX(0); }
+         to { transform: translateX(-50%); }
+      }
+
+      /* ========================= */
+      /* CATEGORIES */
+      /* ========================= */
+
+      .section {
+         padding: 48px 0;
+      }
+
+      .section-head {
+         display: flex;
+         align-items: end;
+         justify-content: space-between;
+         gap: 28px;
+         margin-bottom: 30px;
+      }
+
+      .section-eyebrow {
+         display: inline-block;
+         color: var(--naranja);
+         font-size: 12px;
+         font-weight: 800;
+         text-transform: uppercase;
+         letter-spacing: 0.8px;
+         margin-bottom: 8px;
+      }
+
+      .section-title {
+         margin: 0;
+         color: var(--azul);
+         font-size: clamp(26px, 3.2vw, 36px);
+         line-height: 1.15;
+         letter-spacing: -0.45px;
+         font-weight: 800;
+      }
+
+      .section-text {
+         max-width: 450px;
+         margin: 0;
+         color: var(--gris);
+         font-size: 15px;
+         line-height: 1.6;
+      }
+
+      .categorias-grid {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         gap: 18px;
+      }
+
+      .categoria-card {
+         position: relative;
+         overflow: hidden;
+         min-height: 250px;
+         border-radius: 22px;
+         box-shadow: var(--sombra-media);
+         background: var(--negro);
+      }
+
+      .categoria-card img {
+         width: 100%;
+         height: 100%;
+         min-height: 250px;
+         object-fit: cover;
+         transition: transform 0.35s ease;
+      }
+
+      .categoria-card:hover img {
+         transform: scale(1.06);
+      }
+
+      .categoria-card::after {
+         content: "";
+         position: absolute;
+         inset: 0;
+         background: linear-gradient(180deg, rgba(32,32,31,0.05), rgba(32,32,31,0.84));
+      }
+
+      .categoria-card-content {
+         position: absolute;
+         inset: auto 0 0;
+         z-index: 2;
+         padding: 20px;
+         color: var(--blanco);
+      }
+
+      .categoria-card-content h3 {
+         margin: 0 0 7px;
+         font-size: 20px;
+      }
+
+      .categoria-card-content p {
+         margin: 0 0 12px;
+         color: rgba(255,255,255,0.82);
+         font-size: 12px;
+         line-height: 1.45;
+      }
+
+      .categoria-card-content span {
+         color: var(--naranja);
+         font-weight: 800;
+         font-size: 12px;
+      }
+
+      /* ========================= */
+      /* PRODUCT CARDS */
+      /* ========================= */
+
+      .productos {
+         background: var(--blanco);
+      }
+
+      .producto-grid {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         gap: 18px;
+      }
+
+      .producto-card {
+         background: var(--blanco);
+         border: 1px solid var(--linea);
+         border-radius: 20px;
+         overflow: hidden;
+         box-shadow: 0 10px 25px rgba(32,32,31,0.08);
+         transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .producto-card:hover {
+         transform: translateY(-4px);
+         box-shadow: var(--sombra-media);
+      }
+
+      .producto-img {
+         background: #f7f7f7;
+         height: 220px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding: 12px;
+         border-bottom: 1px solid var(--linea);
+      }
+
+      .producto-img img {
+         max-height: 195px;
+         width: 100%;
+         object-fit: contain;
+      }
+
+      .producto-body {
+         padding: 18px;
+      }
+
+      .tag {
+         display: inline-flex;
+         align-items: center;
+         gap: 6px;
+         padding: 5px 9px;
+         border-radius: 999px;
+         background: rgba(255,165,0,0.16);
+         color: var(--negro);
+         font-size: 11px;
+         font-weight: 800;
+         text-transform: uppercase;
+      }
+
+      .producto-body h3 {
+         margin: 12px 0 8px;
+         color: var(--azul);
+         font-size: 16px;
+         line-height: 1.25;
+      }
+
+      .producto-body p {
+         margin: 0 0 14px;
+         color: var(--gris);
+         font-size: 12px;
+         line-height: 1.45;
+      }
+
+      .precio-box {
+         display: flex;
+         align-items: end;
+         justify-content: space-between;
+         gap: 10px;
+         border-top: 1px solid var(--linea);
+         padding-top: 14px;
+      }
+
+      .precio-box strong {
+         display: block;
+         color: var(--negro);
+         font-size: 20px;
+      }
+
+      .precio-box span {
+         display: block;
+         color: var(--gris);
+         font-size: 12px;
+      }
+
+      .ver-producto {
+         width: 42px;
+         height: 42px;
+         border-radius: 12px;
+         background: var(--azul);
+         color: var(--blanco);
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+      }
+
+      .ver-producto:hover {
+         background: var(--naranja);
+      }
+
+      /* ========================= */
+      /* MOVING SHOWCASE */
+      /* ========================= */
+
+      .vitrina {
+         padding: 48px 0;
+         background: var(--fondo);
+         overflow: hidden;
+      }
+
+      .vitrina .section-head {
+         margin-bottom: 28px;
+      }
+
+      .vitrina-wrapper {
+         width: 100%;
+         overflow: hidden;
+      }
+
+      .vitrina-track {
+         display: flex;
+         width: max-content;
+         gap: 20px;
+         animation: vitrina-scroll 34s linear infinite;
+      }
+
+      .vitrina-wrapper:hover .vitrina-track {
+         animation-play-state: paused;
+      }
+
+      .vitrina-card {
+         flex: 0 0 auto;
+         width: 220px;
+         height: 220px;
+         border-radius: 18px;
+         overflow: hidden;
+         background: var(--blanco);
+         border: 1px solid var(--linea);
+         box-shadow: var(--sombra-media);
+         padding: 10px;
+      }
+
+      .vitrina-card img {
+         width: 100%;
+         height: 100%;
+         object-fit: contain;
+         border-radius: 12px;
+      }
+
+      @keyframes vitrina-scroll {
+         from { transform: translateX(0); }
+         to { transform: translateX(-50%); }
+      }
+
+      /* ========================= */
+      /* CTA */
+      /* ========================= */
+
+      .cta {
+         background:
+            radial-gradient(circle at 18% 18%, rgba(255,165,0,0.20), transparent 26%),
+            linear-gradient(135deg, var(--negro), var(--azul));
+         color: var(--blanco);
+         padding: 48px 0;
+      }
+
+      .cta-box {
+         display: grid;
+         grid-template-columns: 1.25fr auto;
+         align-items: center;
+         gap: 28px;
+      }
+
+      .cta h2 {
+         margin: 0 0 10px;
+         font-size: clamp(24px, 3vw, 34px);
+         letter-spacing: -1px;
+      }
+
+      .cta p {
+         margin: 0;
+         max-width: 690px;
+         color: rgba(255,255,255,0.84);
+         line-height: 1.6;
+      }
+
+      .cta-actions {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: flex-end;
+         gap: 12px;
+      }
+
+      .btn-whatsapp {
+         background: #25D366;
+         color: var(--blanco);
+      }
+
+      .btn-whatsapp:hover {
+         background: #1ebe5d;
+      }
+
+      /* ========================= */
+      /* MODAL */
+      /* ========================= */
+
+      .modal {
+         display: none;
+         position: fixed;
+         inset: 0;
+         z-index: 3000;
+         background: rgba(32,32,31,0.68);
+         align-items: center;
+         justify-content: center;
+         padding: 20px;
+      }
+
+      .modal-content {
+         width: min(480px, 100%);
+         background: var(--blanco);
+         border-radius: 22px;
+         box-shadow: var(--sombra);
+         padding: 28px;
+      }
+
+      .modal-content h2 {
+         margin: 0 0 14px;
+         color: var(--azul);
+      }
+
+      .modal-content ul {
+         color: var(--gris);
+         line-height: 1.55;
+      }
+
+      .precio {
+         color: var(--naranja);
+         font-size: 20px;
+         font-weight: 800;
+      }
+
+      .modal-buttons {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 10px;
+      }
+
+      .whatsapp-btn,
+      .close {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         min-height: 42px;
+         padding: 0 16px;
+         border: 0;
+         border-radius: 12px;
+         font-weight: 800;
+         cursor: pointer;
+      }
+
+      .whatsapp-btn {
+         background: #25D366;
+         color: var(--blanco);
+      }
+
+      .close {
+         background: var(--azul);
+         color: var(--blanco);
+      }
+
+      /* ========================= */
+      /* FLOATING WHATSAPP */
+      /* ========================= */
+
+      .whatsapp-flotante {
+         position: fixed;
+         right: 20px;
+         bottom: 18px;
+         z-index: 1800;
+         width: 58px;
+         height: 58px;
+         border-radius: 50%;
+         background: #25D366;
+         color: var(--blanco);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 26px;
+         box-shadow: 0 18px 34px rgba(37,211,102,0.36);
+         transition: transform 0.2s ease;
+      }
+
+      .whatsapp-flotante:hover {
+         transform: translateY(-3px);
+      }
+
+      /* ========================= */
+      /* FOOTER COMPACTO */
+      /* ========================= */
+
+      footer {
+         background: var(--negro);
+         color: var(--blanco);
+         padding: 10px 0;
+         font-size: 12px;
+      }
+
+      .footer-compacto {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 18px;
+      }
+
+      .footer-compacto p {
+         margin: 0;
+         color: rgba(255,255,255,0.78);
+      }
+
+      .footer-links {
+         display: flex;
+         align-items: center;
+         gap: 14px;
+         flex-wrap: wrap;
+      }
+
+      .footer-links a {
+         color: rgba(255,255,255,0.84);
+         transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+         color: var(--naranja);
+      }
+
+
+      /* ========================= */
+      /* AJUSTE ELEGANTE DE TIPOGRAFÍA */
+      /* ========================= */
+
+      .hero-copy,
+      .section-head,
+      .producto-body,
+      .categoria-card-content {
+         text-rendering: geometricPrecision;
+      }
+
+      .hero h1,
+      .section-title,
+      .cta h2 {
+         font-family: "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+      }
+
+      .hero-copy p,
+      .section-text,
+      .producto-body p,
+      .categoria-card-content p,
+      .cta p {
+         font-weight: 400;
+      }
+
+      .section-eyebrow,
+      .tag,
+      .promo-item {
+         letter-spacing: 0.45px;
+      }
+
+      /* ========================= */
+      /* RESPONSIVE */
+      /* ========================= */
+
+      @media (max-width: 1120px) {
+         .header-main {
+            grid-template-columns: 170px 1fr;
+         }
+
+         .acciones-header {
+            grid-column: 1 / -1;
+            justify-content: flex-end;
+         }
+
+         .hero .contenedor,
+         .cta-box {
+            grid-template-columns: 1fr;
+         }
+
+         .hero-panel {
+            max-width: 850px;
+         }
+
+         .cta-actions {
+            justify-content: flex-start;
+         }
+
+         .categorias-grid,
+         .producto-grid {
+            grid-template-columns: repeat(2, 1fr);
+         }
+      }
+
+      @media (max-width: 760px) {
+         .topbar {
+            display: none;
+         }
+
+         .header-main {
+            min-height: auto;
+            padding: 10px 0;
+            display: block;
+         }
+
+         .logo {
+            margin-bottom: 12px;
+         }
+
+         .busqueda {
+            grid-template-columns: 1fr 52px;
+         }
+
+         .acciones-header {
+            margin-top: 12px;
+            justify-content: space-between;
+         }
+
+         .header-link span {
+            display: none;
+         }
+
+         .departamentos a {
+            min-height: 42px;
+            padding: 0 15px;
+         }
+
+         .hero .contenedor {
+            padding: 42px 0 54px;
+         }
+
+         .hero-panel {
+            grid-template-columns: 1fr;
+         }
+
+         .oferta-side {
+            grid-template-columns: repeat(2, 1fr);
+         }
+
+         .hero-card,
+         .hero-card img {
+            min-height: 300px;
+         }
+
+         .section-head {
+            display: block;
+         }
+
+         .section-text {
+            margin-top: 12px;
+         }
+
+         .categorias-grid,
+         .producto-grid {
+            grid-template-columns: 1fr;
+         }
+
+         .vitrina-card {
+            width: 190px;
+            height: 190px;
+         }
+
+         .footer-compacto {
+            display: block;
+            text-align: center;
+         }
+
+         .footer-links {
+            justify-content: center;
+            margin-top: 10px;
+         }
+      }
+
+      @media (max-width: 520px) {
+         .contenedor {
+            width: min(94%, 1240px);
+         }
+
+         .logo img {
+            height: 40px;
+         }
+
+         .hero h1 {
+            letter-spacing: -1.4px;
+         }
+
+         .hero-copy p {
+            font-size: 16px;
+         }
+
+         .hero-botones,
+         .cta-actions {
+            flex-direction: column;
+         }
+
+         .btn {
+            width: 100%;
+         }
+
+         .hero-metrics {
+            grid-template-columns: 1fr;
+         }
+
+         .oferta-side {
+            grid-template-columns: 1fr;
+         }
+
+         .resultado-item {
+            grid-template-columns: 1fr;
+         }
+
+         .resultado-tags {
+            justify-content: flex-start;
+         }
+
+         .whatsapp-flotante {
+            width: 50px;
+            height: 50px;
+            right: 16px;
+            bottom: 16px;
+         }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+         html {
+            scroll-behavior: auto;
+         }
+
+         *,
+         *::before,
+         *::after {
+            transition: none !important;
+         }
+
+         .promo-track,
+         .vitrina-track {
+            animation: none !important;
+         }
+      }
+   </style>
+
    <!-- Meta Pixel Code -->
    <script>
       !function(f,b,e,v,n,t,s)
@@ -32,7 +1309,8 @@
    </noscript>
    <!-- End Meta Pixel Code -->
 </head>
-<body data-base="">
+
+<body>
    <div class="topbar">
       <div class="contenedor">
          <div class="topbar-info">
@@ -40,6 +1318,7 @@
             <span><i class="fas fa-credit-card"></i> Crédito directo</span>
             <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
          </div>
+
          <div class="topbar-social">
             <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer" aria-label="Facebook Electromás">
                <i class="fab fa-facebook-f"></i>
@@ -57,100 +1336,169 @@
             <img src="principal/general/electro.png" alt="Electromás">
          </a>
 
-         <div class="search-box">
-            <form class="search-form" data-search-form autocomplete="off">
-               <input type="search" data-search-input placeholder="Buscar productos, categorías, ofertas o páginas..." aria-label="Buscar en Electromás">
-               <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+         <div class="busqueda-wrap">
+            <form class="busqueda" id="formBusqueda" autocomplete="off">
+               <input type="search" id="campoBusqueda" placeholder="Buscar productos, categorías, ofertas o páginas..." aria-label="Buscar en Electromás">
+               <button type="submit" aria-label="Buscar">
+                  <i class="fas fa-search"></i>
+               </button>
             </form>
-            <div class="search-results" data-search-results aria-live="polite">
-               <div class="search-status">
-                  <span data-search-status>Escriba para buscar.</span>
-                  <span data-search-source>Índice local</span>
+
+            <div class="resultado-busqueda" id="resultadoBusqueda" aria-live="polite">
+               <div class="resultado-head">
+                  <span id="estadoBusqueda">Escriba para buscar.</span>
+                  <span id="fuenteBusqueda">Índice local</span>
                </div>
-               <div class="search-list" data-search-list></div>
+               <div class="resultado-lista" id="listaResultados"></div>
             </div>
          </div>
 
-         <div class="header-actions">
-            <a href="ofertas.html" class="action-btn"><i class="fas fa-tags"></i><span>Ofertas</span></a>
-            <a href="combos.html" class="action-btn"><i class="fas fa-layer-group"></i><span>Combos</span></a>
-            <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="action-btn primary">
+         <div class="acciones-header">
+            <a href="ofertas.html" class="header-link"><i class="fas fa-tags"></i><span>Ofertas</span></a>
+            <a href="combos.html" class="header-link"><i class="fas fa-layer-group"></i><span>Combos</span></a>
+            <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="header-link header-cta">
                <i class="fab fa-whatsapp"></i><span>Comprar</span>
             </a>
          </div>
       </div>
 
-      <nav class="dept-nav" aria-label="Departamentos">
+      <nav class="departamentos" aria-label="Departamentos">
          <div class="contenedor">
-            <a href="electrodomesticos.html" class="active"><i class="fas fa-plug"></i> Electrodomésticos</a>
-            <a href="tecnologia.html" class=""><i class="fas fa-laptop"></i> Tecnología</a>
-            <a href="hogar.html" class=""><i class="fas fa-couch"></i> Hogar</a>
-            <a href="producto/celulares.html" class=""><i class="fas fa-mobile-screen"></i> Celulares</a>
-            <a href="producto/refrigeracion.html" class=""><i class="fas fa-snowflake"></i> Refrigeración</a>
-            <a href="producto/televisores.html" class=""><i class="fas fa-tv"></i> Televisores</a>
-            <a href="producto/cocina.html" class=""><i class="fas fa-fire-burner"></i> Cocina</a>
-            <a href="producto/lavado.html" class=""><i class="fas fa-soap"></i> Lavado</a>
+            <a href="electrodomesticos.html"><i class="fas fa-plug"></i> Electrodomésticos</a>
+            <a href="tecnologia.html"><i class="fas fa-laptop"></i> Tecnología</a>
+            <a href="hogar.html"><i class="fas fa-couch"></i> Hogar</a>
+            <a href="producto/celulares.html"><i class="fas fa-mobile-screen"></i> Celulares</a>
+            <a href="producto/refrigeracion.html"><i class="fas fa-snowflake"></i> Refrigeración</a>
+            <a href="producto/televisores.html"><i class="fas fa-tv"></i> Televisores</a>
+            <a href="producto/cocina.html"><i class="fas fa-fire-burner"></i> Cocina</a>
+            <a href="producto/lavado.html"><i class="fas fa-soap"></i> Lavado</a>
          </div>
       </nav>
    </header>
 
    <main>
-      <section class="page-hero root-bg">
+      <section class="hero">
          <div class="contenedor">
-            <div class="breadcrumb">
-               <a href="index.html">Inicio</a>
-               <span>/</span>
-               <span>Electrodomésticos</span>
+            <div class="hero-copy">
+               <div class="kicker"><i class="fas fa-bolt"></i> Electromás Loja y Zamora</div>
+               <h1>Compre tecnología y hogar <span>con crédito directo.</span></h1>
+               <p>
+                  Electrodomésticos, celulares, televisores y productos para el hogar con asesoría comercial,
+                  promociones activas y entrega local.
+               </p>
+
+               <div class="hero-botones">
+                  <a href="ofertas.html" class="btn btn-primary">Ver ofertas <i class="fas fa-arrow-right"></i></a>
+                  <a href="combos.html" class="btn btn-white">Ver combos</a>
+               </div>
+
+               <div class="hero-metrics">
+                  <div>
+                     <strong>Crédito</strong>
+                     <span>Opciones de pago para facilitar la compra.</span>
+                  </div>
+                  <div>
+                     <strong>Entrega</strong>
+                     <span>Cobertura local en Loja y Zamora.</span>
+                  </div>
+                  <div>
+                     <strong>Asesoría</strong>
+                     <span>Atención antes de tomar una decisión.</span>
+                  </div>
+               </div>
             </div>
-            <h1>Electrodomésticos</h1>
-            <p>Electrodomésticos y línea blanca para el hogar con crédito directo y entrega local.</p>
+
+            <div class="hero-panel">
+               <a href="ofertas.html" class="hero-card">
+                  <img src="principal/general/fondo.png" alt="Electrodomésticos y tecnología Electromás">
+                  <div class="hero-card-info">
+                     <strong>Ofertas listas para comprar</strong>
+                     <span>Revise promociones y consulte disponibilidad por WhatsApp.</span>
+                  </div>
+               </a>
+
+               <div class="oferta-side">
+                  <a href="producto/celulares.html" class="mini-oferta">
+                     <img src="principal/inicio/p1.jpg" alt="Oferta de celulares Electromás">
+                     <div class="mini-oferta-label">
+                        <strong>Celulares</strong>
+                        <span>Equipos destacados.</span>
+                     </div>
+                  </a>
+
+                  <a href="producto/lavado.html" class="mini-oferta">
+                     <img src="principal/inicio/p5.jpg" alt="Oferta de lavado Electromás">
+                     <div class="mini-oferta-label">
+                        <strong>Lavado</strong>
+                        <span>Soluciones para el hogar.</span>
+                     </div>
+                  </a>
+               </div>
+            </div>
          </div>
       </section>
-      
-      <section class="section white">
+
+      <section class="promo-strip" aria-label="Promociones en movimiento">
+         <div class="promo-track">
+            <div class="promo-item"><i class="fas fa-credit-card"></i> Crédito directo disponible</div>
+            <div class="promo-item"><i class="fas fa-truck-fast"></i> Entrega en Loja y Zamora</div>
+            <div class="promo-item"><i class="fas fa-tags"></i> Ofertas y combos activos</div>
+            <div class="promo-item"><i class="fas fa-headset"></i> Asesoría por WhatsApp</div>
+            <div class="promo-item"><i class="fas fa-shield-halved"></i> Productos con garantía</div>
+
+            <div class="promo-item"><i class="fas fa-credit-card"></i> Crédito directo disponible</div>
+            <div class="promo-item"><i class="fas fa-truck-fast"></i> Entrega en Loja y Zamora</div>
+            <div class="promo-item"><i class="fas fa-tags"></i> Ofertas y combos activos</div>
+            <div class="promo-item"><i class="fas fa-headset"></i> Asesoría por WhatsApp</div>
+            <div class="promo-item"><i class="fas fa-shield-halved"></i> Productos con garantía</div>
+         </div>
+      </section>
+
+      <section class="section" id="categorias">
          <div class="contenedor">
-            
             <div class="section-head">
                <div>
-                  <span class="eyebrow">Línea blanca</span>
-                  <h2>Electrodomésticos por necesidad.</h2>
+                  <span class="section-eyebrow">Departamentos</span>
+                  <h2 class="section-title">Compre por categoría.</h2>
                </div>
-               <p>Accesos directos a las subcategorías más consultadas.</p>
+               <p class="section-text">
+                  Acceso directo a las líneas que más rotan: electrodomésticos, tecnología, hogar y productos específicos.
+               </p>
             </div>
-            <div class="grid-4">
-               
-               <a href="producto/refrigeracion.html" class="category-card">
-                  <img src="principal/inicio/p3.jpg" alt="Refrigeración">
-                  <div class="category-info">
-                     <h3>Refrigeración</h3>
-                     <p>Refrigeradoras, congeladores y conservación.</p>
+
+            <div class="categorias-grid">
+               <a href="electrodomesticos.html" class="categoria-card">
+                  <img src="principal/oferta1.jpg" alt="Electrodomésticos">
+                  <div class="categoria-card-content">
+                     <h3>Electrodomésticos</h3>
+                     <p>Refrigeradoras, cocinas, lavadoras y productos esenciales.</p>
                      <span>Entrar <i class="fas fa-arrow-right"></i></span>
                   </div>
                </a>
-               
-               <a href="producto/cocina.html" class="category-card">
-                  <img src="principal/inicio/p4.jpg" alt="Cocina">
-                  <div class="category-info">
-                     <h3>Cocina</h3>
-                     <p>Cocinas, hornos y productos para preparar alimentos.</p>
+
+               <a href="tecnologia.html" class="categoria-card">
+                  <img src="principal/tec.jpg" alt="Tecnología">
+                  <div class="categoria-card-content">
+                     <h3>Tecnología</h3>
+                     <p>Celulares, laptops, televisores y equipos para uso diario.</p>
                      <span>Entrar <i class="fas fa-arrow-right"></i></span>
                   </div>
                </a>
-               
-               <a href="producto/lavado.html" class="category-card">
-                  <img src="principal/inicio/p5.jpg" alt="Lavado">
-                  <div class="category-info">
-                     <h3>Lavado</h3>
-                     <p>Lavadoras y soluciones de lavandería.</p>
+
+               <a href="hogar.html" class="categoria-card">
+                  <img src="principal/sal.jpg" alt="Hogar">
+                  <div class="categoria-card-content">
+                     <h3>Hogar</h3>
+                     <p>Productos funcionales para mejorar sus espacios.</p>
                      <span>Entrar <i class="fas fa-arrow-right"></i></span>
                   </div>
                </a>
-               
-               <a href="producto/planchado.html" class="category-card">
-                  <img src="principal/inicio/p2.jpg" alt="Planchado">
-                  <div class="category-info">
-                     <h3>Planchado</h3>
-                     <p>Opciones para cuidado de ropa.</p>
+
+               <a href="combos.html" class="categoria-card">
+                  <img src="principal/inicio/p4.jpg" alt="Combos Electromás">
+                  <div class="categoria-card-content">
+                     <h3>Combos</h3>
+                     <p>Opciones armadas para equipar mejor y ahorrar tiempo.</p>
                      <span>Entrar <i class="fas fa-arrow-right"></i></span>
                   </div>
                </a>
@@ -158,48 +1506,447 @@
          </div>
       </section>
 
+      <section class="section productos">
+         <div class="contenedor">
+            <div class="section-head">
+               <div>
+                  <span class="section-eyebrow">Vitrina comercial</span>
+                  <h2 class="section-title">Productos destacados.</h2>
+               </div>
+               <p class="section-text">
+                  Bloques de venta más claros, con acceso directo a departamentos y asesoría.
+               </p>
+            </div>
+
+            <div class="producto-grid">
+               <article class="producto-card">
+                  <div class="producto-img">
+                     <img src="principal/inicio/p1.jpg" alt="Celular destacado">
+                  </div>
+                  <div class="producto-body">
+                     <span class="tag"><i class="fas fa-fire"></i> Oferta</span>
+                     <h3>Celulares destacados</h3>
+                     <p>Equipos disponibles para consultar precio, crédito y características.</p>
+                     <div class="precio-box">
+                        <div>
+                           <strong>Consultar</strong>
+                           <span>Precio y crédito</span>
+                        </div>
+                        <a class="ver-producto" href="producto/celulares.html" aria-label="Ver celulares"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="producto-card">
+                  <div class="producto-img">
+                     <img src="principal/inicio/p3.jpg" alt="Refrigeradora destacada">
+                  </div>
+                  <div class="producto-body">
+                     <span class="tag"><i class="fas fa-snowflake"></i> Hogar</span>
+                     <h3>Refrigeración</h3>
+                     <p>Refrigeradoras y equipos de conservación para uso familiar.</p>
+                     <div class="precio-box">
+                        <div>
+                           <strong>Consultar</strong>
+                           <span>Disponibilidad</span>
+                        </div>
+                        <a class="ver-producto" href="producto/refrigeracion.html" aria-label="Ver refrigeración"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="producto-card">
+                  <div class="producto-img">
+                     <img src="principal/inicio/p4.jpg" alt="Cocina destacada">
+                  </div>
+                  <div class="producto-body">
+                     <span class="tag"><i class="fas fa-fire-burner"></i> Cocina</span>
+                     <h3>Cocina y línea blanca</h3>
+                     <p>Opciones para equipar su cocina con asesoría directa.</p>
+                     <div class="precio-box">
+                        <div>
+                           <strong>Consultar</strong>
+                           <span>Opciones</span>
+                        </div>
+                        <a class="ver-producto" href="producto/cocina.html" aria-label="Ver cocina"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="producto-card">
+                  <div class="producto-img">
+                     <img src="principal/inicio/p5.jpg" alt="Lavadora destacada">
+                  </div>
+                  <div class="producto-body">
+                     <span class="tag"><i class="fas fa-soap"></i> Lavado</span>
+                     <h3>Lavado</h3>
+                     <p>Lavadoras y soluciones prácticas para el hogar.</p>
+                     <div class="precio-box">
+                        <div>
+                           <strong>Consultar</strong>
+                           <span>Crédito directo</span>
+                        </div>
+                        <a class="ver-producto" href="producto/lavado.html" aria-label="Ver lavado"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </article>
+            </div>
+         </div>
+      </section>
+
+      <section class="vitrina">
+         <div class="contenedor">
+            <div class="section-head">
+               <div>
+                  <span class="section-eyebrow">Promociones en vitrina</span>
+                  <h2 class="section-title">Movimiento comercial real.</h2>
+               </div>
+               <p class="section-text">
+                  Esta franja sí mantiene desplazamiento automático como el diseño original.
+               </p>
+            </div>
+         </div>
+
+         <div class="vitrina-wrapper">
+            <div class="vitrina-track">
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p1.jpg" alt="Oferta destacada 1"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p2.jpg" alt="Oferta destacada 2"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p3.jpg" alt="Oferta destacada 3"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p4.jpg" alt="Oferta destacada 4"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p5.jpg" alt="Oferta destacada 5"></a>
+
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p1.jpg" alt="Oferta destacada 1"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p2.jpg" alt="Oferta destacada 2"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p3.jpg" alt="Oferta destacada 3"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p4.jpg" alt="Oferta destacada 4"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p5.jpg" alt="Oferta destacada 5"></a>
+
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p1.jpg" alt="Oferta destacada 1"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p2.jpg" alt="Oferta destacada 2"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p3.jpg" alt="Oferta destacada 3"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p4.jpg" alt="Oferta destacada 4"></a>
+               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p5.jpg" alt="Oferta destacada 5"></a>
+            </div>
+         </div>
+      </section>
+
+      <section class="cta">
+         <div class="contenedor cta-box">
+            <div>
+               <h2>Consulte precio, crédito y disponibilidad por WhatsApp.</h2>
+               <p>
+                  Un asesor puede ayudarle a elegir productos, revisar promociones y coordinar compra en Loja o Zamora.
+               </p>
+            </div>
+
+            <div class="cta-actions">
+               <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                  <i class="fab fa-whatsapp"></i> Hablar con asesor
+               </a>
+               <a href="combos.html" class="btn btn-white">Ver combos</a>
+            </div>
+         </div>
+      </section>
+
+      <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+         <div class="modal-content">
+            <h2 id="modal-titulo"></h2>
+            <ul id="modal-descripcion"></ul>
+            <p id="modal-precio" class="precio"></p>
+
+            <div class="modal-buttons">
+               <a id="whatsapp-link" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                  <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+               </a>
+               <button class="close" type="button" onclick="cerrarModal()">Cerrar</button>
+            </div>
+         </div>
+      </div>
    </main>
 
-   <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Comprar por WhatsApp">
+   <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="whatsapp-flotante" aria-label="Comprar por WhatsApp">
       <i class="fab fa-whatsapp"></i>
    </a>
 
-   <footer class="footer">
-      <div class="contenedor footer-compact">
-         <p>© <span data-year></span> Electromás. Todos los derechos reservados.</p>
+   <footer>
+      <div class="contenedor footer-compacto">
+         <p>© <span id="anioActual"></span> Electromás. Todos los derechos reservados.</p>
          <div class="footer-links">
             <a href="ofertas.html">Ofertas</a>
             <a href="combos.html">Combos</a>
             <a href="electrodomesticos.html">Electrodomésticos</a>
             <a href="tecnologia.html">Tecnología</a>
             <a href="hogar.html">Hogar</a>
-            <a href="somos.html">Empresa</a>
          </div>
       </div>
    </footer>
 
-   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
-      <div class="modal-content">
-         <h2 id="modal-titulo"></h2>
-         <ul id="modal-descripcion"></ul>
-         <p id="modal-precio" class="precio"></p>
-         <div class="modal-buttons">
-            <a id="whatsapp-link" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
-               <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-            </a>
-            <button class="close" type="button" onclick="cerrarModal()">Cerrar</button>
-         </div>
-      </div>
-   </div>
-
    <script>
-      window.ELECTROMAS_GITHUB = {
+      document.getElementById("anioActual").textContent = new Date().getFullYear();
+
+      /*
+         BÚSQUEDA:
+         - No muestra texto completo de GitHub.
+         - Solo muestra título, ruta y palabras coincidentes.
+         - Para dominio personalizado, configure owner/repo/branch.
+      */
+      const GITHUB_CONFIG = {
          owner: "",
          repo: "",
          branch: "main"
       };
+
+      const PAGINAS_BASE = [
+         { title: "Inicio", url: "index.html", keywords: "inicio electromas electrodomésticos tecnología hogar crédito directo loja zamora ofertas" },
+         { title: "Ofertas", url: "ofertas.html", keywords: "ofertas promociones descuentos productos destacados" },
+         { title: "Combos", url: "combos.html", keywords: "combos paquetes promociones crédito directo" },
+         { title: "Electrodomésticos", url: "electrodomesticos.html", keywords: "electrodomésticos refrigeradoras cocinas lavadoras línea blanca" },
+         { title: "Tecnología", url: "tecnologia.html", keywords: "tecnología celulares televisores laptops computadores" },
+         { title: "Hogar", url: "hogar.html", keywords: "hogar sala muebles organización confort decoración" },
+         { title: "Accesorios", url: "producto/accesorios.html", keywords: "accesorios tecnología hogar complementos" },
+         { title: "Alimentos", url: "producto/alimentos.html", keywords: "alimentos cocina hogar productos" },
+         { title: "Celulares", url: "producto/celulares.html", keywords: "celulares smartphones teléfonos android tecnología" },
+         { title: "Climatización", url: "producto/climatizacion.html", keywords: "climatización aire acondicionado ventiladores frío calor" },
+         { title: "Cocina", url: "producto/cocina.html", keywords: "cocina cocinas hornos línea blanca electrodomésticos" },
+         { title: "Computadoras", url: "producto/computadoras.html", keywords: "computadoras laptops portátiles tecnología" },
+         { title: "Confort", url: "producto/confort.html", keywords: "confort hogar comodidad descanso" },
+         { title: "Lavado", url: "producto/lavado.html", keywords: "lavado lavadoras secadoras lavandería" },
+         { title: "Organización", url: "producto/organizacion.html", keywords: "organización hogar muebles espacios" },
+         { title: "Planchado", url: "producto/planchado.html", keywords: "planchado planchas hogar ropa" },
+         { title: "Refrigeración", url: "producto/refrigeracion.html", keywords: "refrigeración refrigeradoras congeladores neveras" },
+         { title: "Televisores", url: "producto/televisores.html", keywords: "televisores tv smart tv pantallas tecnología" }
+      ];
+
+      let indiceBusqueda = [...PAGINAS_BASE];
+      let indiceGithubCargado = false;
+
+      const campoBusqueda = document.getElementById("campoBusqueda");
+      const formBusqueda = document.getElementById("formBusqueda");
+      const resultadoBusqueda = document.getElementById("resultadoBusqueda");
+      const listaResultados = document.getElementById("listaResultados");
+      const estadoBusqueda = document.getElementById("estadoBusqueda");
+      const fuenteBusqueda = document.getElementById("fuenteBusqueda");
+
+      function normalizar(texto) {
+         return String(texto || "")
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9ñ\s\-\/.]/gi, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+      }
+
+      function terminosDeBusqueda(query) {
+         return normalizar(query)
+            .split(" ")
+            .filter(term => term.length >= 2);
+      }
+
+      function limpiarTituloArchivo(path) {
+         const nombre = path.split("/").pop().replace(".html", "");
+         return nombre
+            .replace(/-/g, " ")
+            .replace(/_/g, " ")
+            .replace(/\b\w/g, letra => letra.toUpperCase());
+      }
+
+      function detectarGithubPages() {
+         const host = window.location.hostname;
+         const partesPath = window.location.pathname.split("/").filter(Boolean);
+
+         if (GITHUB_CONFIG.owner && GITHUB_CONFIG.repo) {
+            return {
+               owner: GITHUB_CONFIG.owner,
+               repo: GITHUB_CONFIG.repo,
+               branch: GITHUB_CONFIG.branch || "main"
+            };
+         }
+
+         if (host.endsWith(".github.io")) {
+            const owner = host.replace(".github.io", "");
+            const repo = partesPath.length > 0 ? partesPath[0] : `${owner}.github.io`;
+            return {
+               owner,
+               repo,
+               branch: GITHUB_CONFIG.branch || "main"
+            };
+         }
+
+         return null;
+      }
+
+      async function cargarIndiceGithub() {
+         if (indiceGithubCargado) return;
+
+         const config = detectarGithubPages();
+         if (!config) {
+            fuenteBusqueda.textContent = "Índice local";
+            return;
+         }
+
+         try {
+            const api = `https://api.github.com/repos/${config.owner}/${config.repo}/git/trees/${config.branch}?recursive=1`;
+            const response = await fetch(api);
+
+            if (!response.ok) {
+               fuenteBusqueda.textContent = "Índice local";
+               return;
+            }
+
+            const data = await response.json();
+            const htmlFiles = (data.tree || [])
+               .filter(item => item.type === "blob" && item.path.endsWith(".html"))
+               .filter(item => !item.path.startsWith(".") && !item.path.includes("/."));
+
+            const desdeGithub = htmlFiles.map(item => ({
+               title: limpiarTituloArchivo(item.path),
+               url: item.path,
+               keywords: `${limpiarTituloArchivo(item.path)} ${item.path.replace(/[\/\-.]/g, " ")}`
+            }));
+
+            const mapa = new Map();
+
+            [...PAGINAS_BASE, ...desdeGithub].forEach(item => {
+               if (!mapa.has(item.url)) mapa.set(item.url, item);
+            });
+
+            indiceBusqueda = [...mapa.values()];
+            indiceGithubCargado = true;
+            fuenteBusqueda.textContent = "Índice GitHub";
+         } catch (error) {
+            fuenteBusqueda.textContent = "Índice local";
+         }
+      }
+
+      function buscar(query) {
+         const terminos = terminosDeBusqueda(query);
+         if (terminos.length === 0) return [];
+
+         return indiceBusqueda
+            .map(item => {
+               const texto = normalizar(`${item.title} ${item.url} ${item.keywords}`);
+               const coincidencias = terminos.filter(term => texto.includes(term));
+               return {
+                  ...item,
+                  coincidencias,
+                  score: coincidencias.length
+               };
+            })
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title))
+            .slice(0, 10);
+      }
+
+      function renderResultados(query) {
+         const terminos = terminosDeBusqueda(query);
+
+         if (terminos.length === 0) {
+            resultadoBusqueda.classList.remove("activo");
+            listaResultados.innerHTML = "";
+            estadoBusqueda.textContent = "Escriba para buscar.";
+            return;
+         }
+
+         const resultados = buscar(query);
+         resultadoBusqueda.classList.add("activo");
+
+         estadoBusqueda.textContent = resultados.length
+            ? `Resultados para: ${terminos.join(", ")}`
+            : `Sin resultados para: ${terminos.join(", ")}`;
+
+         if (!resultados.length) {
+            listaResultados.innerHTML = `<div class="resultado-vacio">No se encontraron páginas relacionadas.</div>`;
+            return;
+         }
+
+         listaResultados.innerHTML = resultados.map(item => {
+            const tags = item.coincidencias
+               .slice(0, 4)
+               .map(term => `<span>${term}</span>`)
+               .join("");
+
+            return `
+               <a href="${item.url}" class="resultado-item">
+                  <div>
+                     <strong>${item.title}</strong>
+                     <small>${item.url}</small>
+                  </div>
+                  <div class="resultado-tags">${tags}</div>
+               </a>
+            `;
+         }).join("");
+      }
+
+      campoBusqueda.addEventListener("focus", async function () {
+         await cargarIndiceGithub();
+         renderResultados(campoBusqueda.value);
+      });
+
+      campoBusqueda.addEventListener("input", async function () {
+         await cargarIndiceGithub();
+         renderResultados(campoBusqueda.value);
+      });
+
+      formBusqueda.addEventListener("submit", async function (event) {
+         event.preventDefault();
+         await cargarIndiceGithub();
+         const resultados = buscar(campoBusqueda.value);
+
+         if (resultados.length > 0) {
+            window.location.href = resultados[0].url;
+         } else {
+            renderResultados(campoBusqueda.value);
+         }
+      });
+
+      document.addEventListener("click", function(event) {
+         if (!event.target.closest(".busqueda-wrap")) {
+            resultadoBusqueda.classList.remove("activo");
+         }
+      });
+
+      function mostrarDetalles(titulo, descripcion, precio) {
+         const modalTitulo = document.getElementById("modal-titulo");
+         const modalDescripcion = document.getElementById("modal-descripcion");
+         const modalPrecio = document.getElementById("modal-precio");
+         const whatsappLink = document.getElementById("whatsapp-link");
+         const modal = document.getElementById("modal");
+
+         modalTitulo.innerText = titulo;
+         modalDescripcion.innerHTML = "";
+
+         const caracteristicas = String(descripcion || "").split("|");
+
+         caracteristicas.forEach(function(caracteristica) {
+            const li = document.createElement("li");
+            li.textContent = caracteristica.trim();
+            modalDescripcion.appendChild(li);
+         });
+
+         modalPrecio.innerText = precio;
+
+         const numeroWhatsApp = "593988926331";
+         const mensaje = `Hola, estoy interesado en el siguiente producto:
+*Producto:* ${titulo}
+*Precio:* ${precio}
+¿Podrían brindarme más información, por favor?`;
+
+         whatsappLink.href = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+         modal.style.display = "flex";
+      }
+
+      function cerrarModal() {
+         document.getElementById("modal").style.display = "none";
+      }
+
+      document.addEventListener("keydown", function(event) {
+         if (event.key === "Escape") cerrarModal();
+      });
+
+      document.getElementById("modal").addEventListener("click", function(event) {
+         if (event.target === this) cerrarModal();
+      });
    </script>
-   <script src="assets/js/search.js"></script>
-   <script src="assets/js/main.js"></script>
 </body>
 </html>
