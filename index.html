@@ -3,14 +3,14 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Electromás | Electrodomésticos, Tecnología y Hogar en Loja</title>
+   <title>Electromás | Electrodomésticos, Tecnología y Hogar en Loja y Zamora</title>
 
-   <meta name="description" content="Electromás ofrece electrodomésticos, tecnología y productos para el hogar con crédito directo, garantía y atención por WhatsApp en Loja.">
-   <meta name="keywords" content="Electromás, electrodomésticos Loja, tecnología Loja, hogar, crédito directo, celulares, televisores, refrigeradoras, lavadoras, cocina">
+   <meta name="description" content="Electromás ofrece electrodomésticos, tecnología y productos para el hogar con crédito directo, garantía y atención por WhatsApp para las provincias de Loja y Zamora.">
+   <meta name="keywords" content="Electromás, electrodomésticos Loja, tecnología Loja, hogar Loja, crédito directo, celulares, televisores, refrigeradoras, lavadoras, cocina, Zamora">
    <meta name="author" content="Electromás">
 
    <meta property="og:title" content="Electromás | Electrodomésticos, Tecnología y Hogar">
-   <meta property="og:description" content="Compre con crédito directo, garantía y asesoría por WhatsApp en Loja.">
+   <meta property="og:description" content="Ventas para las provincias de Loja y Zamora. Crédito directo, garantía y asesoría por WhatsApp.">
    <meta property="og:image" content="principal/general/fondo.png">
    <meta property="og:type" content="website">
 
@@ -19,20 +19,20 @@
 
    <style>
       :root {
-         --azul: #162b4e;
-         --azul-2: #1f3f73;
-         --azul-3: #eef4ff;
+         --azul: #142b52;
+         --azul-2: #1f4175;
+         --azul-3: #edf3ff;
          --naranja: #ffa500;
-         --naranja-2: #e99400;
-         --negro: #20201f;
-         --gris: #626b7f;
-         --gris-2: #e8ecf3;
+         --naranja-2: #e99100;
+         --negro: #1f242c;
+         --gris: #5f6c7f;
+         --gris-2: #dfe5ef;
          --fondo: #f5f7fb;
          --blanco: #ffffff;
          --whatsapp: #25D366;
-         --borde: rgba(22, 43, 78, 0.12);
-         --sombra: 0 18px 45px rgba(22, 43, 78, 0.12);
-         --sombra-suave: 0 10px 26px rgba(22, 43, 78, 0.08);
+         --borde: rgba(20, 43, 82, 0.12);
+         --sombra: 0 18px 45px rgba(20, 43, 82, 0.13);
+         --sombra-suave: 0 10px 26px rgba(20, 43, 82, 0.08);
          --radio: 22px;
       }
 
@@ -42,13 +42,11 @@
 
       html {
          scroll-behavior: smooth;
-         max-width: 100%;
          overflow-x: hidden;
       }
 
       body {
          margin: 0;
-         max-width: 100%;
          overflow-x: hidden;
          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
          color: var(--negro);
@@ -81,45 +79,37 @@
          margin: 0 auto;
       }
 
-      .solo-movil {
-         display: none;
-      }
-
-      /* ========================= */
-      /* HEADER SIMPLE */
-      /* ========================= */
-
-      .topline {
+      .topbar {
          background: var(--negro);
          color: rgba(255, 255, 255, 0.9);
          font-size: 12px;
       }
 
-      .topline .contenedor {
+      .topbar .contenedor {
          min-height: 34px;
          display: flex;
          align-items: center;
          justify-content: space-between;
-         gap: 18px;
+         gap: 16px;
       }
 
-      .topline-info,
-      .topline-links {
+      .topbar-info,
+      .topbar-links {
          display: flex;
          align-items: center;
          gap: 16px;
          flex-wrap: wrap;
       }
 
-      .topline span,
-      .topline a {
+      .topbar span,
+      .topbar a {
          display: inline-flex;
          align-items: center;
          gap: 7px;
          white-space: nowrap;
       }
 
-      .topline i {
+      .topbar i {
          color: var(--naranja);
       }
 
@@ -127,18 +117,18 @@
          position: sticky;
          top: 0;
          z-index: 1000;
-         background: rgba(255, 255, 255, 0.97);
+         background: rgba(255, 255, 255, 0.98);
          border-bottom: 1px solid var(--borde);
-         box-shadow: 0 8px 24px rgba(22, 43, 78, 0.08);
+         box-shadow: 0 8px 24px rgba(20, 43, 82, 0.08);
          backdrop-filter: blur(14px);
       }
 
       .header-main {
-         min-height: 78px;
+         min-height: 76px;
          display: grid;
-         grid-template-columns: 176px minmax(280px, 1fr) auto;
-         gap: 18px;
+         grid-template-columns: 178px minmax(260px, 1fr) auto;
          align-items: center;
+         gap: 18px;
       }
 
       .logo {
@@ -147,28 +137,28 @@
       }
 
       .logo img {
-         height: 48px;
+         height: 50px;
          width: auto;
       }
 
       .busqueda {
          width: 100%;
-         display: grid;
-         grid-template-columns: minmax(0, 1fr) 58px;
          min-width: 0;
-         border: 2px solid var(--azul);
-         border-radius: 14px;
+         display: grid;
+         grid-template-columns: minmax(0, 1fr) 56px;
          overflow: hidden;
+         border: 1.5px solid var(--azul);
+         border-radius: 16px;
          background: var(--blanco);
       }
 
       .busqueda input {
          width: 100%;
          min-width: 0;
-         height: 50px;
+         height: 48px;
          border: 0;
          outline: 0;
-         padding: 0 18px;
+         padding: 0 17px;
          color: var(--negro);
          font-size: 14px;
       }
@@ -177,12 +167,7 @@
          border: 0;
          background: var(--azul);
          color: var(--blanco);
-         font-size: 20px;
-         transition: background 0.2s ease;
-      }
-
-      .busqueda button:hover {
-         background: var(--negro);
+         font-size: 19px;
       }
 
       .header-whatsapp {
@@ -192,17 +177,13 @@
          justify-content: center;
          gap: 9px;
          padding: 0 18px;
-         border-radius: 14px;
+         border-radius: 16px;
          background: var(--whatsapp);
          color: var(--blanco);
          font-size: 14px;
          font-weight: 900;
          white-space: nowrap;
-         box-shadow: 0 12px 24px rgba(37, 211, 102, 0.22);
-      }
-
-      .header-whatsapp:hover {
-         filter: brightness(0.96);
+         box-shadow: 0 14px 26px rgba(37, 211, 102, 0.2);
       }
 
       .menu {
@@ -211,39 +192,30 @@
       }
 
       .menu .contenedor {
-         min-height: 58px;
+         min-height: 54px;
          display: flex;
          align-items: center;
          justify-content: space-between;
          gap: 14px;
       }
 
-      .menu-categorias,
-      .menu-acciones {
+      .menu-grupo {
          display: flex;
          align-items: center;
-         gap: 10px;
+         gap: 8px;
          min-width: 0;
-      }
-
-      .menu-categorias {
          flex-wrap: wrap;
       }
 
-      .menu-acciones {
-         flex-shrink: 0;
-      }
-
-      .menu-link,
-      .menu-btn {
-         min-height: 38px;
+      .menu-link {
+         min-height: 36px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
          gap: 8px;
          padding: 0 14px;
          border-radius: 999px;
-         border: 1px solid rgba(255, 255, 255, 0.2);
+         border: 1px solid rgba(255, 255, 255, 0.18);
          background: rgba(255, 255, 255, 0.08);
          color: var(--blanco);
          font-size: 13px;
@@ -252,41 +224,21 @@
          transition: background 0.2s ease, transform 0.2s ease;
       }
 
-      .menu-link i,
-      .menu-btn i {
+      .menu-link i {
          color: var(--naranja);
       }
 
-      .menu-link:hover,
-      .menu-btn:hover {
+      .menu-link:hover {
          background: rgba(255, 255, 255, 0.16);
          transform: translateY(-1px);
       }
-
-      .menu-btn {
-         border: 0;
-      }
-
-      .menu-link.activo {
-         background: var(--naranja);
-         color: var(--blanco);
-         border-color: var(--naranja);
-      }
-
-      .menu-link.activo i {
-         color: var(--blanco);
-      }
-
-      /* ========================= */
-      /* HERO */
-      /* ========================= */
 
       .hero {
          position: relative;
          overflow: hidden;
          background:
-            radial-gradient(circle at 84% 10%, rgba(255, 165, 0, 0.24), transparent 30%),
-            linear-gradient(135deg, var(--negro) 0%, var(--azul) 52%, var(--azul-2) 100%);
+            radial-gradient(circle at 82% 8%, rgba(255, 165, 0, 0.25), transparent 28%),
+            linear-gradient(135deg, #111827 0%, var(--azul) 55%, var(--azul-2) 100%);
          color: var(--blanco);
       }
 
@@ -294,22 +246,22 @@
          content: "";
          position: absolute;
          inset: 0;
-         opacity: 0.2;
+         opacity: 0.18;
          background-image:
             linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
             linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-         background-size: 44px 44px;
+         background-size: 46px 46px;
       }
 
       .hero .contenedor {
          position: relative;
          z-index: 2;
-         min-height: 500px;
+         min-height: 470px;
          display: grid;
-         grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+         grid-template-columns: minmax(0, 1.05fr) minmax(310px, 0.95fr);
          align-items: center;
-         gap: 42px;
-         padding: 58px 0 62px;
+         gap: 46px;
+         padding: 58px 0 64px;
       }
 
       .hero-etiqueta {
@@ -319,9 +271,8 @@
          margin-bottom: 18px;
          padding: 9px 13px;
          border-radius: 999px;
-         border: 1px solid rgba(255, 255, 255, 0.18);
-         background: rgba(255, 255, 255, 0.09);
-         color: rgba(255, 255, 255, 0.92);
+         border: 1px solid rgba(255,255,255,0.18);
+         background: rgba(255,255,255,0.08);
          font-size: 12px;
          font-weight: 900;
          letter-spacing: 0.35px;
@@ -334,10 +285,10 @@
 
       .hero h1 {
          margin: 0;
-         max-width: 720px;
-         font-size: clamp(34px, 5vw, 58px);
-         line-height: 1.02;
-         letter-spacing: -1.3px;
+         max-width: 690px;
+         font-size: clamp(34px, 4.8vw, 56px);
+         line-height: 1.04;
+         letter-spacing: -1.2px;
          font-weight: 950;
       }
 
@@ -347,8 +298,8 @@
 
       .hero p {
          margin: 20px 0 0;
-         max-width: 620px;
-         color: rgba(255, 255, 255, 0.83);
+         max-width: 610px;
+         color: rgba(255,255,255,0.84);
          font-size: 16px;
          line-height: 1.62;
       }
@@ -372,7 +323,7 @@
          border-radius: 14px;
          font-size: 14px;
          font-weight: 900;
-         transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease;
+         transition: transform 0.2s ease, background 0.2s ease, filter 0.2s ease;
       }
 
       .btn:hover {
@@ -382,7 +333,7 @@
       .btn-naranja {
          background: var(--naranja);
          color: var(--blanco);
-         box-shadow: 0 16px 32px rgba(255, 165, 0, 0.25);
+         box-shadow: 0 16px 34px rgba(255, 165, 0, 0.26);
       }
 
       .btn-naranja:hover {
@@ -394,41 +345,35 @@
          color: var(--blanco);
       }
 
-      .btn-blanco {
-         background: var(--blanco);
-         color: var(--azul);
-      }
-
       .hero-panel {
          display: grid;
          gap: 16px;
       }
 
-      .cotizacion-card {
+      .venta-card {
          overflow: hidden;
          border-radius: 28px;
-         background: rgba(255, 255, 255, 0.96);
+         background: rgba(255,255,255,0.96);
          color: var(--negro);
          box-shadow: var(--sombra);
-         border: 1px solid rgba(255, 255, 255, 0.35);
       }
 
-      .cotizacion-head {
-         padding: 24px 24px 18px;
+      .venta-card-head {
+         padding: 24px;
          background:
-            linear-gradient(135deg, rgba(255,165,0,0.16), rgba(22,43,78,0.05)),
+            linear-gradient(135deg, rgba(255,165,0,0.18), rgba(20,43,82,0.06)),
             var(--blanco);
          border-bottom: 1px solid var(--borde);
       }
 
-      .cotizacion-head strong {
+      .venta-card-head strong {
          display: block;
          color: var(--azul);
          font-size: 22px;
-         line-height: 1.15;
+         line-height: 1.2;
       }
 
-      .cotizacion-head span {
+      .venta-card-head span {
          display: block;
          margin-top: 8px;
          color: var(--gris);
@@ -436,93 +381,54 @@
          line-height: 1.45;
       }
 
-      .cotizacion-body {
-         padding: 22px 24px 24px;
+      .venta-card-body {
+         padding: 20px 24px 24px;
          display: grid;
          gap: 12px;
       }
 
-      .cotizacion-body label {
+      .venta-linea {
          display: grid;
-         gap: 7px;
-         color: var(--azul);
-         font-size: 13px;
-         font-weight: 850;
-      }
-
-      .cotizacion-body input,
-      .cotizacion-body select,
-      .cotizacion-body textarea {
-         width: 100%;
-         min-width: 0;
-         border: 1px solid var(--borde);
-         border-radius: 14px;
-         outline: 0;
-         background: #f9fbff;
-         color: var(--negro);
-         padding: 12px 14px;
-      }
-
-      .cotizacion-body textarea {
-         min-height: 84px;
-         resize: vertical;
-      }
-
-      .cotizacion-body input:focus,
-      .cotizacion-body select:focus,
-      .cotizacion-body textarea:focus {
-         border-color: var(--naranja);
-         background: var(--blanco);
-      }
-
-      .confianza-grid {
-         display: grid;
-         grid-template-columns: repeat(2, minmax(0, 1fr));
+         grid-template-columns: 40px minmax(0, 1fr);
          gap: 12px;
-      }
-
-      .confianza-item {
-         display: flex;
-         align-items: flex-start;
-         gap: 10px;
-         min-width: 0;
-         padding: 14px;
+         align-items: start;
+         padding: 13px;
          border-radius: 18px;
-         background: rgba(255, 255, 255, 0.1);
-         border: 1px solid rgba(255, 255, 255, 0.16);
+         background: #f7faff;
+         border: 1px solid var(--borde);
       }
 
-      .confianza-item i {
-         flex: 0 0 34px;
-         width: 34px;
-         height: 34px;
+      .venta-linea i {
+         width: 40px;
+         height: 40px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
-         border-radius: 12px;
-         background: rgba(255, 165, 0, 0.16);
+         border-radius: 14px;
+         background: var(--azul);
          color: var(--naranja);
       }
 
-      .confianza-item strong {
+      .venta-linea strong {
          display: block;
-         font-size: 13px;
+         color: var(--azul);
+         font-size: 14px;
       }
 
-      .confianza-item span {
+      .venta-linea span {
          display: block;
          margin-top: 3px;
-         color: rgba(255, 255, 255, 0.75);
-         font-size: 12px;
+         color: var(--gris);
+         font-size: 13px;
          line-height: 1.35;
       }
 
-      /* ========================= */
-      /* SECCIONES */
-      /* ========================= */
+      .venta-card .btn {
+         width: 100%;
+      }
 
       .section {
-         padding: 56px 0;
+         padding: 58px 0;
       }
 
       .section-head {
@@ -530,7 +436,7 @@
          align-items: end;
          justify-content: space-between;
          gap: 28px;
-         margin-bottom: 28px;
+         margin-bottom: 26px;
       }
 
       .eyebrow {
@@ -538,7 +444,7 @@
          align-items: center;
          gap: 8px;
          margin-bottom: 8px;
-         color: var(--naranja);
+         color: var(--naranja-2);
          font-size: 12px;
          font-weight: 950;
          letter-spacing: 0.65px;
@@ -548,80 +454,108 @@
       .section-title {
          margin: 0;
          color: var(--azul);
-         font-size: clamp(28px, 3.4vw, 42px);
+         font-size: clamp(28px, 3.2vw, 42px);
          line-height: 1.08;
          letter-spacing: -0.75px;
          font-weight: 950;
       }
 
       .section-text {
-         width: min(460px, 100%);
+         width: min(470px, 100%);
          margin: 0;
          color: var(--gris);
          font-size: 15px;
          line-height: 1.6;
       }
 
-      /* ========================= */
-      /* CATALOGO */
-      /* ========================= */
-
       .catalogo {
          background: var(--blanco);
       }
 
-      .filtros {
-         display: grid;
-         grid-template-columns: minmax(220px, 1.3fr) repeat(3, minmax(150px, 0.8fr)) auto;
-         gap: 12px;
-         align-items: end;
+      .filtros-panel {
          margin-bottom: 24px;
-         padding: 16px;
+         padding: 18px;
          border: 1px solid var(--borde);
-         border-radius: 22px;
+         border-radius: 24px;
          background: #f8faff;
          box-shadow: var(--sombra-suave);
       }
 
-      .filtro-campo {
-         min-width: 0;
-         display: grid;
-         gap: 7px;
+      .filtros-top {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 14px;
+         margin-bottom: 14px;
       }
 
-      .filtro-campo label {
+      .filtros-top strong {
          color: var(--azul);
-         font-size: 12px;
-         font-weight: 900;
+         font-size: 16px;
       }
 
-      .filtro-campo input,
-      .filtro-campo select {
+      .filtros-top span {
+         color: var(--gris);
+         font-size: 13px;
+      }
+
+      .filtros {
+         display: grid;
+         grid-template-columns: minmax(260px, 1.35fr) minmax(180px, 0.8fr) minmax(170px, 0.65fr) auto;
+         gap: 12px;
+         align-items: center;
+      }
+
+      .busqueda-catalogo {
+         position: relative;
+         min-width: 0;
+      }
+
+      .busqueda-catalogo i {
+         position: absolute;
+         left: 15px;
+         top: 50%;
+         transform: translateY(-50%);
+         color: var(--naranja-2);
+      }
+
+      .busqueda-catalogo input,
+      .filtros select {
          width: 100%;
          min-width: 0;
-         height: 44px;
+         height: 46px;
          border: 1px solid var(--borde);
-         border-radius: 14px;
+         border-radius: 15px;
+         outline: 0;
          background: var(--blanco);
          color: var(--negro);
-         outline: 0;
+         font-size: 14px;
+      }
+
+      .busqueda-catalogo input {
+         padding: 0 14px 0 42px;
+      }
+
+      .filtros select {
          padding: 0 13px;
       }
 
-      .filtro-campo input:focus,
-      .filtro-campo select:focus {
+      .busqueda-catalogo input:focus,
+      .filtros select:focus {
          border-color: var(--naranja);
+         box-shadow: 0 0 0 4px rgba(255, 165, 0, 0.13);
       }
 
       .btn-limpiar {
-         height: 44px;
-         padding: 0 14px;
+         height: 46px;
+         padding: 0 15px;
          border: 1px solid var(--borde);
-         border-radius: 14px;
+         border-radius: 15px;
          background: var(--blanco);
          color: var(--azul);
          font-size: 13px;
          font-weight: 900;
+         white-space: nowrap;
       }
 
       .catalogo-meta {
@@ -650,13 +584,13 @@
          border-radius: 24px;
          background: var(--blanco);
          border: 1px solid var(--borde);
-         box-shadow: 0 12px 28px rgba(22, 43, 78, 0.08);
+         box-shadow: 0 12px 28px rgba(20, 43, 82, 0.08);
          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       }
 
       .producto-card:hover {
          transform: translateY(-4px);
-         border-color: rgba(255, 165, 0, 0.5);
+         border-color: rgba(255, 165, 0, 0.58);
          box-shadow: var(--sombra);
       }
 
@@ -666,10 +600,10 @@
          display: flex;
          align-items: center;
          justify-content: center;
-         padding: 14px;
+         padding: 18px;
          background:
-            radial-gradient(circle at 80% 12%, rgba(255, 165, 0, 0.22), transparent 30%),
-            linear-gradient(145deg, #f6f8fc, #eef3fb);
+            radial-gradient(circle at 82% 10%, rgba(255,165,0,0.22), transparent 30%),
+            linear-gradient(145deg, #f9fbff, #eef3fb);
          border-bottom: 1px solid var(--borde);
       }
 
@@ -682,8 +616,8 @@
 
       .producto-media.sin-imagen::after {
          content: attr(data-icon);
-         width: 70px;
-         height: 70px;
+         width: 72px;
+         height: 72px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
@@ -704,7 +638,7 @@
          gap: 6px;
          padding: 7px 10px;
          border-radius: 999px;
-         background: rgba(22, 43, 78, 0.92);
+         background: rgba(20, 43, 82, 0.94);
          color: var(--blanco);
          font-size: 11px;
          font-weight: 900;
@@ -729,36 +663,16 @@
          margin: 10px 0 8px;
          color: var(--azul);
          font-size: 17px;
-         line-height: 1.25;
+         line-height: 1.24;
          letter-spacing: -0.2px;
       }
 
       .producto-body p {
          margin: 0;
-         min-height: 52px;
+         min-height: 56px;
          color: var(--gris);
          font-size: 13px;
          line-height: 1.45;
-      }
-
-      .producto-beneficios {
-         display: flex;
-         align-items: center;
-         flex-wrap: wrap;
-         gap: 7px;
-         margin: 14px 0;
-      }
-
-      .producto-beneficios span {
-         display: inline-flex;
-         align-items: center;
-         gap: 5px;
-         padding: 6px 8px;
-         border-radius: 999px;
-         background: var(--azul-3);
-         color: var(--azul);
-         font-size: 11px;
-         font-weight: 850;
       }
 
       .producto-final {
@@ -766,28 +680,30 @@
          grid-template-columns: minmax(0, 1fr) auto;
          align-items: center;
          gap: 12px;
+         margin-top: 16px;
          padding-top: 14px;
          border-top: 1px solid var(--borde);
       }
 
-      .producto-precio strong {
-         display: block;
-         color: var(--negro);
-         font-size: 20px;
+      .producto-link {
+         display: inline-flex;
+         align-items: center;
+         gap: 7px;
+         color: var(--azul);
+         font-size: 13px;
+         font-weight: 900;
       }
 
-      .producto-precio span {
-         display: block;
-         color: var(--gris);
-         font-size: 12px;
+      .producto-link:hover {
+         color: var(--naranja-2);
       }
 
       .producto-cta {
+         min-height: 40px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
          gap: 8px;
-         min-height: 42px;
          padding: 0 12px;
          border-radius: 13px;
          background: var(--whatsapp);
@@ -802,75 +718,106 @@
          padding: 28px;
          border-radius: 22px;
          background: #f8faff;
-         border: 1px dashed rgba(22, 43, 78, 0.25);
+         border: 1px dashed rgba(20, 43, 82, 0.25);
          color: var(--gris);
          text-align: center;
       }
 
-      /* ========================= */
-      /* BLOQUE COMERCIAL */
-      /* ========================= */
-
-      .venta-rapida {
+      .servicio {
          background: var(--fondo);
       }
 
-      .pasos-grid {
+      .servicio-grid {
          display: grid;
-         grid-template-columns: repeat(3, minmax(0, 1fr));
-         gap: 18px;
+         grid-template-columns: 1.1fr 0.9fr;
+         gap: 24px;
+         align-items: stretch;
       }
 
-      .paso-card {
-         position: relative;
-         overflow: hidden;
-         min-width: 0;
-         padding: 24px;
-         border-radius: 26px;
+      .servicio-card {
+         padding: 28px;
+         border-radius: 28px;
          background: var(--blanco);
          border: 1px solid var(--borde);
          box-shadow: var(--sombra-suave);
       }
 
-      .paso-card::after {
-         content: "";
-         position: absolute;
-         right: -34px;
-         top: -34px;
-         width: 120px;
-         height: 120px;
-         border-radius: 50%;
-         background: rgba(255, 165, 0, 0.12);
+      .servicio-card h2 {
+         margin: 0 0 12px;
+         color: var(--azul);
+         font-size: clamp(26px, 3vw, 38px);
+         line-height: 1.12;
+         letter-spacing: -0.6px;
       }
 
-      .paso-icono {
-         width: 50px;
-         height: 50px;
+      .servicio-card p {
+         margin: 0;
+         color: var(--gris);
+         line-height: 1.6;
+      }
+
+      .servicio-lista {
+         display: grid;
+         gap: 12px;
+         margin-top: 20px;
+      }
+
+      .servicio-item {
+         display: grid;
+         grid-template-columns: 38px minmax(0, 1fr);
+         gap: 12px;
+         align-items: start;
+      }
+
+      .servicio-item i {
+         width: 38px;
+         height: 38px;
          display: inline-flex;
          align-items: center;
          justify-content: center;
-         border-radius: 18px;
-         background: var(--azul);
-         color: var(--naranja);
-         font-size: 20px;
+         border-radius: 14px;
+         background: var(--azul-3);
+         color: var(--naranja-2);
       }
 
-      .paso-card h3 {
-         margin: 18px 0 8px;
+      .servicio-item strong {
+         display: block;
          color: var(--azul);
-         font-size: 19px;
+         font-size: 14px;
       }
 
-      .paso-card p {
-         margin: 0;
+      .servicio-item span {
+         display: block;
+         margin-top: 2px;
          color: var(--gris);
-         font-size: 14px;
-         line-height: 1.55;
+         font-size: 13px;
+         line-height: 1.4;
+      }
+
+      .contacto-card {
+         background:
+            radial-gradient(circle at 12% 14%, rgba(255,165,0,0.18), transparent 28%),
+            linear-gradient(135deg, var(--azul), var(--azul-2));
+         color: var(--blanco);
+      }
+
+      .contacto-card h3 {
+         margin: 0 0 10px;
+         font-size: 24px;
+      }
+
+      .contacto-card p {
+         color: rgba(255,255,255,0.82);
+      }
+
+      .contacto-card .btn {
+         margin-top: 20px;
+         width: 100%;
       }
 
       .cta-final {
          background:
-            radial-gradient(circle at 14% 18%, rgba(255, 165, 0, 0.22), transparent 26%),
+            radial-gradient(circle at 14% 18%, rgba(255,165,0,0.22), transparent 26%),
             linear-gradient(135deg, var(--negro), var(--azul));
          color: var(--blanco);
       }
@@ -892,24 +839,20 @@
 
       .cta-box p {
          margin: 0;
-         max-width: 680px;
-         color: rgba(255, 255, 255, 0.82);
+         max-width: 700px;
+         color: rgba(255,255,255,0.82);
          line-height: 1.6;
       }
 
-      /* ========================= */
-      /* FOOTER */
-      /* ========================= */
-
       .footer {
-         background: #f0f2f6;
+         background: #f0f3f8;
          color: var(--negro);
          border-top: 1px solid var(--borde);
       }
 
       .footer-main {
          display: grid;
-         grid-template-columns: 1.25fr 0.8fr 0.9fr 1fr;
+         grid-template-columns: 1.22fr 0.8fr 0.9fr 1fr;
          gap: 34px;
          padding: 44px 0;
       }
@@ -933,7 +876,8 @@
          font-size: 16px;
       }
 
-      .footer-links {
+      .footer-links,
+      .footer-contacto {
          display: grid;
          gap: 10px;
       }
@@ -958,13 +902,8 @@
       .footer-contacto i {
          width: 17px;
          margin-top: 2px;
-         color: var(--naranja);
+         color: var(--naranja-2);
          text-align: center;
-      }
-
-      .footer-contacto {
-         display: grid;
-         gap: 12px;
       }
 
       .footer-social {
@@ -1029,18 +968,14 @@
          transform: translateY(-2px);
       }
 
-      /* ========================= */
-      /* RESPONSIVE */
-      /* ========================= */
-
       @media (max-width: 1080px) {
          .header-main {
-            grid-template-columns: 150px minmax(220px, 1fr) auto;
+            grid-template-columns: 154px minmax(220px, 1fr) auto;
          }
 
-         .hero .contenedor {
+         .hero .contenedor,
+         .servicio-grid {
             grid-template-columns: 1fr;
-            min-height: auto;
          }
 
          .hero-panel {
@@ -1061,7 +996,7 @@
       }
 
       @media (max-width: 820px) {
-         .topline {
+         .topbar {
             display: none;
          }
 
@@ -1094,37 +1029,28 @@
          }
 
          .menu .contenedor {
-            display: block;
-            padding: 10px 0;
-         }
-
-         .menu-categorias,
-         .menu-acciones {
-            width: 100%;
+            justify-content: flex-start;
             overflow-x: auto;
-            padding-bottom: 6px;
+            padding: 10px 0;
             scrollbar-width: thin;
          }
 
-         .menu-acciones {
-            margin-top: 6px;
+         .menu-grupo {
+            flex-wrap: nowrap;
+            flex-shrink: 0;
          }
 
-         .hero h1 {
-            font-size: clamp(32px, 9vw, 46px);
-         }
-
-         .confianza-grid,
-         .pasos-grid {
-            grid-template-columns: 1fr;
-         }
-
-         .section-head {
+         .section-head,
+         .filtros-top,
+         .catalogo-meta {
             display: block;
          }
 
-         .section-text {
-            margin-top: 12px;
+         .section-text,
+         .filtros-top span,
+         .catalogo-meta span + span {
+            display: block;
+            margin-top: 10px;
          }
 
          .producto-grid {
@@ -1145,9 +1071,12 @@
             padding: 42px 0 46px;
          }
 
+         .hero h1 {
+            font-size: clamp(32px, 9vw, 46px);
+         }
+
          .hero-acciones,
-         .cta-box .btn,
-         .cotizacion-body .btn {
+         .cta-box .btn {
             width: 100%;
          }
 
@@ -1157,11 +1086,6 @@
 
          .filtros {
             grid-template-columns: 1fr;
-            padding: 13px;
-         }
-
-         .catalogo-meta {
-            display: block;
          }
 
          .producto-grid {
@@ -1170,6 +1094,14 @@
 
          .producto-media {
             height: 210px;
+         }
+
+         .producto-final {
+            grid-template-columns: 1fr;
+         }
+
+         .producto-cta {
+            width: 100%;
          }
 
          .footer-main {
@@ -1196,17 +1128,36 @@
          }
       }
    </style>
+
+   <!-- Meta Pixel Code -->
+   <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '30263697303244203');
+      fbq('track', 'PageView');
+   </script>
+   <noscript>
+      <img height="1" width="1" style="display:none" alt=""
+      src="https://www.facebook.com/tr?id=30263697303244203&ev=PageView&noscript=1">
+   </noscript>
+   <!-- End Meta Pixel Code -->
 </head>
 
 <body>
-   <div class="topline">
+   <div class="topbar">
       <div class="contenedor">
-         <div class="topline-info">
-            <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja</span>
+         <div class="topbar-info">
+            <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja, Loja</span>
+            <span><i class="fas fa-truck-fast"></i> Ventas para las provincias de Loja y Zamora</span>
             <span><i class="fas fa-credit-card"></i> Crédito directo</span>
-            <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
          </div>
-         <div class="topline-links">
+         <div class="topbar-links">
             <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook</a>
             <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 098 892 6331</a>
          </div>
@@ -1231,17 +1182,14 @@
 
       <nav class="menu" aria-label="Menú principal">
          <div class="contenedor">
-            <div class="menu-categorias">
-               <a href="#catalogo" class="menu-link categoria-menu activo" data-menu-cat="todos"><i class="fas fa-border-all"></i> Todos</a>
-               <a href="#catalogo" class="menu-link categoria-menu" data-menu-cat="electrodomesticos"><i class="fas fa-plug"></i> Electrodomésticos</a>
-               <a href="#catalogo" class="menu-link categoria-menu" data-menu-cat="tecnologia"><i class="fas fa-laptop"></i> Tecnología</a>
-               <a href="#catalogo" class="menu-link categoria-menu" data-menu-cat="hogar"><i class="fas fa-couch"></i> Hogar</a>
+            <div class="menu-grupo">
+               <a href="electrodomesticos.html" class="menu-link"><i class="fas fa-plug"></i> Electrodomésticos</a>
+               <a href="tecnologia.html" class="menu-link"><i class="fas fa-laptop"></i> Tecnología</a>
+               <a href="hogar.html" class="menu-link"><i class="fas fa-couch"></i> Hogar</a>
             </div>
-
-            <div class="menu-acciones">
+            <div class="menu-grupo">
                <a href="ofertas.html" class="menu-link"><i class="fas fa-tags"></i> Ofertas</a>
                <a href="combos.html" class="menu-link"><i class="fas fa-layer-group"></i> Combos</a>
-               <button class="menu-btn" type="button" id="btnFiltro"><i class="fas fa-sliders"></i> Filtrar productos</button>
             </div>
          </div>
       </nav>
@@ -1251,64 +1199,41 @@
       <section class="hero">
          <div class="contenedor">
             <div class="hero-copy">
-               <div class="hero-etiqueta"><i class="fas fa-bolt"></i> Electromás Loja</div>
-               <h1>Equipe su hogar con <span>crédito directo</span> y asesoría real.</h1>
+               <div class="hero-etiqueta"><i class="fas fa-bolt"></i> Electromás Loja y Zamora</div>
+               <h1>Compre para su hogar con <span>asesoría directa</span> y crédito.</h1>
                <p>
-                  Electrodomésticos, tecnología y productos para el hogar. Consulte disponibilidad, opciones de pago y entrega por WhatsApp sin perder tiempo.
+                  Electrodomésticos, tecnología y productos para el hogar con atención comercial para las provincias de Loja y Zamora. Consulte precio, disponibilidad, garantía y entrega por WhatsApp.
                </p>
 
                <div class="hero-acciones">
-                  <a href="#catalogo" class="btn btn-naranja"><i class="fas fa-store"></i> Ver productos</a>
-                  <a href="https://wa.me/593988926331?text=Hola%2C%20quiero%20cotizar%20un%20producto%20de%20Electrom%C3%A1s." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
+                  <a href="#catalogo" class="btn btn-naranja"><i class="fas fa-store"></i> Ver catálogo destacado</a>
+                  <a href="https://wa.me/593988926331?text=Hola%2C%20quiero%20cotizar%20un%20producto%20de%20Electrom%C3%A1s.%20Estoy%20en%20Loja%20o%20Zamora." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
                </div>
             </div>
 
-            <div class="hero-panel">
-               <form class="cotizacion-card" id="formCotizacion">
-                  <div class="cotizacion-head">
-                     <strong>Cotización rápida</strong>
-                     <span>Envíe su interés por WhatsApp y un asesor revisará disponibilidad, precio y crédito.</span>
+            <aside class="hero-panel" aria-label="Atención comercial Electromás">
+               <div class="venta-card">
+                  <div class="venta-card-head">
+                     <strong>Atención rápida por WhatsApp</strong>
+                     <span>Un asesor confirma precio, modelos disponibles, crédito directo y cobertura de entrega.</span>
                   </div>
-                  <div class="cotizacion-body">
-                     <label>
-                        Producto o necesidad
-                        <input type="text" id="cotizacionProducto" placeholder="Ej.: refrigeradora, celular, lavadora" required>
-                     </label>
-                     <label>
-                        Categoría
-                        <select id="cotizacionCategoria">
-                           <option value="Electrodomésticos">Electrodomésticos</option>
-                           <option value="Tecnología">Tecnología</option>
-                           <option value="Hogar">Hogar</option>
-                        </select>
-                     </label>
-                     <label>
-                        Comentario opcional
-                        <textarea id="cotizacionDetalle" placeholder="Ej.: deseo pagar con crédito directo, consultar entrega, marca específica..."></textarea>
-                     </label>
-                     <button class="btn btn-whatsapp" type="submit"><i class="fab fa-whatsapp"></i> Enviar consulta</button>
-                  </div>
-               </form>
-
-               <div class="confianza-grid">
-                  <div class="confianza-item">
-                     <i class="fas fa-credit-card"></i>
-                     <div><strong>Crédito directo</strong><span>Opciones de pago para facilitar la compra.</span></div>
-                  </div>
-                  <div class="confianza-item">
-                     <i class="fas fa-truck-fast"></i>
-                     <div><strong>Entrega local</strong><span>Cobertura comercial en Loja y Zamora.</span></div>
-                  </div>
-                  <div class="confianza-item">
-                     <i class="fas fa-shield-halved"></i>
-                     <div><strong>Garantía</strong><span>Productos respaldados y atención comercial.</span></div>
-                  </div>
-                  <div class="confianza-item">
-                     <i class="fab fa-whatsapp"></i>
-                     <div><strong>Compra asistida</strong><span>Cotización y disponibilidad por WhatsApp.</span></div>
+                  <div class="venta-card-body">
+                     <div class="venta-linea">
+                        <i class="fas fa-location-dot"></i>
+                        <div><strong>Loja y Zamora</strong><span>Ventas y coordinación para ambas provincias.</span></div>
+                     </div>
+                     <div class="venta-linea">
+                        <i class="fas fa-credit-card"></i>
+                        <div><strong>Crédito directo</strong><span>Consulta de opciones de pago antes de comprar.</span></div>
+                     </div>
+                     <div class="venta-linea">
+                        <i class="fas fa-shield-halved"></i>
+                        <div><strong>Productos con garantía</strong><span>Compra asistida con respaldo comercial.</span></div>
+                     </div>
+                     <a href="https://wa.me/593988926331?text=Hola%2C%20deseo%20recibir%20asesor%C3%ADa%20para%20comprar%20en%20Electrom%C3%A1s." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Hablar con asesor</a>
                   </div>
                </div>
-            </div>
+            </aside>
          </div>
       </section>
 
@@ -1316,49 +1241,50 @@
          <div class="contenedor">
             <div class="section-head">
                <div>
-                  <span class="eyebrow"><i class="fas fa-cart-shopping"></i> Catálogo comercial</span>
-                  <h2 class="section-title">Productos listos para cotizar.</h2>
+                  <span class="eyebrow"><i class="fas fa-cart-shopping"></i> Catálogo destacado</span>
+                  <h2 class="section-title">Productos que el cliente suele consultar.</h2>
                </div>
                <p class="section-text">
-                  Filtros simples, tarjetas claras y contacto directo. El cliente encuentra el producto y consulta sin fricción.
+                  Búsqueda directa, líneas claras y enlace a la categoría correspondiente. Sin saturar la navegación principal.
                </p>
             </div>
 
-            <form class="filtros" id="filtrosProducto">
-               <div class="filtro-campo">
-                  <label for="buscarProducto">Buscar</label>
-                  <input type="search" id="buscarProducto" placeholder="Nombre, categoría o beneficio">
+            <div class="filtros-panel">
+               <div class="filtros-top">
+                  <strong>Filtrar productos destacados</strong>
+                  <span>Use los filtros para ubicar rápido una línea y cotizar por WhatsApp.</span>
                </div>
-               <div class="filtro-campo">
-                  <label for="categoriaProducto">Categoría</label>
-                  <select id="categoriaProducto">
-                     <option value="todos">Todas</option>
-                     <option value="electrodomesticos">Electrodomésticos</option>
-                     <option value="tecnologia">Tecnología</option>
-                     <option value="hogar">Hogar</option>
+               <form class="filtros" id="filtrosProducto">
+                  <div class="busqueda-catalogo">
+                     <i class="fas fa-magnifying-glass"></i>
+                     <input type="search" id="buscarProducto" placeholder="Buscar por nombre o línea">
+                  </div>
+                  <select id="lineaProducto" aria-label="Filtrar por línea">
+                     <option value="todos">Todas las líneas</option>
+                     <option value="refrigeracion">Refrigeración</option>
+                     <option value="cocina">Cocina</option>
+                     <option value="lavado">Lavado</option>
+                     <option value="climatizacion">Climatización</option>
+                     <option value="planchado">Planchado</option>
+                     <option value="celulares">Celulares</option>
+                     <option value="televisores">Televisores</option>
+                     <option value="computadoras">Computadoras</option>
+                     <option value="accesorios">Accesorios</option>
+                     <option value="confort">Confort</option>
+                     <option value="organizacion">Organización</option>
+                     <option value="alimentos">Alimentos</option>
                   </select>
-               </div>
-               <div class="filtro-campo">
-                  <label for="subcategoriaProducto">Subcategoría</label>
-                  <select id="subcategoriaProducto">
-                     <option value="todos">Todas</option>
+                  <select id="ordenProducto" aria-label="Ordenar productos">
+                     <option value="recomendados">Orden recomendado</option>
+                     <option value="az">Nombre A-Z</option>
+                     <option value="categoria">Categoría</option>
                   </select>
-               </div>
-               <div class="filtro-campo">
-                  <label for="beneficioProducto">Beneficio</label>
-                  <select id="beneficioProducto">
-                     <option value="todos">Todos</option>
-                     <option value="credito">Crédito directo</option>
-                     <option value="garantia">Garantía</option>
-                     <option value="entrega">Entrega local</option>
-                     <option value="oferta">Oferta</option>
-                  </select>
-               </div>
-               <button class="btn-limpiar" type="button" id="limpiarFiltros"><i class="fas fa-rotate-left"></i> Limpiar</button>
-            </form>
+                  <button class="btn-limpiar" type="button" id="limpiarFiltros"><i class="fas fa-rotate-left"></i> Limpiar</button>
+               </form>
+            </div>
 
             <div class="catalogo-meta">
-               <span id="resumenCatalogo"><strong>0</strong> productos disponibles para cotizar.</span>
+               <span id="resumenCatalogo"><strong>0</strong> productos destacados.</span>
                <span>Atención directa: <strong>098 892 6331</strong></span>
             </div>
 
@@ -1369,34 +1295,34 @@
          </div>
       </section>
 
-      <section class="section venta-rapida">
-         <div class="contenedor">
-            <div class="section-head">
-               <div>
-                  <span class="eyebrow"><i class="fas fa-route"></i> Compra práctica</span>
-                  <h2 class="section-title">Del interés a la cotización en tres pasos.</h2>
-               </div>
-               <p class="section-text">
-                  Menos adornos, más acción: el cliente busca, compara y escribe por WhatsApp.
+      <section class="section servicio">
+         <div class="contenedor servicio-grid">
+            <div class="servicio-card">
+               <span class="eyebrow"><i class="fas fa-handshake"></i> Compra asistida</span>
+               <h2>Una página web para vender, no para repetir secciones.</h2>
+               <p>
+                  La estructura guía al cliente hacia productos, categorías reales del sitio y contacto por WhatsApp. La navegación principal lleva a páginas HTML independientes; el catálogo de inicio sirve como vitrina de productos consultados.
                </p>
+               <div class="servicio-lista">
+                  <div class="servicio-item">
+                     <i class="fas fa-map-location-dot"></i>
+                     <div><strong>Cobertura comercial</strong><span>Ventas para las provincias de Loja y Zamora.</span></div>
+                  </div>
+                  <div class="servicio-item">
+                     <i class="fas fa-comments"></i>
+                     <div><strong>Cotización sin fricción</strong><span>WhatsApp directo desde cada producto.</span></div>
+                  </div>
+                  <div class="servicio-item">
+                     <i class="fas fa-layer-group"></i>
+                     <div><strong>Arquitectura web clara</strong><span>Categorías y subcategorías enlazadas a sus archivos HTML.</span></div>
+                  </div>
+               </div>
             </div>
 
-            <div class="pasos-grid">
-               <article class="paso-card">
-                  <div class="paso-icono"><i class="fas fa-magnifying-glass"></i></div>
-                  <h3>Encuentre el producto</h3>
-                  <p>Use la búsqueda o los filtros por categoría para llegar rápido a lo que necesita.</p>
-               </article>
-               <article class="paso-card">
-                  <div class="paso-icono"><i class="fas fa-comments-dollar"></i></div>
-                  <h3>Cotice por WhatsApp</h3>
-                  <p>Cada tarjeta abre un mensaje preparado con el producto de interés.</p>
-               </article>
-               <article class="paso-card">
-                  <div class="paso-icono"><i class="fas fa-truck-fast"></i></div>
-                  <h3>Coordine compra y entrega</h3>
-                  <p>El asesor confirma precio, crédito, disponibilidad y cobertura local.</p>
-               </article>
+            <div class="servicio-card contacto-card">
+               <h3>¿Necesita precio o crédito?</h3>
+               <p>Escriba por WhatsApp. Indique el producto que busca y la ciudad desde donde consulta para revisar disponibilidad y entrega.</p>
+               <a href="https://wa.me/593988926331?text=Hola%2C%20quiero%20consultar%20precio%2C%20cr%C3%A9dito%20y%20disponibilidad%20de%20un%20producto%20para%20Loja%20o%20Zamora." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Consultar ahora</a>
             </div>
          </div>
       </section>
@@ -1404,8 +1330,8 @@
       <section class="cta-final">
          <div class="contenedor cta-box">
             <div>
-               <h2>¿Ya sabe qué necesita?</h2>
-               <p>Escriba por WhatsApp y consulte precio, crédito directo, garantía y disponibilidad antes de comprar.</p>
+               <h2>Consulte antes de comprar.</h2>
+               <p>Precio, crédito directo, garantía y disponibilidad para Loja y Zamora en una conversación por WhatsApp.</p>
             </div>
             <a href="https://wa.me/593988926331?text=Hola%2C%20quiero%20recibir%20asesor%C3%ADa%20para%20comprar%20en%20Electrom%C3%A1s." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Hablar con asesor</a>
          </div>
@@ -1419,7 +1345,7 @@
                <img src="principal/general/electro.png" alt="Electromás">
             </a>
             <p>
-               Electrodomésticos, tecnología y hogar con atención comercial, crédito directo y asesoría por WhatsApp.
+               Electromás ofrece electrodomésticos, tecnología y productos para el hogar con atención comercial para Loja y Zamora, crédito directo y asesoría por WhatsApp.
             </p>
             <div class="footer-social">
                <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -1430,9 +1356,9 @@
          <div>
             <h3>Categorías</h3>
             <div class="footer-links">
-               <a href="#catalogo" data-footer-cat="electrodomesticos"><i class="fas fa-plug"></i> Electrodomésticos</a>
-               <a href="#catalogo" data-footer-cat="tecnologia"><i class="fas fa-laptop"></i> Tecnología</a>
-               <a href="#catalogo" data-footer-cat="hogar"><i class="fas fa-couch"></i> Hogar</a>
+               <a href="electrodomesticos.html"><i class="fas fa-plug"></i> Electrodomésticos</a>
+               <a href="tecnologia.html"><i class="fas fa-laptop"></i> Tecnología</a>
+               <a href="hogar.html"><i class="fas fa-couch"></i> Hogar</a>
                <a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a>
                <a href="combos.html"><i class="fas fa-layer-group"></i> Combos</a>
             </div>
@@ -1441,21 +1367,22 @@
          <div>
             <h3>Más consultado</h3>
             <div class="footer-links">
-               <a href="#catalogo" data-footer-sub="refrigeracion"><i class="fas fa-snowflake"></i> Refrigeración</a>
-               <a href="#catalogo" data-footer-sub="cocina"><i class="fas fa-fire-burner"></i> Cocina</a>
-               <a href="#catalogo" data-footer-sub="lavado"><i class="fas fa-soap"></i> Lavado</a>
-               <a href="#catalogo" data-footer-sub="celulares"><i class="fas fa-mobile-screen"></i> Celulares</a>
-               <a href="#catalogo" data-footer-sub="televisores"><i class="fas fa-tv"></i> Televisores</a>
+               <a href="producto/refrigeracion.html"><i class="fas fa-snowflake"></i> Refrigeración</a>
+               <a href="producto/cocina.html"><i class="fas fa-fire-burner"></i> Cocina</a>
+               <a href="producto/lavado.html"><i class="fas fa-soap"></i> Lavado</a>
+               <a href="producto/celulares.html"><i class="fas fa-mobile-screen"></i> Celulares</a>
+               <a href="producto/televisores.html"><i class="fas fa-tv"></i> Televisores</a>
             </div>
          </div>
 
          <div>
-            <h3>Contacto</h3>
+            <h3>Información y contacto</h3>
             <div class="footer-contacto">
+               <a href="quienes-somos.html"><i class="fas fa-building"></i> Quiénes somos</a>
                <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja, Loja</span>
                <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 098 892 6331</a>
+               <span><i class="fas fa-truck-fast"></i> Ventas para Loja y Zamora</span>
                <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
-               <span><i class="fas fa-truck-fast"></i> Entrega local en Loja y Zamora</span>
             </div>
          </div>
       </div>
@@ -1474,36 +1401,43 @@
 
    <script>
       const WHATSAPP = "593988926331";
+      const anioActual = document.getElementById("anioActual");
+      if (anioActual) anioActual.textContent = new Date().getFullYear();
 
-      document.getElementById("anioActual").textContent = new Date().getFullYear();
-
-      const SUBCATEGORIAS = {
-         todos: ["todos"],
-         electrodomesticos: ["refrigeracion", "cocina", "lavado", "climatizacion", "planchado"],
-         tecnologia: ["celulares", "computadoras", "televisores", "accesorios"],
-         hogar: ["confort", "organizacion", "alimentos"]
-      };
-
-      const SUBLABEL = {
-         todos: "Todas",
+      const LABELS = {
+         electrodomesticos: "Electrodomésticos",
+         tecnologia: "Tecnología",
+         hogar: "Hogar",
          refrigeracion: "Refrigeración",
          cocina: "Cocina",
          lavado: "Lavado",
          climatizacion: "Climatización",
          planchado: "Planchado",
          celulares: "Celulares",
-         computadoras: "Computadoras",
          televisores: "Televisores",
+         computadoras: "Computadoras",
          accesorios: "Accesorios",
          confort: "Confort",
          organizacion: "Organización",
          alimentos: "Alimentos"
       };
 
-      const CATLABEL = {
-         electrodomesticos: "Electrodomésticos",
-         tecnologia: "Tecnología",
-         hogar: "Hogar"
+      const CATEGORY_URLS = {
+         electrodomesticos: "electrodomesticos.html",
+         tecnologia: "tecnologia.html",
+         hogar: "hogar.html",
+         refrigeracion: "producto/refrigeracion.html",
+         cocina: "producto/cocina.html",
+         lavado: "producto/lavado.html",
+         climatizacion: "producto/climatizacion.html",
+         planchado: "producto/planchado.html",
+         celulares: "producto/celulares.html",
+         televisores: "producto/televisores.html",
+         computadoras: "producto/computadoras.html",
+         accesorios: "producto/accesorios.html",
+         confort: "producto/confort.html",
+         organizacion: "producto/organizacion.html",
+         alimentos: "producto/alimentos.html"
       };
 
       const ICONOS = {
@@ -1513,8 +1447,8 @@
          climatizacion: "\\f2dc",
          planchado: "\\f553",
          celulares: "\\f3cd",
-         computadoras: "\\f109",
          televisores: "\\f26c",
+         computadoras: "\\f109",
          accesorios: "\\f025",
          confort: "\\f236",
          organizacion: "\\f468",
@@ -1525,128 +1459,146 @@
          {
             nombre: "Refrigeradora familiar",
             categoria: "electrodomesticos",
-            subcategoria: "refrigeracion",
-            descripcion: "Capacidad para uso diario, conservación eficiente y asesoría para elegir tamaño adecuado.",
+            linea: "refrigeracion",
+            descripcion: "Equipo esencial para conservación diaria. Consulte capacidad, medidas y crédito directo.",
             imagen: "principal/inicio/p3.jpg",
-            etiqueta: "Hogar esencial",
-            beneficios: ["credito", "garantia", "entrega"]
+            etiqueta: "Alta rotación",
+            orden: 1
          },
          {
             nombre: "Congelador horizontal",
             categoria: "electrodomesticos",
-            subcategoria: "refrigeracion",
-            descripcion: "Opción práctica para familias y pequeños negocios que necesitan mayor almacenamiento.",
+            linea: "refrigeracion",
+            descripcion: "Solución práctica para hogares y pequeños negocios que requieren mayor almacenamiento.",
             imagen: "principal/oferta1.jpg",
-            etiqueta: "Alta demanda",
-            beneficios: ["credito", "garantia", "entrega"]
+            etiqueta: "Más consultado",
+            orden: 2
          },
          {
             nombre: "Cocina a gas",
             categoria: "electrodomesticos",
-            subcategoria: "cocina",
-            descripcion: "Equipo funcional para uso familiar, disponible para consulta de medidas y características.",
+            linea: "cocina",
+            descripcion: "Opciones para uso familiar con asesoría sobre tamaño, quemadores y disponibilidad.",
             imagen: "principal/inicio/p4.jpg",
-            etiqueta: "Cocina",
-            beneficios: ["credito", "garantia", "entrega"]
+            etiqueta: "Hogar",
+            orden: 3
          },
          {
-            nombre: "Horno o microondas",
+            nombre: "Horno microondas",
             categoria: "electrodomesticos",
-            subcategoria: "cocina",
-            descripcion: "Soluciones compactas para preparar alimentos con comodidad y buen aprovechamiento del espacio.",
+            linea: "cocina",
+            descripcion: "Equipo compacto para preparación rápida de alimentos y mejor uso del espacio.",
             imagen: "principal/general/fondo.png",
             etiqueta: "Práctico",
-            beneficios: ["garantia", "entrega"]
+            orden: 9
          },
          {
             nombre: "Lavadora automática",
             categoria: "electrodomesticos",
-            subcategoria: "lavado",
-            descripcion: "Capacidad útil para el hogar, ciclos de lavado y consulta de crédito directo.",
+            linea: "lavado",
+            descripcion: "Consulte capacidad, ciclos de lavado, disponibilidad y opciones de pago.",
             imagen: "principal/inicio/p5.jpg",
             etiqueta: "Crédito directo",
-            beneficios: ["credito", "garantia", "entrega", "oferta"]
+            orden: 4
          },
          {
-            nombre: "Aire acondicionado o ventilación",
+            nombre: "Secadora de ropa",
             categoria: "electrodomesticos",
-            subcategoria: "climatizacion",
-            descripcion: "Opciones para mejorar confort térmico en casa, oficina o negocio.",
+            linea: "lavado",
+            descripcion: "Alternativa funcional para hogares que necesitan secado más rápido y cómodo.",
+            imagen: "principal/inicio/p5.jpg",
+            etiqueta: "Lavado",
+            orden: 12
+         },
+         {
+            nombre: "Aire acondicionado",
+            categoria: "electrodomesticos",
+            linea: "climatizacion",
+            descripcion: "Opciones para casa, oficina o negocio. Consulte capacidad y disponibilidad.",
             imagen: "principal/inicio/p2.jpg",
             etiqueta: "Climatización",
-            beneficios: ["credito", "garantia"]
+            orden: 11
+         },
+         {
+            nombre: "Plancha de ropa",
+            categoria: "electrodomesticos",
+            linea: "planchado",
+            descripcion: "Producto práctico para cuidado diario de prendas y uso doméstico.",
+            imagen: "principal/general/fondo.png",
+            etiqueta: "Hogar práctico",
+            orden: 16
          },
          {
             nombre: "Celular Android",
             categoria: "tecnologia",
-            subcategoria: "celulares",
+            linea: "celulares",
             descripcion: "Equipos para comunicación, trabajo y entretenimiento. Consulte modelos disponibles.",
             imagen: "principal/inicio/p1.jpg",
-            etiqueta: "Más consultado",
-            beneficios: ["credito", "garantia", "oferta"]
+            etiqueta: "Tecnología",
+            orden: 5
          },
          {
             nombre: "Smart TV",
             categoria: "tecnologia",
-            subcategoria: "televisores",
+            linea: "televisores",
             descripcion: "Pantallas para entretenimiento familiar, streaming y conexión inteligente.",
             imagen: "principal/tec.jpg",
             etiqueta: "Entretenimiento",
-            beneficios: ["credito", "garantia", "entrega"]
+            orden: 6
          },
          {
-            nombre: "Laptop o computadora",
+            nombre: "Laptop",
             categoria: "tecnologia",
-            subcategoria: "computadoras",
-            descripcion: "Equipos para estudio, trabajo y uso diario. Se cotiza según necesidad.",
+            linea: "computadoras",
+            descripcion: "Equipo para estudio, trabajo y uso diario. Se cotiza según necesidad.",
             imagen: "principal/tec.jpg",
             etiqueta: "Estudio y trabajo",
-            beneficios: ["credito", "garantia"]
+            orden: 7
+         },
+         {
+            nombre: "Computadora de escritorio",
+            categoria: "tecnologia",
+            linea: "computadoras",
+            descripcion: "Solución para oficina, estudio o negocio con asesoría según uso requerido.",
+            imagen: "principal/tec.jpg",
+            etiqueta: "Oficina",
+            orden: 13
          },
          {
             nombre: "Audífonos y accesorios",
             categoria: "tecnologia",
-            subcategoria: "accesorios",
-            descripcion: "Complementos para celulares, audio, carga y conectividad.",
+            linea: "accesorios",
+            descripcion: "Complementos para audio, carga, conectividad y uso diario de dispositivos.",
             imagen: "principal/inicio/p2.jpg",
             etiqueta: "Complementos",
-            beneficios: ["garantia", "oferta"]
+            orden: 14
          },
          {
             nombre: "Muebles de confort",
             categoria: "hogar",
-            subcategoria: "confort",
+            linea: "confort",
             descripcion: "Productos para mejorar comodidad, descanso y funcionalidad del hogar.",
             imagen: "principal/sal.jpg",
             etiqueta: "Confort",
-            beneficios: ["credito", "entrega"]
+            orden: 8
          },
          {
             nombre: "Organizadores para hogar",
             categoria: "hogar",
-            subcategoria: "organizacion",
+            linea: "organizacion",
             descripcion: "Soluciones para ordenar espacios y aprovechar mejor cada ambiente.",
             imagen: "principal/sal.jpg",
             etiqueta: "Orden",
-            beneficios: ["entrega", "oferta"]
+            orden: 10
          },
          {
-            nombre: "Productos para cocina y alimentos",
+            nombre: "Artículos para cocina",
             categoria: "hogar",
-            subcategoria: "alimentos",
-            descripcion: "Artículos útiles para preparación, conservación y organización diaria.",
+            linea: "alimentos",
+            descripcion: "Productos útiles para preparación, conservación y organización diaria.",
             imagen: "principal/inicio/p4.jpg",
             etiqueta: "Uso diario",
-            beneficios: ["garantia", "entrega"]
-         },
-         {
-            nombre: "Planchas y cuidado de ropa",
-            categoria: "electrodomesticos",
-            subcategoria: "planchado",
-            descripcion: "Opciones para cuidado de prendas, uso doméstico y practicidad diaria.",
-            imagen: "principal/general/fondo.png",
-            etiqueta: "Hogar práctico",
-            beneficios: ["garantia", "oferta"]
+            orden: 15
          }
       ];
 
@@ -1654,9 +1606,8 @@
       const sinResultados = document.getElementById("sinResultados");
       const resumenCatalogo = document.getElementById("resumenCatalogo");
       const buscarProducto = document.getElementById("buscarProducto");
-      const categoriaProducto = document.getElementById("categoriaProducto");
-      const subcategoriaProducto = document.getElementById("subcategoriaProducto");
-      const beneficioProducto = document.getElementById("beneficioProducto");
+      const lineaProducto = document.getElementById("lineaProducto");
+      const ordenProducto = document.getElementById("ordenProducto");
       const campoBusqueda = document.getElementById("campoBusqueda");
 
       function normalizar(texto) {
@@ -1669,198 +1620,102 @@
             .trim();
       }
 
-      function capitalizar(texto) {
-         return String(texto || "")
-            .replace(/-/g, " ")
-            .replace(/\b\w/g, letra => letra.toUpperCase());
-      }
+      function crearWhatsAppProducto(producto) {
+         const mensaje = [
+            "Hola, estoy interesado en este producto de Electromás:",
+            "",
+            `Producto: ${producto.nombre}`,
+            `Categoría: ${LABELS[producto.categoria]} / ${LABELS[producto.linea]}`,
+            "Provincia: Loja o Zamora",
+            "",
+            "Quisiera consultar precio, disponibilidad, garantía y crédito directo."
+         ].join("\n");
 
-      function etiquetaBeneficio(beneficio) {
-         const mapa = {
-            credito: "Crédito",
-            garantia: "Garantía",
-            entrega: "Entrega",
-            oferta: "Oferta"
-         };
-         return mapa[beneficio] || capitalizar(beneficio);
-      }
-
-      function iconoBeneficio(beneficio) {
-         const mapa = {
-            credito: "fa-credit-card",
-            garantia: "fa-shield-halved",
-            entrega: "fa-truck-fast",
-            oferta: "fa-tags"
-         };
-         return mapa[beneficio] || "fa-circle-check";
-      }
-
-      function actualizarSubcategorias() {
-         const categoria = categoriaProducto.value;
-         const opciones = ["todos", ...(SUBCATEGORIAS[categoria] || [])].filter((item, index, array) => array.indexOf(item) === index);
-
-         subcategoriaProducto.innerHTML = opciones
-            .map(item => `<option value="${item}">${SUBLABEL[item] || capitalizar(item)}</option>`)
-            .join("");
+         return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
       }
 
       function productoCoincide(producto) {
          const textoBusqueda = normalizar(buscarProducto.value);
-         const categoria = categoriaProducto.value;
-         const subcategoria = subcategoriaProducto.value;
-         const beneficio = beneficioProducto.value;
-
+         const linea = lineaProducto.value;
          const textoProducto = normalizar([
             producto.nombre,
             producto.descripcion,
-            CATLABEL[producto.categoria],
-            SUBLABEL[producto.subcategoria],
-            producto.etiqueta,
-            producto.beneficios.join(" ")
+            LABELS[producto.categoria],
+            LABELS[producto.linea],
+            producto.etiqueta
          ].join(" "));
 
          const coincideTexto = !textoBusqueda || textoProducto.includes(textoBusqueda);
-         const coincideCategoria = categoria === "todos" || producto.categoria === categoria;
-         const coincideSubcategoria = subcategoria === "todos" || producto.subcategoria === subcategoria;
-         const coincideBeneficio = beneficio === "todos" || producto.beneficios.includes(beneficio);
+         const coincideLinea = linea === "todos" || producto.linea === linea;
 
-         return coincideTexto && coincideCategoria && coincideSubcategoria && coincideBeneficio;
+         return coincideTexto && coincideLinea;
       }
 
-      function crearWhatsAppProducto(producto) {
-         const mensaje = `Hola, estoy interesado en este producto de Electromás:%0A%0A*Producto:* ${producto.nombre}%0A*Categoría:* ${CATLABEL[producto.categoria]} / ${SUBLABEL[producto.subcategoria]}%0A%0AQuisiera consultar precio, disponibilidad y crédito directo.`;
-         return `https://wa.me/${WHATSAPP}?text=${mensaje}`;
+      function ordenarProductos(productos) {
+         const orden = ordenProducto.value;
+         const copia = [...productos];
+
+         if (orden === "az") {
+            return copia.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
+         }
+
+         if (orden === "categoria") {
+            return copia.sort((a, b) => {
+               const cat = LABELS[a.categoria].localeCompare(LABELS[b.categoria], "es");
+               if (cat !== 0) return cat;
+               return LABELS[a.linea].localeCompare(LABELS[b.linea], "es");
+            });
+         }
+
+         return copia.sort((a, b) => a.orden - b.orden);
       }
 
       function renderProductos() {
-         const productosFiltrados = PRODUCTOS.filter(productoCoincide);
+         const productosFiltrados = ordenarProductos(PRODUCTOS.filter(productoCoincide));
 
-         productoGrid.innerHTML = productosFiltrados.map(producto => {
-            const beneficios = producto.beneficios.map(beneficio => `
-               <span><i class="fas ${iconoBeneficio(beneficio)}"></i> ${etiquetaBeneficio(beneficio)}</span>
-            `).join("");
-
-            return `
-               <article class="producto-card">
-                  <div class="producto-media" data-icon="${ICONOS[producto.subcategoria] || "\\f1b2"}">
-                     <span class="producto-tag"><i class="fas fa-star"></i> ${producto.etiqueta}</span>
-                     <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy" onerror="this.closest('.producto-media').classList.add('sin-imagen'); this.remove();">
+         productoGrid.innerHTML = productosFiltrados.map(producto => `
+            <article class="producto-card">
+               <div class="producto-media" data-icon="${ICONOS[producto.linea] || "\\f1b2"}">
+                  <span class="producto-tag"><i class="fas fa-star"></i> ${producto.etiqueta}</span>
+                  <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy" onerror="this.closest('.producto-media').classList.add('sin-imagen'); this.remove();">
+               </div>
+               <div class="producto-body">
+                  <div class="producto-ruta"><i class="fas fa-layer-group"></i> ${LABELS[producto.categoria]} · ${LABELS[producto.linea]}</div>
+                  <h3>${producto.nombre}</h3>
+                  <p>${producto.descripcion}</p>
+                  <div class="producto-final">
+                     <a href="${CATEGORY_URLS[producto.linea] || CATEGORY_URLS[producto.categoria]}" class="producto-link">Ver categoría <i class="fas fa-arrow-right"></i></a>
+                     <a href="${crearWhatsAppProducto(producto)}" target="_blank" rel="noopener noreferrer" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a>
                   </div>
-                  <div class="producto-body">
-                     <div class="producto-ruta"><i class="fas fa-layer-group"></i> ${CATLABEL[producto.categoria]} · ${SUBLABEL[producto.subcategoria]}</div>
-                     <h3>${producto.nombre}</h3>
-                     <p>${producto.descripcion}</p>
-                     <div class="producto-beneficios">${beneficios}</div>
-                     <div class="producto-final">
-                        <div class="producto-precio">
-                           <strong>Consultar</strong>
-                           <span>Precio y disponibilidad</span>
-                        </div>
-                        <a href="${crearWhatsAppProducto(producto)}" target="_blank" rel="noopener noreferrer" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a>
-                     </div>
-                  </div>
-               </article>
-            `;
-         }).join("");
+               </div>
+            </article>
+         `).join("");
 
-         resumenCatalogo.innerHTML = `<strong>${productosFiltrados.length}</strong> productos disponibles para cotizar.`;
+         resumenCatalogo.innerHTML = `<strong>${productosFiltrados.length}</strong> productos destacados.`;
          sinResultados.style.display = productosFiltrados.length ? "none" : "block";
       }
 
-      function aplicarCategoria(categoria) {
-         categoriaProducto.value = categoria;
-         actualizarSubcategorias();
-         beneficioProducto.value = "todos";
-         renderProductos();
-
-         document.querySelectorAll(".categoria-menu").forEach(link => {
-            link.classList.toggle("activo", link.dataset.menuCat === categoria);
-         });
-      }
-
-      document.querySelectorAll(".categoria-menu").forEach(link => {
-         link.addEventListener("click", function() {
-            aplicarCategoria(this.dataset.menuCat || "todos");
-         });
-      });
-
-      document.querySelectorAll("[data-footer-cat]").forEach(link => {
-         link.addEventListener("click", function() {
-            aplicarCategoria(this.dataset.footerCat || "todos");
-         });
-      });
-
-      document.querySelectorAll("[data-footer-sub]").forEach(link => {
-         link.addEventListener("click", function() {
-            const sub = this.dataset.footerSub;
-            const categoria = Object.keys(SUBCATEGORIAS).find(cat => SUBCATEGORIAS[cat].includes(sub)) || "todos";
-            categoriaProducto.value = categoria;
-            actualizarSubcategorias();
-            subcategoriaProducto.value = sub;
-            beneficioProducto.value = "todos";
-            document.querySelectorAll(".categoria-menu").forEach(menu => menu.classList.toggle("activo", menu.dataset.menuCat === categoria));
-            renderProductos();
-         });
-      });
-
-      categoriaProducto.addEventListener("change", function() {
-         actualizarSubcategorias();
-         document.querySelectorAll(".categoria-menu").forEach(link => {
-            link.classList.toggle("activo", link.dataset.menuCat === categoriaProducto.value);
-         });
-         renderProductos();
-      });
-
-      [buscarProducto, subcategoriaProducto, beneficioProducto].forEach(campo => {
+      [buscarProducto, lineaProducto, ordenProducto].forEach(campo => {
          campo.addEventListener("input", renderProductos);
          campo.addEventListener("change", renderProductos);
       });
 
       document.getElementById("limpiarFiltros").addEventListener("click", function() {
          buscarProducto.value = "";
-         categoriaProducto.value = "todos";
-         beneficioProducto.value = "todos";
-         actualizarSubcategorias();
+         lineaProducto.value = "todos";
+         ordenProducto.value = "recomendados";
          renderProductos();
-         document.querySelectorAll(".categoria-menu").forEach(link => link.classList.toggle("activo", link.dataset.menuCat === "todos"));
-      });
-
-      document.getElementById("btnFiltro").addEventListener("click", function() {
-         document.getElementById("catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
-         buscarProducto.focus({ preventScroll: true });
       });
 
       document.getElementById("formBusqueda").addEventListener("submit", function(event) {
          event.preventDefault();
          buscarProducto.value = campoBusqueda.value;
-         categoriaProducto.value = "todos";
-         beneficioProducto.value = "todos";
-         actualizarSubcategorias();
+         lineaProducto.value = "todos";
+         ordenProducto.value = "recomendados";
          renderProductos();
          document.getElementById("catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
       });
 
-      document.getElementById("formCotizacion").addEventListener("submit", function(event) {
-         event.preventDefault();
-
-         const producto = document.getElementById("cotizacionProducto").value.trim();
-         const categoria = document.getElementById("cotizacionCategoria").value;
-         const detalle = document.getElementById("cotizacionDetalle").value.trim();
-
-         const mensaje = [
-            "Hola, quiero cotizar en Electromás.",
-            "",
-            `Producto o necesidad: ${producto}`,
-            `Categoría: ${categoria}`,
-            detalle ? `Comentario: ${detalle}` : "",
-            "",
-            "Quisiera consultar precio, disponibilidad y crédito directo."
-         ].filter(Boolean).join("\n");
-
-         window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener,noreferrer");
-      });
-
-      actualizarSubcategorias();
       renderProductos();
    </script>
 </body>
