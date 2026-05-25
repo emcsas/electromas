@@ -997,6 +997,284 @@
          background: var(--naranja);
       }
 
+
+
+      /* ========================= */
+      /* ECOMMERCE: FILTROS Y CONVERSIÓN */
+      /* ========================= */
+
+      .conversion-strip {
+         background: var(--blanco);
+         border-bottom: 1px solid var(--linea);
+      }
+
+      .conversion-grid {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         gap: 12px;
+         padding: 18px 0;
+      }
+
+      .conversion-item {
+         display: grid;
+         grid-template-columns: 42px 1fr;
+         align-items: center;
+         gap: 12px;
+         min-height: 72px;
+         padding: 14px;
+         border: 1px solid var(--linea);
+         border-radius: 18px;
+         background: #fff;
+         box-shadow: 0 10px 24px rgba(32,32,31,0.06);
+      }
+
+      .conversion-item i {
+         width: 42px;
+         height: 42px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 14px;
+         color: var(--naranja);
+         background: rgba(255,165,0,0.14);
+      }
+
+      .conversion-item strong {
+         display: block;
+         color: var(--azul);
+         font-size: 14px;
+         margin-bottom: 3px;
+      }
+
+      .conversion-item span {
+         display: block;
+         color: var(--gris);
+         font-size: 12px;
+         line-height: 1.35;
+      }
+
+      .catalogo-ecommerce {
+         background: linear-gradient(180deg, var(--fondo), #ffffff 55%);
+      }
+
+      .catalogo-panel {
+         padding: 18px;
+         margin-bottom: 22px;
+         border: 1px solid var(--linea);
+         border-radius: 24px;
+         background: var(--blanco);
+         box-shadow: var(--sombra-media);
+      }
+
+      .catalogo-panel-top {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 18px;
+         margin-bottom: 16px;
+      }
+
+      .catalogo-panel-top strong {
+         color: var(--azul);
+         font-size: 16px;
+      }
+
+      .catalogo-panel-top span {
+         color: var(--gris);
+         font-size: 13px;
+      }
+
+      .catalogo-tools {
+         display: grid;
+         grid-template-columns: 1fr auto;
+         gap: 16px;
+         align-items: center;
+      }
+
+      .filtros-categorias {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         flex-wrap: wrap;
+      }
+
+      .filtro-chip {
+         min-height: 38px;
+         padding: 0 13px;
+         border: 1px solid var(--linea);
+         border-radius: 999px;
+         background: #fff;
+         color: var(--azul);
+         font-size: 13px;
+         font-weight: 800;
+         cursor: pointer;
+         transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .filtro-chip:hover,
+      .filtro-chip.activo {
+         background: var(--azul);
+         color: var(--blanco);
+         border-color: var(--azul);
+         transform: translateY(-1px);
+      }
+
+      .catalogo-controles {
+         display: grid;
+         grid-template-columns: minmax(210px, 1fr) minmax(170px, 0.8fr) minmax(170px, 0.8fr);
+         gap: 10px;
+         align-items: center;
+      }
+
+      .catalogo-input,
+      .catalogo-select {
+         width: 100%;
+         min-height: 42px;
+         border: 1px solid var(--linea);
+         border-radius: 13px;
+         background: #fff;
+         color: var(--negro);
+         outline: none;
+         padding: 0 13px;
+         font-size: 13px;
+         font-weight: 700;
+      }
+
+      .catalogo-input:focus,
+      .catalogo-select:focus {
+         border-color: var(--naranja);
+         box-shadow: 0 0 0 4px rgba(255,165,0,0.12);
+      }
+
+      .producto-card[hidden] {
+         display: none !important;
+      }
+
+      .producto-card {
+         display: flex;
+         flex-direction: column;
+      }
+
+      .producto-body {
+         display: flex;
+         flex: 1;
+         flex-direction: column;
+      }
+
+      .producto-tags {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 6px;
+         margin: 0 0 12px;
+      }
+
+      .producto-tags span {
+         display: inline-flex;
+         align-items: center;
+         min-height: 24px;
+         padding: 0 8px;
+         border-radius: 999px;
+         background: rgba(22, 43, 78, 0.08);
+         color: var(--azul);
+         font-size: 11px;
+         font-weight: 800;
+      }
+
+      .producto-body p {
+         flex: 1;
+      }
+
+      .precio-box {
+         align-items: center;
+      }
+
+      .producto-acciones {
+         display: grid;
+         grid-template-columns: 1fr 46px;
+         gap: 9px;
+         margin-top: 14px;
+      }
+
+      .btn-card {
+         min-height: 42px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         border-radius: 12px;
+         font-size: 13px;
+         font-weight: 800;
+         transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      }
+
+      .btn-card:hover {
+         transform: translateY(-2px);
+      }
+
+      .btn-card-primary {
+         background: #25D366;
+         color: var(--blanco);
+      }
+
+      .btn-card-primary:hover {
+         background: #1ebe5d;
+      }
+
+      .btn-card-secundario {
+         border: 1px solid var(--linea);
+         color: var(--azul);
+         background: var(--blanco);
+      }
+
+      .btn-card-secundario:hover {
+         border-color: var(--naranja);
+         color: var(--naranja-oscuro);
+      }
+
+      .sin-productos {
+         display: none;
+         padding: 24px;
+         border: 1px dashed rgba(22,43,78,0.28);
+         border-radius: 18px;
+         background: rgba(22,43,78,0.04);
+         color: var(--gris);
+         text-align: center;
+         font-weight: 700;
+      }
+
+      @media (max-width: 1120px) {
+         .conversion-grid {
+            grid-template-columns: repeat(2, 1fr);
+         }
+
+         .catalogo-tools {
+            grid-template-columns: 1fr;
+         }
+
+         .catalogo-controles {
+            grid-template-columns: repeat(3, 1fr);
+         }
+      }
+
+      @media (max-width: 760px) {
+         .conversion-grid {
+            grid-template-columns: 1fr;
+         }
+
+         .catalogo-panel-top {
+            display: block;
+         }
+
+         .catalogo-panel-top span {
+            margin-top: 5px;
+            display: block;
+         }
+
+         .catalogo-controles {
+            grid-template-columns: 1fr;
+         }
+      }
+
       /* ========================= */
       /* MOVING SHOWCASE */
       /* ========================= */
@@ -1326,9 +1604,9 @@
             display: none;
          }
 
-         .departamentos a {
-            min-height: 42px;
-            padding: 0 15px;
+         .departamentos .departamento-item {
+            min-height: 50px;
+            padding: 8px 10px;
          }
 
          .hero .contenedor {
@@ -1493,7 +1771,7 @@
 
          <div class="busqueda-wrap">
             <form class="busqueda" id="formBusqueda" autocomplete="off">
-               <input type="search" id="campoBusqueda" placeholder="Buscar productos, categorías, ofertas o páginas..." aria-label="Buscar en Electromás">
+               <input type="search" id="campoBusqueda" placeholder="Buscar producto, categoría, oferta o combo..." aria-label="Buscar en Electromás">
                <button type="submit" aria-label="Buscar">
                   <i class="fas fa-search"></i>
                </button>
@@ -1573,30 +1851,29 @@
       <section class="hero">
          <div class="contenedor">
             <div class="hero-copy">
-               <div class="kicker"><i class="fas fa-bolt"></i> Electromás Loja y Zamora</div>
-               <h1>Compre tecnología y hogar <span>con crédito directo.</span></h1>
+               <div class="kicker"><i class="fas fa-bolt"></i> Compra rápida en Loja y Zamora</div>
+               <h1>Equípese hoy con <span>crédito directo</span> y asesoría inmediata.</h1>
                <p>
-                  Electrodomésticos, celulares, televisores y productos para el hogar con asesoría comercial,
-                  promociones activas y entrega local.
+                  Encuentre productos por categoría, filtre lo que necesita y solicite precio, crédito o disponibilidad por WhatsApp sin pasos innecesarios.
                </p>
 
                <div class="hero-botones">
-                  <a href="ofertas.html" class="btn btn-primary">Ver ofertas <i class="fas fa-arrow-right"></i></a>
-                  <a href="combos.html" class="btn btn-white">Ver combos</a>
+                  <a href="#catalogo" class="btn btn-primary">Comprar ahora <i class="fas fa-arrow-right"></i></a>
+                  <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn btn-white"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a>
                </div>
 
                <div class="hero-metrics">
                   <div>
-                     <strong>Crédito</strong>
-                     <span>Opciones de pago para facilitar la compra.</span>
+                     <strong>Crédito directo</strong>
+                     <span>Consulte cuotas y requisitos con asesoría comercial.</span>
                   </div>
                   <div>
-                     <strong>Entrega</strong>
-                     <span>Cobertura local en Loja y Zamora.</span>
+                     <strong>Entrega local</strong>
+                     <span>Cobertura operativa en Loja y Zamora.</span>
                   </div>
                   <div>
-                     <strong>Asesoría</strong>
-                     <span>Atención antes de tomar una decisión.</span>
+                     <strong>Compra asistida</strong>
+                     <span>Respuesta directa para precio, stock y alternativas.</span>
                   </div>
                </div>
             </div>
@@ -1605,8 +1882,8 @@
                <a href="ofertas.html" class="hero-card">
                   <img src="principal/general/fondo.png" alt="Electrodomésticos y tecnología Electromás">
                   <div class="hero-card-info">
-                     <strong>Ofertas listas para comprar</strong>
-                     <span>Revise promociones y consulte disponibilidad por WhatsApp.</span>
+                     <strong>Productos listos para cotizar</strong>
+                     <span>Filtre, compare y solicite disponibilidad en un solo recorrido.</span>
                   </div>
                </a>
 
@@ -1615,7 +1892,7 @@
                      <img src="principal/inicio/p1.jpg" alt="Oferta de celulares Electromás">
                      <div class="mini-oferta-label">
                         <strong>Celulares</strong>
-                        <span>Equipos destacados.</span>
+                        <span>Consulte modelos y crédito.</span>
                      </div>
                   </a>
 
@@ -1623,7 +1900,7 @@
                      <img src="principal/inicio/p5.jpg" alt="Oferta de lavado Electromás">
                      <div class="mini-oferta-label">
                         <strong>Lavado</strong>
-                        <span>Soluciones para el hogar.</span>
+                        <span>Opciones con asesoría.</span>
                      </div>
                   </a>
                </div>
@@ -1631,194 +1908,267 @@
          </div>
       </section>
 
-      <section class="promo-strip" aria-label="Promociones en movimiento">
-         <div class="promo-track">
-            <div class="promo-item"><i class="fas fa-credit-card"></i> Crédito directo disponible</div>
-            <div class="promo-item"><i class="fas fa-truck-fast"></i> Entrega en Loja y Zamora</div>
-            <div class="promo-item"><i class="fas fa-tags"></i> Ofertas y combos activos</div>
-            <div class="promo-item"><i class="fas fa-headset"></i> Asesoría por WhatsApp</div>
-            <div class="promo-item"><i class="fas fa-shield-halved"></i> Productos con garantía</div>
-
-            <div class="promo-item"><i class="fas fa-credit-card"></i> Crédito directo disponible</div>
-            <div class="promo-item"><i class="fas fa-truck-fast"></i> Entrega en Loja y Zamora</div>
-            <div class="promo-item"><i class="fas fa-tags"></i> Ofertas y combos activos</div>
-            <div class="promo-item"><i class="fas fa-headset"></i> Asesoría por WhatsApp</div>
-            <div class="promo-item"><i class="fas fa-shield-halved"></i> Productos con garantía</div>
-         </div>
-      </section>
-
-      <section class="section" id="categorias">
-         <div class="contenedor">
-            <div class="section-head">
+      <section class="conversion-strip" aria-label="Beneficios de compra">
+         <div class="contenedor conversion-grid">
+            <div class="conversion-item">
+               <i class="fas fa-credit-card"></i>
                <div>
-                  <span class="section-eyebrow">Departamentos</span>
-                  <h2 class="section-title">Compre por categoría.</h2>
+                  <strong>Crédito directo</strong>
+                  <span>Consulta rápida de cuotas y requisitos.</span>
                </div>
-               <p class="section-text">
-                  Acceso directo a las líneas que más rotan: electrodomésticos, tecnología, hogar y productos específicos.
-               </p>
             </div>
 
-            <div class="categorias-grid">
-               <a href="electrodomesticos.html" class="categoria-card">
-                  <img src="principal/oferta1.jpg" alt="Electrodomésticos">
-                  <div class="categoria-card-content">
-                     <h3>Electrodomésticos</h3>
-                     <p>Refrigeradoras, cocinas, lavadoras y productos esenciales.</p>
-                     <span>Entrar <i class="fas fa-arrow-right"></i></span>
-                  </div>
-               </a>
+            <div class="conversion-item">
+               <i class="fas fa-truck-fast"></i>
+               <div>
+                  <strong>Entrega local</strong>
+                  <span>Cobertura para Loja y Zamora.</span>
+               </div>
+            </div>
 
-               <a href="tecnologia.html" class="categoria-card">
-                  <img src="principal/tec.jpg" alt="Tecnología">
-                  <div class="categoria-card-content">
-                     <h3>Tecnología</h3>
-                     <p>Celulares, laptops, televisores y equipos para uso diario.</p>
-                     <span>Entrar <i class="fas fa-arrow-right"></i></span>
-                  </div>
-               </a>
+            <div class="conversion-item">
+               <i class="fas fa-shield-halved"></i>
+               <div>
+                  <strong>Garantía</strong>
+                  <span>Productos respaldados y asesoría posventa.</span>
+               </div>
+            </div>
 
-               <a href="hogar.html" class="categoria-card">
-                  <img src="principal/sal.jpg" alt="Hogar">
-                  <div class="categoria-card-content">
-                     <h3>Hogar</h3>
-                     <p>Productos funcionales para mejorar sus espacios.</p>
-                     <span>Entrar <i class="fas fa-arrow-right"></i></span>
-                  </div>
-               </a>
-
-               <a href="combos.html" class="categoria-card">
-                  <img src="principal/inicio/p4.jpg" alt="Combos Electromás">
-                  <div class="categoria-card-content">
-                     <h3>Combos</h3>
-                     <p>Opciones armadas para equipar mejor y ahorrar tiempo.</p>
-                     <span>Entrar <i class="fas fa-arrow-right"></i></span>
-                  </div>
-               </a>
+            <div class="conversion-item">
+               <i class="fab fa-whatsapp"></i>
+               <div>
+                  <strong>Compra asistida</strong>
+                  <span>Precio, stock y alternativas por WhatsApp.</span>
+               </div>
             </div>
          </div>
       </section>
 
-      <section class="section productos">
+      <section class="section catalogo-ecommerce" id="catalogo">
          <div class="contenedor">
             <div class="section-head">
                <div>
-                  <span class="section-eyebrow">Vitrina comercial</span>
-                  <h2 class="section-title">Productos destacados.</h2>
+                  <span class="section-eyebrow">Catálogo rápido</span>
+                  <h2 class="section-title">Filtre, compare y cotice.</h2>
                </div>
                <p class="section-text">
-                  Bloques de venta más claros, con acceso directo a departamentos y asesoría.
+                  El recorrido se concentra en productos con intención de compra: categoría, beneficio comercial y contacto directo.
                </p>
             </div>
 
-            <div class="producto-grid">
-               <article class="producto-card">
+            <div class="catalogo-panel" aria-label="Filtros del catálogo">
+               <div class="catalogo-panel-top">
+                  <strong>Encuentre más rápido lo que desea comprar</strong>
+                  <span id="conteoCatalogo">8 resultados</span>
+               </div>
+
+               <div class="catalogo-tools">
+                  <div class="filtros-categorias" role="group" aria-label="Filtrar por categoría">
+                     <button type="button" class="filtro-chip activo" data-filter="todos" aria-pressed="true">Todo</button>
+                     <button type="button" class="filtro-chip" data-filter="electrodomesticos" aria-pressed="false">Electrodomésticos</button>
+                     <button type="button" class="filtro-chip" data-filter="tecnologia" aria-pressed="false">Tecnología</button>
+                     <button type="button" class="filtro-chip" data-filter="hogar" aria-pressed="false">Hogar</button>
+                     <button type="button" class="filtro-chip" data-filter="combos" aria-pressed="false">Combos</button>
+                  </div>
+
+                  <div class="catalogo-controles">
+                     <input type="search" class="catalogo-input" id="busquedaCatalogo" placeholder="Filtrar por producto..." aria-label="Filtrar productos del catálogo">
+
+                     <select class="catalogo-select" id="filtroCompra" aria-label="Filtrar por beneficio comercial">
+                        <option value="todos">Todos los beneficios</option>
+                        <option value="credito">Crédito directo</option>
+                        <option value="oferta">Oferta</option>
+                        <option value="entrega">Entrega local</option>
+                     </select>
+
+                     <select class="catalogo-select" id="ordenCatalogo" aria-label="Ordenar catálogo">
+                        <option value="recomendado">Más recomendado</option>
+                        <option value="nombre">Nombre A-Z</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+
+            <div class="producto-grid" id="catalogoGrid">
+               <article class="producto-card" data-nombre="Celulares destacados smartphones tecnología" data-categoria="tecnologia celulares" data-tags="credito oferta entrega" data-score="98">
                   <div class="producto-img">
-                     <img src="principal/inicio/p1.jpg" alt="Celular destacado">
+                     <img src="principal/inicio/p1.jpg" alt="Celulares destacados">
                   </div>
                   <div class="producto-body">
-                     <span class="tag"><i class="fas fa-fire"></i> Oferta</span>
+                     <span class="tag"><i class="fas fa-fire"></i> Alta demanda</span>
                      <h3>Celulares destacados</h3>
-                     <p>Equipos disponibles para consultar precio, crédito y características.</p>
+                     <div class="producto-tags"><span>Crédito directo</span><span>Oferta</span><span>Entrega local</span></div>
+                     <p>Equipos para consultar precio, modelos disponibles, crédito y características antes de comprar.</p>
                      <div class="precio-box">
                         <div>
                            <strong>Consultar</strong>
-                           <span>Precio y crédito</span>
+                           <span>Precio, stock y crédito</span>
                         </div>
-                        <a class="ver-producto" href="producto/celulares.html" aria-label="Ver celulares"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                     <div class="producto-acciones">
+                        <a class="btn-card btn-card-primary" href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20celulares%20destacados.%20Necesito%20precio%2C%20cr%C3%A9dito%20y%20disponibilidad." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a>
+                        <a class="btn-card btn-card-secundario" href="producto/celulares.html" aria-label="Ver celulares"><i class="fas fa-arrow-right"></i></a>
                      </div>
                   </div>
                </article>
 
-               <article class="producto-card">
+               <article class="producto-card" data-nombre="Combos para equipar hogar electrodomésticos ahorro" data-categoria="combos electrodomesticos hogar" data-tags="credito oferta entrega" data-score="96">
                   <div class="producto-img">
-                     <img src="principal/inicio/p3.jpg" alt="Refrigeradora destacada">
+                     <img src="principal/inicio/p4.jpg" alt="Combos para equipar el hogar">
                   </div>
                   <div class="producto-body">
-                     <span class="tag"><i class="fas fa-snowflake"></i> Hogar</span>
-                     <h3>Refrigeración</h3>
-                     <p>Refrigeradoras y equipos de conservación para uso familiar.</p>
+                     <span class="tag"><i class="fas fa-layer-group"></i> Combo</span>
+                     <h3>Combos para equipar</h3>
+                     <div class="producto-tags"><span>Ahorro</span><span>Crédito directo</span><span>Oferta</span></div>
+                     <p>Opciones agrupadas para comprar más rápido y reducir fricción en la decisión.</p>
                      <div class="precio-box">
                         <div>
                            <strong>Consultar</strong>
-                           <span>Disponibilidad</span>
+                           <span>Opciones disponibles</span>
                         </div>
-                        <a class="ver-producto" href="producto/refrigeracion.html" aria-label="Ver refrigeración"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                     <div class="producto-acciones">
+                        <a class="btn-card btn-card-primary" href="https://wa.me/593988926331?text=Hola%2C%20quiero%20consultar%20combos%20para%20equipar.%20Necesito%20precio%2C%20cr%C3%A9dito%20y%20disponibilidad." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a>
+                        <a class="btn-card btn-card-secundario" href="combos.html" aria-label="Ver combos"><i class="fas fa-arrow-right"></i></a>
                      </div>
                   </div>
                </article>
 
-               <article class="producto-card">
+               <article class="producto-card" data-nombre="Refrigeración refrigeradoras congeladores línea blanca" data-categoria="electrodomesticos refrigeracion hogar" data-tags="credito entrega" data-score="95">
                   <div class="producto-img">
-                     <img src="principal/inicio/p4.jpg" alt="Cocina destacada">
+                     <img src="principal/inicio/p3.jpg" alt="Refrigeración">
+                  </div>
+                  <div class="producto-body">
+                     <span class="tag"><i class="fas fa-snowflake"></i> Línea blanca</span>
+                     <h3>Refrigeración</h3>
+                     <div class="producto-tags"><span>Crédito directo</span><span>Entrega local</span></div>
+                     <p>Refrigeradoras y equipos de conservación para uso familiar o comercial.</p>
+                     <div class="precio-box">
+                        <div>
+                           <strong>Consultar</strong>
+                           <span>Capacidad y disponibilidad</span>
+                        </div>
+                     </div>
+                     <div class="producto-acciones">
+                        <a class="btn-card btn-card-primary" href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20refrigeraci%C3%B3n.%20Necesito%20precio%2C%20capacidad%2C%20cr%C3%A9dito%20y%20disponibilidad." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a>
+                        <a class="btn-card btn-card-secundario" href="producto/refrigeracion.html" aria-label="Ver refrigeración"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="producto-card" data-nombre="Cocina cocinas hornos línea blanca preparación" data-categoria="electrodomesticos cocina hogar" data-tags="credito oferta entrega" data-score="92">
+                  <div class="producto-img">
+                     <img src="principal/inicio/p4.jpg" alt="Cocina y línea blanca">
                   </div>
                   <div class="producto-body">
                      <span class="tag"><i class="fas fa-fire-burner"></i> Cocina</span>
                      <h3>Cocina y línea blanca</h3>
-                     <p>Opciones para equipar su cocina con asesoría directa.</p>
+                     <div class="producto-tags"><span>Crédito directo</span><span>Oferta</span><span>Entrega local</span></div>
+                     <p>Equipos para preparar alimentos con asesoría sobre tamaño, uso y disponibilidad.</p>
                      <div class="precio-box">
                         <div>
                            <strong>Consultar</strong>
-                           <span>Opciones</span>
+                           <span>Modelos y crédito</span>
                         </div>
-                        <a class="ver-producto" href="producto/cocina.html" aria-label="Ver cocina"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                     <div class="producto-acciones">
+                        <a class="btn-card btn-card-primary" href="https://wa.me/593988926331?text=Hola%2C%20quiero%20consultar%20productos%20de%20cocina.%20Necesito%20modelos%2C%20precio%2C%20cr%C3%A9dito%20y%20disponibilidad." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a>
+                        <a class="btn-card btn-card-secundario" href="producto/cocina.html" aria-label="Ver cocina"><i class="fas fa-arrow-right"></i></a>
                      </div>
                   </div>
                </article>
 
-               <article class="producto-card">
+               <article class="producto-card" data-nombre="Lavado lavadoras secadoras lavandería" data-categoria="electrodomesticos lavado hogar" data-tags="credito entrega" data-score="90">
                   <div class="producto-img">
-                     <img src="principal/inicio/p5.jpg" alt="Lavadora destacada">
+                     <img src="principal/inicio/p5.jpg" alt="Lavado">
                   </div>
                   <div class="producto-body">
                      <span class="tag"><i class="fas fa-soap"></i> Lavado</span>
                      <h3>Lavado</h3>
-                     <p>Lavadoras y soluciones prácticas para el hogar.</p>
+                     <div class="producto-tags"><span>Crédito directo</span><span>Entrega local</span></div>
+                     <p>Lavadoras y soluciones de lavandería para comparar capacidad, funciones y compra asistida.</p>
                      <div class="precio-box">
                         <div>
                            <strong>Consultar</strong>
-                           <span>Crédito directo</span>
+                           <span>Capacidad y crédito</span>
                         </div>
-                        <a class="ver-producto" href="producto/lavado.html" aria-label="Ver lavado"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                     <div class="producto-acciones">
+                        <a class="btn-card btn-card-primary" href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20productos%20de%20lavado.%20Necesito%20precio%2C%20capacidad%2C%20cr%C3%A9dito%20y%20disponibilidad." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a>
+                        <a class="btn-card btn-card-secundario" href="producto/lavado.html" aria-label="Ver lavado"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="producto-card" data-nombre="Televisores smart tv pantallas tecnología" data-categoria="tecnologia televisores" data-tags="credito oferta entrega" data-score="88">
+                  <div class="producto-img">
+                     <img src="principal/tec.jpg" alt="Televisores">
+                  </div>
+                  <div class="producto-body">
+                     <span class="tag"><i class="fas fa-tv"></i> Tecnología</span>
+                     <h3>Televisores</h3>
+                     <div class="producto-tags"><span>Crédito directo</span><span>Oferta</span><span>Entrega local</span></div>
+                     <p>Smart TV y pantallas para consultar tamaños, características y alternativas disponibles.</p>
+                     <div class="precio-box">
+                        <div>
+                           <strong>Consultar</strong>
+                           <span>Tamaño y disponibilidad</span>
+                        </div>
+                     </div>
+                     <div class="producto-acciones">
+                        <a class="btn-card btn-card-primary" href="https://wa.me/593988926331?text=Hola%2C%20quiero%20consultar%20televisores.%20Necesito%20tama%C3%B1os%2C%20precio%2C%20cr%C3%A9dito%20y%20disponibilidad." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a>
+                        <a class="btn-card btn-card-secundario" href="producto/televisores.html" aria-label="Ver televisores"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="producto-card" data-nombre="Computadoras laptops portátiles tecnología" data-categoria="tecnologia computadoras" data-tags="credito entrega" data-score="84">
+                  <div class="producto-img">
+                     <img src="principal/tec.jpg" alt="Computadoras y laptops">
+                  </div>
+                  <div class="producto-body">
+                     <span class="tag"><i class="fas fa-laptop"></i> Tecnología</span>
+                     <h3>Computadoras y laptops</h3>
+                     <div class="producto-tags"><span>Crédito directo</span><span>Entrega local</span></div>
+                     <p>Equipos para estudio, trabajo o uso diario, con consulta directa de especificaciones.</p>
+                     <div class="precio-box">
+                        <div>
+                           <strong>Consultar</strong>
+                           <span>Características y crédito</span>
+                        </div>
+                     </div>
+                     <div class="producto-acciones">
+                        <a class="btn-card btn-card-primary" href="https://wa.me/593988926331?text=Hola%2C%20estoy%20interesado%20en%20computadoras%20o%20laptops.%20Necesito%20precio%2C%20caracter%C3%ADsticas%2C%20cr%C3%A9dito%20y%20disponibilidad." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a>
+                        <a class="btn-card btn-card-secundario" href="producto/computadoras.html" aria-label="Ver computadoras"><i class="fas fa-arrow-right"></i></a>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="producto-card" data-nombre="Hogar confort muebles organización" data-categoria="hogar confort organizacion" data-tags="credito entrega" data-score="80">
+                  <div class="producto-img">
+                     <img src="principal/sal.jpg" alt="Productos para el hogar">
+                  </div>
+                  <div class="producto-body">
+                     <span class="tag"><i class="fas fa-couch"></i> Hogar</span>
+                     <h3>Hogar y confort</h3>
+                     <div class="producto-tags"><span>Crédito directo</span><span>Entrega local</span></div>
+                     <p>Productos funcionales para equipar espacios con asesoría antes de comprar.</p>
+                     <div class="precio-box">
+                        <div>
+                           <strong>Consultar</strong>
+                           <span>Opciones disponibles</span>
+                        </div>
+                     </div>
+                     <div class="producto-acciones">
+                        <a class="btn-card btn-card-primary" href="https://wa.me/593988926331?text=Hola%2C%20quiero%20consultar%20productos%20para%20el%20hogar.%20Necesito%20opciones%2C%20precio%2C%20cr%C3%A9dito%20y%20disponibilidad." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Cotizar</a>
+                        <a class="btn-card btn-card-secundario" href="hogar.html" aria-label="Ver hogar"><i class="fas fa-arrow-right"></i></a>
                      </div>
                   </div>
                </article>
             </div>
-         </div>
-      </section>
 
-      <section class="vitrina">
-         <div class="contenedor">
-            <div class="section-head">
-               <div>
-                  <span class="section-eyebrow">Promociones en vitrina</span>
-                  <h2 class="section-title">Movimiento comercial real.</h2>
-               </div>
-               <p class="section-text">
-                  Esta franja sí mantiene desplazamiento automático como el diseño original.
-               </p>
-            </div>
-         </div>
-
-         <div class="vitrina-wrapper">
-            <div class="vitrina-track">
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p1.jpg" alt="Oferta destacada 1"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p2.jpg" alt="Oferta destacada 2"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p3.jpg" alt="Oferta destacada 3"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p4.jpg" alt="Oferta destacada 4"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p5.jpg" alt="Oferta destacada 5"></a>
-
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p1.jpg" alt="Oferta destacada 1"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p2.jpg" alt="Oferta destacada 2"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p3.jpg" alt="Oferta destacada 3"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p4.jpg" alt="Oferta destacada 4"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p5.jpg" alt="Oferta destacada 5"></a>
-
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p1.jpg" alt="Oferta destacada 1"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p2.jpg" alt="Oferta destacada 2"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p3.jpg" alt="Oferta destacada 3"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p4.jpg" alt="Oferta destacada 4"></a>
-               <a href="ofertas.html" class="vitrina-card"><img src="principal/inicio/p5.jpg" alt="Oferta destacada 5"></a>
+            <div class="sin-productos" id="sinProductos">
+               No hay productos para esos filtros. Pruebe otra categoría o consulte por WhatsApp.
             </div>
          </div>
       </section>
@@ -1826,17 +2176,17 @@
       <section class="cta">
          <div class="contenedor cta-box">
             <div>
-               <h2>Consulte precio, crédito y disponibilidad por WhatsApp.</h2>
+               <h2>¿Listo para comprar? Cotice precio, crédito y disponibilidad.</h2>
                <p>
-                  Un asesor puede ayudarle a elegir productos, revisar promociones y coordinar compra en Loja o Zamora.
+                  Envíe la consulta por WhatsApp y un asesor puede orientarle con alternativas, cuotas y entrega local.
                </p>
             </div>
 
             <div class="cta-actions">
                <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                  <i class="fab fa-whatsapp"></i> Hablar con asesor
+                  <i class="fab fa-whatsapp"></i> Cotizar ahora
                </a>
-               <a href="combos.html" class="btn btn-white">Ver combos</a>
+               <a href="#catalogo" class="btn btn-white">Volver al catálogo</a>
             </div>
          </div>
       </section>
@@ -2098,6 +2448,79 @@
             resultadoBusqueda.classList.remove("activo");
          }
       });
+
+
+
+      const catalogoGrid = document.getElementById("catalogoGrid");
+      const filtroChips = Array.from(document.querySelectorAll(".filtro-chip"));
+      const filtroCompra = document.getElementById("filtroCompra");
+      const busquedaCatalogo = document.getElementById("busquedaCatalogo");
+      const ordenCatalogo = document.getElementById("ordenCatalogo");
+      const conteoCatalogo = document.getElementById("conteoCatalogo");
+      const sinProductos = document.getElementById("sinProductos");
+
+      function aplicarFiltrosCatalogo() {
+         if (!catalogoGrid) return;
+
+         const categoriaActiva = document.querySelector(".filtro-chip.activo")?.dataset.filter || "todos";
+         const beneficioActivo = filtroCompra ? filtroCompra.value : "todos";
+         const textoBuscado = normalizar(busquedaCatalogo ? busquedaCatalogo.value : "");
+         const ordenActivo = ordenCatalogo ? ordenCatalogo.value : "recomendado";
+         const tarjetas = Array.from(catalogoGrid.querySelectorAll(".producto-card"));
+
+         tarjetas.sort(function(a, b) {
+            if (ordenActivo === "nombre") {
+               return String(a.dataset.nombre || "").localeCompare(String(b.dataset.nombre || ""));
+            }
+
+            return Number(b.dataset.score || 0) - Number(a.dataset.score || 0);
+         });
+
+         tarjetas.forEach(function(tarjeta) {
+            catalogoGrid.appendChild(tarjeta);
+
+            const categorias = String(tarjeta.dataset.categoria || "");
+            const beneficios = String(tarjeta.dataset.tags || "");
+            const textoTarjeta = normalizar(`${tarjeta.dataset.nombre || ""} ${tarjeta.innerText} ${categorias} ${beneficios}`);
+
+            const coincideCategoria = categoriaActiva === "todos" || categorias.includes(categoriaActiva);
+            const coincideBeneficio = beneficioActivo === "todos" || beneficios.includes(beneficioActivo);
+            const coincideTexto = !textoBuscado || textoTarjeta.includes(textoBuscado);
+
+            tarjeta.hidden = !(coincideCategoria && coincideBeneficio && coincideTexto);
+         });
+
+         const visibles = tarjetas.filter(function(tarjeta) {
+            return !tarjeta.hidden;
+         }).length;
+
+         if (conteoCatalogo) {
+            conteoCatalogo.textContent = `${visibles} ${visibles === 1 ? "resultado" : "resultados"}`;
+         }
+
+         if (sinProductos) {
+            sinProductos.style.display = visibles ? "none" : "block";
+         }
+      }
+
+      filtroChips.forEach(function(chip) {
+         chip.addEventListener("click", function() {
+            filtroChips.forEach(function(item) {
+               item.classList.remove("activo");
+               item.setAttribute("aria-pressed", "false");
+            });
+
+            chip.classList.add("activo");
+            chip.setAttribute("aria-pressed", "true");
+            aplicarFiltrosCatalogo();
+         });
+      });
+
+      [filtroCompra, busquedaCatalogo, ordenCatalogo].forEach(function(control) {
+         if (control) control.addEventListener("input", aplicarFiltrosCatalogo);
+      });
+
+      aplicarFiltrosCatalogo();
 
       function mostrarDetalles(titulo, descripcion, precio) {
          const modalTitulo = document.getElementById("modal-titulo");
