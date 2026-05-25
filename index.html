@@ -1,702 +1,1513 @@
 <!DOCTYPE html>
 <html lang="es">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=0.5">
-      <title>Electromás | Electrodomésticos y Tecnología para el Hogar</title>
-      <meta name="description" content="Encuentre los mejores electrodomésticos y tecnología para su hogar en Electromás. Descubra nuestras ofertas y combos exclusivos.">
-      <meta name="keywords" content="electrodomésticos, tecnología, hogar, ofertas, celulares, computadores, portatiles, electromas">
-      <meta name="author" content="Electromás">
-      <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-      <style>
-         html, body {
-         height: 100%;
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Electromás | Electrodomésticos, Tecnología y Crédito Directo</title>
+
+   <meta name="description" content="Electromás ofrece electrodomésticos, tecnología y productos para el hogar con crédito directo, promociones y entrega en Loja y Zamora.">
+   <meta name="keywords" content="electrodomésticos, tecnología, hogar, crédito directo, ofertas, celulares, computadores, portátiles, electromás, Loja, Zamora">
+   <meta name="author" content="Electromás">
+
+   <meta property="og:title" content="Electromás | Electrodomésticos y Tecnología para el Hogar">
+   <meta property="og:description" content="Ofertas, crédito directo y entrega local en Loja y Zamora.">
+   <meta property="og:image" content="principal/general/fondo.png">
+   <meta property="og:type" content="website">
+
+   <link rel="shortcut icon" href="principal/general/logo.png" type="image/png">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+   <style>
+      :root {
+         --gris-principal: #3c3c3c;
+         --gris-oscuro: #20201f;
+         --azul-comercial: #162b4e;
+         --blanco: #ffffff;
+         --naranja: #ffa500;
+         --naranja-hover: #e09200;
+         --fondo-suave: #f5f6f8;
+         --borde: rgba(32, 32, 31, 0.12);
+         --sombra: 0 22px 55px rgba(32, 32, 31, 0.16);
+         --sombra-suave: 0 14px 34px rgba(32, 32, 31, 0.10);
+      }
+
+      * {
+         box-sizing: border-box;
+      }
+
+      html {
+         scroll-behavior: smooth;
+      }
+
+      body {
          margin: 0;
-         padding: 0;
+         font-family: Arial, Helvetica, sans-serif;
+         background-color: var(--blanco);
+         color: var(--gris-oscuro);
+      }
+
+      img {
+         max-width: 100%;
+         display: block;
+      }
+
+      a {
+         text-decoration: none;
+      }
+
+      .contenedor {
+         width: min(1200px, 90%);
+         margin: 0 auto;
+      }
+
+      /* ============================= */
+      /* BARRA SUPERIOR */
+      /* ============================= */
+
+      .barra-superior {
+         background-color: var(--gris-oscuro);
+         color: var(--blanco);
+         font-size: 14px;
+      }
+
+      .barra-superior .contenedor {
+         min-height: 40px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 24px;
+      }
+
+      .barra-info {
+         display: flex;
+         align-items: center;
+         gap: 22px;
+         flex-wrap: wrap;
+      }
+
+      .barra-info span {
+         display: inline-flex;
+         align-items: center;
+         gap: 7px;
+         color: rgba(255, 255, 255, 0.88);
+      }
+
+      .barra-info i,
+      .barra-redes a:hover {
+         color: var(--naranja);
+      }
+
+      .barra-redes {
+         display: flex;
+         align-items: center;
+         gap: 15px;
+      }
+
+      .barra-redes a {
+         color: var(--blanco);
+         font-size: 15px;
+         transition: color 0.2s ease;
+      }
+
+      /* ============================= */
+      /* HEADER */
+      /* ============================= */
+
+      header {
+         position: sticky;
+         top: 0;
+         z-index: 1000;
+         background-color: rgba(255, 255, 255, 0.96);
+         backdrop-filter: blur(12px);
+         border-bottom: 1px solid rgba(32, 32, 31, 0.10);
+         box-shadow: 0 10px 30px rgba(32, 32, 31, 0.08);
+      }
+
+      .header-principal {
+         min-height: 82px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 32px;
+      }
+
+      .logo {
+         display: flex;
+         align-items: center;
+         min-width: 160px;
+      }
+
+      .logo img {
+         height: 50px;
+         width: auto;
+      }
+
+      .menu-principal {
+         display: flex;
+         align-items: center;
+         gap: 28px;
+      }
+
+      .menu-principal a {
+         color: var(--azul-comercial);
+         font-size: 15px;
+         font-weight: 800;
+         transition: color 0.2s ease;
+      }
+
+      .menu-principal a:hover {
+         color: var(--naranja);
+      }
+
+      .btn-menu {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 8px;
+         background-color: var(--naranja);
+         color: var(--blanco) !important;
+         padding: 13px 20px;
+         border-radius: 999px;
+         font-weight: 900;
+         box-shadow: 0 12px 26px rgba(255, 165, 0, 0.28);
+         transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      .btn-menu:hover {
+         background-color: var(--naranja-hover);
+         transform: translateY(-2px);
+      }
+
+      /* ============================= */
+      /* HERO PROFESIONAL */
+      /* ============================= */
+
+      .hero {
+         position: relative;
+         overflow: hidden;
+         background:
+            radial-gradient(circle at 82% 18%, rgba(255, 165, 0, 0.22), transparent 28%),
+            radial-gradient(circle at 12% 22%, rgba(255, 255, 255, 0.10), transparent 26%),
+            linear-gradient(135deg, var(--gris-oscuro) 0%, var(--azul-comercial) 58%, #1f3358 100%);
+         color: var(--blanco);
+         padding: 86px 0 96px;
+      }
+
+      .hero::before {
+         content: "";
+         position: absolute;
+         inset: 0;
+         background-image:
+            linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+         background-size: 42px 42px;
+         pointer-events: none;
+      }
+
+      .hero-grid {
+         position: relative;
+         z-index: 2;
+         display: grid;
+         grid-template-columns: 1fr 0.98fr;
+         align-items: center;
+         gap: 64px;
+      }
+
+      .hero-texto small {
+         display: inline-flex;
+         align-items: center;
+         gap: 9px;
+         background-color: rgba(255, 255, 255, 0.09);
+         border: 1px solid rgba(255, 255, 255, 0.16);
+         border-left: 4px solid var(--naranja);
+         padding: 10px 14px;
+         color: var(--blanco);
+         font-size: 13px;
+         font-weight: 900;
+         text-transform: uppercase;
+         letter-spacing: 0.8px;
+         margin-bottom: 22px;
+      }
+
+      .hero-texto h1 {
+         margin: 0;
+         max-width: 680px;
+         font-size: clamp(42px, 5.7vw, 68px);
+         line-height: 0.98;
+         letter-spacing: -2.3px;
+         font-weight: 900;
+      }
+
+      .hero-texto h1 span {
+         color: var(--naranja);
+      }
+
+      .hero-texto p {
+         max-width: 620px;
+         margin: 26px 0 0;
+         color: rgba(255, 255, 255, 0.82);
+         font-size: 19px;
+         line-height: 1.7;
+      }
+
+      .hero-acciones {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 14px;
+         margin-top: 34px;
+      }
+
+      .btn {
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         gap: 9px;
+         padding: 15px 23px;
+         border-radius: 999px;
+         font-size: 16px;
+         font-weight: 900;
+         transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .btn:hover {
+         transform: translateY(-2px);
+      }
+
+      .btn-principal {
+         background-color: var(--naranja);
+         color: var(--blanco);
+         box-shadow: 0 14px 30px rgba(255, 165, 0, 0.25);
+      }
+
+      .btn-principal:hover {
+         background-color: var(--naranja-hover);
+      }
+
+      .btn-secundario {
+         background-color: var(--blanco);
+         color: var(--azul-comercial);
+      }
+
+      .btn-secundario:hover {
+         background-color: #f0f0f0;
+      }
+
+      .hero-datos {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 14px;
+         max-width: 650px;
+         margin-top: 38px;
+      }
+
+      .hero-datos div {
+         background-color: rgba(255, 255, 255, 0.08);
+         border: 1px solid rgba(255, 255, 255, 0.16);
+         padding: 18px;
+         border-radius: 16px;
+      }
+
+      .hero-datos strong {
+         display: block;
+         color: var(--naranja);
+         font-size: 24px;
+         margin-bottom: 4px;
+      }
+
+      .hero-datos span {
+         display: block;
+         color: rgba(255, 255, 255, 0.80);
+         font-size: 14px;
+         line-height: 1.35;
+      }
+
+      .hero-visual {
+         position: relative;
+      }
+
+      .showcase {
+         position: relative;
+         display: grid;
+         grid-template-columns: 1fr 0.62fr;
+         gap: 16px;
+      }
+
+      .showcase-principal,
+      .showcase-secundario {
+         background-color: rgba(255, 255, 255, 0.11);
+         border: 1px solid rgba(255, 255, 255, 0.18);
+         border-radius: 26px;
+         padding: 14px;
+         box-shadow: var(--sombra);
+      }
+
+      .showcase-principal img {
+         width: 100%;
+         height: 455px;
+         object-fit: cover;
+         border-radius: 20px;
+      }
+
+      .showcase-secundario {
          display: flex;
          flex-direction: column;
-         font-family: Arial, sans-serif;
-         background-color: #f4f4f4;
-         }
-         /*##########################*/
-         /*####SECCIÓN ENCABEZADO####*/
-         /*##########################*/
-         header {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 10px 30px;
-         background-color: #fff;
-         box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-         position: fixed;
-         top: 0;
+         gap: 16px;
+      }
+
+      .mini-card {
+         background-color: var(--blanco);
+         border-radius: 20px;
+         padding: 12px;
+      }
+
+      .mini-card img {
          width: 100%;
-         z-index: 1000;
-         border-bottom: 4px solid #f29300; /* Línea naranja delgada inferior */
-         }
-         .header-left {
-         display: flex;
+         height: 170px;
+         object-fit: cover;
+         border-radius: 15px;
+      }
+
+      .mini-card strong {
+         display: block;
+         margin-top: 12px;
+         color: var(--azul-comercial);
+         font-size: 15px;
+      }
+
+      .mini-card span {
+         display: block;
+         margin-top: 4px;
+         color: var(--gris-principal);
+         font-size: 13px;
+         line-height: 1.35;
+      }
+
+      .tarjeta-flotante {
+         position: absolute;
+         left: -28px;
+         bottom: 30px;
+         width: 265px;
+         background-color: var(--blanco);
+         color: var(--gris-oscuro);
+         border-radius: 18px;
+         padding: 20px;
+         box-shadow: var(--sombra);
+         border-top: 5px solid var(--naranja);
+      }
+
+      .tarjeta-flotante strong {
+         display: block;
+         color: var(--azul-comercial);
+         font-size: 19px;
+         margin-bottom: 7px;
+      }
+
+      .tarjeta-flotante span {
+         color: var(--gris-principal);
+         font-size: 14px;
+         line-height: 1.45;
+      }
+
+      /* ============================= */
+      /* FRANJA DE CONFIANZA */
+      /* ============================= */
+
+      .confianza {
+         margin-top: -42px;
+         position: relative;
+         z-index: 5;
+      }
+
+      .confianza-grid {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         background-color: var(--blanco);
+         border-radius: 22px;
+         overflow: hidden;
+         box-shadow: var(--sombra);
+         border: 1px solid var(--borde);
+      }
+
+      .confianza-item {
+         padding: 30px 24px;
+         border-right: 1px solid var(--borde);
+      }
+
+      .confianza-item:last-child {
+         border-right: none;
+      }
+
+      .confianza-item i {
+         width: 46px;
+         height: 46px;
+         display: inline-flex;
          align-items: center;
-         gap: 30px; /* Es el espacio entre el logo y el menú */
-         }
-         .header-left img {
-         height: 40px;
-         width: auto;
-         }
-         .header-left nav a {
-         border-radius: 5px;
-         padding: 10px;
-         }
-         .header-right {
+         justify-content: center;
+         background-color: rgba(255, 165, 0, 0.13);
+         color: var(--naranja);
+         border-radius: 14px;
+         font-size: 22px;
+         margin-bottom: 16px;
+      }
+
+      .confianza-item h3 {
+         margin: 0 0 8px;
+         color: var(--azul-comercial);
+         font-size: 19px;
+      }
+
+      .confianza-item p {
+         margin: 0;
+         color: var(--gris-principal);
+         font-size: 14px;
+         line-height: 1.55;
+      }
+
+      /* ============================= */
+      /* CATEGORÍAS */
+      /* ============================= */
+
+      .categorias {
+         padding: 90px 0 78px;
+         background-color: var(--fondo-suave);
+      }
+
+      .titulo-seccion {
          display: flex;
+         align-items: flex-end;
+         justify-content: space-between;
+         gap: 32px;
+         margin-bottom: 38px;
+      }
+
+      .titulo-seccion small {
+         display: inline-block;
+         color: var(--naranja);
+         font-size: 14px;
+         font-weight: 900;
+         text-transform: uppercase;
+         letter-spacing: 0.8px;
+         margin-bottom: 8px;
+      }
+
+      .titulo-seccion h2 {
+         margin: 0;
+         max-width: 650px;
+         color: var(--azul-comercial);
+         font-size: clamp(32px, 4.2vw, 48px);
+         line-height: 1.06;
+         letter-spacing: -1.2px;
+      }
+
+      .titulo-seccion p {
+         max-width: 430px;
+         margin: 0;
+         color: var(--gris-principal);
+         font-size: 16px;
+         line-height: 1.65;
+      }
+
+      .categorias-grid {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 24px;
+      }
+
+      .categoria {
+         position: relative;
+         overflow: hidden;
+         min-height: 390px;
+         border-radius: 24px;
+         background-color: var(--gris-oscuro);
+         box-shadow: var(--sombra-suave);
+      }
+
+      .categoria img {
+         width: 100%;
+         height: 100%;
+         min-height: 390px;
+         object-fit: cover;
+         transition: transform 0.45s ease;
+      }
+
+      .categoria:hover img {
+         transform: scale(1.06);
+      }
+
+      .categoria::after {
+         content: "";
+         position: absolute;
+         inset: 0;
+         background: linear-gradient(180deg, rgba(32, 32, 31, 0.08) 0%, rgba(32, 32, 31, 0.84) 100%);
+      }
+
+      .categoria-contenido {
+         position: absolute;
+         inset: auto 0 0;
+         z-index: 2;
+         padding: 30px;
+      }
+
+      .categoria-numero {
+         display: inline-flex;
+         width: 42px;
+         height: 42px;
          align-items: center;
-         gap: 40px;
-         margin-left: 20px;
-         }
-         .header-left nav a:focus,
-         .header-left nav a:active {
-         outline: none;
-         background-color: rgba(242, 147, 0, 0.2); /* Sensación de "clic" */
-         }
-         nav {
-         display: flex;
-         gap: 25px;
-         background-color: transparent;
-         }
-         nav a {
-         color: #002244;
-         text-decoration: none;
-         font-weight: bold;
-         font-size: 22px; /* Letra más grande */
-         padding: 10px 15px; /* Aumenta el área de clic */
-         transition: color 0.3s, transform 0.2s ease;
-         }
-         nav a:hover {
-         color: #f29300; /* Color llamativo al pasar el mouse */
-         transform: scale(1.1); /* Efecto visual de crecimiento */
-         cursor: pointer;
-         }
-         /*##########################*/
-         /*##SECCIÓN PRINCIPAL HERO##*/
-         /*##########################*/
-         .hero {
-            background: url('principal/general/fondo.png') no-repeat center top;
-            background-size: cover;
-            height: 800px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-            text-align: center;
-            color: white;
-         }
-         .hero-contenido {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 700px;
-            width: 100%;
-         }
-         .hero-contenido h1 {
-            color: #f29300;
-            font-size: 42px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-         }
-         .hero-contenido p {
-         font-size: 20px;
-         line-height: 1.6;
-         margin-bottom: 25px;
-         }
-         .hero-botones {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 25px;
-         }
-         .btn {
-         padding: 12px 20px;
-         border-radius: 30px;
-         font-weight: bold;
-         font-size: 18px;
-         text-decoration: none;
+         justify-content: center;
+         background-color: var(--naranja);
+         color: var(--blanco);
+         border-radius: 50%;
+         font-size: 15px;
+         font-weight: 900;
+         margin-bottom: 16px;
+      }
+
+      .categoria h3 {
+         margin: 0 0 10px;
+         color: var(--blanco);
+         font-size: 28px;
+      }
+
+      .categoria p {
+         margin: 0 0 18px;
+         color: rgba(255, 255, 255, 0.82);
+         font-size: 15px;
+         line-height: 1.55;
+      }
+
+      .categoria span {
          display: inline-flex;
          align-items: center;
          gap: 8px;
-         transition: all 0.3s ease;
-         }
-         .mensaje-potente {
-         font-size: 16px;
-         color: white;
-         margin-top: 15px;
-         line-height: 1.6;
-         font-weight: 500;
-         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-         }
-         .btn.whatsapp {
-         background-color: #25D366;
-         color: white;
-         border: none;
-         }
-         .btn.whatsapp:hover {
-         background-color: white;
-         color: #1EBE5D;
-         }
-         .btn.facebook {
-         background-color: #1877F2;
-         color: white;
-         border: none;
-         }
-         .btn.facebook:hover {
-         background-color: white;
-         color: #1877F2;
-         }
-         .cta-buttons {
-         margin-top: 80px;
-         }
-         .cta-buttons a {
-         background-color: #f29300;
-         color: white;
-         text-decoration: none;
-         font-weight: bold;
-         padding: 15px 25px;
-         margin: 0 10px;
-         border-radius: 30px;
-         display: inline-block;
-         transition: background-color 0.3s;
-         }
-         .cta-buttons a:hover {
-         background-color: #cc7600;
-         }
-         .social-icons {
-         margin-top: 15px;
-         }
-         .social-icons a {
-         color: white;
-         margin: 0 10px;
-         font-size: 24px;
-         }
-         /*###############################*/
-         /*AQUI VIENE: ¿POR QUÉ ELEGIRNOS?*/
-         /*###############################*/
-         .why-section {
-         background-color: #fff;
-         padding: 20px 20px 5px;
-         }
-         .why-section h2 {
-         font-size: 32px;
-         color: #002244;
-         margin-bottom: 30px;
-         }
-         .features {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 25px;
-         max-width: 1200px;
-         margin: auto;
-         }
-         .feature {
-         width: 240px;
-         height: 240px;
-         background-size: cover;
-         background-position: center;
-         border-radius: 16px;
-         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-         overflow: hidden;
-         position: relative;
-         transition: transform 0.3s ease;
-         }
-         .feature:hover {
-         transform: scale(1.03);
-         }
-         .feature img {
-         width: 20px;
-         height: 20px;
-         margin-bottom: 15px;
-         }
-         .feature h3 {
-         color: #f29300;
-         font-size: 26px;
-         margin-bottom: 10px;
-         }
-         .feature p {
-         color: white;
+         color: var(--naranja);
          font-size: 15px;
-         }
-         .feature .overlay {
-         background-color: rgba(0, 0, 0, 0.55);
-         color: white;
-         padding: 15px;
-         text-align: center;
-         height: 100%;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         }
-         .feature h3 {
-         font-size: 22px; /*Titulo de cada por qué*/
-         color: #f29300;;
-         margin-bottom: 10px;
-         }
-         .feature p {
-         font-size: 16px;
-         line-height: 1.4;
-         }
-         /*##########################*/
-         /*####FONDOS ESPECÍFICOS####*/
-         /*##########################*/
-         .feature.envios {
-         background-image: url('principal/general/envios.png');
-         }
-         .feature.credito {
-         background-image: url('principal/general/credito.png');
-         }
-         .feature.calidad {
-         background-image: url('principal/general/garantia.png');
-         }
-         .feature.promociones {
-         background-image: url('principal/general/promociones.png');
-         }
-         /*##########################*/
-         /*########CATEGORIAS########*/
-         /*##########################*/
-         .categorias-section {
-         background-color: #FFFFFF ; /* Naranja opaco */
-         padding: 20px 0px;
+         font-weight: 900;
+      }
+
+      /* ============================= */
+      /* BLOQUE COMERCIAL */
+      /* ============================= */
+
+      .bloque-comercial {
+         padding: 84px 0;
+         background-color: var(--blanco);
+      }
+
+      .comercial-grid {
+         display: grid;
+         grid-template-columns: 0.95fr 1.05fr;
+         gap: 54px;
+         align-items: center;
+      }
+
+      .comercial-imagen {
+         position: relative;
+         border-radius: 28px;
+         overflow: hidden;
+         box-shadow: var(--sombra);
+      }
+
+      .comercial-imagen img {
          width: 100%;
-         box-sizing: border-box;
-         }
-         .categorias-section h2 {
-         font-size: 32px;
-         color: #002244;
-         margin-bottom: 30px;
-         }
-         .categorias {
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: center;
-         gap: 25px;
-         max-width: 1100px;
-         margin: auto;
-         }
-         .categoria {
-         width: 240px;
-         height: 240px;
-         background-size: cover;
-         background-position: center;
+         height: 470px;
+         object-fit: cover;
+      }
+
+      .comercial-badge {
+         position: absolute;
+         right: 20px;
+         bottom: 20px;
+         background-color: var(--naranja);
+         color: var(--blanco);
+         padding: 18px 22px;
+         border-radius: 18px;
+         font-weight: 900;
+         box-shadow: var(--sombra);
+      }
+
+      .comercial-texto small {
+         color: var(--naranja);
+         font-size: 14px;
+         font-weight: 900;
+         text-transform: uppercase;
+         letter-spacing: 0.8px;
+      }
+
+      .comercial-texto h2 {
+         margin: 12px 0 18px;
+         color: var(--azul-comercial);
+         font-size: clamp(32px, 4.2vw, 50px);
+         line-height: 1.08;
+         letter-spacing: -1.3px;
+      }
+
+      .comercial-texto p {
+         margin: 0;
+         color: var(--gris-principal);
+         font-size: 17px;
+         line-height: 1.7;
+      }
+
+      .lista-comercial {
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         gap: 16px;
+         margin-top: 30px;
+      }
+
+      .lista-comercial div {
+         background-color: var(--fondo-suave);
+         border: 1px solid var(--borde);
          border-radius: 16px;
-         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-         position: relative;
-         text-decoration: none;
-         overflow: hidden;
-         transition: transform 0.3s ease;
-         }
-         .categoria:hover {
-         transform: translateY(-5px);
-         }
-         .categoria .overlay {
-         background-color: rgba(0, 0, 0, 0.55);
-         height: 100%;
-         color: white;
          padding: 20px;
+      }
+
+      .lista-comercial i {
+         color: var(--naranja);
+         font-size: 21px;
+         margin-bottom: 12px;
+      }
+
+      .lista-comercial strong {
+         display: block;
+         color: var(--azul-comercial);
+         margin-bottom: 5px;
+      }
+
+      .lista-comercial span {
+         color: var(--gris-principal);
+         font-size: 14px;
+         line-height: 1.45;
+      }
+
+      /* ============================= */
+      /* CTA */
+      /* ============================= */
+
+      .cta {
+         padding: 76px 0;
+         background:
+            radial-gradient(circle at 18% 22%, rgba(255, 165, 0, 0.18), transparent 28%),
+            linear-gradient(135deg, var(--gris-oscuro), var(--azul-comercial));
+         color: var(--blanco);
+      }
+
+      .cta-box {
+         display: grid;
+         grid-template-columns: 1.25fr 0.75fr;
+         align-items: center;
+         gap: 36px;
+      }
+
+      .cta-box small {
+         color: var(--naranja);
+         font-size: 14px;
+         font-weight: 900;
+         text-transform: uppercase;
+         letter-spacing: 0.8px;
+      }
+
+      .cta-box h2 {
+         margin: 10px 0 14px;
+         font-size: clamp(30px, 4.2vw, 46px);
+         line-height: 1.08;
+         letter-spacing: -1.2px;
+      }
+
+      .cta-box p {
+         max-width: 680px;
+         margin: 0;
+         color: rgba(255, 255, 255, 0.82);
+         font-size: 17px;
+         line-height: 1.65;
+      }
+
+      .cta-acciones {
          display: flex;
-         flex-direction: column;
-         justify-content: center;
-         text-align: center;
-         }
-         .categoria h3 {
-         font-size: 22px;
-         margin-bottom: 8px;
-         color: #f29300;
-         }
-         .categoria p {
-         font-size: 16px;
-         line-height: 1.5;
-         }
-         /*##########################*/
-         /*###FONDOS DE CATEGORÍAS###*/
-         /*##########################*/
-         .categoria.electro {
-         background-image: url('principal/oferta1.jpg');
-         }
-         .categoria.tecnologia {
-         background-image: url('principal/tec.jpg');
-         }
-         .categoria.hogar {
-         background-image: url('principal/sal.jpg');
-         }
-         /*##########################*/
-         /*######BANNER CARRUSEL#####*/
-         /*##########################*/
-         .banner {
-         width: 100%;
+         justify-content: flex-end;
+         flex-wrap: wrap;
+         gap: 13px;
+      }
+
+      .btn-whatsapp {
+         background-color: #25D366;
+         color: var(--blanco);
+      }
+
+      .btn-whatsapp:hover {
+         background-color: #1ebe5d;
+      }
+
+      .btn-claro {
+         background-color: var(--blanco);
+         color: var(--azul-comercial);
+      }
+
+      .btn-claro:hover {
+         background-color: #efefef;
+      }
+
+      /* ============================= */
+      /* OFERTAS */
+      /* ============================= */
+
+      .ofertas {
+         padding: 82px 0;
+         background-color: var(--fondo-suave);
+      }
+
+      .ofertas-header {
+         margin-bottom: 34px;
+      }
+
+      .ofertas-header small {
+         color: var(--naranja);
+         font-size: 14px;
+         font-weight: 900;
+         text-transform: uppercase;
+         letter-spacing: 0.8px;
+      }
+
+      .ofertas-header h2 {
+         margin: 8px 0 0;
+         color: var(--azul-comercial);
+         font-size: clamp(32px, 4.2vw, 48px);
+         letter-spacing: -1.2px;
+      }
+
+      .carousel-wrapper {
          overflow: hidden;
-         position: relative;
-         margin-top: 20px;
-         background-color: #f4f4f4;
-         padding: 10px 0;
-         }
-         .carousel {
+         width: 100%;
+      }
+
+      .carousel {
          display: flex;
-         gap: 20px;
-         animation: scroll 40s linear infinite;
-         animation-play-state: running;
-         }
-         .carousel img {
+         gap: 22px;
+         width: max-content;
+         animation: scroll 38s linear infinite;
+      }
+
+      .carousel:hover {
+         animation-play-state: paused;
+      }
+
+      .carousel img {
          height: 260px;
          width: auto;
          flex-shrink: 0;
-         border-radius: 10px;
-         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-         background-color: white;
-         padding: 10px;
          object-fit: contain;
+         background-color: var(--blanco);
+         border: 1px solid var(--borde);
+         border-radius: 22px;
+         padding: 14px;
+         box-shadow: var(--sombra-suave);
+      }
+
+      @keyframes scroll {
+         0% {
+            transform: translateX(0);
          }
-         .carousel-wrapper {
-         overflow-x: hidden;
-         width: 100%;
+
+         100% {
+            transform: translateX(-50%);
          }
-         .carousel-wrapper.scrollable {
-         overflow-x: auto;
-         cursor: grab;
-         }
-         /*##########################*/
-         /*#########ANIMACIÓN########*/
-         /*##########################*/
-         @keyframes scroll {
-         0% { transform: translateX(0%); }
-         100% { transform: translateX(-50%); }
-         }
-         /*#######################################################################*/
-         /*#SECCIÓN MODAL: Sirve para hacer zoom en las imagenes cuando se pincha#*/
-         /*#######################################################################*/
-         .modal {
+      }
+
+      /* ============================= */
+      /* MODAL */
+      /* ============================= */
+
+      .modal {
          display: none;
          position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: rgba(0, 0, 0, 0.5);
+         inset: 0;
+         background: rgba(32, 32, 31, 0.66);
          align-items: center;
          justify-content: center;
-         z-index: 1000;
-         }
-         .modal-content {
-         background: white;
+         z-index: 2000;
          padding: 20px;
-         border-radius: 10px;
-         text-align: center;
-         width: 80%;
-         max-width: 400px;
-         box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-         }
-         .modal-content h2 {
-         font-size: 22px;
-         font-weight: bold;
-         color: #002244;
-         margin-bottom: 15px;
-         }
-         .modal-content ul {
-         text-align: left;
+      }
+
+      .modal-content {
+         background-color: var(--blanco);
+         width: min(470px, 100%);
+         border-radius: 22px;
+         padding: 30px;
+         box-shadow: var(--sombra);
+      }
+
+      .modal-content h2 {
+         margin: 0 0 14px;
+         color: var(--azul-comercial);
+         font-size: 25px;
+      }
+
+      .modal-content ul {
          padding-left: 20px;
-         font-size: 16px;
-         color: #444;
-         list-style-type: disc; /* Viñetas */
-         }
-         .modal-content ul li {
-         margin-bottom: 8px;
-         }
-         .precio {
-         font-size: 20px;
-         font-weight: bold;
-         color: #fc4b08;
-         text-align: center;
-         margin-top: 15px;
-         }
-         .modal-buttons {
+         color: var(--gris-principal);
+         line-height: 1.55;
+      }
+
+      .precio {
+         color: var(--naranja);
+         font-size: 23px;
+         font-weight: 900;
+      }
+
+      .modal-buttons {
          display: flex;
-         justify-content: center;
+         flex-wrap: wrap;
          gap: 10px;
-         margin-top: 15px;
-         }
-         /*##############################################*/
-         /*#BOTÓN WHATSAPP: Este es el que esta en modal#*/
-         /*##############################################*/
-         .whatsapp-btn {
-         background-color: #085c27;
-         color: white;
-         padding: 10px 15px;
-         border-radius: 5px;
-         text-decoration: none;
-         font-size: 16px;
-         font-weight: bold;
-         display: inline-block;
-         align-items: center;
-         gap: 5px;
-         }
-         .whatsapp-btn:hover {
-         background-color: #1EBE5D;
-         }
-         .close {
-         padding: 10px 15px;
-         background-color: #fc4b08;
-         color: white;
+         margin-top: 18px;
+      }
+
+      .whatsapp-btn {
+         background-color: #25D366;
+         color: var(--blanco);
+         padding: 12px 16px;
+         border-radius: 999px;
+         font-weight: 900;
+      }
+
+      .whatsapp-btn:hover {
+         background-color: #1ebe5d;
+      }
+
+      .close {
+         background-color: var(--azul-comercial);
+         color: var(--blanco);
          border: none;
-         border-radius: 5px;
+         padding: 12px 16px;
+         border-radius: 999px;
+         font-weight: 900;
          cursor: pointer;
-         font-size: 16px;
-         display: inline-flex;
-         align-items: center;
-         gap: 5px;
-         }
-         .close:hover {
-         background-color: #e63900;
-         }
-         /*##########################*/
-         /*#####TITULOS MODERNOS#####*/
-         /*##########################*/
-         .seccion-titulo {
-         font-size: 34px;
-         color: #002244;
-         font-weight: 700;
-         text-align: center;
-         margin-top: 10px;
-         margin-bottom: 30px;
-         font-family: 'Segoe UI', sans-serif;
-         position: relative;
-         }
-         .seccion-titulo::after {
-         content: '';
+      }
+
+      .close:hover {
+         background-color: var(--gris-oscuro);
+      }
+
+      /* ============================= */
+      /* WHATSAPP FLOTANTE */
+      /* ============================= */
+
+      .whatsapp-flotante {
+         position: fixed;
+         right: 22px;
+         bottom: 22px;
+         z-index: 1500;
          width: 60px;
-         height: 4px;
-         background-color: #f29300;
-         display: block;
-         margin: 10px auto 0;
-         border-radius: 4px;
+         height: 60px;
+         border-radius: 50%;
+         background-color: #25D366;
+         color: var(--blanco);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 31px;
+         box-shadow: 0 18px 38px rgba(37, 211, 102, 0.38);
+         transition: transform 0.2s ease;
+      }
+
+      .whatsapp-flotante:hover {
+         transform: translateY(-3px);
+      }
+
+      /* ============================= */
+      /* FOOTER */
+      /* ============================= */
+
+      footer {
+         background-color: var(--gris-oscuro);
+         color: var(--blanco);
+         padding: 30px 0;
+         text-align: center;
+      }
+
+      footer p {
+         margin: 0;
+         color: rgba(255, 255, 255, 0.84);
+         font-size: 15px;
+      }
+
+      /* ============================= */
+      /* RESPONSIVE */
+      /* ============================= */
+
+      @media (max-width: 1100px) {
+         .hero-grid,
+         .comercial-grid,
+         .cta-box {
+            grid-template-columns: 1fr;
          }
+
+         .showcase {
+            max-width: 760px;
+         }
+
+         .cta-acciones {
+            justify-content: flex-start;
+         }
+
+         .confianza-grid {
+            grid-template-columns: repeat(2, 1fr);
+         }
+
+         .confianza-item:nth-child(2) {
+            border-right: none;
+         }
+
+         .confianza-item:nth-child(1),
+         .confianza-item:nth-child(2) {
+            border-bottom: 1px solid var(--borde);
+         }
+
+         .categorias-grid {
+            grid-template-columns: repeat(2, 1fr);
+         }
+      }
+
+      @media (max-width: 850px) {
+         .barra-superior {
+            display: none;
+         }
+
+         .header-principal {
+            min-height: auto;
+            padding: 14px 0;
+            align-items: flex-start;
+            flex-direction: column;
+         }
+
+         .menu-principal {
+            width: 100%;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 4px;
+         }
+
+         .menu-principal a {
+            white-space: nowrap;
+         }
+
+         .btn-menu {
+            display: none;
+         }
+
+         .hero {
+            padding: 54px 0 82px;
+         }
+
+         .hero-datos {
+            grid-template-columns: 1fr;
+         }
+
+         .showcase {
+            grid-template-columns: 1fr;
+         }
+
+         .showcase-principal img {
+            height: 330px;
+         }
+
+         .showcase-secundario {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+         }
+
+         .tarjeta-flotante {
+            position: static;
+            width: 100%;
+            margin-top: 16px;
+         }
+
          .titulo-seccion {
-         font-size: 32px;
-         color: #002244;
-         margin: 20px 0 30px;
-         text-align: center;
-         font-weight: bold;
+            display: block;
          }
-         /*##########################*/
-         /*#######PIE DE PÁGINA######*/
-         /*##########################*/
-         footer {
-         background-color: #002244;
-         color: white;
-         text-align: center;
-         padding: 2px;
-         font-size: 18px;
-         width: 100vw;
-         min-height: 60px; /* Ajusta la altura mínima */
-         box-sizing: border-box; /* Evita problemas con márgenes y paddings */
-         position: auto;
-         margin-top: auto; /* Se mantiene abajo automáticamente */
-         bottom: 0;
-         left: 0;
+
+         .titulo-seccion p {
+            margin-top: 14px;
          }
-      </style>
-            <!-- Meta Pixel Code -->
-            <script>
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '30263697303244203');
-            fbq('track', 'PageView');
-            </script>
-            <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=30263697303244203&ev=PageView&noscript=1"
-            /></noscript>
-            <!-- End Meta Pixel Code -->    
-   </head>
-   <!-- ######################################### -->
-   <!-- INICIO PARA COLOCAR TODO LO DE LA EMPRESA -->
-   <!-- ######################################### -->
-   <body>
-      <main>
-         <header>
-            <div class="header-left">
-               <img src="principal/general/electro.png" alt="Logo">
-               <nav>
-                  <a href="#categorias">Categorías</a>
-                  <a href="ofertas.html">Ofertas</a>
-                  <a href="combos.html">Combos</a>
-                  <a href="somos.html">Quiénes somos</a>
-               </nav>
-            </div>
-         </header>
-         <section class="hero">
-            <div class="hero-contenido">
-               <h1>Electrodomésticos y Tecnología</h1>
-               <p class="mensaje-potente">
-                  Aproveche hoy mismo nuestras <strong>ofertas exclusivas</strong> con <strong>crédito inmediato</strong> y <strong>entrega garantizada</strong>. ¡Llévese lo mejor a su hogar, sin complicaciones ni demoras!
+
+         .categorias-grid,
+         .lista-comercial {
+            grid-template-columns: 1fr;
+         }
+
+         .comercial-imagen img {
+            height: 330px;
+         }
+
+         .carousel img {
+            height: 210px;
+         }
+      }
+
+      @media (max-width: 560px) {
+         .contenedor {
+            width: min(92%, 1200px);
+         }
+
+         .logo img {
+            height: 42px;
+         }
+
+         .hero-texto h1 {
+            letter-spacing: -1.4px;
+         }
+
+         .hero-texto p {
+            font-size: 17px;
+         }
+
+         .hero-acciones {
+            flex-direction: column;
+         }
+
+         .btn {
+            width: 100%;
+         }
+
+         .showcase-secundario {
+            grid-template-columns: 1fr;
+         }
+
+         .mini-card img {
+            height: 190px;
+         }
+
+         .confianza-grid {
+            grid-template-columns: 1fr;
+         }
+
+         .confianza-item {
+            border-right: none;
+            border-bottom: 1px solid var(--borde);
+         }
+
+         .confianza-item:last-child {
+            border-bottom: none;
+         }
+
+         .categoria,
+         .categoria img {
+            min-height: 330px;
+         }
+
+         .cta {
+            padding: 62px 0;
+         }
+
+         .whatsapp-flotante {
+            width: 56px;
+            height: 56px;
+            right: 18px;
+            bottom: 18px;
+         }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+         html {
+            scroll-behavior: auto;
+         }
+
+         .carousel {
+            animation: none;
+         }
+
+         * {
+            transition: none !important;
+         }
+      }
+   </style>
+
+   <!-- Meta Pixel Code -->
+   <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '30263697303244203');
+      fbq('track', 'PageView');
+   </script>
+
+   <noscript>
+      <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=30263697303244203&ev=PageView&noscript=1"
+      alt="">
+   </noscript>
+   <!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+   <div class="barra-superior">
+      <div class="contenedor">
+         <div class="barra-info">
+            <span><i class="fas fa-location-dot"></i> Entrega en Loja y Zamora</span>
+            <span><i class="fas fa-credit-card"></i> Crédito directo disponible</span>
+            <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
+         </div>
+
+         <div class="barra-redes">
+            <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" rel="noopener noreferrer" aria-label="Facebook Electromás">
+               <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Electromás">
+               <i class="fab fa-whatsapp"></i>
+            </a>
+         </div>
+      </div>
+   </div>
+
+   <header>
+      <div class="contenedor header-principal">
+         <a href="index.html" class="logo" aria-label="Inicio Electromás">
+            <img src="principal/general/electro.png" alt="Electromás">
+         </a>
+
+         <nav class="menu-principal" aria-label="Menú principal">
+            <a href="#categorias">Categorías</a>
+            <a href="ofertas.html">Ofertas</a>
+            <a href="combos.html">Combos</a>
+            <a href="somos.html">Quiénes somos</a>
+
+            <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn-menu">
+               <i class="fab fa-whatsapp"></i>
+               Comprar ahora
+            </a>
+         </nav>
+      </div>
+   </header>
+
+   <main>
+      <section class="hero">
+         <div class="contenedor hero-grid">
+            <div class="hero-texto">
+               <small><i class="fas fa-bolt"></i> Electromás Loja y Zamora</small>
+
+               <h1>Electrodomésticos y tecnología para comprar <span>con facilidad.</span></h1>
+
+               <p>
+                  Productos para el hogar, tecnología y promociones seleccionadas con crédito directo,
+                  atención personalizada y entrega local en Loja y Zamora.
                </p>
-               <div class="hero-botones">
-                  <a href="https://wa.me/593988926331" target="_blank" class="btn whatsapp">
-                  <i class="fab fa-whatsapp"></i> Contáctenos
+
+               <div class="hero-acciones">
+                  <a href="ofertas.html" class="btn btn-principal">
+                     Ver ofertas
+                     <i class="fas fa-arrow-right"></i>
                   </a>
-                  <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank" class="btn facebook">
-                  <i class="fab fa-facebook-f"></i> Síganos
+
+                  <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn btn-secundario">
+                     <i class="fab fa-whatsapp"></i>
+                     Solicitar asesoría
                   </a>
+               </div>
+
+               <div class="hero-datos">
+                  <div>
+                     <strong>Crédito</strong>
+                     <span>Opciones de pago para facilitar su compra.</span>
+                  </div>
+
+                  <div>
+                     <strong>Entrega</strong>
+                     <span>Cobertura local en Loja y Zamora.</span>
+                  </div>
+
+                  <div>
+                     <strong>Garantía</strong>
+                     <span>Productos seleccionados con respaldo.</span>
+                  </div>
                </div>
             </div>
-         </section>
-         <section class="why-section">
-            <h2 class="seccion-titulo">¿Por qué elegir Electromás?</h2>
-            <div class="features">
-               <div class="feature envios">
-                  <div class="overlay">
-                     <h3>Envíos Rápidos</h3>
-                     <p>Realizamos entregas eficientes exclusivamente en las provincias de Loja y Zamora, garantizando cobertura local especializada.</p>
+
+            <div class="hero-visual">
+               <div class="showcase">
+                  <div class="showcase-principal">
+                     <img src="principal/general/fondo.png" alt="Electrodomésticos y tecnología Electromás">
+                  </div>
+
+                  <div class="showcase-secundario">
+                     <div class="mini-card">
+                        <img src="principal/inicio/p1.jpg" alt="Promoción Electromás">
+                        <strong>Promociones activas</strong>
+                        <span>Revise productos disponibles para su hogar.</span>
+                     </div>
+
+                     <div class="mini-card">
+                        <img src="principal/inicio/p2.jpg" alt="Oferta Electromás">
+                        <strong>Compra asesorada</strong>
+                        <span>Reciba ayuda antes de decidir.</span>
+                     </div>
                   </div>
                </div>
-               <div class="feature credito">
-                  <div class="overlay">
-                     <h3>Crédito Directo</h3>
-                     <p>Ofrecemos crédito inmediato y sin intermediarios, con aprobación en minutos y facilidades de pago.</p>
-                  </div>
-               </div>
-               <div class="feature calidad">
-                  <div class="overlay">
-                     <h3>Garantía de Calidad</h3>
-                     <p>Solo trabajamos con marcas confiables y productos verificados para su tranquilidad.</p>
-                  </div>
-               </div>
-               <div class="feature promociones">
-                  <div class="overlay">
-                     <h3>Promociones Exclusivas</h3>
-                     <p>Aproveche descuentos y ofertas especiales diseñadas para usted todo el año.</p>
-                  </div>
-               </div>
-               <section class="categorias-section" id="categorias">
-                  <h2 class="seccion-titulo">🟠 Categorías 🟠</h2>
-                  <div class="categorias">
-                     <a href="electrodomesticos.html" class="categoria electro">
-                        <div class="overlay">
-                           <h3>Electrodomésticos</h3>
-                           <p>Refrigeradoras, cocinas, lavadoras y más.</p>
-                        </div>
-                     </a>
-                     <a href="tecnologia.html" class="categoria tecnologia">
-                        <div class="overlay">
-                           <h3>Tecnología</h3>
-                           <p>Celulares, televisores, laptops y lo último en innovación.</p>
-                        </div>
-                     </a>
-                     <a href="hogar.html" class="categoria hogar">
-                        <div class="overlay">
-                           <h3>Hogar</h3>
-                           <p>Todo para equipar y decorar su espacio con estilo.</p>
-                        </div>
-                     </a>
-                  </div>
-               </section>
-            </div>
-         </section>
-         <div class="banner" style="position: relative;">
-            <div class="carousel-wrapper" id="wrapper">
-               <div class="carousel" onclick="toggleAnimacion()" id="miCarrusel">
-                  <img src="principal/inicio/p1.jpg" alt="Oferta">
-                  <img src="principal/inicio/p2.jpg" alt="Oferta">
-                  <img src="principal/inicio/p3.jpg" alt="Oferta">
-                  <img src="principal/inicio/p4.jpg" alt="Oferta">    
-                  <img src="principal/inicio/p5.jpg" alt="Oferta">
+
+               <div class="tarjeta-flotante">
+                  <strong>Compra más segura</strong>
+                  <span>Asesoría, crédito directo y entrega local en una sola atención.</span>
                </div>
             </div>
          </div>
-         <!-- ############# -->
-         <!-- SECCIÓN MODAL -->
-         <!-- ############# -->
-         <div id="modal" class="modal">
-            <div class="modal-content">
-               <h2 id="modal-titulo"></h2>
-               <ul id="modal-descripcion"></ul>
-               <p id="modal-precio" class="precio"></p>
-               <div class="modal-buttons">
-                  <a id="whatsapp-link" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
-                  <button class="close" onclick="cerrarModal()">Cerrar</button>
+      </section>
+
+      <section class="confianza">
+         <div class="contenedor">
+            <div class="confianza-grid">
+               <article class="confianza-item">
+                  <i class="fas fa-credit-card"></i>
+                  <h3>Crédito directo</h3>
+                  <p>Facilidades de pago para comprar sin procesos innecesarios.</p>
+               </article>
+
+               <article class="confianza-item">
+                  <i class="fas fa-truck-fast"></i>
+                  <h3>Entrega local</h3>
+                  <p>Atención enfocada en clientes de Loja y Zamora.</p>
+               </article>
+
+               <article class="confianza-item">
+                  <i class="fas fa-box-open"></i>
+                  <h3>Productos seleccionados</h3>
+                  <p>Electrodomésticos, tecnología y artículos útiles para el hogar.</p>
+               </article>
+
+               <article class="confianza-item">
+                  <i class="fas fa-headset"></i>
+                  <h3>Asesoría personalizada</h3>
+                  <p>Le ayudamos a elegir según necesidad, presupuesto y disponibilidad.</p>
+               </article>
+            </div>
+         </div>
+      </section>
+
+      <section class="categorias" id="categorias">
+         <div class="contenedor">
+            <div class="titulo-seccion">
+               <div>
+                  <small>Categorías principales</small>
+                  <h2>Soluciones para equipar su hogar con criterio.</h2>
+               </div>
+
+               <p>
+                  Acceda directamente a las líneas de productos principales:
+                  electrodomésticos, tecnología y artículos para el hogar.
+               </p>
+            </div>
+
+            <div class="categorias-grid">
+               <a href="electrodomesticos.html" class="categoria">
+                  <img src="principal/oferta1.jpg" alt="Electrodomésticos">
+                  <div class="categoria-contenido">
+                     <div class="categoria-numero">01</div>
+                     <h3>Electrodomésticos</h3>
+                     <p>Refrigeradoras, cocinas, lavadoras y productos esenciales para el hogar.</p>
+                     <span>Ver productos <i class="fas fa-arrow-right"></i></span>
+                  </div>
+               </a>
+
+               <a href="tecnologia.html" class="categoria">
+                  <img src="principal/tec.jpg" alt="Tecnología">
+                  <div class="categoria-contenido">
+                     <div class="categoria-numero">02</div>
+                     <h3>Tecnología</h3>
+                     <p>Celulares, televisores, laptops y equipos para uso diario.</p>
+                     <span>Ver productos <i class="fas fa-arrow-right"></i></span>
+                  </div>
+               </a>
+
+               <a href="hogar.html" class="categoria">
+                  <img src="principal/sal.jpg" alt="Hogar">
+                  <div class="categoria-contenido">
+                     <div class="categoria-numero">03</div>
+                     <h3>Hogar</h3>
+                     <p>Artículos funcionales para mejorar, renovar y equipar sus espacios.</p>
+                     <span>Ver productos <i class="fas fa-arrow-right"></i></span>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </section>
+
+      <section class="bloque-comercial">
+         <div class="contenedor comercial-grid">
+            <div class="comercial-imagen">
+               <img src="principal/inicio/p3.jpg" alt="Oferta comercial Electromás">
+               <div class="comercial-badge">
+                  Crédito directo
+               </div>
+            </div>
+
+            <div class="comercial-texto">
+               <small>Compra con respaldo</small>
+               <h2>Una experiencia más clara para comprar mejor.</h2>
+
+               <p>
+                  Electromás no solo muestra productos. Le orienta, revisa disponibilidad,
+                  informa promociones y le ayuda a escoger la mejor opción para su hogar.
+               </p>
+
+               <div class="lista-comercial">
+                  <div>
+                     <i class="fas fa-check-circle"></i>
+                     <strong>Atención directa</strong>
+                     <span>Comunicación rápida mediante WhatsApp.</span>
+                  </div>
+
+                  <div>
+                     <i class="fas fa-check-circle"></i>
+                     <strong>Promociones vigentes</strong>
+                     <span>Ofertas y combos disponibles para consultar.</span>
+                  </div>
+
+                  <div>
+                     <i class="fas fa-check-circle"></i>
+                     <strong>Cobertura local</strong>
+                     <span>Entrega especializada en Loja y Zamora.</span>
+                  </div>
+
+                  <div>
+                     <i class="fas fa-check-circle"></i>
+                     <strong>Compra asesorada</strong>
+                     <span>Orientación antes de tomar una decisión.</span>
+                  </div>
                </div>
             </div>
          </div>
-         <!-- ############# -->
-         <!-- SECCIÓN SCRIPT -->
-         <!-- ############# -->
-         <script>
-            let animado = true;
-            function toggleAnimacion() {
-            const carrusel = document.getElementById("miCarrusel");
-            const wrapper = document.getElementById("wrapper");
-            
-            if (animado) {
-            carrusel.style.animationPlayState = "paused";
-            wrapper.classList.add("scrollable");
-            } else {
-            carrusel.style.animationPlayState = "running";
-            wrapper.classList.remove("scrollable");
-            }
-            
-            animado = !animado;
-            }
-         </script>
-         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-               const carrusel = document.getElementById("miCarrusel");
-               if (!carrusel) return;
-            
-               const contenidoOriginal = carrusel.innerHTML;
-               const repeticiones = 8; // Ajuste según cuán largo desea el loop
-            
-               for (let i = 0; i < repeticiones - 1; i++) {
-                  carrusel.innerHTML += contenidoOriginal;
-               }
-            });
-         </script>
-         <script>
-            function mostrarDetalles(titulo, descripcion, precio) {
-                document.getElementById('modal-titulo').innerText = titulo;
-                // Seleccionar la lista de características
-                let listaDescripcion = document.getElementById('modal-descripcion');
-                listaDescripcion.innerHTML = ""; // Limpiar antes de agregar nuevos elementos
-                // Convertir la descripción en una lista
-                let caracteristicas = descripcion.split('|');    
-                caracteristicas.forEach(caracteristica => {
-                    let li = document.createElement('li');
-                    li.textContent = caracteristica.trim();
-                    listaDescripcion.appendChild(li);
-                });
-                // Actualizar el precio
-                document.getElementById('modal-precio').innerText = precio;
-                // Construcción del enlace de WhatsApp
-                let numeroWhatsApp = "593988926331";
-                let mensaje = `Hola, estoy interesado en el siguiente producto:
-                  *Producto:* ${titulo}
-                  *Precio:* ${precio}
-                  ¿Podrían brindarme más información, por favor?`;
-                let whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-                document.getElementById('whatsapp-link').href = whatsappURL;  
-                // Mostrar el modal
-                document.getElementById('modal').style.display = "flex";
-            }
-            function cerrarModal() {
-                document.getElementById('modal').style.display = "none";
-            }
-         </script>
-      </main>
-      <footer>
-         <p>© 2025 Electromás. Todos los derechos reservados.</p>
-      </footer>
-   </body>
+      </section>
+
+      <section class="cta">
+         <div class="contenedor cta-box">
+            <div>
+               <small>Atención inmediata</small>
+               <h2>Consulte disponibilidad, crédito y promociones por WhatsApp.</h2>
+               <p>
+                  Un asesor puede ayudarle a revisar productos, precios, combos y opciones
+                  de compra según su necesidad.
+               </p>
+            </div>
+
+            <div class="cta-acciones">
+               <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                  <i class="fab fa-whatsapp"></i>
+                  Hablar con asesor
+               </a>
+
+               <a href="combos.html" class="btn btn-claro">
+                  Ver combos
+               </a>
+            </div>
+         </div>
+      </section>
+
+      <section class="ofertas">
+         <div class="contenedor ofertas-header">
+            <small>Promociones destacadas</small>
+            <h2>Ofertas disponibles</h2>
+         </div>
+
+         <div class="carousel-wrapper">
+            <div class="carousel" id="miCarrusel">
+               <img src="principal/inicio/p1.jpg" alt="Oferta destacada Electromás 1" loading="lazy">
+               <img src="principal/inicio/p2.jpg" alt="Oferta destacada Electromás 2" loading="lazy">
+               <img src="principal/inicio/p3.jpg" alt="Oferta destacada Electromás 3" loading="lazy">
+               <img src="principal/inicio/p4.jpg" alt="Oferta destacada Electromás 4" loading="lazy">
+               <img src="principal/inicio/p5.jpg" alt="Oferta destacada Electromás 5" loading="lazy">
+
+               <img src="principal/inicio/p1.jpg" alt="Oferta destacada Electromás 1" loading="lazy">
+               <img src="principal/inicio/p2.jpg" alt="Oferta destacada Electromás 2" loading="lazy">
+               <img src="principal/inicio/p3.jpg" alt="Oferta destacada Electromás 3" loading="lazy">
+               <img src="principal/inicio/p4.jpg" alt="Oferta destacada Electromás 4" loading="lazy">
+               <img src="principal/inicio/p5.jpg" alt="Oferta destacada Electromás 5" loading="lazy">
+            </div>
+         </div>
+      </section>
+
+      <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+         <div class="modal-content">
+            <h2 id="modal-titulo"></h2>
+            <ul id="modal-descripcion"></ul>
+            <p id="modal-precio" class="precio"></p>
+
+            <div class="modal-buttons">
+               <a id="whatsapp-link" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+                  <i class="fab fa-whatsapp"></i>
+                  Contactar por WhatsApp
+               </a>
+
+               <button class="close" type="button" onclick="cerrarModal()">Cerrar</button>
+            </div>
+         </div>
+      </div>
+   </main>
+
+   <a href="https://wa.me/593988926331" target="_blank" rel="noopener noreferrer" class="whatsapp-flotante" aria-label="Comprar por WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+   </a>
+
+   <footer>
+      <div class="contenedor">
+         <p>© <span id="anioActual"></span> Electromás. Todos los derechos reservados.</p>
+      </div>
+   </footer>
+
+   <script>
+      document.getElementById("anioActual").textContent = new Date().getFullYear();
+
+      function mostrarDetalles(titulo, descripcion, precio) {
+         const modalTitulo = document.getElementById('modal-titulo');
+         const modalDescripcion = document.getElementById('modal-descripcion');
+         const modalPrecio = document.getElementById('modal-precio');
+         const whatsappLink = document.getElementById('whatsapp-link');
+         const modal = document.getElementById('modal');
+
+         modalTitulo.innerText = titulo;
+         modalDescripcion.innerHTML = "";
+
+         const caracteristicas = descripcion.split('|');
+
+         caracteristicas.forEach(function(caracteristica) {
+            const li = document.createElement('li');
+            li.textContent = caracteristica.trim();
+            modalDescripcion.appendChild(li);
+         });
+
+         modalPrecio.innerText = precio;
+
+         const numeroWhatsApp = "593988926331";
+         const mensaje = `Hola, estoy interesado en el siguiente producto:
+*Producto:* ${titulo}
+*Precio:* ${precio}
+¿Podrían brindarme más información, por favor?`;
+
+         const whatsappURL = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+
+         whatsappLink.href = whatsappURL;
+         modal.style.display = "flex";
+      }
+
+      function cerrarModal() {
+         document.getElementById('modal').style.display = "none";
+      }
+
+      document.addEventListener("keydown", function(event) {
+         if (event.key === "Escape") {
+            cerrarModal();
+         }
+      });
+
+      document.getElementById("modal").addEventListener("click", function(event) {
+         if (event.target === this) {
+            cerrarModal();
+         }
+      });
+   </script>
+</body>
 </html>
