@@ -312,39 +312,194 @@
       }
 
       /* ========================= */
-      /* DEPARTMENT BAR */
+      /* DEPARTMENT BAR PROFESIONAL */
       /* ========================= */
 
       .departamentos {
-         background: var(--azul);
+         position: relative;
+         background:
+            linear-gradient(135deg, rgba(32, 32, 31, 0.96), rgba(22, 43, 78, 0.98) 58%, #203f72 100%);
          color: var(--blanco);
+         border-top: 1px solid rgba(255, 255, 255, 0.10);
+         border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+         box-shadow: 0 12px 26px rgba(32, 32, 31, 0.16);
       }
 
-      .departamentos .contenedor {
-         display: flex;
-         align-items: center;
-         gap: 0;
-         overflow-x: auto;
-         scrollbar-width: thin;
+      .departamentos::before {
+         content: "";
+         position: absolute;
+         inset: 0;
+         pointer-events: none;
+         background:
+            radial-gradient(circle at 14% 0%, rgba(255, 165, 0, 0.20), transparent 32%),
+            linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
       }
 
-      .departamentos a {
+      .departamentos-shell {
+         position: relative;
+         z-index: 1;
+         display: grid;
+         grid-template-columns: 168px 1fr;
+         gap: 12px;
+         align-items: stretch;
+         padding: 10px 0;
+      }
+
+      .departamentos-label {
          display: inline-flex;
          align-items: center;
-         gap: 7px;
-         min-height: 40px;
-         padding: 0 15px;
-         color: var(--blanco);
-         font-size: 13px;
-         font-weight: 700;
-         white-space: nowrap;
-         border-right: 1px solid rgba(255, 255, 255, 0.12);
-         transition: background 0.2s ease, color 0.2s ease;
+         gap: 10px;
+         min-height: 54px;
+         padding: 0 16px;
+         border-radius: 16px;
+         background: rgba(255, 255, 255, 0.09);
+         border: 1px solid rgba(255, 255, 255, 0.16);
+         border-left: 4px solid var(--naranja);
+         color: rgba(255, 255, 255, 0.94);
+         font-size: 12px;
+         font-weight: 800;
+         text-transform: uppercase;
+         letter-spacing: 0.55px;
       }
 
-      .departamentos a:hover {
-         background: rgba(255, 255, 255, 0.10);
+      .departamentos-label i {
          color: var(--naranja);
+         font-size: 15px;
+      }
+
+      .departamentos-grid {
+         display: grid;
+         grid-template-columns: repeat(8, minmax(92px, 1fr));
+         gap: 8px;
+      }
+
+      .departamentos .departamento-item {
+         position: relative;
+         overflow: hidden;
+         display: grid;
+         grid-template-columns: 30px minmax(0, 1fr);
+         align-items: center;
+         gap: 8px;
+         min-height: 54px;
+         padding: 8px 10px;
+         color: var(--blanco);
+         border-radius: 15px;
+         background: rgba(255, 255, 255, 0.075);
+         border: 1px solid rgba(255, 255, 255, 0.13);
+         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+         transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .departamentos .departamento-item::after {
+         content: "";
+         position: absolute;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         height: 3px;
+         background: var(--naranja);
+         transform: scaleX(0);
+         transform-origin: left;
+         transition: transform 0.2s ease;
+      }
+
+      .departamentos .departamento-item:hover {
+         transform: translateY(-2px);
+         background: rgba(255, 255, 255, 0.12);
+         border-color: rgba(255, 165, 0, 0.48);
+         box-shadow: 0 12px 24px rgba(32, 32, 31, 0.20);
+      }
+
+      .departamentos .departamento-item:hover::after {
+         transform: scaleX(1);
+      }
+
+      .departamentos .departamento-item-principal {
+         background: rgba(255, 165, 0, 0.12);
+         border-color: rgba(255, 165, 0, 0.32);
+      }
+
+      .departamento-icono {
+         width: 30px;
+         height: 30px;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 11px;
+         background: rgba(255, 255, 255, 0.11);
+         color: var(--naranja);
+         font-size: 13px;
+      }
+
+      .departamento-texto {
+         display: grid;
+         gap: 2px;
+         min-width: 0;
+      }
+
+      .departamento-texto strong {
+         display: block;
+         overflow: hidden;
+         color: var(--blanco);
+         font-size: 12px;
+         line-height: 1.15;
+         font-weight: 800;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+      }
+
+      .departamento-texto small {
+         display: block;
+         overflow: hidden;
+         color: rgba(255, 255, 255, 0.62);
+         font-size: 10px;
+         line-height: 1.15;
+         font-weight: 700;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+      }
+
+      @media (max-width: 1120px) {
+         .departamentos-shell {
+            grid-template-columns: 1fr;
+         }
+
+         .departamentos-label {
+            min-height: 42px;
+         }
+
+         .departamentos-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+         }
+      }
+
+      @media (max-width: 760px) {
+         .departamentos-shell {
+            padding: 8px 0;
+         }
+
+         .departamentos-label {
+            display: none;
+         }
+
+         .departamentos-grid {
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(155px, 1fr);
+            grid-template-columns: none;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: thin;
+         }
+
+         .departamentos .departamento-item {
+            min-height: 50px;
+         }
+      }
+
+      @media (max-width: 520px) {
+         .departamentos-grid {
+            grid-auto-columns: minmax(145px, 1fr);
+         }
       }
 
       /* ========================= */
@@ -1363,15 +1518,53 @@
       </div>
 
       <nav class="departamentos" aria-label="Departamentos">
-         <div class="contenedor">
-            <a href="electrodomesticos.html"><i class="fas fa-plug"></i> Electrodomésticos</a>
-            <a href="tecnologia.html"><i class="fas fa-laptop"></i> Tecnología</a>
-            <a href="hogar.html"><i class="fas fa-couch"></i> Hogar</a>
-            <a href="producto/celulares.html"><i class="fas fa-mobile-screen"></i> Celulares</a>
-            <a href="producto/refrigeracion.html"><i class="fas fa-snowflake"></i> Refrigeración</a>
-            <a href="producto/televisores.html"><i class="fas fa-tv"></i> Televisores</a>
-            <a href="producto/cocina.html"><i class="fas fa-fire-burner"></i> Cocina</a>
-            <a href="producto/lavado.html"><i class="fas fa-soap"></i> Lavado</a>
+         <div class="contenedor departamentos-shell">
+            <div class="departamentos-label">
+               <i class="fas fa-table-cells-large"></i>
+               <span>Departamentos</span>
+            </div>
+
+            <div class="departamentos-grid">
+               <a href="electrodomesticos.html" class="departamento-item departamento-item-principal">
+                  <span class="departamento-icono"><i class="fas fa-plug"></i></span>
+                  <span class="departamento-texto"><strong>Electrodomésticos</strong><small>Línea blanca</small></span>
+               </a>
+
+               <a href="tecnologia.html" class="departamento-item departamento-item-principal">
+                  <span class="departamento-icono"><i class="fas fa-laptop"></i></span>
+                  <span class="departamento-texto"><strong>Tecnología</strong><small>Equipos y gadgets</small></span>
+               </a>
+
+               <a href="hogar.html" class="departamento-item departamento-item-principal">
+                  <span class="departamento-icono"><i class="fas fa-couch"></i></span>
+                  <span class="departamento-texto"><strong>Hogar</strong><small>Confort y muebles</small></span>
+               </a>
+
+               <a href="producto/celulares.html" class="departamento-item">
+                  <span class="departamento-icono"><i class="fas fa-mobile-screen"></i></span>
+                  <span class="departamento-texto"><strong>Celulares</strong><small>Smartphones</small></span>
+               </a>
+
+               <a href="producto/refrigeracion.html" class="departamento-item">
+                  <span class="departamento-icono"><i class="fas fa-snowflake"></i></span>
+                  <span class="departamento-texto"><strong>Refrigeración</strong><small>Frío y conservación</small></span>
+               </a>
+
+               <a href="producto/televisores.html" class="departamento-item">
+                  <span class="departamento-icono"><i class="fas fa-tv"></i></span>
+                  <span class="departamento-texto"><strong>Televisores</strong><small>Smart TV</small></span>
+               </a>
+
+               <a href="producto/cocina.html" class="departamento-item">
+                  <span class="departamento-icono"><i class="fas fa-fire-burner"></i></span>
+                  <span class="departamento-texto"><strong>Cocina</strong><small>Preparación</small></span>
+               </a>
+
+               <a href="producto/lavado.html" class="departamento-item">
+                  <span class="departamento-icono"><i class="fas fa-soap"></i></span>
+                  <span class="departamento-texto"><strong>Lavado</strong><small>Lavandería</small></span>
+               </a>
+            </div>
          </div>
       </nav>
    </header>
