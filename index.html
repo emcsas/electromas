@@ -340,6 +340,7 @@
 
     .hero-copy {
       max-width: 560px;
+      padding-left: 24px;
     }
 
     .hero h1 {
@@ -620,62 +621,6 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
-    .precio-rangos {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
-    .precio-opcion {
-      position: relative;
-    }
-
-    .precio-opcion input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .precio-opcion span {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      width: 100%;
-      padding: 11px 12px;
-      border-radius: 15px;
-      border: 1px solid #dfe7f2;
-      background: linear-gradient(180deg, #ffffff 0%, #f6f9fd 100%);
-      color: var(--azul);
-      font-size: 0.86rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .precio-opcion span::after {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      border: 2px solid #c8d4e4;
-      background: white;
-      flex: 0 0 auto;
-    }
-
-    .precio-opcion input:checked + span {
-      color: white;
-      border-color: var(--azul);
-      background: linear-gradient(135deg, #142b52 0%, #1f4175 100%);
-      box-shadow: 0 10px 20px rgba(20,43,82,0.16);
-    }
-
-    .precio-opcion input:checked + span::after {
-      border-color: var(--naranja);
-      background: var(--naranja);
-      box-shadow: inset 0 0 0 2px var(--azul);
-    }
-
 
     .busqueda-catalogo input {
       padding-left: 40px;
@@ -1223,6 +1168,10 @@
         padding: 0 14px;
       }
 
+      .hero-copy {
+        padding-left: 14px;
+      }
+
       .hero h1 {
         font-size: 2.1rem;
         max-width: 100%;
@@ -1357,29 +1306,14 @@
             </div>
 
             <div class="filtro-grupo">
-              <label>Rango de precio</label>
-              <div class="precio-rangos" id="precioRangos">
-                <label class="precio-opcion">
-                  <input type="radio" name="precioFiltro" value="todos" checked>
-                  <span>Todos los precios</span>
-                </label>
-                <label class="precio-opcion">
-                  <input type="radio" name="precioFiltro" value="0-300">
-                  <span>Hasta $300</span>
-                </label>
-                <label class="precio-opcion">
-                  <input type="radio" name="precioFiltro" value="301-500">
-                  <span>$301 a $500</span>
-                </label>
-                <label class="precio-opcion">
-                  <input type="radio" name="precioFiltro" value="501-700">
-                  <span>$501 a $700</span>
-                </label>
-                <label class="precio-opcion">
-                  <input type="radio" name="precioFiltro" value="701-999999">
-                  <span>Más de $700</span>
-                </label>
-              </div>
+              <label for="precioSelect">Rango de precio</label>
+              <select id="precioSelect">
+                <option value="todos">Todos los precios</option>
+                <option value="0-300">Hasta $300</option>
+                <option value="301-500">$301 a $500</option>
+                <option value="501-700">$501 a $700</option>
+                <option value="701-999999">Más de $700</option>
+              </select>
             </div>
 
             <div class="filtro-grupo">
@@ -1651,7 +1585,7 @@
 
   const searchInput = document.getElementById("buscarInput");
   const lineaSelect = document.getElementById("lineaSelect");
-  const precioRadios = document.querySelectorAll('input[name="precioFiltro"]');
+  const precioSelect = document.getElementById("precioSelect");
   const ordenSelect = document.getElementById("ordenSelect");
   const limpiar = document.getElementById("limpiarBtn");
 
@@ -1811,21 +1745,21 @@
   function update() {
     filtros.search = searchInput.value;
     filtros.linea = lineaSelect.value;
-    filtros.precio = document.querySelector('input[name="precioFiltro"]:checked')?.value || "todos";
+    filtros.precio = precioSelect.value;
     filtros.orden = ordenSelect.value;
     filtrarYRender();
   }
 
   searchInput.addEventListener("input", update);
   lineaSelect.addEventListener("change", update);
-  precioRadios.forEach(radio => radio.addEventListener("change", update));
+  precioSelect.addEventListener("change", update);
   ordenSelect.addEventListener("change", update);
 
   limpiar.addEventListener("click", () => {
     searchInput.value = "";
     lineaSelect.value = "todos";
     ordenSelect.value = "recomendados";
-    document.querySelector('input[name="precioFiltro"][value="todos"]').checked = true;
+    precioSelect.value = "todos";
     update();
   });
 
