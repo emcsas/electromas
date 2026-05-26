@@ -58,6 +58,7 @@
       font-size: 0.7rem;
       border-bottom: 1px solid rgba(255,255,255,0.05);
       overflow-x: auto;
+      overflow-y: hidden;
       scrollbar-width: thin;
       -webkit-overflow-scrolling: touch;
       white-space: nowrap;
@@ -103,7 +104,7 @@
     }
     .topbar a:hover { color: white; }
 
-    /* ========== HEADER CON BUSCADOR MEJORADO ========== */
+    /* ========== HEADER ========== */
     .header {
       position: relative;
       background: var(--blanco);
@@ -118,24 +119,25 @@
       flex-wrap: wrap;
     }
     
-    /* LOGO - CORREGIDO: sin fondo, transparente */
+    /* LOGO - CORRECCIÓN TOTAL */
     .logo {
       display: inline-block;
       line-height: 0;
+      flex-shrink: 0;
     }
     .logo img { 
       height: 46px; 
       width: auto; 
       display: block;
-      /* Eliminamos cualquier fondo o mezcla que pueda afectar la transparencia */
-      background: transparent;
-      mix-blend-mode: normal;
+      background: transparent !important;
+      mix-blend-mode: normal !important;
+      filter: none !important;
     }
     
     /* BUSCADOR MEJORADO */
     .busqueda-wrapper { 
       flex: 1; 
-      min-width: 200px;
+      min-width: 180px;
     }
     .busqueda {
       display: flex;
@@ -201,37 +203,42 @@
       white-space: nowrap;
       text-decoration: none;
       transition: all 0.2s;
+      flex-shrink: 0;
     }
     .header-whatsapp:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(37,211,102,0.3);
     }
 
-    /* ========== MENU STICKY ========== */
+    /* ========== MENU STICKY - CORREGIDO PARA QUE SE VEA EN CELULAR ========== */
     .menu {
       background: var(--azul);
       overflow-x: auto;
+      overflow-y: hidden;
       scrollbar-width: thin;
       -webkit-overflow-scrolling: touch;
       position: sticky;
       top: 0;
       z-index: 1090;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
     }
     .menu::-webkit-scrollbar {
-      height: 3px;
+      height: 4px;
     }
     .menu::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
     }
     .menu::-webkit-scrollbar-thumb {
       background: var(--naranja);
+      border-radius: 4px;
     }
     .menu .contenedor {
       display: flex;
       align-items: center;
-      gap: 10px;
-      min-height: 48px;
+      gap: 12px;
+      min-height: 50px;
       width: max-content;
       min-width: 100%;
       padding: 0 16px;
@@ -241,23 +248,22 @@
       gap: 8px;
     }
     .menu-link {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.1);
       border-radius: 40px;
-      padding: 6px 14px;
+      padding: 8px 16px;
       color: white;
       font-weight: 600;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       white-space: nowrap;
       text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.1);
       transition: all 0.2s;
     }
-    .menu-link i { color: var(--naranja); font-size: 0.7rem;}
+    .menu-link i { color: var(--naranja); font-size: 0.8rem;}
     .menu-link:hover {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.25);
       transform: translateY(-1px);
     }
 
@@ -501,7 +507,6 @@
       max-height: 120px; 
       object-fit: contain; 
       background: transparent;
-      mix-blend-mode: normal;
     }
     .producto-tag {
       position: absolute;
@@ -567,7 +572,7 @@
     .servicio-item { display: flex; gap: 12px; align-items: flex-start;}
     .servicio-item i { background: var(--gris-claro); color: var(--naranja); padding: 8px; border-radius: 12px; width: 32px; text-align: center; font-size: 0.8rem;}
 
-    /* ========== FOOTER COMPLETO ========== */
+    /* FOOTER */
     .footer {
       background: #f1f4f9;
       border-top: 1px solid #e2e8f0;
@@ -582,7 +587,6 @@
       height: 42px; 
       margin-bottom: 12px;
       background: transparent;
-      mix-blend-mode: normal;
     }
     .footer-col p { color: #4a5b6e; font-size: 0.7rem; line-height: 1.5; }
     .footer-col h4 { font-size: 0.8rem; font-weight: 700; color: #1f2c3c; margin-bottom: 14px; }
@@ -673,6 +677,26 @@
       .hero h1 { font-size: 2.5rem; }
       .section-title { font-size: 2rem; }
     }
+
+    /* CELULAR: asegurar que el menú se vea */
+    @media (max-width: 640px) {
+      .menu-link {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+      }
+      .menu-link i {
+        font-size: 0.7rem;
+      }
+      .logo img {
+        height: 38px;
+      }
+      .header-whatsapp span {
+        display: none;
+      }
+      .header-whatsapp {
+        padding: 8px 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -699,7 +723,7 @@
     <div class="busqueda-wrapper">
       <form class="busqueda" id="formBusquedaGlobal">
         <i class="fas fa-search search-icon"></i>
-        <input type="search" id="campoBusquedaGlobal" placeholder="¿Qué estás buscando? Refrigeradora, celular...">
+        <input type="search" id="campoBusquedaGlobal" placeholder="Buscar...">
         <button type="submit"><i class="fas fa-arrow-right"></i></button>
       </form>
     </div>
@@ -707,7 +731,7 @@
   </div>
 </header>
 
-<!-- MENÚ STICKY -->
+<!-- MENÚ STICKY - AHORA SÍ VISIBLE EN CELULAR -->
 <nav class="menu">
   <div class="contenedor">
     <div class="menu-grupo">
@@ -809,7 +833,7 @@
   </section>
 </main>
 
-<!-- FOOTER COMPLETO -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="contenedor">
     <div class="footer-main">
