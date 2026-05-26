@@ -117,10 +117,19 @@
       gap: 12px;
       flex-wrap: wrap;
     }
+    
+    /* LOGO - CORREGIDO: sin fondo, transparente */
+    .logo {
+      display: inline-block;
+      line-height: 0;
+    }
     .logo img { 
-      height: 42px; 
+      height: 46px; 
       width: auto; 
-      display: block; 
+      display: block;
+      /* Eliminamos cualquier fondo o mezcla que pueda afectar la transparencia */
+      background: transparent;
+      mix-blend-mode: normal;
     }
     
     /* BUSCADOR MEJORADO */
@@ -491,6 +500,8 @@
     .producto-media img { 
       max-height: 120px; 
       object-fit: contain; 
+      background: transparent;
+      mix-blend-mode: normal;
     }
     .producto-tag {
       position: absolute;
@@ -567,7 +578,12 @@
       gap: 32px;
       padding: 40px 0 32px;
     }
-    .footer-logo img { height: 38px; margin-bottom: 12px; }
+    .footer-logo img { 
+      height: 42px; 
+      margin-bottom: 12px;
+      background: transparent;
+      mix-blend-mode: normal;
+    }
     .footer-col p { color: #4a5b6e; font-size: 0.7rem; line-height: 1.5; }
     .footer-col h4 { font-size: 0.8rem; font-weight: 700; color: #1f2c3c; margin-bottom: 14px; }
     .footer-links, .footer-contacto { display: flex; flex-direction: column; gap: 10px; }
@@ -793,7 +809,7 @@
   </section>
 </main>
 
-<!-- FOOTER COMPLETO RESTAURADO -->
+<!-- FOOTER COMPLETO -->
 <footer class="footer">
   <div class="contenedor">
     <div class="footer-main">
