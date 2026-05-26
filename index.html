@@ -290,22 +290,22 @@
     .hero .contenedor {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 22px;
       position: relative;
       z-index: 1;
       align-items: center;
     }
     .hero-copy {
-      max-width: 620px;
+      max-width: 610px;
     }
     .hero h1 {
       font-family: 'Anton', Impact, sans-serif;
-      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-size: clamp(2rem, 4vw, 3.45rem);
       font-weight: 400;
       line-height: 0.96;
       color: #ffffff;
       letter-spacing: -0.03em;
-      max-width: 560px;
+      max-width: 540px;
       text-transform: uppercase;
       text-shadow: 0 14px 30px rgba(0,0,0,0.28);
     }
@@ -316,17 +316,17 @@
     }
     .hero p {
       margin-top: 18px;
-      max-width: 600px;
+      max-width: 580px;
       color: rgba(255,255,255,0.88);
       font-size: 0.92rem;
-      line-height: 1.7;
+      line-height: 1.68;
       font-weight: 600;
     }
     .hero-acciones {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 24px;
+      margin-top: 22px;
     }
     .btn {
       display: inline-flex;
@@ -364,8 +364,8 @@
     }
     .hero-panel {
       width: 100%;
-      max-width: 430px;
-      justify-self: start;
+      max-width: 392px;
+      justify-self: end;
     }
     .venta-card {
       position: relative;
@@ -379,68 +379,68 @@
       background:
         radial-gradient(circle at top left, rgba(255,165,0,0.22), transparent 32%),
         linear-gradient(135deg, #ffffff 0%, #fff8e7 100%);
-      padding: 20px 20px 16px;
+      padding: 18px 18px 14px;
       border-bottom: 1px solid #f1e2c4;
     }
     .venta-card-head strong {
       display: block;
-      max-width: 300px;
+      max-width: 285px;
       color: #071326;
-      font-size: 1.08rem;
+      font-size: 1.04rem;
       line-height: 1.15;
       font-weight: 900;
       letter-spacing: -0.02em;
     }
     .venta-card-head span {
       display: block;
-      margin-top: 8px;
+      margin-top: 7px;
       color: #536177;
-      font-size: 0.76rem;
-      line-height: 1.5;
+      font-size: 0.74rem;
+      line-height: 1.45;
       font-weight: 700;
-      max-width: 360px;
+      max-width: 340px;
     }
     .venta-card-body {
-      padding: 14px;
+      padding: 12px;
       display: grid;
-      gap: 10px;
+      gap: 9px;
       background: #f5f7fb;
     }
     .venta-linea {
       display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 12px;
+      grid-template-columns: 40px 1fr;
+      gap: 11px;
       align-items: center;
       background: #ffffff;
-      padding: 12px;
-      border-radius: 18px;
+      padding: 11px;
+      border-radius: 17px;
       border: 1px solid #e8edf5;
       box-shadow: 0 10px 20px rgba(20,43,82,0.05);
     }
     .venta-linea i {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
       background: #071326;
       color: var(--naranja);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       box-shadow: 0 10px 18px rgba(7,19,38,0.14);
     }
     .venta-linea div strong {
       display: block;
       color: #0c1d39;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 900;
       margin-bottom: 2px;
     }
     .venta-linea div span {
       display: block;
       color: #607086;
-      font-size: 0.69rem;
-      line-height: 1.4;
+      font-size: 0.68rem;
+      line-height: 1.35;
       font-weight: 700;
     }
     .venta-card-body .btn {
@@ -640,49 +640,35 @@
     }
     .sin-resultados { display: none; text-align: center; padding: 40px; background: white; border-radius: 20px;}
 
-    /* SERVICIOS */
-    .servicio-grid {
+    /* ========== PANEL INFERIOR UNIDO ========== */
+    .servicio-panel {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 18px;
-      font-family: 'Manrope', system-ui, sans-serif;
-    }
-    .servicio-card {
-      position: relative;
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 22px;
-      border: 1px solid #dfe6f0;
+      border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 16px 34px rgba(20,43,82,0.07);
+      border: 1px solid #dfe6f0;
+      box-shadow: 0 18px 42px rgba(20,43,82,0.09);
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: white;
     }
-    .servicio-card::before {
-      content: "";
-      position: absolute;
-      top: -70px;
-      right: -70px;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: rgba(255,165,0,0.13);
-      pointer-events: none;
+
+    .servicio-lado {
+      position: relative;
+      padding: 18px;
     }
-    .servicio-card .eyebrow {
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-      letter-spacing: 0.08em;
-      font-size: 0.66rem;
-      color: var(--naranja-2);
+
+    .servicio-lado-info {
+      background:
+        radial-gradient(circle at top right, rgba(255,165,0,0.16), transparent 22%),
+        linear-gradient(180deg, #fffaf0 0%, #f7f9fd 100%);
+      border-bottom: 1px solid #e5ebf3;
     }
+
     .servicio-lista {
       display: grid;
-      grid-template-columns: 1fr;
       gap: 10px;
-      margin-top: 0;
-      position: relative;
-      z-index: 1;
     }
+
     .servicio-item {
       display: grid;
       grid-template-columns: 42px 1fr;
@@ -690,9 +676,11 @@
       align-items: center;
       padding: 12px;
       border-radius: 18px;
-      background: #f8faff;
-      border: 1px solid #edf2f8;
+      background: #ffffff;
+      border: 1px solid #e8edf5;
+      box-shadow: 0 8px 18px rgba(20,43,82,0.04);
     }
+
     .servicio-item i {
       width: 42px;
       height: 42px;
@@ -705,6 +693,7 @@
       font-size: 0.9rem;
       box-shadow: 0 10px 18px rgba(7,19,38,0.13);
     }
+
     .servicio-item div strong {
       display: block;
       color: #071326;
@@ -713,6 +702,7 @@
       line-height: 1.2;
       margin-bottom: 3px;
     }
+
     .servicio-item div span {
       display: block;
       color: #5a6b82;
@@ -720,46 +710,38 @@
       line-height: 1.45;
       font-weight: 700;
     }
-    .contacto-card {
+
+    .servicio-lado-cta {
       background:
-        radial-gradient(circle at 85% 20%, rgba(37,211,102,0.22), transparent 28%),
+        radial-gradient(circle at 88% 16%, rgba(37,211,102,0.13), transparent 22%),
         linear-gradient(135deg, #071326 0%, #142b52 56%, #0a1930 100%);
       color: white;
-      border-color: rgba(255,255,255,0.10);
-      box-shadow: 0 22px 46px rgba(7,19,38,0.24);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 220px;
     }
-    .contacto-card::before {
-      background: rgba(255,255,255,0.08);
-    }
-    .contacto-card h3 {
-      position: relative;
-      z-index: 1;
+
+    .servicio-lado-cta h3 {
       font-family: 'Anton', Impact, sans-serif;
       font-size: clamp(1.35rem, 2.5vw, 2rem);
       font-weight: 400;
       line-height: 1;
       letter-spacing: -0.03em;
       text-transform: uppercase;
-      max-width: 450px;
+      max-width: 440px;
       margin-bottom: 12px;
     }
-    .contacto-card p {
-      position: relative;
-      z-index: 1;
+
+    .servicio-lado-cta p {
       color: rgba(255,255,255,0.88);
       font-size: 0.82rem;
       line-height: 1.65;
       font-weight: 700;
-      max-width: 480px;
+      max-width: 470px;
       margin-bottom: 18px;
     }
-    .contacto-card .btn {
-      position: relative;
-      z-index: 1;
+
+    .servicio-lado-cta .btn {
       align-self: flex-start;
       padding: 13px 20px;
     }
@@ -849,18 +831,31 @@
     /* TABLET Y DESKTOP */
     @media (min-width: 640px) {
       .contenedor { padding: 0 24px; }
+
       .hero .contenedor {
-        grid-template-columns: 0.95fr 0.85fr;
-        column-gap: 18px;
+        grid-template-columns: 1fr 0.78fr;
+        column-gap: 12px;
         align-items: center;
       }
+
       .hero-acciones { flex-direction: row; }
+
       .producto-grid { grid-template-columns: repeat(2, 1fr); }
+
       .filtros { flex-direction: row; flex-wrap: wrap; }
       .filtros .busqueda-catalogo { flex: 2; }
       .filtros select { flex: 1; }
       .btn-limpiar { flex: 0.5; }
-      .servicio-grid { grid-template-columns: 0.95fr 1.05fr; }
+
+      .servicio-panel {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .servicio-lado-info {
+        border-bottom: none;
+        border-right: 1px solid #e5ebf3;
+      }
+
       .footer-main { flex-direction: row; flex-wrap: wrap; }
       .footer-col { flex: 1; min-width: 180px; }
     }
@@ -900,7 +895,7 @@
       .venta-card-head strong {
         font-size: 1rem;
       }
-      .contacto-card h3 {
+      .servicio-lado-cta h3 {
         font-size: 1.6rem;
       }
     }
@@ -965,7 +960,10 @@
       </div>
       <aside class="hero-panel">
         <div class="venta-card">
-          <div class="venta-card-head"><strong>Compra rápida con asesoría real.</strong><span>Un asesor le confirma modelos, precio, crédito y cobertura antes de comprar.</span></div>
+          <div class="venta-card-head">
+            <strong>Compra rápida con asesoría real.</strong>
+            <span>Un asesor le confirma modelos, precio, crédito y cobertura antes de comprar.</span>
+          </div>
           <div class="venta-card-body">
             <div class="venta-linea"><i class="fas fa-location-dot"></i><div><strong>Loja y Zamora</strong><span>Atención comercial enfocada en ambas provincias.</span></div></div>
             <div class="venta-linea"><i class="fas fa-credit-card"></i><div><strong>Crédito directo</strong><span>Consulte opciones de pago según el producto.</span></div></div>
@@ -1020,19 +1018,38 @@
   </section>
 
   <section class="section">
-    <div class="contenedor servicio-grid">
-      <div class="servicio-card">
-        <span class="eyebrow"><i class="fas fa-handshake"></i> Compra asistida</span>
-        <div class="servicio-lista">
-          <div class="servicio-item"><i class="fas fa-map-location-dot"></i><div><strong>Loja y Zamora, directo</strong><span>Atención enfocada en su ciudad y necesidad.</span></div></div>
-          <div class="servicio-item"><i class="fas fa-comments"></i><div><strong>Precio sin vueltas</strong><span>Cotización clara por WhatsApp desde cada producto.</span></div></div>
-          <div class="servicio-item"><i class="fas fa-layer-group"></i><div><strong>Elija mejor, compre mejor</strong><span>Categorías ordenadas para decidir más rápido.</span></div></div>
+    <div class="contenedor">
+      <div class="servicio-panel">
+        <div class="servicio-lado servicio-lado-info">
+          <div class="servicio-lista">
+            <div class="servicio-item">
+              <i class="fas fa-map-location-dot"></i>
+              <div>
+                <strong>Loja y Zamora, directo</strong>
+                <span>Atención enfocada en su ciudad y necesidad.</span>
+              </div>
+            </div>
+            <div class="servicio-item">
+              <i class="fas fa-comments"></i>
+              <div>
+                <strong>Precio sin vueltas</strong>
+                <span>Cotización clara por WhatsApp desde cada producto.</span>
+              </div>
+            </div>
+            <div class="servicio-item">
+              <i class="fas fa-layer-group"></i>
+              <div>
+                <strong>Elija mejor, compre mejor</strong>
+                <span>Categorías ordenadas para decidir más rápido.</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="servicio-card contacto-card">
-        <h3>Pregunte hoy. Estrene pronto.</h3>
-        <p>Escriba el producto y su ciudad. Le respondemos con precio, disponibilidad y opciones de crédito.</p>
-        <a href="https://wa.me/593988926331?text=Buen%20d%C3%ADa%2C%20quiero%20consular%20el%20producto%3A" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar ahora</a>
+        <div class="servicio-lado servicio-lado-cta">
+          <h3>Pregunte hoy. Estrene pronto.</h3>
+          <p>Escriba el producto y su ciudad. Le respondemos con precio, disponibilidad y opciones de crédito.</p>
+          <a href="https://wa.me/593988926331?text=Buen%20d%C3%ADa%2C%20quiero%20consular%20el%20producto%3A" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar ahora</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1105,15 +1122,44 @@
     { nombre: "Muebles de confort", categoria: "hogar", linea: "confort", descripcion: "Sillón reclinable.", imagen: "principal/sal.jpg", etiqueta: "Confort", orden:9 }
   ];
 
-  const labels = { electrodomesticos:"Electrodomésticos", tecnologia:"Tecnología", hogar:"Hogar", refrigeracion:"Refrigeración", cocina:"Cocina", lavado:"Lavado", climatizacion:"Climatización", celulares:"Celulares", televisores:"Televisores", computadoras:"Computadoras", confort:"Confort" };
-  const urlsCat = { refrigeracion:"producto/refrigeracion.html", cocina:"producto/cocina.html", lavado:"producto/lavado.html", climatizacion:"producto/climatizacion.html", celulares:"producto/celulares.html", televisores:"producto/televisores.html", computadoras:"producto/computadoras.html", confort:"producto/confort.html" };
+  const labels = {
+    electrodomesticos:"Electrodomésticos",
+    tecnologia:"Tecnología",
+    hogar:"Hogar",
+    refrigeracion:"Refrigeración",
+    cocina:"Cocina",
+    lavado:"Lavado",
+    climatizacion:"Climatización",
+    celulares:"Celulares",
+    televisores:"Televisores",
+    computadoras:"Computadoras",
+    confort:"Confort"
+  };
+
+  const urlsCat = {
+    refrigeracion:"producto/refrigeracion.html",
+    cocina:"producto/cocina.html",
+    lavado:"producto/lavado.html",
+    climatizacion:"producto/climatizacion.html",
+    celulares:"producto/celulares.html",
+    televisores:"producto/televisores.html",
+    computadoras:"producto/computadoras.html",
+    confort:"producto/confort.html"
+  };
   
   const normalize = t => (t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-  const whatsLink = p => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hola, quiero cotizar ${p.nombre} (${labels[p.linea]}) para Loja o Zamora.`)}`;
+  const whatsLink = p => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Buen día, quiero cotizar el siguiente producto: ${p.nombre} (${labels[p.linea]})`)}`;
 
   let filtros = { search: "", linea: "todos", orden: "recomendados" };
-  const grid = document.getElementById("productosGrid"), noRes = document.getElementById("noResultados"), countSpan = document.getElementById("resultadosCount");
-  const searchInput = document.getElementById("buscarInput"), lineaSelect = document.getElementById("lineaSelect"), ordenSelect = document.getElementById("ordenSelect"), limpiar = document.getElementById("limpiarBtn");
+
+  const grid = document.getElementById("productosGrid"),
+        noRes = document.getElementById("noResultados"),
+        countSpan = document.getElementById("resultadosCount");
+
+  const searchInput = document.getElementById("buscarInput"),
+        lineaSelect = document.getElementById("lineaSelect"),
+        ordenSelect = document.getElementById("ordenSelect"),
+        limpiar = document.getElementById("limpiarBtn");
 
   function filtrarYRender() {
     let items = PRODUCTOS.filter(p => {
@@ -1122,16 +1168,65 @@
       const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
       return matchSearch && matchLinea;
     });
+
     if (filtros.orden === "az") items.sort((a,b)=> a.nombre.localeCompare(b.nombre,"es"));
     else items.sort((a,b)=> a.orden - b.orden);
-    if(items.length===0){ grid.style.display="none"; noRes.style.display="block"; countSpan.innerHTML=`<strong>0</strong> productos`; return; }
-    grid.style.display="grid"; noRes.style.display="none"; countSpan.innerHTML=`<strong>${items.length}</strong> productos`;
-    grid.innerHTML = items.map(p => `<article class="producto-card"><div class="producto-media"><span class="producto-tag">${p.etiqueta}</span><img src="${p.imagen}" alt="${p.nombre}" onerror="this.src='principal/general/fondo.png';"></div><div class="producto-body"><div class="producto-ruta">${labels[p.categoria]} · ${labels[p.linea]}</div><h3>${p.nombre}</h3><p>${p.descripcion}</p><div class="producto-final"><a href="${urlsCat[p.linea] || 'catalogo.html'}" class="producto-link">Ver categoría →</a><a href="${whatsLink(p)}" target="_blank" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a></div></div></article>`).join("");
+
+    if(items.length === 0){
+      grid.style.display = "none";
+      noRes.style.display = "block";
+      countSpan.innerHTML = `<strong>0</strong> productos`;
+      return;
+    }
+
+    grid.style.display = "grid";
+    noRes.style.display = "none";
+    countSpan.innerHTML = `<strong>${items.length}</strong> productos`;
+
+    grid.innerHTML = items.map(p => `
+      <article class="producto-card">
+        <div class="producto-media">
+          <span class="producto-tag">${p.etiqueta}</span>
+          <img src="${p.imagen}" alt="${p.nombre}" onerror="this.src='principal/general/fondo.png';">
+        </div>
+        <div class="producto-body">
+          <div class="producto-ruta">${labels[p.categoria]} · ${labels[p.linea]}</div>
+          <h3>${p.nombre}</h3>
+          <p>${p.descripcion}</p>
+          <div class="producto-final">
+            <a href="${urlsCat[p.linea] || 'catalogo.html'}" class="producto-link">Ver categoría →</a>
+            <a href="${whatsLink(p)}" target="_blank" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a>
+          </div>
+        </div>
+      </article>
+    `).join("");
   }
-  function update(){ filtros.search = searchInput.value; filtros.linea = lineaSelect.value; filtros.orden = ordenSelect.value; filtrarYRender(); }
-  searchInput.addEventListener("input", update); lineaSelect.addEventListener("change", update); ordenSelect.addEventListener("change", update);
-  limpiar.addEventListener("click", ()=>{ searchInput.value=""; lineaSelect.value="todos"; ordenSelect.value="recomendados"; update(); });
-  document.getElementById("formBusquedaGlobal").addEventListener("submit", (e)=>{ e.preventDefault(); searchInput.value = document.getElementById("campoBusquedaGlobal").value; update(); document.getElementById("catalogo").scrollIntoView({behavior:"smooth"}); });
+
+  function update(){
+    filtros.search = searchInput.value;
+    filtros.linea = lineaSelect.value;
+    filtros.orden = ordenSelect.value;
+    filtrarYRender();
+  }
+
+  searchInput.addEventListener("input", update);
+  lineaSelect.addEventListener("change", update);
+  ordenSelect.addEventListener("change", update);
+
+  limpiar.addEventListener("click", ()=>{
+    searchInput.value = "";
+    lineaSelect.value = "todos";
+    ordenSelect.value = "recomendados";
+    update();
+  });
+
+  document.getElementById("formBusquedaGlobal").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    searchInput.value = document.getElementById("campoBusquedaGlobal").value;
+    update();
+    document.getElementById("catalogo").scrollIntoView({behavior:"smooth"});
+  });
+
   update();
 </script>
 </body>
