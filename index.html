@@ -1253,6 +1253,52 @@
       }
     }
 
+
+    /* ========== AJUSTE FINAL: MARGINADO ÚNICO PARA TODA LA PÁGINA ========== */
+    :root {
+      --margen-pagina: 64px;
+      --ancho-contenido: 1360px;
+    }
+
+    .contenedor,
+    #catalogo .contenedor {
+      width: min(var(--ancho-contenido), calc(100% - var(--margen-pagina)));
+      max-width: var(--ancho-contenido);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .topbar .contenedor,
+    .menu .contenedor {
+      width: min(var(--ancho-contenido), calc(100% - var(--margen-pagina)));
+      max-width: var(--ancho-contenido);
+      min-width: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .hero-copy {
+      padding-left: 0;
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --margen-pagina: 28px;
+      }
+
+      .contenedor,
+      #catalogo .contenedor,
+      .topbar .contenedor,
+      .menu .contenedor {
+        width: calc(100% - var(--margen-pagina));
+        min-width: auto;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
   </style>
 </head>
 
