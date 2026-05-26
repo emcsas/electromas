@@ -51,7 +51,7 @@
       padding: 0 24px;
     }
 
-    /* ========== TOPBAR ========== */
+    /* ========== TOPBAR - SIEMPRE VISIBLE, RESPONSIVE ========== */
     .topbar {
       background: #11181c;
       color: #cdd9ed;
@@ -150,7 +150,6 @@
       overflow-x: auto;
       scrollbar-width: thin;
       -webkit-overflow-scrolling: touch;
-      /* IMPORTANTE: posición sticky para que se quede fijo al hacer scroll */
       position: sticky;
       top: 0;
       z-index: 1090;
@@ -498,6 +497,7 @@
     .whatsapp-flotante:hover { transform: scale(1.05);}
 
     /* ========== RESPONSIVE ========== */
+    /* La topbar ya no se oculta, permanece visible en todos los dispositivos */
     @media (max-width: 1000px) {
       .hero .contenedor { grid-template-columns: 1fr; }
       .servicio-grid { grid-template-columns: 1fr; }
@@ -505,11 +505,22 @@
       .filtros .btn-limpiar { grid-column: span 2; }
     }
     @media (max-width: 820px) {
-      .topbar { display: none; }
+      /* ELIMINADO: topbar ya NO se oculta */
       .header-main { flex-wrap: wrap; }
       .busqueda-wrapper { order: 2; width: 100%; margin-top: 6px; }
       .menu .contenedor { width: max-content; padding-right: 16px; }
       .section-head { flex-direction: column; align-items: flex-start; }
+      /* Topbar en móvil: se mantiene visible pero con ajuste de wrap */
+      .topbar .contenedor {
+        flex-direction: column;
+        text-align: center;
+        padding: 8px 16px;
+        gap: 8px;
+      }
+      .topbar-info, .topbar-links {
+        justify-content: center;
+        gap: 12px;
+      }
     }
     @media (max-width: 760px) {
       .filtros { grid-template-columns: 1fr; }
@@ -526,6 +537,10 @@
     @media (max-width: 550px) {
       .hero-acciones .btn { width: 100%; justify-content: center; }
       .contenedor { padding: 0 18px; }
+      .topbar-info, .topbar-links {
+        gap: 10px;
+        font-size: 0.7rem;
+      }
     }
   </style>
 </head>
