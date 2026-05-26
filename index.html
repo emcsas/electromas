@@ -1192,6 +1192,67 @@
         font-size: 1.6rem;
       }
     }
+  
+
+    /* ========== AJUSTE VISUAL FINAL: MÁRGENES Y TARJETAS ========== */
+    #catalogo .contenedor {
+      width: calc(100% - 56px);
+      max-width: 1380px;
+    }
+
+    .catalogo-layout {
+      gap: 20px;
+    }
+
+    .catalogo-sidebar {
+      padding: 18px;
+    }
+
+    .producto-grid {
+      gap: 20px;
+    }
+
+    .producto-card {
+      border-radius: 22px;
+    }
+
+    .producto-media {
+      height: 176px;
+      padding: 24px 20px 22px;
+    }
+
+    .producto-media img {
+      max-height: 126px;
+      max-width: 82%;
+    }
+
+    .producto-tag {
+      display: none;
+    }
+
+    .producto-body {
+      padding: 18px;
+    }
+
+    @media (min-width: 980px) {
+      .catalogo-layout {
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 22px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .producto-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      #catalogo .contenedor {
+        width: calc(100% - 28px);
+      }
+    }
+
   </style>
 </head>
 
