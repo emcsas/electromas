@@ -1130,6 +1130,13 @@
       }
     }
 
+
+    @media (min-width: 1200px) {
+      .producto-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
     @media (max-width: 640px) {
       .menu-link {
         padding: 6px 12px;
@@ -1166,10 +1173,6 @@
         width: max-content;
         min-width: calc(100% - 28px);
         padding: 0 14px;
-      }
-
-      .hero-copy {
-        padding-left: 14px;
       }
 
       .hero h1 {
@@ -1758,8 +1761,8 @@
   limpiar.addEventListener("click", () => {
     searchInput.value = "";
     lineaSelect.value = "todos";
-    ordenSelect.value = "recomendados";
     precioSelect.value = "todos";
+    ordenSelect.value = "recomendados";
     update();
   });
 
