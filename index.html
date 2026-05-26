@@ -51,7 +51,7 @@
       padding: 0 16px;
     }
 
-    /* ========== TOPBAR - HORIZONTAL CON SCROLL ========== */
+    /* ========== TOPBAR ========== */
     .topbar {
       background: #11181c;
       color: #cdd9ed;
@@ -119,22 +119,23 @@
       flex-wrap: wrap;
     }
     
-    /* LOGO - CORRECCIÓN TOTAL */
+    /* LOGO */
     .logo {
       display: inline-block;
       line-height: 0;
       flex-shrink: 0;
+      background: transparent;
     }
     .logo img { 
       height: 46px; 
       width: auto; 
       display: block;
       background: transparent !important;
-      mix-blend-mode: normal !important;
-      filter: none !important;
+      background-color: transparent !important;
+      mix-blend-mode: normal;
     }
     
-    /* BUSCADOR MEJORADO */
+    /* BUSCADOR - SOLO UNA LUPA */
     .busqueda-wrapper { 
       flex: 1; 
       min-width: 180px;
@@ -146,25 +147,18 @@
       border: 1px solid var(--borde);
       border-radius: 50px;
       transition: all 0.3s ease;
+      padding: 0 8px;
     }
     .busqueda:focus-within {
       border-color: var(--naranja);
       background: var(--blanco);
       box-shadow: 0 0 0 3px rgba(255,165,0,0.15);
     }
-    .busqueda .search-icon {
-      padding-left: 16px;
-      color: var(--gris);
-      font-size: 0.9rem;
-    }
-    .busqueda:focus-within .search-icon {
-      color: var(--naranja);
-    }
     .busqueda input {
       flex: 1;
       border: none;
       background: transparent;
-      padding: 12px 12px 12px 8px;
+      padding: 12px 8px;
       font-size: 0.9rem;
       outline: none;
       color: var(--negro);
@@ -173,21 +167,23 @@
       color: #9aa6b5;
     }
     .busqueda button {
-      background: var(--azul);
+      background: transparent;
       border: none;
-      border-radius: 50px;
-      width: 44px;
+      width: 40px;
       height: 44px;
-      margin: 3px;
-      color: white;
       cursor: pointer;
       transition: all 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: var(--azul);
     }
-    .busqueda button:hover {
-      background: var(--azul-2);
+    .busqueda button i {
+      font-size: 1.1rem;
+      color: var(--azul);
+    }
+    .busqueda button:hover i {
+      color: var(--naranja);
     }
     
     .header-whatsapp {
@@ -210,7 +206,7 @@
       box-shadow: 0 4px 12px rgba(37,211,102,0.3);
     }
 
-    /* ========== MENU STICKY - CORREGIDO PARA QUE SE VEA EN CELULAR ========== */
+    /* ========== MENU STICKY ========== */
     .menu {
       background: var(--azul);
       overflow-x: auto;
@@ -678,7 +674,6 @@
       .section-title { font-size: 2rem; }
     }
 
-    /* CELULAR: asegurar que el menú se vea */
     @media (max-width: 640px) {
       .menu-link {
         padding: 6px 12px;
@@ -722,16 +717,15 @@
     <a href="index.html" class="logo"><img src="principal/general/electro.png" alt="Electromás"></a>
     <div class="busqueda-wrapper">
       <form class="busqueda" id="formBusquedaGlobal">
-        <i class="fas fa-search search-icon"></i>
-        <input type="search" id="campoBusquedaGlobal" placeholder="Buscar...">
-        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+        <input type="search" id="campoBusquedaGlobal" placeholder="Buscar">
+        <button type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
     <a href="https://wa.me/593988926331" target="_blank" class="header-whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
   </div>
 </header>
 
-<!-- MENÚ STICKY - AHORA SÍ VISIBLE EN CELULAR -->
+<!-- MENÚ STICKY -->
 <nav class="menu">
   <div class="contenedor">
     <div class="menu-grupo">
@@ -785,7 +779,7 @@
         <div class="filtros">
           <div class="busqueda-catalogo">
             <i class="fas fa-search"></i>
-            <input type="text" id="buscarInput" placeholder="Buscar por nombre...">
+            <input type="text" id="buscarInput" placeholder="Buscar...">
           </div>
           <select id="lineaSelect">
             <option value="todos">Todas las líneas</option>
@@ -869,10 +863,10 @@
         <h4>Contacto</h4>
         <div class="footer-contacto">
           <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja</span>
-          <a href="https://wa.me/593988926331" target="_blank"><i class="fab fa-whatsapp"></i> 098 892 6331</a>
-          <span><i class="fas fa-truck-fast"></i> Ventas Loja & Zamora</span>
+          <span><i class="fas fa-truck-fast"></i> Ventas Loja y Zamora</span>
           <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
           <a href="somos.html"><i class="fas fa-building"></i> Quiénes somos</a>
+          <a href="https://wa.me/593988926331" target="_blank"><i class="fab fa-whatsapp"></i> 098 892 6331</a>
         </div>
       </div>
     </div>
