@@ -189,6 +189,13 @@
       .menu {
          background: var(--azul);
          color: var(--blanco);
+         transition: background 0.25s ease, backdrop-filter 0.25s ease;
+      }
+
+      .header.en-scroll .menu {
+         background: rgba(20, 43, 82, 0.72);
+         backdrop-filter: blur(14px);
+         -webkit-backdrop-filter: blur(14px);
       }
 
       .menu .contenedor {
@@ -1701,6 +1708,13 @@
          renderProductos();
          document.getElementById("catalogo").scrollIntoView({ behavior: "smooth", block: "start" });
       });
+
+      function actualizarMenuTraslucido() {
+         document.querySelector(".header").classList.toggle("en-scroll", window.scrollY > 0);
+      }
+
+      window.addEventListener("scroll", actualizarMenuTraslucido);
+      actualizarMenuTraslucido();
 
       renderProductos();
    </script>
