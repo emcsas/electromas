@@ -51,9 +51,9 @@
     }
 
     .contenedor {
-      max-width: 1180px;
+      max-width: 1260px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 10px;
     }
 
     /* ========== TOPBAR ========== */
@@ -89,7 +89,7 @@
       min-height: 36px;
       width: max-content;
       min-width: 100%;
-      padding: 0 16px;
+      padding: 0 12px;
     }
 
     .topbar-info,
@@ -549,7 +549,7 @@
     .catalogo-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 18px;
+      gap: 14px;
       align-items: start;
     }
 
@@ -599,6 +599,89 @@
       color: #10203d;
     }
 
+    .filtro-grupo {
+      display: grid;
+      gap: 6px;
+    }
+
+    .filtro-grupo label {
+      color: var(--azul);
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .precio-rango-box {
+      background: linear-gradient(180deg, #f8fbff 0%, #f2f6fc 100%);
+      border: 1px solid #dfe7f2;
+      border-radius: 18px;
+      padding: 12px 12px 14px;
+    }
+
+    .precio-rango-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .precio-rango-top small {
+      color: var(--gris);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .precio-rango-valor {
+      color: var(--azul);
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    input[type="range"].precio-rango {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--naranja) 0%, var(--naranja) var(--fill, 100%), #dbe4f0 var(--fill, 100%), #dbe4f0 100%);
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"].precio-rango::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--azul);
+      box-shadow: 0 4px 12px rgba(20,43,82,0.18);
+    }
+
+    input[type="range"].precio-rango::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--azul);
+      box-shadow: 0 4px 12px rgba(20,43,82,0.18);
+    }
+
+    .precio-rango-escala {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      color: var(--gris);
+      font-size: 0.67rem;
+      font-weight: 800;
+    }
+
+
     .busqueda-catalogo input {
       padding-left: 40px;
     }
@@ -632,34 +715,6 @@
       border-color: var(--naranja);
     }
 
-    .lineas-rapidas {
-      display: grid;
-      gap: 8px;
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid var(--borde);
-    }
-
-    .linea-chip {
-      border: 1px solid var(--borde);
-      background: #f8faff;
-      color: var(--azul);
-      border-radius: 14px;
-      padding: 10px 12px;
-      text-align: left;
-      cursor: pointer;
-      font-size: 0.78rem;
-      font-weight: 800;
-      transition: all 0.2s;
-    }
-
-    .linea-chip:hover,
-    .linea-chip.activo {
-      background: var(--azul);
-      color: white;
-      border-color: var(--azul);
-    }
-
     .catalogo-main {
       min-width: 0;
     }
@@ -686,28 +741,29 @@
     }
 
     .producto-card {
-      background: white;
-      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
+      border-radius: 24px;
       overflow: hidden;
-      border: 1px solid var(--borde);
-      transition: all 0.2s;
-      box-shadow: 0 10px 24px rgba(20,43,82,0.04);
+      border: 1px solid #dde6f1;
+      transition: all 0.22s ease;
+      box-shadow: 0 12px 28px rgba(20,43,82,0.05);
       display: flex;
       flex-direction: column;
     }
 
     .producto-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 38px rgba(20,43,82,0.10);
+      transform: translateY(-4px);
+      box-shadow: 0 22px 42px rgba(20,43,82,0.12);
+      border-color: #cfdae9;
     }
 
     .producto-media {
-      background: linear-gradient(180deg, #f8fbff, #eef3fa);
-      height: 170px;
+      background: linear-gradient(180deg, #f9fbff, #edf3fb);
+      height: 182px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 18px;
       position: relative;
     }
 
@@ -722,20 +778,22 @@
       position: absolute;
       top: 12px;
       left: 12px;
-      background: var(--azul);
+      background: linear-gradient(135deg, #142b52 0%, #1f4175 100%);
       color: white;
-      padding: 5px 11px;
+      padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.62rem;
       font-weight: 900;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.01em;
+      box-shadow: 0 10px 18px rgba(20,43,82,0.18);
     }
 
     .producto-body {
-      padding: 16px;
+      padding: 17px;
       display: flex;
       flex-direction: column;
       flex: 1;
+      gap: 6px;
     }
 
     .producto-ruta {
@@ -758,36 +816,46 @@
     .producto-body p {
       color: var(--gris);
       font-size: 0.74rem;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
       line-height: 1.45;
     }
 
     .producto-precio {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      background: #f8faff;
-      border: 1px solid #edf2f8;
-      border-radius: 16px;
-      padding: 10px 12px;
+      gap: 12px;
+      background: linear-gradient(180deg, #fffaf1 0%, #fff6e4 100%);
+      border: 1px solid #f2dfb4;
+      border-radius: 18px;
+      padding: 11px 13px;
       margin-top: auto;
       margin-bottom: 12px;
     }
 
     .producto-precio span {
-      color: var(--gris);
-      font-size: 0.68rem;
-      font-weight: 800;
+      color: #8a6a20;
+      font-size: 0.67rem;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
     }
 
     .producto-precio strong {
-      color: var(--azul);
-      font-size: 1.05rem;
+      color: var(--azul-oscuro);
+      font-size: 1.16rem;
       font-weight: 900;
+      letter-spacing: -0.02em;
     }
+
+    .producto-precio small {
+      display: block;
+      color: #8a6a20;
+      font-size: 0.66rem;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
 
     .producto-final {
       display: flex;
@@ -1058,7 +1126,7 @@
     /* TABLET Y DESKTOP */
     @media (min-width: 640px) {
       .contenedor {
-        padding: 0 24px;
+        padding: 0 14px;
       }
 
       .hero .contenedor {
@@ -1097,8 +1165,8 @@
 
     @media (min-width: 980px) {
       .catalogo-layout {
-        grid-template-columns: 250px 1fr;
-        gap: 20px;
+        grid-template-columns: 235px 1fr;
+        gap: 16px;
       }
 
       .catalogo-sidebar {
@@ -1242,51 +1310,66 @@
     <div class="contenedor">
       <div class="section-head">
         <div>
-          <span class="eyebrow"><i class="fas fa-cart-shopping"></i> Catálogo destacado</span>
-          <h2 class="section-title">Productos que el cliente suele consultar.</h2>
+          <span class="eyebrow"><i class="fas fa-cart-shopping"></i> Vitrina principal</span>
+          <h2 class="section-title">Descubra ofertas y productos destacados.</h2>
         </div>
-        <p class="section-text">Filtre por línea, revise precio y cotice directamente por WhatsApp.</p>
+        <p class="section-text">Explore categorías, compare precios y cotice al instante por WhatsApp.</p>
       </div>
 
       <div class="catalogo-layout">
         <aside class="catalogo-sidebar">
-          <h3>Filtrar productos</h3>
+          <h3>Explore por categoría</h3>
 
           <div class="filtros">
-            <div class="busqueda-catalogo">
-              <i class="fas fa-search"></i>
-              <input type="text" id="buscarInput" placeholder="Buscar producto...">
+            <div class="filtro-grupo">
+              <label for="buscarInput">Buscar</label>
+              <div class="busqueda-catalogo">
+                <i class="fas fa-search"></i>
+                <input type="text" id="buscarInput" placeholder="Nombre del producto...">
+              </div>
             </div>
 
-            <select id="lineaSelect">
-              <option value="todos">Todas las líneas</option>
-              <option value="refrigeracion">Refrigeración</option>
-              <option value="cocina">Cocina</option>
-              <option value="lavado">Lavado</option>
-              <option value="climatizacion">Climatización</option>
-              <option value="celulares">Celulares</option>
-              <option value="televisores">Televisores</option>
-              <option value="computadoras">Computadoras</option>
-              <option value="confort">Confort</option>
-            </select>
+            <div class="filtro-grupo">
+              <label for="lineaSelect">Categoría</label>
+              <select id="lineaSelect">
+                <option value="todos">Seleccione una categoría</option>
+                <option value="refrigeracion">Refrigeración</option>
+                <option value="cocina">Cocina</option>
+                <option value="lavado">Lavado</option>
+                <option value="climatizacion">Climatización</option>
+                <option value="celulares">Celulares</option>
+                <option value="televisores">Televisores</option>
+                <option value="computadoras">Computadoras</option>
+                <option value="confort">Confort</option>
+              </select>
+            </div>
 
-            <select id="ordenSelect">
-              <option value="recomendados">Orden recomendado</option>
-              <option value="az">Nombre A-Z</option>
-              <option value="precioAsc">Precio menor a mayor</option>
-              <option value="precioDesc">Precio mayor a menor</option>
-            </select>
+            <div class="filtro-grupo">
+              <label for="precioRango">Precio máximo</label>
+              <div class="precio-rango-box">
+                <div class="precio-rango-top">
+                  <small>Ajuste el rango de precio</small>
+                  <span class="precio-rango-valor" id="precioValor">Todos</span>
+                </div>
+                <input type="range" id="precioRango" class="precio-rango" min="0" max="1000" step="10" value="1000">
+                <div class="precio-rango-escala">
+                  <span>$0</span>
+                  <span id="precioMaxLabel">$1000</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="filtro-grupo">
+              <label for="ordenSelect">Ordenar</label>
+              <select id="ordenSelect">
+                <option value="recomendados">Orden recomendado</option>
+                <option value="az">Nombre A-Z</option>
+                <option value="precioAsc">Precio menor a mayor</option>
+                <option value="precioDesc">Precio mayor a menor</option>
+              </select>
+            </div>
 
             <button class="btn-limpiar" id="limpiarBtn"><i class="fas fa-eraser"></i> Limpiar filtros</button>
-          </div>
-
-          <div class="lineas-rapidas" id="lineasRapidas">
-            <button class="linea-chip activo" data-linea="todos">Todo el catálogo</button>
-            <button class="linea-chip" data-linea="refrigeracion">Refrigeración</button>
-            <button class="linea-chip" data-linea="cocina">Cocina</button>
-            <button class="linea-chip" data-linea="lavado">Lavado</button>
-            <button class="linea-chip" data-linea="celulares">Celulares</button>
-            <button class="linea-chip" data-linea="televisores">Televisores</button>
           </div>
         </aside>
 
@@ -1410,7 +1493,7 @@
       descripcion: "Capacidad ideal, bajo consumo.",
       precio: 621,
       imagen: "principal/inicio/p3.jpg",
-      etiqueta: "Alta rotación",
+      etiqueta: "Oferta destacada",
       orden: 1
     },
     {
@@ -1420,7 +1503,7 @@
       descripcion: "Mayor almacenamiento.",
       precio: 489,
       imagen: "principal/oferta1.jpg",
-      etiqueta: "Más consultado",
+      etiqueta: "Top ventas",
       orden: 2
     },
     {
@@ -1430,7 +1513,7 @@
       descripcion: "Quemadores de alto rendimiento.",
       precio: 517,
       imagen: "principal/inicio/p4.jpg",
-      etiqueta: "Hogar",
+      etiqueta: "Imperdible",
       orden: 3
     },
     {
@@ -1440,7 +1523,7 @@
       descripcion: "Carga frontal, ahorro.",
       precio: 399,
       imagen: "principal/inicio/p5.jpg",
-      etiqueta: "Crédito directo",
+      etiqueta: "Compra fácil",
       orden: 4
     },
     {
@@ -1450,7 +1533,7 @@
       descripcion: "Inverter, frío/calor.",
       precio: 549,
       imagen: "principal/inicio/p2.jpg",
-      etiqueta: "Climatización",
+      etiqueta: "Recomendado",
       orden: 5
     },
     {
@@ -1460,7 +1543,7 @@
       descripcion: "128GB, cámara de 50MP.",
       precio: 219,
       imagen: "principal/inicio/p1.jpg",
-      etiqueta: "Tecnología",
+      etiqueta: "Nuevo",
       orden: 6
     },
     {
@@ -1470,7 +1553,7 @@
       descripcion: "4K UHD, HDR.",
       precio: 459,
       imagen: "principal/tec.jpg",
-      etiqueta: "Entretenimiento",
+      etiqueta: "Destacado",
       orden: 7
     },
     {
@@ -1480,7 +1563,7 @@
       descripcion: "16GB RAM, SSD.",
       precio: 699,
       imagen: "principal/tec.jpg",
-      etiqueta: "Estudio",
+      etiqueta: "Elegido",
       orden: 8
     },
     {
@@ -1490,7 +1573,7 @@
       descripcion: "Sillón reclinable.",
       precio: 299,
       imagen: "principal/sal.jpg",
-      etiqueta: "Confort",
+      etiqueta: "Especial",
       orden: 9
     }
   ];
@@ -1535,6 +1618,7 @@
   let filtros = {
     search: "",
     linea: "todos",
+    precioMax: null,
     orden: "recomendados"
   };
 
@@ -1544,9 +1628,11 @@
 
   const searchInput = document.getElementById("buscarInput");
   const lineaSelect = document.getElementById("lineaSelect");
+  const precioRango = document.getElementById("precioRango");
+  const precioValor = document.getElementById("precioValor");
+  const precioMaxLabel = document.getElementById("precioMaxLabel");
   const ordenSelect = document.getElementById("ordenSelect");
   const limpiar = document.getElementById("limpiarBtn");
-  const lineasRapidas = document.getElementById("lineasRapidas");
 
   const normalize = t => (t || "")
     .toString()
@@ -1565,6 +1651,23 @@
     const texto = `Buen día, quiero cotizar el siguiente producto: ${p.nombre} (${labels[p.linea] || p.linea}) - Precio: ${precio}`;
     return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
   };
+
+  function cumpleRangoPrecio(producto, precioMax) {
+    if (precioMax === null || precioMax === undefined) return true;
+    const precio = Number(producto.precio) || 0;
+    return precio <= precioMax;
+  }
+
+  function actualizarVisualRango() {
+    const min = Number(precioRango.min) || 0;
+    const max = Number(precioRango.max) || 1000;
+    const val = Number(precioRango.value) || max;
+    const percent = ((val - min) * 100) / (max - min || 1);
+    precioRango.style.setProperty("--fill", `${percent}%`);
+    precioValor.textContent = val >= max ? "Todos" : `Hasta ${formatoPrecio(val)}`;
+    precioMaxLabel.textContent = formatoPrecio(max);
+  }
+
 
   async function cargarProductosDesdeCategorias() {
     const resultados = [];
@@ -1594,7 +1697,7 @@
                 descripcion: producto.descripcion || "Producto disponible para cotización.",
                 precio: Number(producto.precio) || 0,
                 imagen: producto.imagen || "principal/general/fondo.png",
-                etiqueta: producto.etiqueta || "Disponible",
+                etiqueta: etiquetaComercial(producto.etiqueta || "Disponible"),
                 orden: Number(producto.orden) || index + 1
               });
             });
@@ -1608,24 +1711,37 @@
     return resultados;
   }
 
+  function etiquetaComercial(etiqueta = "") {
+    const mapa = {
+      "Alta rotación": "Oferta destacada",
+      "Más consultado": "Top ventas",
+      "Hogar": "Imperdible",
+      "Crédito directo": "Compra fácil",
+      "Climatización": "Recomendado",
+      "Tecnología": "Nuevo",
+      "Entretenimiento": "Destacado",
+      "Estudio": "Elegido",
+      "Confort": "Especial",
+      "Alta rotacion": "Oferta destacada",
+      "Mas consultado": "Top ventas"
+    };
+
+    return mapa[etiqueta] || etiqueta || "Destacado";
+  }
+
   function detectarLineaDesdeUrl(url) {
     const nombre = url.split("/").pop().replace(".html", "");
     return nombre || "todos";
   }
 
-  function sincronizarChips() {
-    const chips = lineasRapidas.querySelectorAll(".linea-chip");
-    chips.forEach(chip => {
-      chip.classList.toggle("activo", chip.dataset.linea === filtros.linea);
-    });
-  }
 
   function filtrarYRender() {
     let items = PRODUCTOS.filter(p => {
       const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""}`);
       const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
       const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
-      return matchSearch && matchLinea;
+      const matchPrecio = cumpleRangoPrecio(p, filtros.precioMax);
+      return matchSearch && matchLinea && matchPrecio;
     });
 
     if (filtros.orden === "az") {
@@ -1638,7 +1754,6 @@
       items.sort((a, b) => (Number(a.orden) || 999) - (Number(b.orden) || 999));
     }
 
-    sincronizarChips();
 
     if (items.length === 0) {
       grid.style.display = "none";
@@ -1663,12 +1778,15 @@
           <p>${p.descripcion}</p>
 
           <div class="producto-precio">
-            <span>Precio</span>
+            <div>
+              <span>Precio especial</span>
+              <small>Crédito y cotización inmediata</small>
+            </div>
             <strong>${formatoPrecio(p.precio)}</strong>
           </div>
 
           <div class="producto-final">
-            <a href="${urlsCat[p.linea] || 'catalogo.html'}" class="producto-link">Ver categoría →</a>
+            <a href="${urlsCat[p.linea] || 'catalogo.html'}" class="producto-link">Ver más →</a>
             <a href="${whatsLink(p)}" target="_blank" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a>
           </div>
         </div>
@@ -1679,26 +1797,22 @@
   function update() {
     filtros.search = searchInput.value;
     filtros.linea = lineaSelect.value;
+    filtros.precioMax = Number(precioRango.value) >= Number(precioRango.max) ? null : Number(precioRango.value);
     filtros.orden = ordenSelect.value;
+    actualizarVisualRango();
     filtrarYRender();
   }
 
   searchInput.addEventListener("input", update);
   lineaSelect.addEventListener("change", update);
+  precioRango.addEventListener("input", update);
   ordenSelect.addEventListener("change", update);
 
   limpiar.addEventListener("click", () => {
     searchInput.value = "";
     lineaSelect.value = "todos";
     ordenSelect.value = "recomendados";
-    update();
-  });
-
-  lineasRapidas.addEventListener("click", e => {
-    const boton = e.target.closest(".linea-chip");
-    if (!boton) return;
-
-    lineaSelect.value = boton.dataset.linea;
+    precioRango.value = precioRango.max;
     update();
   });
 
@@ -1717,6 +1831,14 @@
       PRODUCTOS = PRODUCTOS_FALLBACK;
     }
 
+    const maxPrecio = Math.max(...PRODUCTOS.map(p => Number(p.precio) || 0), 1000);
+    const maxAjustado = Math.ceil(maxPrecio / 10) * 10;
+    precioRango.min = 0;
+    precioRango.max = maxAjustado;
+    precioRango.step = 10;
+    precioRango.value = maxAjustado;
+
+    actualizarVisualRango();
     filtrarYRender();
   }
 
