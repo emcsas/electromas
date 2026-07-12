@@ -1544,7 +1544,7 @@
       <div class="footer-col">
         <h4>Nuestra Empresa</h4>
         <div class="footer-contacto">
-          <a href="somos.html"><i class="fas fa-building"></i> Quiénes somos</a>
+          <span><i class="fas fa-headset"></i> Asesoría y crédito directo</span>
           <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja</span>
           <span><i class="fas fa-truck-fast"></i> Ventas Loja y Zamora</span>
           <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
@@ -1941,14 +1941,12 @@
     document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
     update();
   });
-
   document.getElementById("formBusquedaGlobal").addEventListener("submit", e => {
     e.preventDefault();
     searchInput.value = document.getElementById("campoBusquedaGlobal").value;
     update();
     document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
   });
-
   async function iniciarCatalogo() {
     try {
       CATEGORIAS = await cargarCategoriasDesdeSupabase();
@@ -1967,8 +1965,10 @@
       renderCategoriasFiltro();
       renderFooterDinamico();
     }
+
     filtrarYRender();
   }
+
   iniciarCatalogo();
 </script>
 
