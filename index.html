@@ -2677,5 +2677,112 @@ function filtrarYRender() {
 })();
 </script>
 
+
+
+<!-- Corrección final: búsqueda total en todos los campos del producto -->
+<script id="electromas-busqueda-total-definitiva-index">
+(function(){
+  function normText(v){
+    return String(v ?? '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .toLowerCase()
+      .replace(/https?:\/\/\S+/g,' ')
+      .replace(/[_\-–—/\\|.,;:()\[\]{}"'`´+*&%$#@!?¿¡=<>]/g,' ')
+      .replace(/\s+/g,' ')
+      .trim();
+  }
+  function collectValues(value, out, seen){
+    if(value === null || value === undefined) return;
+    const t = typeof value;
+    if(t === 'string' || t === 'number' || t === 'boolean') { out.push(String(value)); return; }
+    if(t !== 'object') return;
+    if(seen.has(value)) return;
+    seen.add(value);
+    if(Array.isArray(value)) { value.forEach(v => collectValues(v,out,seen)); return; }
+    Object.keys(value).forEach(k => {
+      if(/^(created_at|updated_at|deleted_at|id|uuid)$/i.test(k)) return;
+      collectValues(value[k], out, seen);
+    });
+  }
+  function productBlob(p){
+    const parts = [];
+    collectValues(p, parts, new Set());
+    try { if(window.labels){ parts.push(labels[p?.linea] || '', labels[p?.categoria] || ''); } } catch(e){}
+    return normText(parts.join(' '));
+  }
+  function queryMatches(p, query){
+    const q = normText(query);
+    if(!q) return true;
+    const blob = productBlob(p);
+    if(blob.includes(q)) return true;
+    const tokens = q.split(' ').filter(x => x.length >= 2);
+    if(!tokens.length) return true;
+    return tokens.every(token => blob.includes(token));
+  }
+  function activeFilters(){
+    return Boolean(filtros.search) || filtros.linea !== 'todos' || filtros.categoria !== 'todos' || filtros.especial !== 'todos' || filtros.precio !== 'todos';
+  }
+  function applySort(items){
+    if(filtros.orden === 'az') items.sort((a,b)=>(a.nombre||'').localeCompare(b.nombre||'','es'));
+    else if(filtros.orden === 'precioAsc') items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+    else if(filtros.orden === 'precioDesc') items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+    else items.sort((a,b)=>{ if(Boolean(a.destacado)!==Boolean(b.destacado)) return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+    return items;
+  }
+  function productCard(p){
+    const imgs = typeof productImages === 'function' ? productImages(p) : [];
+    const first = imgs[0] || p.imagen || '';
+    const tag = p.combo ? 'Combo' : p.oferta ? 'Oferta' : ((p.etiqueta && p.etiqueta.length < 28) ? p.etiqueta : 'Disponible');
+    const labelPrecio = p.oferta ? 'Precio oferta' : p.combo ? 'Precio combo' : 'Precio';
+    return `<article class="producto-card ${first?'':'sin-imagen'}" role="button" tabindex="0" onclick="openIndexProductModal('${esc(String(p.id))}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openIndexProductModal('${esc(String(p.id))}')}">${first?`<div class="producto-media"><span class="producto-tag">${esc(tag)}</span><img src="${esc(first)}" alt="${esc(p.nombre)}" loading="lazy" onerror="this.closest('.producto-media').remove();"></div>`:''}<div class="producto-body"><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${labelPrecio}</span></div><strong>${formatoPrecio(p.precio_mostrar ?? p.precio)}</strong></div></div></article>`;
+  }
+  window.emElectromasBuscadorTotalIndex = true;
+  window.filtrarYRender = function(){
+    try{
+      const items = applySort((PRODUCTOS || []).filter(p => {
+        if(!activeFilters() && !p.destacado) return false;
+        const matchSearch = queryMatches(p, filtros.search);
+        const matchLinea = filtros.linea === 'todos' || p.linea === filtros.linea;
+        const matchCategoria = filtros.categoria === 'todos' || p.categoria === filtros.categoria;
+        const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+        const matchEspecial = filtros.especial === 'todos' || (filtros.especial === 'ofertas' && p.oferta) || (filtros.especial === 'combos' && p.combo);
+        return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+      }));
+      if(!items.length){
+        grid.style.display='none'; noRes.style.display='block'; countSpan.innerHTML='<strong>0</strong> productos';
+        if(typeof updateSidebarContext === 'function') updateSidebarContext();
+        return;
+      }
+      grid.style.display='grid'; noRes.style.display='none'; countSpan.innerHTML='<strong>'+items.length+'</strong> productos';
+      grid.innerHTML = items.map(productCard).join('');
+      if(typeof updateSidebarContext === 'function') updateSidebarContext();
+    }catch(e){ console.warn('Electromás: búsqueda total no pudo renderizar', e); }
+  };
+  window.update = function(){
+    filtros.search = searchInput ? searchInput.value : '';
+    filtros.linea = lineaSelect ? lineaSelect.value : 'todos';
+    filtros.precio = precioSelect ? precioSelect.value : 'todos';
+    filtros.orden = ordenSelect ? ordenSelect.value : 'recomendados';
+    if(filtros.linea !== 'todos'){
+      filtros.categoria = 'todos'; filtros.especial = 'todos';
+      document.querySelectorAll('.menu-link').forEach(a => a.classList.remove('activo'));
+    }
+    filtrarYRender();
+  };
+  function attach(){
+    const top = document.getElementById('campoBusquedaGlobal');
+    const form = document.getElementById('formBusquedaGlobal');
+    if(searchInput) searchInput.addEventListener('input', () => { filtros.search = searchInput.value; filtrarYRender(); });
+    if(top) top.addEventListener('input', () => { searchInput.value = top.value; filtros.search = top.value; filtrarYRender(); });
+    if(form) form.addEventListener('submit', e => { e.preventDefault(); if(top){ searchInput.value = top.value; filtros.search = top.value; } filtrarYRender(); const cat = document.getElementById('catalogo'); if(cat) cat.scrollIntoView({behavior:'smooth'}); });
+    if(lineaSelect) lineaSelect.addEventListener('change', update);
+    if(precioSelect) precioSelect.addEventListener('change', update);
+    if(ordenSelect) ordenSelect.addEventListener('change', update);
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attach); else attach();
+  setTimeout(()=>{ try{ if(Array.isArray(PRODUCTOS) && PRODUCTOS.length) filtrarYRender(); }catch(e){} }, 800);
+})();
+</script>
+
 </body>
 </html>
