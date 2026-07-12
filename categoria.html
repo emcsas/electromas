@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Electromás · Categoría</title>
-  <meta name="description" content="Catálogo dinámico de Electromás con productos, ofertas y combos cargados desde Supabase.">
+  <meta name="description" content="Catálogo de Electromás con productos, ofertas y combos disponibles para Loja y Zamora.">
   <link rel="shortcut icon" href="principal/logo.png" type="image/png">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +21,9 @@
     .modal{position:fixed;inset:0;background:rgba(7,19,38,.78);display:none;align-items:center;justify-content:center;z-index:80;padding:20px}.modal.show{display:flex}.modal-card{width:min(920px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:28px;box-shadow:0 28px 80px rgba(0,0,0,.35);display:grid;grid-template-columns:1fr 1fr}.modal-gallery{background:#eef3fb;padding:20px;display:grid;gap:12px;align-content:start}.modal-main-img{height:360px;background:#fff;border-radius:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--borde)}.modal-main-img img{max-width:88%;max-height:310px;object-fit:contain}.modal-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.modal-thumbs button{height:58px;border:1px solid var(--borde);border-radius:12px;background:#fff;cursor:pointer;overflow:hidden}.modal-thumbs img{width:100%;height:100%;object-fit:cover}.modal-info{padding:24px}.modal-info h2{color:var(--azul);font-size:1.7rem;line-height:1.15;margin:0 0 12px}.close{position:sticky;top:0;margin-left:auto;width:40px;height:40px;border:0;border-radius:50%;background:#fee2e2;color:#991b1b;font-weight:900;cursor:pointer;display:block}
     @media(max-width:1080px){.grid{grid-template-columns:repeat(3,1fr)}.toolbar-card{grid-template-columns:1fr 1fr}.toolbar-card input{grid-column:1/-1}}@media(max-width:760px){.contenedor{width:calc(100% - 28px)}.hero .contenedor{grid-template-columns:1fr}.top .contenedor{min-height:auto;padding:12px 0;align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.toolbar-card{grid-template-columns:1fr}.modal-card{grid-template-columns:1fr}.modal-main-img{height:260px}.hero{padding:34px 0}}
   .logo img{object-fit:contain;background:transparent!important;image-rendering:auto}
+
+    /* Footer igual al index */
+    .footer{background:#f1f4f9;border-top:1px solid #e2e8f0;color:#172033;text-align:left;font-size:initial;padding:0}.footer-main{display:flex;flex-direction:column;gap:32px;padding:40px 0 32px}.footer-logo img{height:42px;margin-bottom:12px;background:transparent}.footer-col p{color:#4a5b6e;font-size:.8rem;line-height:1.55}.footer-col h4{font-size:.9rem;font-weight:800;color:#1f2c3c;margin:0 0 14px}.footer-links,.footer-contacto{display:flex;flex-direction:column;gap:10px}.footer-links a,.footer-contacto a,.footer-contacto span{display:flex;align-items:center;gap:8px;color:#4f6f8f;font-size:.82rem;text-decoration:none;transition:color .2s}.footer-links a:hover,.footer-contacto a:hover{color:var(--naranja2)}.footer-links a i,.footer-contacto a i,.footer-contacto span i{width:18px;color:var(--naranja2);font-size:.82rem}.footer-social{display:flex;gap:10px;margin-top:16px}.footer-social a{background:#e6edf4;color:#2c4c6c;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;font-size:.9rem;text-decoration:none;transition:all .2s}.footer-social a:hover{background:var(--naranja);color:white}.footer-bottom{padding:16px 0;text-align:center;font-size:.72rem;color:#6c7e91;border-top:1px solid #e2e8f0}.footer-empty{color:#7b8798;font-size:.82rem}@media(min-width:640px){.footer-main{flex-direction:row;flex-wrap:wrap}.footer-col{flex:1;min-width:180px}}
 </style>
 </head>
 <body>
@@ -28,7 +31,46 @@
 <section class="hero"><div class="contenedor"><div><span class="eyebrow" id="eyebrow"><i class="fas fa-layer-group"></i> Catálogo</span><h1 id="pageTitle">Cargando...</h1><p id="pageDescription">Productos disponibles con asesoría directa, crédito y garantía para Loja y Zamora.</p></div><div class="stat"><strong id="productCount">0</strong><span>productos</span></div></div></section>
 <section class="toolbar"><div class="contenedor"><div class="toolbar-card"><input id="searchInput" type="search" placeholder="Buscar producto dentro de esta categoría..."><select id="priceFilter"><option value="todos">Todos los precios</option><option value="0-300">Hasta $300</option><option value="301-500">$301 a $500</option><option value="501-700">$501 a $700</option><option value="701-999999">Más de $700</option></select><select id="sortSelect"><option value="recomendados">Orden recomendado</option><option value="az">Nombre A-Z</option><option value="precioAsc">Precio menor a mayor</option><option value="precioDesc">Precio mayor a menor</option></select></div></div></section>
 <main class="contenedor"><div id="productsGrid" class="grid"></div><div id="emptyState" class="empty">No hay productos activos para esta categoría. Puede cargarlos desde el editor.</div></main>
-<footer class="footer"><div class="contenedor">© <span id="year"></span> Electromás · Catálogo dinámico desde Supabase</div></footer>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer-main">
+      <div class="footer-col">
+        <a href="index.html" class="footer-logo"><img src="principal/electro.png" alt="Electromás"></a>
+        <p>Electrodomésticos, tecnología y hogar con atención comercial para Loja y Zamora, crédito directo y garantía.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/593988926331" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Categorías</h4>
+        <div class="footer-links" id="footerCategorias"><span class="footer-empty">Cargando categorías...</span></div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Más consultado</h4>
+        <div class="footer-links" id="footerMasConsultado"><span class="footer-empty">Cargando líneas...</span></div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Nuestra Empresa</h4>
+        <div class="footer-contacto">
+          <span><i class="fas fa-headset"></i> Asesoría y crédito directo</span>
+          <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja</span>
+          <span><i class="fas fa-truck-fast"></i> Ventas Loja y Zamora</span>
+          <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
+          <a href="https://wa.me/593988926331" target="_blank"><i class="fab fa-whatsapp"></i> 098 892 6331</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="yearFooter"></span> Electromás · Desarrollado por NeoDat Consultores</span>
+    </div>
+  </div>
+</footer>
 <div class="modal" id="productModal"><div class="modal-card"><div class="modal-gallery"><div class="modal-main-img"><img id="modalImage" src="principal/logo.png" alt=""></div><div class="modal-thumbs" id="modalThumbs"></div></div><div class="modal-info"><button class="close" id="closeModal" type="button">×</button><div class="ruta" id="modalRuta"></div><h2 id="modalTitle"></h2><p id="modalDescription"></p><div class="price" style="margin:18px 0;"><div><span id="modalPriceLabel">Precio especial</span><small>Crédito y cotización inmediata</small></div><strong id="modalPrice"></strong></div><a id="modalWhatsapp" class="btn btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Cotizar este producto</a></div></div></div>
 <script>
 const cfg = window.ELECTROMAS_CONFIG || {};
@@ -43,6 +85,7 @@ let categories = [];
 let products = [];
 let filteredProducts = [];
 document.getElementById('year').textContent = new Date().getFullYear();
+const yf = document.getElementById('yearFooter'); if (yf) yf.textContent = new Date().getFullYear();
 const esc = v => String(v ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
 const normalize = v => String(v || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const money = v => { const n = Number(v); return Number.isFinite(n) && n > 0 ? '$' + n.toLocaleString('es-EC',{minimumFractionDigits:0,maximumFractionDigits:2}) : 'Consultar'; };
@@ -52,6 +95,33 @@ function icon(slug){ return categoryBySlug(slug)?.icon_class || 'fas fa-tag'; }
 function imagesOf(p){ const arr = Array.isArray(p.image_urls) ? p.image_urls : []; return [...new Set([...arr, p.image_url].filter(Boolean).map(x => String(x).trim()))].slice(0,10); }
 function shownPrice(p){ return p.is_on_sale && Number(p.sale_price) > 0 ? Number(p.sale_price) : Number(p.price || 0); }
 function whats(p){ return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Buen día, quiero cotizar: ' + p.name + ' - ' + money(shownPrice(p)))}`; }
+
+function categoryPageUrl(cat){
+  if(!cat) return 'categoria.html';
+  const mode = cat.filter_mode || cat.modo_filtro || 'linea';
+  const slug = cat.slug || 'todos';
+  return `categoria.html?mode=${encodeURIComponent(mode)}&slug=${encodeURIComponent(slug)}`;
+}
+function renderFooter(){
+  const footerCategorias = document.getElementById('footerCategorias');
+  const footerMas = document.getElementById('footerMasConsultado');
+  if(footerCategorias){
+    const cats = categories
+      .filter(c => c.show_in_menu || c.mostrar_menu)
+      .sort((a,b)=>(Number(a.sort_order ?? a.orden ?? 999)-Number(b.sort_order ?? b.orden ?? 999)) || String(a.name || a.nombre || '').localeCompare(String(b.name || b.nombre || ''),'es'))
+      .slice(0,8);
+    footerCategorias.innerHTML = cats.length ? cats.map(c => `<a href="${esc(categoryPageUrl(c))}" target="_blank"><i class="${esc(c.icon_class || c.icono || 'fas fa-tag')}"></i> ${esc(c.name || c.nombre || c.slug)}</a>`).join('') : '<span class="footer-empty">Cree categorías en el editor.</span>';
+  }
+  if(footerMas){
+    const countByLine = products.reduce((acc,p)=>{ const k = p.line_slug || p.linea || ''; if(k) acc[k]=(acc[k]||0)+1; return acc; },{});
+    const lines = categories
+      .filter(c => c.show_in_filter || c.mostrar_filtro || (c.filter_mode || c.modo_filtro) === 'linea')
+      .sort((a,b)=>(countByLine[b.slug]||0)-(countByLine[a.slug]||0) || Number(a.sort_order ?? a.orden ?? 999)-Number(b.sort_order ?? b.orden ?? 999))
+      .slice(0,6);
+    footerMas.innerHTML = lines.length ? lines.map(c => `<a href="${esc(categoryPageUrl(c))}" target="_blank"><i class="${esc(c.icon_class || c.icono || 'fas fa-tag')}"></i> ${esc(c.name || c.nombre || c.slug)}</a>`).join('') : '<span class="footer-empty">Cree líneas de productos en el editor.</span>';
+  }
+}
+
 async function loadData(){
   if(!supabaseClient){ renderError('Configure config.js con la anon public key de Supabase.'); return; }
   const [catsRes, prodRes] = await Promise.all([
@@ -63,6 +133,7 @@ async function loadData(){
   categories = catsRes.data || [];
   products = prodRes.data || [];
   renderHeader();
+  renderFooter();
   applyFilters();
 }
 function renderHeader(){
@@ -75,7 +146,7 @@ function renderHeader(){
   document.title = `Electromás · ${title}`;
   document.getElementById('pageTitle').textContent = title;
   document.getElementById('pageDescription').textContent = description;
-  document.getElementById('eyebrow').innerHTML = `<i class="${esc(ic)}"></i> Catálogo dinámico`;
+  document.getElementById('eyebrow').innerHTML = `<i class="${esc(ic)}"></i> Electromás`;
 }
 function productMatchesPage(p){
   if(pageMode === 'ofertas' || pageSlug === 'ofertas') return !!p.is_on_sale;
