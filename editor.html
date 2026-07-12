@@ -495,7 +495,7 @@ function countSelectedProductImages(){
 async function uploadImage(file, slug, index){ if(!file)return null; const ext=file.name.split('.').pop()?.toLowerCase()||'jpg'; const path=`productos/${slug}/${Date.now()}-${index}.${ext}`; const {error}=await supabaseClient.storage.from(BUCKET).upload(path,file,{cacheControl:'3600',upsert:true}); if(error) throw error; return supabaseClient.storage.from(BUCKET).getPublicUrl(path).data.publicUrl; }
 async function collectImages(slug){ const result=[]; for(let i=1;i<=10;i++){ let url=$(`imageUrl${i}`).value.trim(); const file=$(`imageFile${i}`).files?.[0]; if(file) url=await uploadImage(file,slug,i); if(url) result.push(url); } return [...new Set(result)].slice(0,10); }
 $('productName').addEventListener('input',()=>{if(!$('productId').value&&!$('productSlug').value.trim()) $('productSlug').value=slugify($('productName').value);});
-$('productForm').onsubmit=async e=>{ e.preventDefault(); const name=$('productName').value.trim(); if(!name)return showStatus('productStatus','Ingrese nombre.','err'); const slug=$('productSlug').value.trim()||slugify(name); const normalPrice=Number($('productPrice').value||0); const specialPrice=$('productSalePrice').value?Number($('productSalePrice').value):null; const markedOffer=$('productOnSale').checked; const markedCombo=$('productCombo').checked || currentProductEditorMode()==='combo'; if(markedCombo) $('productCombo').checked=true; const comboSelected=getSelectedComboProducts(); if(markedOffer && (!specialPrice || specialPrice<=0)) return showStatus('productStatus','Si marca Oferta, ingrese un precio de oferta.','err'); if(markedOffer && normalPrice>0 && specialPrice>=normalPrice) return showStatus('productStatus','El precio de oferta debe ser menor al precio normal.','err'); if(markedCombo && comboSelected.length<2) return showStatus('productStatus',"Para crear un combo necesita seleccionar mínimo 2 productos individuales visibles. Si no aparecen, active 'Visible al público' en los productos individuales o cree otro producto primero.",'err'); if(markedCombo && (!specialPrice || specialPrice<=0)) return showStatus('productStatus','Si marca Combo, ingrese el precio total del combo en el campo de precio especial.','err'); if(countSelectedProductImages()<2) return showStatus('productStatus','Debe cargar mínimo 2 imágenes reales del producto antes de guardar. Use Imagen 1 como portada e Imagen 2 como respaldo del producto.','err'); try{showStatus('productStatus','Guardando producto...','info'); const imgs=await collectImages(slug); const payload={name,slug,brand:$('productBrand').value.trim()||null,model:$('productModel').value.trim()||null,description:$('productDescription').value.trim()||null,category_slug:$('productCategory').value,line_slug:$('productLine').value,price:normalPrice,sale_price:(markedOffer||markedCombo)?specialPrice:null,image_url:imgs[0]||null,image_urls:imgs,tag:$('productTag').value.trim()||null,sort_order:Number($('productOrder').value||100),route:$('productRoute').value.trim()||routeFor('subcategoria',$('productLine').value),is_featured:$('productFeatured').checked,is_on_sale:markedOffer,is_combo:markedCombo,is_active:$('productActive').checked,combo_items:markedCombo?buildComboItemsText():null,seo_title:$('productSeoTitle').value.trim()||null,seo_description:$('productSeoDescription').value.trim()||null,seo_keywords:$('productKeywords').value.trim()||null,updated_at:new Date().toISOString()}; const id=$('productId').value; const res=id?await supabaseClient.from('em_products').update(payload).eq('id',id).select().single():await supabaseClient.from('em_products').insert(payload).select().single(); if(res.error) throw res.error; const wantsWhatsapp = $('shareToWhatsappStatus')?.checked;
+$('productForm').onsubmit=async e=>{ e.preventDefault(); const name=$('productName').value.trim(); if(!name)return showStatus('productStatus','Ingrese nombre.','err'); const slug=$('productSlug').value.trim()||slugify(name); const normalPrice=Number($('productPrice').value||0); const specialPrice=$('productSalePrice').value?Number($('productSalePrice').value):null; const markedOffer=$('productOnSale').checked; const markedCombo=$('productCombo').checked || currentProductEditorMode()==='combo'; if(markedCombo) $('productCombo').checked=true; const comboSelected=getSelectedComboProducts(); if(markedOffer && (!specialPrice || specialPrice<=0)) return showStatus('productStatus','Si marca Oferta, ingrese un precio de oferta.','err'); if(markedOffer && normalPrice>0 && specialPrice>=normalPrice) return showStatus('productStatus','El precio de oferta debe ser menor al precio normal.','err'); if(markedCombo && comboSelected.length<2) return showStatus('productStatus', 'Para crear un combo necesita seleccionar mínimo 2 productos individuales visibles. Si no aparecen, active Visible al público en los productos individuales o cree otro producto primero.', 'err'); if(markedCombo && (!specialPrice || specialPrice<=0)) return showStatus('productStatus','Si marca Combo, ingrese el precio total del combo en el campo de precio especial.','err'); if(countSelectedProductImages()<2) return showStatus('productStatus','Debe cargar mínimo 2 imágenes reales del producto antes de guardar. Use Imagen 1 como portada e Imagen 2 como respaldo del producto.','err'); try{showStatus('productStatus','Guardando producto...','info'); const imgs=await collectImages(slug); const payload={name,slug,brand:$('productBrand').value.trim()||null,model:$('productModel').value.trim()||null,description:$('productDescription').value.trim()||null,category_slug:$('productCategory').value,line_slug:$('productLine').value,price:normalPrice,sale_price:(markedOffer||markedCombo)?specialPrice:null,image_url:imgs[0]||null,image_urls:imgs,tag:$('productTag').value.trim()||null,sort_order:Number($('productOrder').value||100),route:$('productRoute').value.trim()||routeFor('subcategoria',$('productLine').value),is_featured:$('productFeatured').checked,is_on_sale:markedOffer,is_combo:markedCombo,is_active:$('productActive').checked,combo_items:markedCombo?buildComboItemsText():null,seo_title:$('productSeoTitle').value.trim()||null,seo_description:$('productSeoDescription').value.trim()||null,seo_keywords:$('productKeywords').value.trim()||null,updated_at:new Date().toISOString()}; const id=$('productId').value; const res=id?await supabaseClient.from('em_products').update(payload).eq('id',id).select().single():await supabaseClient.from('em_products').insert(payload).select().single(); if(res.error) throw res.error; const wantsWhatsapp = $('shareToWhatsappStatus')?.checked;
 const wantsFacebook = $('shareToFacebookPost')?.checked;
 showStatus('productStatus', (wantsWhatsapp || wantsFacebook) ? 'Producto guardado. Se activaron las opciones de publicación seleccionadas.' : 'Producto guardado correctamente.', 'ok');
 await loadAll();
@@ -884,5 +884,135 @@ initAuth();
   }
 })();
 </script>
+
+
+<!-- Corrección final: catálogo PDF con imágenes reales y editor estable -->
+<script id="electromas-catalogo-pdf-con-imagenes-final">
+(function(){
+  const PHONE_LABEL = '096 079 8215';
+  function emEscText(v){ return String(v || '').replace(/\s+/g,' ').trim(); }
+  function emPrice(p){
+    const value = Number(p?.sale_price || p?.price || 0);
+    return value > 0 ? '$' + value.toFixed(0) : 'Consultar';
+  }
+  function emFirstImage(p){
+    try{
+      const list = typeof imagesOf === 'function' ? imagesOf(p) : [];
+      return (list && list[0]) || p?.image_url || '';
+    }catch(e){ return p?.image_url || ''; }
+  }
+  function emShortDesc(text, max=185){
+    let t = String(text || 'Producto disponible con crédito directo, garantía y asesoría Electromás.')
+      .replace(/Características principales|Caracteristicas principales|Características adicionales|Caracteristicas adicionales|Medidas|Información general|Informacion general|Zona superior|Zona de control|Horno y zona inferior|Garantía|Garantia/gi, ' ')
+      .replace(/[•▪■]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if(t.length > max) t = t.slice(0, max - 3).trim() + '...';
+    return t;
+  }
+  async function emLoadImage(src){
+    if(!src) return null;
+    return new Promise(resolve => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => resolve(img);
+      img.onerror = () => resolve(null);
+      img.src = src;
+    });
+  }
+  async function emImageToJpeg(src, width=360, height=270){
+    const img = await emLoadImage(src);
+    if(!img) return null;
+    try{
+      const canvas = document.createElement('canvas');
+      canvas.width = width; canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ffffff'; ctx.fillRect(0,0,width,height);
+      const scale = Math.min((width-20)/img.naturalWidth, (height-20)/img.naturalHeight);
+      const w = img.naturalWidth * scale;
+      const h = img.naturalHeight * scale;
+      const x = (width - w) / 2;
+      const y = (height - h) / 2;
+      ctx.drawImage(img, x, y, w, h);
+      return canvas.toDataURL('image/jpeg', 0.9);
+    }catch(e){ return null; }
+  }
+  async function downloadCatalogo(){
+    try{
+      const { jsPDF } = window.jspdf || {};
+      if(!jsPDF){ showStatus && showStatus('productStatus','No se pudo cargar el generador PDF. Recargue la página.','err'); return; }
+      const active = (Array.isArray(products) ? products : []).filter(p => p && p.is_active !== false)
+        .sort((a,b)=>String(a.category_slug||'').localeCompare(String(b.category_slug||''),'es') || String(a.line_slug||'').localeCompare(String(b.line_slug||''),'es') || Number(a.sort_order||100)-Number(b.sort_order||100));
+      if(!active.length){ showStatus && showStatus('productStatus','No hay productos activos para descargar en el catálogo.','err'); return; }
+      showStatus && showStatus('productStatus','Generando catálogo PDF con imágenes...', 'info');
+      const doc = new jsPDF({orientation:'portrait', unit:'mm', format:'a4'});
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const margin = 14;
+      let y = 0;
+      function header(){
+        doc.setFillColor(7,19,38); doc.rect(0,0,pageW,34,'F');
+        doc.setTextColor(255,165,0); doc.setFont('helvetica','bold'); doc.setFontSize(20); doc.text('ELECTROMÁS', margin, 14);
+        doc.setTextColor(255,255,255); doc.setFontSize(10); doc.text('Catálogo de productos disponibles', margin, 23);
+        doc.setFontSize(9); doc.text('Actualizado: 2026', pageW-margin-36, 14);
+        doc.text('WhatsApp: '+PHONE_LABEL, pageW-margin-43, 23);
+        y = 46;
+      }
+      function footer(){
+        doc.setTextColor(100,116,139); doc.setFont('helvetica','normal'); doc.setFontSize(8);
+        doc.text('© 2026 Electromás · Desarrollado por NeoDat Consultores', margin, pageH-8);
+      }
+      function newPage(){ footer(); doc.addPage(); header(); }
+      header();
+      doc.setTextColor(20,43,82); doc.setFont('helvetica','bold'); doc.setFontSize(14);
+      doc.text(`Resumen general: ${active.length} producto${active.length===1?'':'s'} activo${active.length===1?'':'s'}`, margin, y); y += 14;
+      let currentGroup = '';
+      for(let i=0;i<active.length;i++){
+        const p = active[i];
+        const group = `${typeof categoryName==='function'?categoryName(p.category_slug):p.category_slug || 'Categoría'} · ${typeof categoryName==='function'?categoryName(p.line_slug):p.line_slug || 'Subcategoría'}`;
+        if(group !== currentGroup){
+          if(y > pageH - 60) newPage();
+          currentGroup = group;
+          doc.setFillColor(238,243,251); doc.roundedRect(margin, y, pageW-margin*2, 10, 2, 2, 'F');
+          doc.setTextColor(20,43,82); doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.text(group, margin+4, y+6.5); y += 16;
+        }
+        if(y > pageH - 72) newPage();
+        const cardH = 62;
+        doc.setDrawColor(220,230,243); doc.setFillColor(255,255,255); doc.roundedRect(margin, y, pageW-margin*2, cardH, 3, 3, 'FD');
+        const imgUrl = emFirstImage(p);
+        const imgData = await emImageToJpeg(imgUrl, 420, 320);
+        if(imgData){
+          doc.addImage(imgData, 'JPEG', margin+4, y+5, 46, 38, undefined, 'FAST');
+        }else{
+          doc.setFillColor(248,250,252); doc.roundedRect(margin+4, y+5, 46, 38, 2, 2, 'F');
+          doc.setTextColor(148,163,184); doc.setFontSize(8); doc.text('Sin imagen', margin+14, y+25);
+        }
+        const xText = margin + 56;
+        doc.setTextColor(7,19,38); doc.setFont('helvetica','bold'); doc.setFontSize(11);
+        const nameLines = doc.splitTextToSize(`${i+1}. ${p.name || 'Producto Electromás'}`, pageW - xText - margin - 34);
+        doc.text(nameLines.slice(0,2), xText, y+10);
+        doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(36,64,95);
+        const descLines = doc.splitTextToSize(emShortDesc(p.description, 165), pageW - xText - margin - 6);
+        doc.text(descLines.slice(0,3), xText, y+24);
+        doc.setFont('helvetica','bold'); doc.setTextColor(255,165,0); doc.setFontSize(10);
+        doc.text(emPrice(p), pageW - margin - 30, y+10);
+        const flags=[]; if(p.is_featured) flags.push('Destacado'); if(p.is_on_sale) flags.push('Oferta'); if(p.is_combo) flags.push('Combo');
+        if(flags.length){ doc.setFontSize(8); doc.setTextColor(20,43,82); doc.text(flags.join(' · '), xText, y+51); }
+        y += cardH + 8;
+      }
+      footer();
+      doc.save('catalogo-electromas-2026.pdf');
+      showStatus && showStatus('productStatus','Catálogo PDF generado con imágenes.', 'ok');
+    }catch(err){
+      console.error(err);
+      showStatus && showStatus('productStatus', 'No se pudo generar el catálogo PDF con imágenes: ' + (err.message || err), 'err');
+    }
+  }
+  window.downloadCatalogo = downloadCatalogo;
+  const btn = document.getElementById('downloadCatalogBtn');
+  if(btn) btn.onclick = downloadCatalogo;
+})();
+</script>
+
 </body>
 </html>
