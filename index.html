@@ -1327,6 +1327,14 @@
     }
 
   </style>
+
+<style id="supabase-minimal-patch">
+  .menu-link.activo {
+    background: rgba(255,255,255,0.25);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  }
+</style>
+
 </head>
 
 <body>
@@ -1362,7 +1370,7 @@
 
 <!-- MENÚ STICKY -->
 <nav class="menu">
-  <div class="contenedor">
+  <div class="contenedor" id="menuDinamico">
     <div class="menu-grupo">
       <a href="electrodomesticos.html" class="menu-link"><i class="fas fa-plug"></i> Electrodomésticos</a>
       <a href="tecnologia.html" class="menu-link"><i class="fas fa-laptop"></i> Tecnología</a>
@@ -1574,129 +1582,56 @@
 
 <a href="https://wa.me/593988926331" class="whatsapp-flotante" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+
 <script>
   const WHATSAPP = "593988926331";
 
   document.getElementById("year").innerText = new Date().getFullYear();
 
+  /*
+    INTEGRACIÓN SUPABASE - CAMBIO MÍNIMO
+    - No cambia el diseño de la página.
+    - Las pestañas del menú, las categorías del filtro y los productos se leen desde Supabase.
+    - Si Supabase no está configurado o no tiene datos, se mantiene el catálogo base de respaldo.
+  */
+  const CONFIG = window.ELECTROMAS_CONFIG || {};
+  const SUPABASE_URL = CONFIG.SUPABASE_URL || "https://ahwbckmjnspmjkzpgiqu.supabase.co";
+  const SUPABASE_ANON_KEY = CONFIG.SUPABASE_ANON_KEY || "";
+  const supabaseElectromas = (window.supabase && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes("PEGUE_AQUI"))
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+
   const PRODUCTOS_FALLBACK = [
-    {
-      nombre: "Refrigeradora familiar",
-      categoria: "electrodomesticos",
-      linea: "refrigeracion",
-      descripcion: "Capacidad ideal, bajo consumo.",
-      precio: 621,
-      imagen: "principal/inicio/p3.jpg",
-      etiqueta: "Oferta destacada",
-      orden: 1
-    },
-    {
-      nombre: "Congelador horizontal",
-      categoria: "electrodomesticos",
-      linea: "refrigeracion",
-      descripcion: "Mayor almacenamiento.",
-      precio: 489,
-      imagen: "principal/oferta1.jpg",
-      etiqueta: "Top ventas",
-      orden: 2
-    },
-    {
-      nombre: "Cocina a gas",
-      categoria: "electrodomesticos",
-      linea: "cocina",
-      descripcion: "Quemadores de alto rendimiento.",
-      precio: 517,
-      imagen: "principal/inicio/p4.jpg",
-      etiqueta: "Imperdible",
-      orden: 3
-    },
-    {
-      nombre: "Lavadora automática",
-      categoria: "electrodomesticos",
-      linea: "lavado",
-      descripcion: "Carga frontal, ahorro.",
-      precio: 399,
-      imagen: "principal/inicio/p5.jpg",
-      etiqueta: "Compra fácil",
-      orden: 4
-    },
-    {
-      nombre: "Aire acondicionado",
-      categoria: "electrodomesticos",
-      linea: "climatizacion",
-      descripcion: "Inverter, frío/calor.",
-      precio: 549,
-      imagen: "principal/inicio/p2.jpg",
-      etiqueta: "Recomendado",
-      orden: 5
-    },
-    {
-      nombre: "Celular Android",
-      categoria: "tecnologia",
-      linea: "celulares",
-      descripcion: "128GB, cámara de 50MP.",
-      precio: 219,
-      imagen: "principal/inicio/p1.jpg",
-      etiqueta: "Nuevo",
-      orden: 6
-    },
-    {
-      nombre: "Smart TV 55''",
-      categoria: "tecnologia",
-      linea: "televisores",
-      descripcion: "4K UHD, HDR.",
-      precio: 459,
-      imagen: "principal/tec.jpg",
-      etiqueta: "Destacado",
-      orden: 7
-    },
-    {
-      nombre: "Laptop i5",
-      categoria: "tecnologia",
-      linea: "computadoras",
-      descripcion: "16GB RAM, SSD.",
-      precio: 699,
-      imagen: "principal/tec.jpg",
-      etiqueta: "Elegido",
-      orden: 8
-    },
-    {
-      nombre: "Muebles de confort",
-      categoria: "hogar",
-      linea: "confort",
-      descripcion: "Sillón reclinable.",
-      precio: 299,
-      imagen: "principal/sal.jpg",
-      etiqueta: "Especial",
-      orden: 9
-    }
+    { nombre: "Refrigeradora familiar", categoria: "electrodomesticos", linea: "refrigeracion", descripcion: "Capacidad ideal, bajo consumo.", precio: 621, imagen: "principal/inicio/p3.jpg", etiqueta: "Oferta destacada", orden: 1 },
+    { nombre: "Congelador horizontal", categoria: "electrodomesticos", linea: "refrigeracion", descripcion: "Mayor almacenamiento.", precio: 489, imagen: "principal/oferta1.jpg", etiqueta: "Top ventas", orden: 2 },
+    { nombre: "Cocina a gas", categoria: "electrodomesticos", linea: "cocina", descripcion: "Quemadores de alto rendimiento.", precio: 517, imagen: "principal/inicio/p4.jpg", etiqueta: "Imperdible", orden: 3 },
+    { nombre: "Lavadora automática", categoria: "electrodomesticos", linea: "lavado", descripcion: "Carga frontal, ahorro.", precio: 399, imagen: "principal/inicio/p5.jpg", etiqueta: "Compra fácil", orden: 4 },
+    { nombre: "Aire acondicionado", categoria: "electrodomesticos", linea: "climatizacion", descripcion: "Inverter, frío/calor.", precio: 549, imagen: "principal/inicio/p2.jpg", etiqueta: "Recomendado", orden: 5 },
+    { nombre: "Celular Android", categoria: "tecnologia", linea: "celulares", descripcion: "128GB, cámara de 50MP.", precio: 219, imagen: "principal/inicio/p1.jpg", etiqueta: "Nuevo", orden: 6 },
+    { nombre: "Smart TV 55''", categoria: "tecnologia", linea: "televisores", descripcion: "4K UHD, HDR.", precio: 459, imagen: "principal/tec.jpg", etiqueta: "Destacado", orden: 7 },
+    { nombre: "Laptop i5", categoria: "tecnologia", linea: "computadoras", descripcion: "16GB RAM, SSD.", precio: 699, imagen: "principal/tec.jpg", etiqueta: "Elegido", orden: 8 },
+    { nombre: "Muebles de confort", categoria: "hogar", linea: "confort", descripcion: "Sillón reclinable.", precio: 299, imagen: "principal/sal.jpg", etiqueta: "Especial", orden: 9 }
   ];
 
-  const FUENTES_CATEGORIA = [
-    "producto/refrigeracion.html",
-    "producto/cocina.html",
-    "producto/lavado.html",
-    "producto/climatizacion.html",
-    "producto/celulares.html",
-    "producto/televisores.html",
-    "producto/computadoras.html",
-    "producto/confort.html"
+  const CATEGORIAS_FALLBACK = [
+    { slug: "electrodomesticos", nombre: "Electrodomésticos", icono: "fas fa-plug", mostrar_menu: true, mostrar_filtro: false, modo_filtro: "categoria", orden: 1 },
+    { slug: "tecnologia", nombre: "Tecnología", icono: "fas fa-laptop", mostrar_menu: true, mostrar_filtro: false, modo_filtro: "categoria", orden: 2 },
+    { slug: "hogar", nombre: "Hogar", icono: "fas fa-couch", mostrar_menu: true, mostrar_filtro: false, modo_filtro: "categoria", orden: 3 },
+    { slug: "ofertas", nombre: "Ofertas", icono: "fas fa-tags", mostrar_menu: true, mostrar_filtro: false, modo_filtro: "ofertas", orden: 4 },
+    { slug: "combos", nombre: "Combos", icono: "fas fa-layer-group", mostrar_menu: true, mostrar_filtro: false, modo_filtro: "combos", orden: 5 },
+    { slug: "refrigeracion", nombre: "Refrigeración", icono: "fas fa-snowflake", mostrar_menu: false, mostrar_filtro: true, modo_filtro: "linea", orden: 10 },
+    { slug: "cocina", nombre: "Cocina", icono: "fas fa-fire-burner", mostrar_menu: false, mostrar_filtro: true, modo_filtro: "linea", orden: 11 },
+    { slug: "lavado", nombre: "Lavado", icono: "fas fa-soap", mostrar_menu: false, mostrar_filtro: true, modo_filtro: "linea", orden: 12 },
+    { slug: "climatizacion", nombre: "Climatización", icono: "fas fa-fan", mostrar_menu: false, mostrar_filtro: true, modo_filtro: "linea", orden: 13 },
+    { slug: "celulares", nombre: "Celulares", icono: "fas fa-mobile-screen", mostrar_menu: false, mostrar_filtro: true, modo_filtro: "linea", orden: 14 },
+    { slug: "televisores", nombre: "Televisores", icono: "fas fa-tv", mostrar_menu: false, mostrar_filtro: true, modo_filtro: "linea", orden: 15 },
+    { slug: "computadoras", nombre: "Computadoras", icono: "fas fa-computer", mostrar_menu: false, mostrar_filtro: true, modo_filtro: "linea", orden: 16 },
+    { slug: "confort", nombre: "Confort", icono: "fas fa-couch", mostrar_menu: false, mostrar_filtro: true, modo_filtro: "linea", orden: 17 }
   ];
 
-  const labels = {
-    electrodomesticos: "Electrodomésticos",
-    tecnologia: "Tecnología",
-    hogar: "Hogar",
-    refrigeracion: "Refrigeración",
-    cocina: "Cocina",
-    lavado: "Lavado",
-    climatizacion: "Climatización",
-    celulares: "Celulares",
-    televisores: "Televisores",
-    computadoras: "Computadoras",
-    confort: "Confort"
-  };
-
+  const labels = {};
   const urlsCat = {
     refrigeracion: "producto/refrigeracion.html",
     cocina: "producto/cocina.html",
@@ -1708,29 +1643,45 @@
     confort: "producto/confort.html"
   };
 
+  let CATEGORIAS = [];
   let PRODUCTOS = [];
   let filtros = {
     search: "",
     linea: "todos",
     precio: "todos",
-    orden: "recomendados"
+    orden: "recomendados",
+    categoria: "todos",
+    especial: "todos"
   };
 
   const grid = document.getElementById("productosGrid");
   const noRes = document.getElementById("noResultados");
   const countSpan = document.getElementById("resultadosCount");
-
   const searchInput = document.getElementById("buscarInput");
   const lineaSelect = document.getElementById("lineaSelect");
   const precioSelect = document.getElementById("precioSelect");
   const ordenSelect = document.getElementById("ordenSelect");
   const limpiar = document.getElementById("limpiarBtn");
+  const menuDinamico = document.getElementById("menuDinamico");
 
   const normalize = t => (t || "")
     .toString()
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+
+  const slugify = t => normalize(t)
+    .replace(/&/g, "y")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  const esc = texto => String(texto || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
   const formatoPrecio = valor => {
     const numero = Number(valor);
@@ -1739,106 +1690,185 @@
   };
 
   const whatsLink = p => {
-    const precio = formatoPrecio(p.precio);
+    const precio = formatoPrecio(p.precio_mostrar ?? p.precio);
     const texto = `Buen día, quiero cotizar el siguiente producto: ${p.nombre} (${labels[p.linea] || p.linea}) - Precio: ${precio}`;
     return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
   };
 
+  function normalizarCategoria(row) {
+    const slug = slugify(row.slug || row.codigo || row.name || row.nombre);
+    return {
+      id: row.id || slug,
+      slug,
+      nombre: row.name || row.nombre || slug,
+      icono: row.icon_class || row.icono || row.icon || "fas fa-tag",
+      mostrar_menu: row.show_in_menu ?? row.mostrar_menu ?? false,
+      mostrar_filtro: row.show_in_filter ?? row.mostrar_filtro ?? false,
+      modo_filtro: row.filter_mode || row.modo_filtro || row.kind || row.tipo || "linea",
+      route: row.route || row.ruta || "",
+      orden: Number(row.sort_order ?? row.orden ?? 999)
+    };
+  }
+
+  function normalizarProducto(row, index = 0) {
+    const precioNormal = Number(row.price ?? row.precio ?? 0) || 0;
+    const precioOferta = Number(row.sale_price ?? row.precio_oferta ?? 0) || 0;
+    const enOferta = Boolean(row.is_on_sale ?? row.en_oferta ?? false);
+    const precioMostrar = enOferta && precioOferta > 0 ? precioOferta : precioNormal;
+
+    return {
+      id: row.id || row.slug || `producto-${index}`,
+      nombre: row.name || row.nombre || "Producto sin nombre",
+      categoria: slugify(row.category_slug || row.categoria || row.category || "electrodomesticos"),
+      linea: slugify(row.line_slug || row.linea || row.product_line || row.subcategoria || "otros"),
+      descripcion: row.description || row.descripcion || "Producto disponible para cotización.",
+      precio: precioNormal,
+      precio_oferta: precioOferta,
+      precio_mostrar: precioMostrar,
+      imagen: row.image_url || row.imagen || row.main_image || row.cover_image || "principal/general/fondo.png",
+      etiqueta: row.tag || row.etiqueta || (enOferta ? "Oferta" : "Disponible"),
+      orden: Number(row.sort_order ?? row.orden ?? index + 1),
+      destacado: Boolean(row.is_featured ?? row.destacado ?? false),
+      oferta: enOferta || (precioOferta > 0 && precioOferta < precioNormal),
+      combo: Boolean(row.is_combo ?? row.combo ?? false),
+      activo: row.is_active ?? row.activo ?? true,
+      route: row.route || row.ruta || ""
+    };
+  }
+
   function cumpleRangoPrecio(producto, rango) {
     if (!rango || rango === "todos") return true;
-
     const [min, max] = rango.split("-").map(Number);
-    const precio = Number(producto.precio) || 0;
-
+    const precio = Number(producto.precio_mostrar ?? producto.precio) || 0;
     return precio >= min && precio <= max;
   }
 
+  async function cargarCategoriasDesdeSupabase() {
+    if (!supabaseElectromas) return CATEGORIAS_FALLBACK;
 
-  async function cargarProductosDesdeCategorias() {
-    const resultados = [];
+    const { data, error } = await supabaseElectromas
+      .from("em_categories")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true })
+      .order("name", { ascending: true });
 
-    await Promise.all(
-      FUENTES_CATEGORIA.map(async url => {
-        try {
-          const response = await fetch(url, { cache: "no-store" });
-          if (!response.ok) return;
+    if (error) {
+      console.warn("Electromás: no se pudieron cargar categorías desde Supabase.", error.message);
+      return CATEGORIAS_FALLBACK;
+    }
 
-          const html = await response.text();
-          const doc = new DOMParser().parseFromString(html, "text/html");
-          const jsonNode = doc.querySelector("#productos-data");
-
-          if (!jsonNode) return;
-
-          const data = JSON.parse(jsonNode.textContent.trim());
-
-          if (Array.isArray(data)) {
-            data.forEach((producto, index) => {
-              if (!producto || !producto.nombre) return;
-
-              resultados.push({
-                nombre: producto.nombre,
-                categoria: producto.categoria || "electrodomesticos",
-                linea: producto.linea || detectarLineaDesdeUrl(url),
-                descripcion: producto.descripcion || "Producto disponible para cotización.",
-                precio: Number(producto.precio) || 0,
-                imagen: producto.imagen || "principal/general/fondo.png",
-                etiqueta: etiquetaComercial(producto.etiqueta || "Disponible"),
-                orden: Number(producto.orden) || index + 1
-              });
-            });
-          }
-        } catch (error) {
-          console.warn("No se pudo cargar:", url);
-        }
-      })
-    );
-
-    return resultados;
+    const categorias = (data || []).map(normalizarCategoria).sort((a, b) => a.orden - b.orden);
+    return categorias.length ? categorias : CATEGORIAS_FALLBACK;
   }
 
-  function etiquetaComercial(etiqueta = "") {
-    const mapa = {
-      "Alta rotación": "Oferta destacada",
-      "Más consultado": "Top ventas",
-      "Hogar": "Imperdible",
-      "Crédito directo": "Compra fácil",
-      "Climatización": "Recomendado",
-      "Tecnología": "Nuevo",
-      "Entretenimiento": "Destacado",
-      "Estudio": "Elegido",
-      "Confort": "Especial",
-      "Alta rotacion": "Oferta destacada",
-      "Mas consultado": "Top ventas"
-    };
+  async function cargarProductosDesdeSupabase() {
+    if (!supabaseElectromas) return PRODUCTOS_FALLBACK;
 
-    return mapa[etiqueta] || etiqueta || "Destacado";
+    const { data, error } = await supabaseElectromas
+      .from("em_products")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true })
+      .order("name", { ascending: true });
+
+    if (error) {
+      console.warn("Electromás: no se pudieron cargar productos desde Supabase.", error.message);
+      return PRODUCTOS_FALLBACK;
+    }
+
+    const productos = (data || []).map(normalizarProducto).filter(p => p.activo !== false);
+    return productos.length ? productos : PRODUCTOS_FALLBACK;
   }
 
-  function detectarLineaDesdeUrl(url) {
-    const nombre = url.split("/").pop().replace(".html", "");
-    return nombre || "todos";
+  function registrarLabels() {
+    Object.keys(labels).forEach(key => delete labels[key]);
+    CATEGORIAS.forEach(cat => {
+      labels[cat.slug] = cat.nombre;
+      if (cat.route) urlsCat[cat.slug] = cat.route;
+    });
   }
 
+  function renderMenuCategorias() {
+    if (!menuDinamico) return;
+
+    const visibles = CATEGORIAS.filter(c => c.mostrar_menu).sort((a, b) => a.orden - b.orden);
+    const normales = visibles.filter(c => !["ofertas", "combos"].includes(c.modo_filtro) && !["ofertas", "combos"].includes(c.slug));
+    const especiales = visibles.filter(c => ["ofertas", "combos"].includes(c.modo_filtro) || ["ofertas", "combos"].includes(c.slug));
+
+    const grupoHtml = lista => `<div class="menu-grupo">${lista.map(c => `
+      <a href="#catalogo" class="menu-link" data-menu-slug="${esc(c.slug)}" data-filter-mode="${esc(c.modo_filtro)}">
+        <i class="${esc(c.icono)}"></i> ${esc(c.nombre)}
+      </a>`).join("")}</div>`;
+
+    menuDinamico.innerHTML = `${grupoHtml(normales)}${especiales.length ? grupoHtml(especiales) : ""}`;
+
+    menuDinamico.querySelectorAll(".menu-link").forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+        aplicarFiltroMenu(link.dataset.menuSlug, link.dataset.filterMode);
+      });
+    });
+  }
+
+  function renderCategoriasFiltro() {
+    const filtroCategorias = CATEGORIAS.filter(c => c.mostrar_filtro).sort((a, b) => a.orden - b.orden);
+
+    lineaSelect.innerHTML = `<option value="todos">Seleccione una categoría</option>` +
+      filtroCategorias.map(c => `<option value="${esc(c.slug)}">${esc(c.nombre)}</option>`).join("");
+  }
+
+  function aplicarFiltroMenu(slug, modo) {
+    filtros.categoria = "todos";
+    filtros.especial = "todos";
+    filtros.linea = "todos";
+    lineaSelect.value = "todos";
+
+    if (modo === "ofertas" || slug === "ofertas") {
+      filtros.especial = "ofertas";
+    } else if (modo === "combos" || slug === "combos") {
+      filtros.especial = "combos";
+    } else if (modo === "linea") {
+      filtros.linea = slug;
+      lineaSelect.value = slug;
+    } else {
+      filtros.categoria = slug;
+    }
+
+    document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
+    const active = document.querySelector(`.menu-link[data-menu-slug="${CSS.escape(slug)}"]`);
+    if (active) active.classList.add("activo");
+
+    update();
+    document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+  }
 
   function filtrarYRender() {
     let items = PRODUCTOS.filter(p => {
-      const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""}`);
+      const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""} ${labels[p.categoria] || ""}`);
       const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
       const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
+      const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
       const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
-      return matchSearch && matchLinea && matchPrecio;
+      const matchEspecial = filtros.especial === "todos"
+        || (filtros.especial === "ofertas" && p.oferta)
+        || (filtros.especial === "combos" && p.combo);
+
+      return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
     });
 
     if (filtros.orden === "az") {
       items.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
     } else if (filtros.orden === "precioAsc") {
-      items.sort((a, b) => (Number(a.precio) || 0) - (Number(b.precio) || 0));
+      items.sort((a, b) => (Number(a.precio_mostrar) || 0) - (Number(b.precio_mostrar) || 0));
     } else if (filtros.orden === "precioDesc") {
-      items.sort((a, b) => (Number(b.precio) || 0) - (Number(a.precio) || 0));
+      items.sort((a, b) => (Number(b.precio_mostrar) || 0) - (Number(a.precio_mostrar) || 0));
     } else {
-      items.sort((a, b) => (Number(a.orden) || 999) - (Number(b.orden) || 999));
+      items.sort((a, b) => {
+        if (a.destacado !== b.destacado) return a.destacado ? -1 : 1;
+        return (Number(a.orden) || 999) - (Number(b.orden) || 999);
+      });
     }
-
 
     if (items.length === 0) {
       grid.style.display = "none";
@@ -1854,24 +1884,24 @@
     grid.innerHTML = items.map(p => `
       <article class="producto-card">
         <div class="producto-media">
-          <span class="producto-tag">${p.etiqueta}</span>
-          <img src="${p.imagen}" alt="${p.nombre}" onerror="this.src='principal/general/fondo.png';">
+          <span class="producto-tag">${esc(p.etiqueta)}</span>
+          <img src="${esc(p.imagen)}" alt="${esc(p.nombre)}" onerror="this.src='principal/general/fondo.png';">
         </div>
         <div class="producto-body">
-          <div class="producto-ruta">${labels[p.categoria] || p.categoria} · ${labels[p.linea] || p.linea}</div>
-          <h3>${p.nombre}</h3>
-          <p>${p.descripcion}</p>
+          <div class="producto-ruta">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div>
+          <h3>${esc(p.nombre)}</h3>
+          <p>${esc(p.descripcion)}</p>
 
           <div class="producto-precio">
             <div>
-              <span>Precio especial</span>
+              <span>${p.oferta ? "Precio de oferta" : "Precio especial"}</span>
               <small>Crédito y cotización inmediata</small>
             </div>
-            <strong>${formatoPrecio(p.precio)}</strong>
+            <strong>${formatoPrecio(p.precio_mostrar ?? p.precio)}</strong>
           </div>
 
           <div class="producto-final">
-            <a href="${urlsCat[p.linea] || 'catalogo.html'}" class="producto-link">Ver más →</a>
+            <a href="${esc(p.route || urlsCat[p.linea] || '#catalogo')}" class="producto-link">Ver más →</a>
             <a href="${whatsLink(p)}" target="_blank" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a>
           </div>
         </div>
@@ -1884,6 +1914,13 @@
     filtros.linea = lineaSelect.value;
     filtros.precio = precioSelect.value;
     filtros.orden = ordenSelect.value;
+
+    if (filtros.linea !== "todos") {
+      filtros.categoria = "todos";
+      filtros.especial = "todos";
+      document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
+    }
+
     filtrarYRender();
   }
 
@@ -1897,6 +1934,9 @@
     lineaSelect.value = "todos";
     precioSelect.value = "todos";
     ordenSelect.value = "recomendados";
+    filtros.categoria = "todos";
+    filtros.especial = "todos";
+    document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
     update();
   });
 
@@ -1909,10 +1949,19 @@
 
   async function iniciarCatalogo() {
     try {
-      const productosExternos = await cargarProductosDesdeCategorias();
-      PRODUCTOS = productosExternos.length ? productosExternos : PRODUCTOS_FALLBACK;
+      CATEGORIAS = await cargarCategoriasDesdeSupabase();
+      registrarLabels();
+      renderMenuCategorias();
+      renderCategoriasFiltro();
+
+      PRODUCTOS = await cargarProductosDesdeSupabase();
     } catch (error) {
+      console.warn("Electromás: se usará catálogo base por error de carga.", error);
+      CATEGORIAS = CATEGORIAS_FALLBACK;
       PRODUCTOS = PRODUCTOS_FALLBACK;
+      registrarLabels();
+      renderMenuCategorias();
+      renderCategoriasFiltro();
     }
 
     filtrarYRender();
