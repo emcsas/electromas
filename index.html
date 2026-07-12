@@ -2631,5 +2631,51 @@ function filtrarYRender() {
   };
 })();
 </script>
+
+
+<!-- Corrección final: vitrina abre detalle completo, flechas en galería y zoom -->
+<style id="electromas-final-vitrina-detalle-flechas">
+.em-gallery-main{position:relative}.em-img-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:42px;height:42px;border:0;border-radius:50%;background:rgba(7,19,38,.86);color:#fff;font-size:1.4rem;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(0,0,0,.25)}.em-img-arrow:hover{background:#ffa500;color:#071326}.em-img-arrow.prev{left:18px}.em-img-arrow.next{right:18px}.modal-gallery button.active{border-color:#ffa500!important;box-shadow:0 0 0 3px rgba(255,165,0,.16)}.producto-card{cursor:pointer}.producto-final,.btn-share-product,.btn-share-url{display:none!important}@media(max-width:820px){.em-img-arrow{width:36px;height:36px;font-size:1.2rem}.em-img-arrow.prev{left:10px}.em-img-arrow.next{right:10px}}
+</style>
+<script id="electromas-final-vitrina-detalle-flechas-js">
+(function(){
+  function c(v){return String(v||'').replace(/^[\s•▪■·*\-–—:;,.]+/g,'').replace(/\s+/g,' ').trim();}
+  function splitItems(t){return String(t||'').replace(/\r/g,'\n').replace(/[•▪■·]+/g,'\n').replace(/\s+-\s+/g,'\n').split(/\n|;|\.\s+(?=[A-ZÁÉÍÓÚÑ0-9])/).map(c).filter(x=>x.length>2 && !/^características?$/i.test(x));}
+  function sections(text,p){
+    const raw=String(text||'').replace(/\r/g,'\n').trim();
+    const heads=[['Descripción del producto',/(Descripción del producto|Descripcion del producto|Descripción|Descripcion)/i,'p'],['Características principales',/(Características principales|Caracteristicas principales|Atributos principales)/i],['Características adicionales',/(Características adicionales|Caracteristicas adicionales|Atributos secundarios)/i],['Medidas e información general',/(Medidas|Información general|Informacion general|Dimensiones)/i],['Zona superior y plano de labores',/(Zona superior y plano de labores|Zona superior|Plano de labores)/i],['Zona de control',/(Zona de control|Control)/i],['Horno y zona inferior',/(Horno y zona inferior|Horno|Zona inferior)/i],['Garantía y respaldo',/(Garantía y respaldo|Garantia y respaldo|Garantía|Garantia|Respaldo)/i],['Detalle del combo',/(Detalle del combo|Combo incluye|Productos del combo)/i]];
+    const found=[]; heads.forEach(h=>{const m=raw.match(h[1]); if(m) found.push({i:m.index,l:m[0].length,t:h[0],k:h[2]||'list'});}); found.sort((a,b)=>a.i-b.i);
+    const out=[]; const info=[]; if(p?.marca) info.push('Marca: '+p.marca); if(p?.modelo) info.push('Modelo / línea: '+p.modelo); if(p?.combo && p?.combo_items) info.push('Productos del combo: '+p.combo_items); if(info.length) out.push({t:'Información del producto',k:'list',items:info});
+    if(found.length){ const intro=c(raw.slice(0,found[0].i)); if(intro.length>8) out.push({t:'Descripción del producto',k:'p',items:[intro]}); found.forEach((h,idx)=>{const start=h.i+h.l,end=idx+1<found.length?found[idx+1].i:raw.length; const items=[...new Set(splitItems(raw.slice(start,end).replace(/^\s*[:\-–—]+\s*/,'')))].slice(0,24); if(items.length) out.push({t:h.t,k:h.k,items});}); }
+    else { const items=splitItems(raw).slice(0,24); if(items.length) out.push({t:'Detalle del producto',k:'list',items}); }
+    return out;
+  }
+  function detailsHtml(p){ const sec=sections(p?.descripcion||'',p); if(!sec.length) return '<div class="full-detail-block"><h4>Detalle del producto</h4><p>Producto disponible con asesoría comercial, garantía y crédito directo.</p></div>'; return '<div class="modal-details-grid">'+sec.map(s=>s.k==='p'?`<div class="full-detail-block"><h4>${esc(s.t)}</h4><p>${esc(s.items.join(' '))}</p></div>`:`<div class="full-detail-block"><h4>${esc(s.t)}</h4><div class="full-detail-list">${s.items.map(i=>`<div class="full-detail-item"><i class="fas fa-circle-check"></i><span>${esc(i)}</span></div>`).join('')}</div></div>`).join('')+'</div>'; }
+  function zoom(src,alt){ if(!src)return; const o=document.createElement('div'); o.className='image-zoom-overlay'; o.innerHTML=`<div class="image-zoom-card"><button class="image-zoom-close" type="button">×</button><img src="${esc(src)}" alt="${esc(alt||'Imagen del producto')}"></div>`; o.onclick=e=>{if(e.target===o||e.target.classList.contains('image-zoom-close'))o.remove()}; document.body.appendChild(o); }
+  window.openElectromasImageZoomIndex=zoom;
+  window.emIndexModalImages=[]; window.emIndexModalPos=0;
+  window.emIndexSetImage=function(pos){ const imgs=window.emIndexModalImages||[]; if(!imgs.length)return; window.emIndexModalPos=(pos+imgs.length)%imgs.length; const img=document.getElementById('modalMainImageIndex'); if(img) img.src=imgs[window.emIndexModalPos]; document.querySelectorAll('.modal-gallery button[data-em-img]').forEach((b,i)=>b.classList.toggle('active',i===window.emIndexModalPos)); };
+  window.emIndexMoveImage=function(delta){ window.emIndexSetImage((window.emIndexModalPos||0)+delta); };
+  window.openIndexProductModal=function(id){
+    const p=(PRODUCTOS||[]).find(x=>String(x.id)===String(id)); if(!p)return;
+    const imgs=(typeof productImages==='function'?productImages(p):[]).filter(Boolean); const src=imgs[0]||p.imagen||''; window.emIndexModalImages=imgs.length?imgs:[src].filter(Boolean); window.emIndexModalPos=0;
+    const specs=typeof publicSpecChips==='function'?publicSpecChips(p.descripcion||''):[]; const w=whatsLink(p);
+    const arrows=window.emIndexModalImages.length>1?`<button class="em-img-arrow prev" type="button" onclick="event.stopPropagation();emIndexMoveImage(-1)">‹</button><button class="em-img-arrow next" type="button" onclick="event.stopPropagation();emIndexMoveImage(1)">›</button>`:'';
+    const modal=document.createElement('div'); modal.className='product-modal';
+    modal.innerHTML=`<div class="product-modal-card"><button class="product-modal-close" type="button" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media em-gallery-main">${src?`${arrows}<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}" title="Clic para ampliar imagen" onclick="openElectromasImageZoomIndex(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria]||p.categoria)} · ${esc(labels[p.linea]||p.linea)}</div><h2>${esc(p.nombre)}</h2>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" data-em-img="${i}" class="${i===0?'active':''}" onclick="emIndexSetImage(${i})"><img src="${esc(u)}" alt="Imagen ${i+1}"></button>`).join('')}</div><small style="display:block;margin-top:8px;color:#637083;font-weight:800">Use las flechas o toque una miniatura. Toque la imagen grande para ampliar.</small></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${p.oferta?'Precio oferta':p.combo?'Precio combo':'Precio'}</span></div><strong>${formatoPrecio(p.precio_mostrar??p.precio)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
+  };
+  if(typeof filtrarYRender==='function'){
+    filtrarYRender=function(){
+      let items=(PRODUCTOS||[]).filter(p=>{const active=Boolean(filtros.search)||filtros.linea!=='todos'||filtros.categoria!=='todos'||filtros.especial!=='todos'||filtros.precio!=='todos'; if(!active&&!p.destacado)return false; const blob=normalize([p.nombre,p.descripcion,p.marca,p.modelo,p.etiqueta,p.combo_items,p.seo_title,p.seo_description,p.seo_keywords,labels[p.linea],labels[p.categoria],JSON.stringify(p.raw||{})].filter(Boolean).join(' ')); return (!filtros.search||blob.includes(normalize(filtros.search)))&&(filtros.linea==='todos'||p.linea===filtros.linea)&&(filtros.categoria==='todos'||p.categoria===filtros.categoria)&&cumpleRangoPrecio(p,filtros.precio)&&(filtros.especial==='todos'||(filtros.especial==='ofertas'&&p.oferta)||(filtros.especial==='combos'&&p.combo));});
+      if(filtros.orden==='az')items.sort((a,b)=>a.nombre.localeCompare(b.nombre,'es')); else if(filtros.orden==='precioAsc')items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0)); else if(filtros.orden==='precioDesc')items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0)); else items.sort((a,b)=>{if(a.destacado!==b.destacado)return a.destacado?-1:1;return(Number(a.orden)||999)-(Number(b.orden)||999)});
+      if(!items.length){grid.style.display='none';noRes.style.display='block';countSpan.innerHTML='<strong>0</strong> productos';return;} grid.style.display='grid';noRes.style.display='none';countSpan.innerHTML='<strong>'+items.length+'</strong> productos';
+      grid.innerHTML=items.map(p=>{const imgs=productImages(p),first=imgs[0]||p.imagen||'',tag=p.combo?'Combo':p.oferta?'Oferta':(p.etiqueta&&p.etiqueta.length<28?p.etiqueta:'Disponible');return `<article class="producto-card ${first?'':'sin-imagen'}" role="button" tabindex="0" onclick="openIndexProductModal('${esc(String(p.id))}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openIndexProductModal('${esc(String(p.id))}')}">${first?`<div class="producto-media"><span class="producto-tag">${esc(tag)}</span><img src="${esc(first)}" alt="${esc(p.nombre)}" loading="lazy" onerror="this.closest('.producto-media').remove();"></div>`:''}<div class="producto-body"><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${p.oferta?'Precio oferta':p.combo?'Precio combo':'Precio'}</span></div><strong>${formatoPrecio(p.precio_mostrar??p.precio)}</strong></div></div></article>`}).join('');
+    };
+    setTimeout(()=>{try{if(Array.isArray(PRODUCTOS)&&PRODUCTOS.length)filtrarYRender();}catch(e){}},500);
+  }
+})();
+</script>
+
 </body>
 </html>
