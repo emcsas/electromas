@@ -1363,7 +1363,32 @@
   
 
     .footer-links a[data-dynamic-link] { cursor: pointer; }
-    .install-app-btn{border:0;cursor:pointer;}
+    .install-app-panel {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 9999;
+      width: min(92vw, 460px);
+      background: #ffffff;
+      color: #0b2346;
+      border: 1px solid rgba(20,43,82,.12);
+      box-shadow: 0 18px 42px rgba(7,19,38,.20);
+      border-radius: 22px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .install-app-panel[hidden] { display: none !important; }
+    .install-app-copy { display: grid; gap: 2px; font-size: .82rem; line-height: 1.25; }
+    .install-app-copy strong { font-weight: 900; color: var(--azul); }
+    .install-app-copy span { color: #64748b; font-weight: 700; }
+    .install-app-actions { display:flex; gap:8px; align-items:center; }
+    .install-app-btn{border:0;cursor:pointer;background:var(--verde);color:#fff;border-radius:999px;padding:11px 15px;font-weight:900;display:inline-flex;gap:8px;align-items:center;white-space:nowrap;}
+    .install-app-close{border:0;background:#eef3fb;color:var(--azul);border-radius:999px;width:36px;height:36px;cursor:pointer;font-weight:900;}
+    @media(max-width:640px){.install-app-panel{align-items:flex-start}.install-app-copy span{display:none}.install-app-btn span{display:none}}
     .producto-mini-galeria { display:flex; gap:5px; margin: 4px 0 8px; flex-wrap: wrap; }
     .producto-mini-galeria span { width: 7px; height: 7px; border-radius: 50%; background: #cbd5e1; display: inline-block; }
     .producto-mini-galeria span.activo { background: var(--naranja); }
@@ -1406,7 +1431,6 @@
         <button type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
-    <button id="installAppBtn" class="header-whatsapp install-app-btn" type="button" hidden><i class="fas fa-download"></i><span>Instalar app</span></button>
     <a href="https://wa.me/593988926331" target="_blank" class="header-whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
   </div>
 </header>
@@ -1452,9 +1476,8 @@
       <div class="section-head">
         <div>
           <span class="eyebrow"><i class="fas fa-cart-shopping"></i> Vitrina principal</span>
-          <h2 class="section-title">Productos destacados.</h2>
+          <h2 class="section-title">Productos recomendados.</h2>
         </div>
-        <p class="section-text">Estos son los productos marcados como destacados desde el editor. Las categorías completas se abren en su propia sección.</p>
       </div>
 
       <div class="catalogo-layout">
@@ -1509,7 +1532,7 @@
           </div>
 
           <div class="producto-grid" id="productosGrid"></div>
-          <div class="sin-resultados" id="noResultados">No hay productos destacados cargados todavía. Márquelos como “Destacado” desde el editor.</div>
+          <div class="sin-resultados" id="noResultados">No hay productos publicados todavía. Cárguelos desde el editor y active “Mostrar en inicio”.</div>
         </div>
       </div>
     </div>
@@ -1594,6 +1617,18 @@
     </div>
   </div>
 </footer>
+
+<div id="installAppPanel" class="install-app-panel" hidden>
+  <div class="install-app-copy">
+    <strong>Instale Electromás</strong>
+    <span>Acceda al catálogo como una app desde su celular.</span>
+  </div>
+  <div class="install-app-actions">
+    <button id="installAppBtn" class="install-app-btn" type="button"><i class="fas fa-download"></i><span>Instalar app</span></button>
+    <button id="dismissInstallBtn" class="install-app-close" type="button" aria-label="Ocultar instalación">×</button>
+  </div>
+</div>
+
 
 <a href="https://wa.me/593988926331" class="whatsapp-flotante" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
@@ -2021,21 +2056,46 @@
 
   // Instalación como aplicación (PWA)
   let deferredInstallPrompt = null;
+  const installPanel = document.getElementById("installAppPanel");
   const installBtn = document.getElementById("installAppBtn");
+  const dismissInstallBtn = document.getElementById("dismissInstallBtn");
+  const isStandaloneApp = () => window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  const hideInstallPanel = () => { if (installPanel) installPanel.hidden = true; };
+
+  if (isStandaloneApp() || localStorage.getItem("electromas_app_installed") === "1") {
+    hideInstallPanel();
+  }
+
   window.addEventListener("beforeinstallprompt", event => {
     event.preventDefault();
     deferredInstallPrompt = event;
-    if (installBtn) installBtn.hidden = false;
+    if (installPanel && !isStandaloneApp() && localStorage.getItem("electromas_app_installed") !== "1") {
+      installPanel.hidden = false;
+    }
   });
+
   if (installBtn) {
     installBtn.addEventListener("click", async () => {
       if (!deferredInstallPrompt) return;
       deferredInstallPrompt.prompt();
-      await deferredInstallPrompt.userChoice;
+      const choice = await deferredInstallPrompt.userChoice;
       deferredInstallPrompt = null;
-      installBtn.hidden = true;
+      if (choice && choice.outcome === "accepted") {
+        localStorage.setItem("electromas_app_installed", "1");
+      }
+      hideInstallPanel();
     });
   }
+
+  if (dismissInstallBtn) {
+    dismissInstallBtn.addEventListener("click", hideInstallPanel);
+  }
+
+  window.addEventListener("appinstalled", () => {
+    localStorage.setItem("electromas_app_installed", "1");
+    hideInstallPanel();
+  });
+
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("sw.js").catch(() => {});
