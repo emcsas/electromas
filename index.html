@@ -1810,7 +1810,14 @@
       oferta: enOferta || (precioOferta > 0 && precioOferta < precioNormal),
       combo: Boolean(row.is_combo ?? row.combo ?? false),
       activo: row.is_active ?? row.activo ?? true,
-      route: row.route || row.ruta || ""
+      route: row.route || row.ruta || "",
+      marca: row.brand || row.marca || "",
+      modelo: row.model || row.modelo || "",
+      combo_items: row.combo_items || row.comboItems || "",
+      seo_title: row.seo_title || "",
+      seo_description: row.seo_description || "",
+      seo_keywords: row.seo_keywords || row.keywords || "",
+      raw: row
     };
   }
 
@@ -1980,7 +1987,7 @@
     let items = PRODUCTOS.filter(p => {
       const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== "todos" || filtros.categoria !== "todos" || filtros.especial !== "todos" || filtros.precio !== "todos";
         if (!hayFiltroActivo && !p.destacado) return false;
-      const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""} ${labels[p.categoria] || ""}`);
+      const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca || ""} ${p.modelo || ""} ${p.etiqueta || ""} ${p.combo_items || ""} ${p.seo_title || ""} ${p.seo_description || ""} ${p.seo_keywords || ""} ${labels[p.linea] || ""} ${labels[p.categoria] || ""} ${JSON.stringify(p.raw || {})}`);
       const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
       const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
       const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
@@ -2199,7 +2206,7 @@ function filtrarYRender() {
   let items = PRODUCTOS.filter(p => {
     const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== "todos" || filtros.categoria !== "todos" || filtros.especial !== "todos" || filtros.precio !== "todos";
         if (!hayFiltroActivo && !p.destacado) return false;
-    const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""} ${labels[p.categoria] || ""}`);
+    const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca || ""} ${p.modelo || ""} ${p.etiqueta || ""} ${p.combo_items || ""} ${p.seo_title || ""} ${p.seo_description || ""} ${p.seo_keywords || ""} ${labels[p.linea] || ""} ${labels[p.categoria] || ""} ${JSON.stringify(p.raw || {})}`);
     const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
     const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
     const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
@@ -2294,7 +2301,7 @@ function filtrarYRender() {
       let items = PRODUCTOS.filter(p => {
         const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== "todos" || filtros.categoria !== "todos" || filtros.especial !== "todos" || filtros.precio !== "todos";
         if (!hayFiltroActivo && !p.destacado) return false;
-        const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""} ${labels[p.categoria] || ""}`);
+        const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca || ""} ${p.modelo || ""} ${p.etiqueta || ""} ${p.combo_items || ""} ${p.seo_title || ""} ${p.seo_description || ""} ${p.seo_keywords || ""} ${labels[p.linea] || ""} ${labels[p.categoria] || ""} ${JSON.stringify(p.raw || {})}`);
         const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
         const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
         const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
@@ -2352,7 +2359,7 @@ function filtrarYRender() {
       let items = PRODUCTOS.filter(p => {
         const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== "todos" || filtros.categoria !== "todos" || filtros.especial !== "todos" || filtros.precio !== "todos";
         if (!hayFiltroActivo && !p.destacado) return false;
-        const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""} ${labels[p.categoria] || ""}`);
+        const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca || ""} ${p.modelo || ""} ${p.etiqueta || ""} ${p.combo_items || ""} ${p.seo_title || ""} ${p.seo_description || ""} ${p.seo_keywords || ""} ${labels[p.linea] || ""} ${labels[p.categoria] || ""} ${JSON.stringify(p.raw || {})}`);
         const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
         const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
         const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
@@ -2484,5 +2491,49 @@ function filtrarYRender() {
 })();
 </script>
 
+
+<script id="electromas-index-search-all-fields-final">
+(function(){
+  function blobProductoIndex(p){
+    try{
+      return normalize([
+        p?.nombre,p?.descripcion,p?.marca,p?.modelo,p?.etiqueta,p?.combo_items,
+        p?.seo_title,p?.seo_description,p?.seo_keywords,
+        labels?.[p?.linea],labels?.[p?.categoria],JSON.stringify(p?.raw||{})
+      ].filter(Boolean).join(' '));
+    }catch(e){ return ''; }
+  }
+  const oldUpdate = typeof update === 'function' ? update : null;
+  window.electromasSearchAllFieldsReady = true;
+  if(typeof filtrarYRender === 'function'){
+    filtrarYRender = function(){
+      let items = PRODUCTOS.filter(p => {
+        const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== 'todos' || filtros.categoria !== 'todos' || filtros.especial !== 'todos' || filtros.precio !== 'todos';
+        if (!hayFiltroActivo && !p.destacado) return false;
+        const matchSearch = !filtros.search || blobProductoIndex(p).includes(normalize(filtros.search));
+        const matchLinea = filtros.linea === 'todos' || p.linea === filtros.linea;
+        const matchCategoria = filtros.categoria === 'todos' || p.categoria === filtros.categoria;
+        const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+        const matchEspecial = filtros.especial === 'todos' || (filtros.especial === 'ofertas' && p.oferta) || (filtros.especial === 'combos' && p.combo);
+        return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+      });
+      if (filtros.orden === 'az') items.sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
+      else if (filtros.orden === 'precioAsc') items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+      else if (filtros.orden === 'precioDesc') items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+      else items.sort((a,b)=>{ if(a.destacado!==b.destacado) return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+      if (items.length === 0) { grid.style.display='none'; noRes.style.display='block'; countSpan.innerHTML='<strong>0</strong> productos'; return; }
+      grid.style.display='grid'; noRes.style.display='none'; countSpan.innerHTML='<strong>'+items.length+'</strong> productos';
+      grid.innerHTML = items.map(p=>{
+        const imgs = productImages(p); const firstImage = imgs[0] || p.imagen || '';
+        return `<article class="producto-card ${firstImage ? '' : 'sin-imagen'}" data-open-product="${esc(p.id)}">${firstImage ? `<div class="producto-media"><span class="producto-tag">${esc(p.etiqueta)}</span><img src="${esc(firstImage)}" alt="${esc(p.nombre)}" onerror="this.closest('.producto-media').remove();"></div>` : ''}<div class="producto-body"><div class="producto-ruta">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${p.oferta ? 'Precio de oferta' : 'Precio especial'}</span></div><strong>${formatoPrecio(p.precio_mostrar ?? p.precio)}</strong></div></div></article>`;
+      }).join('');
+      document.querySelectorAll('[data-open-product]').forEach(card=>card.addEventListener('click',()=>{
+        if(typeof openProductModal === 'function') openProductModal(card.getAttribute('data-open-product'));
+      }));
+    };
+  }
+  if(oldUpdate){ update = function(){ filtros.search = searchInput.value; filtros.linea = lineaSelect.value; filtros.precio = precioSelect.value; filtros.orden = ordenSelect.value; if(filtros.linea !== 'todos'){ filtros.categoria='todos'; filtros.especial='todos'; document.querySelectorAll('.menu-link').forEach(a=>a.classList.remove('activo')); } filtrarYRender(); }; }
+})();
+</script>
 </body>
 </html>
