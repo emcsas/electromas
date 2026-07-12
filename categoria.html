@@ -101,4 +101,133 @@ function openProductModal(id){
   }
 })();
 </script>
+
+<style id="electromas-filtros-combos-cards-v2">
+/* Ajuste final: tarjetas públicas simples + filtros por sección */
+.category-main-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:22px;align-items:start;padding-top:24px}.section-sidebar{background:#fff;border:1px solid var(--borde);border-radius:24px;box-shadow:0 14px 30px rgba(20,43,82,.06);padding:18px;position:sticky;top:96px}.section-sidebar h3{margin:0 0 8px;color:var(--azul);font-size:1rem}.section-sidebar p{margin:0 0 14px;color:#5f6c7f;font-size:.78rem;line-height:1.45}.section-sidebar-list{display:grid;gap:9px}.section-sidebar button,.section-sidebar a{width:100%;border:1px solid var(--borde);background:#f8fafc;color:var(--azul);border-radius:16px;padding:11px 12px;font-weight:900;text-align:left;display:flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none}.section-sidebar button.active,.section-sidebar button:hover,.section-sidebar a.active,.section-sidebar a:hover{background:var(--azul);color:#fff}.section-sidebar .section-note{background:#fff7e6;border:1px solid #f2dfb4;color:#6f5315;border-radius:16px;padding:12px;font-weight:800;font-size:.78rem}.section-sidebar .section-note i{color:var(--naranja);margin-right:7px}#subcategoriesSection{display:none!important}.grid{grid-template-columns:repeat(auto-fill,minmax(230px,260px))!important;justify-content:flex-start!important;gap:20px!important}.card{cursor:pointer;border-radius:24px!important;transition:transform .18s ease,box-shadow .18s ease}.card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(20,43,82,.14)!important}.card .media{height:230px!important;padding:18px!important}.card .media img{max-height:190px!important;max-width:92%!important}.card .body{padding:16px!important}.card .ruta,.card .producto-desc-corta,.card .features,.card .spec-row,.card .card-actions{display:none!important}.card .body h3{font-size:.96rem!important;line-height:1.25!important;min-height:2.45em;margin:0!important;color:var(--azul)!important}.card .price{margin-top:13px!important;padding:11px 12px!important}.card .price span{font-size:.58rem!important}.card .price strong{font-size:1.15rem!important}.tap-detail-hint{display:block!important;text-align:center;color:#5f6c7f;font-size:.7rem;font-weight:900;margin-top:8px}.tag{font-size:.58rem!important;padding:5px 9px!important}.combo-section .toolbar-grid select#priceFilter{display:none}.combo-section .toolbar-grid{grid-template-columns:1fr 220px}.combo-section .toolbar-grid input{grid-column:auto}.empty{grid-column:2}.product-modal-info .modal-desc{white-space:pre-line}@media(max-width:900px){.category-main-layout{grid-template-columns:1fr}.section-sidebar{position:static;top:auto}.empty{grid-column:1}.grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;padding-top:18px!important}.card{border-radius:20px!important}.card .media{height:168px!important;padding:12px!important}.card .media:before{inset:10px!important;border-radius:17px!important}.card .media img{max-height:138px!important}.card .body{padding:12px!important}.card .body h3{font-size:.78rem!important;min-height:2.75em}.card .price{border-radius:14px!important;padding:9px 10px!important}.card .price span{display:none}.card .price strong{font-size:.95rem!important}.tap-detail-hint{font-size:.62rem}.toolbar-grid{grid-template-columns:1fr!important}.top .contenedor{flex-direction:row!important;align-items:center!important}.logo img{height:44px}.actions .btn{padding:10px 12px;font-size:.72rem}.actions .btn-install{display:none!important}}@media(max-width:390px){.grid{grid-template-columns:1fr!important}.card .media{height:210px!important}.card .media img{max-height:175px!important}}
+</style>
+<script id="electromas-filtros-combos-cards-v2-js">
+(function(){
+  function safeTag(p){
+    const raw=String(p&&p.tag||'').trim();
+    if(p&&p.is_combo) return 'Combo';
+    if(p&&p.is_on_sale) return 'Oferta';
+    if(!raw || /categoria\.html|https?:\/\//i.test(raw) || raw.length>28) return 'Disponible';
+    return raw;
+  }
+  function isComboPage(){return (typeof pageMode!=='undefined' && (pageMode==='combos' || pageMode==='combo')) || (typeof pageSlug!=='undefined' && pageSlug==='combos');}
+  function isOfferPage(){return (typeof pageMode!=='undefined' && pageMode==='ofertas') || (typeof pageSlug!=='undefined' && pageSlug==='ofertas');}
+  function isIndividualPage(){return !isComboPage();}
+
+  try{
+    const originalHeader = typeof header==='function' ? header : null;
+    if (originalHeader) {
+      header = function(){
+        originalHeader();
+        document.body.classList.toggle('combo-section', isComboPage());
+      };
+    }
+  }catch(e){}
+
+  try{
+    matchPage = function(p){
+      if(!p) return false;
+      if(isComboPage()) return !!p.is_combo;
+      if(isOfferPage()) return !!p.is_on_sale && !p.is_combo;
+      if(pageMode==='categoria') return !p.is_combo && p.category_slug===pageSlug && (activeSubcategory==='todos'||p.line_slug===activeSubcategory);
+      if(pageMode==='subcategoria'||pageMode==='linea') return !p.is_combo && p.line_slug===pageSlug;
+      return !p.is_combo;
+    };
+  }catch(e){}
+
+  function compactCard(p){
+    const im = (typeof productImageList==='function' ? productImageList(p) : (typeof imgs==='function'?imgs(p):[]));
+    const src = im && im[0] ? im[0] : '';
+    const tag = safeTag(p);
+    return `<article class="card card-simple-public ${src?'':'sin-imagen'}" role="button" tabindex="0" onclick="openProductModal('${esc(p.id)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('${esc(p.id)}')}">${src?`<div class="media"><span class="tag">${esc(tag)}</span>${p.is_on_sale?'<span class="tag offer">Oferta</span>':''}<img src="${esc(src)}" alt="${esc(p.name)}" loading="lazy" onerror="this.closest('.media').remove()"></div>`:''}<div class="body"><h3>${esc(p.name)}</h3><div class="price"><span>${p.is_combo?'Precio combo':p.is_on_sale?'Precio oferta':'Precio'}</span><strong>${money(price(p))}</strong></div><div class="tap-detail-hint"><i class="fas fa-circle-info"></i> Toque para ver características</div></div></article>`;
+  }
+
+  try{
+    renderCardProfesional = compactCard;
+    render = function(){
+      productCount.textContent=filteredProducts.length;
+      if(!filteredProducts.length){productsGrid.innerHTML='';emptyState.style.display='block';return}
+      emptyState.style.display='none';
+      productsGrid.innerHTML=filteredProducts.map(compactCard).join('');
+      installSectionSidebar();
+    };
+    apply = function(){
+      const q=normalize(searchInput.value), r=priceFilter.value, s=sortSelect.value;
+      filteredProducts=products.filter(p=>matchPage(p)&&priceMatch(p,r)&&(!q||normalize(`${p.name} ${p.description} ${p.brand} ${p.model} ${label(p.line_slug)} ${label(p.category_slug)}`).includes(q)));
+      if(s==='az') filteredProducts.sort((a,b)=>a.name.localeCompare(b.name,'es'));
+      else if(s==='precioAsc') filteredProducts.sort((a,b)=>price(a)-price(b));
+      else if(s==='precioDesc') filteredProducts.sort((a,b)=>price(b)-price(a));
+      else filteredProducts.sort((a,b)=>Number(b.is_featured)-Number(a.is_featured)||Number(a.sort_order||100)-Number(b.sort_order||100));
+      render();
+      installSectionSidebar();
+    };
+  }catch(e){}
+
+  function installSectionSidebar(){
+    try{
+      const main=document.querySelector('main.contenedor');
+      const grid=document.getElementById('productsGrid');
+      if(!main||!grid) return;
+      main.classList.add('category-main-layout');
+      let side=document.getElementById('sectionSidebar');
+      if(!side){
+        side=document.createElement('aside');
+        side.id='sectionSidebar';
+        side.className='section-sidebar';
+        main.insertBefore(side, grid);
+      }
+      updateSectionSidebar(side);
+    }catch(e){}
+  }
+  window.installSectionSidebar = installSectionSidebar;
+
+  function updateSectionSidebar(side){
+    if(!side) return;
+    if(isComboPage()){
+      side.innerHTML=`<h3>Sección de combos</h3><p>Solo se muestran paquetes creados como combo desde el editor.</p><div class="section-note"><i class="fas fa-layer-group"></i> Los productos individuales quedan ocultos en esta sección.</div>`;
+      return;
+    }
+    if(isOfferPage()){
+      side.innerHTML=`<h3>Sección de ofertas</h3><p>Solo se muestran productos individuales marcados como oferta.</p><div class="section-note"><i class="fas fa-tags"></i> Los combos se muestran únicamente en la sección Combos.</div>`;
+      return;
+    }
+    let subs=[];
+    try{
+      if(pageMode==='categoria') subs=categories.filter(c=>isSub(c)&&c.parent_slug===pageSlug);
+      if(!subs.length && pageMode==='subcategoria'){
+        const current=categories.find(c=>c.slug===pageSlug);
+        const parent=current&&current.parent_slug;
+        if(parent) subs=categories.filter(c=>isSub(c)&&c.parent_slug===parent);
+      }
+      if(!subs.length) subs=categories.filter(c=>isSub(c)&&!c.parent_slug).slice(0,8);
+    }catch(e){subs=[];}
+    const title = pageMode==='subcategoria' ? 'Subcategorías relacionadas' : 'Filtrar esta categoría';
+    const allActive = activeSubcategory==='todos' && pageMode==='categoria';
+    const list = pageMode==='categoria'
+      ? `<button class="${allActive?'active':''}" type="button" data-sub="todos"><i class="fas fa-border-all"></i> Todos</button>`
+      : '';
+    side.innerHTML=`<h3>${title}</h3><p>Use solo filtros relacionados con esta sección.</p><div class="section-sidebar-list">${list}${subs.map(c=>`<button class="${(activeSubcategory===c.slug || pageSlug===c.slug)?'active':''}" type="button" data-sub="${esc(c.slug)}"><i class="${esc(c.icon_class)}"></i> ${esc(c.name)}</button>`).join('')}</div>`;
+    side.querySelectorAll('[data-sub]').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const sub=btn.getAttribute('data-sub');
+        if(pageMode==='categoria'){
+          activeSubcategory=sub;
+          side.querySelectorAll('[data-sub]').forEach(b=>b.classList.toggle('active',b===btn));
+          apply();
+        }else if(sub && sub!=='todos'){
+          location.href=`categoria.html?mode=subcategoria&slug=${encodeURIComponent(sub)}`;
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(installSectionSidebar,700));
+})();
+</script>
+
 </body></html>
