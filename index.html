@@ -2214,5 +2214,105 @@ function filtrarYRender() {
   iniciarCatalogo();
 </script>
 
+
+<style id="electromas-index-cards-simples-filtros-v2">
+/* Inicio: tarjetas simples y filtros coherentes por sección */
+.producto-grid{grid-template-columns:repeat(auto-fill,minmax(230px,260px))!important;gap:20px!important}.producto-card{cursor:pointer;border-radius:24px!important;transition:transform .18s ease,box-shadow .18s ease}.producto-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(20,43,82,.14)!important}.producto-media{height:230px!important;padding:18px!important}.producto-media img{max-height:190px!important;max-width:92%!important;object-fit:contain}.producto-body{padding:16px!important}.producto-ruta,.producto-card p,.producto-mini-galeria,.producto-spec-row,.producto-features,.producto-final{display:none!important}.producto-body h3{font-size:.96rem!important;line-height:1.25!important;min-height:2.45em;margin:0!important;color:var(--azul)!important}.producto-precio{margin-top:13px!important;padding:11px 12px!important}.producto-precio span{font-size:.58rem!important}.producto-precio small{display:none!important}.producto-precio strong{font-size:1.15rem!important}.producto-tag{font-size:.58rem!important;padding:5px 9px!important}.sidebar-context{background:#fff7e6;border:1px solid #f2dfb4;color:#6f5315;border-radius:16px;padding:12px;margin-bottom:14px;font-size:.78rem;font-weight:800;line-height:1.4}.sidebar-context i{color:var(--naranja);margin-right:7px}.sidebar-combo #lineaSelect,.sidebar-combo label[for="lineaSelect"],.sidebar-combo #precioSelect,.sidebar-combo label[for="precioSelect"]{display:none}.sidebar-combo .filtro-grupo:has(#lineaSelect),.sidebar-combo .filtro-grupo:has(#precioSelect){display:none}.producto-card .producto-precio{display:flex!important}@media(max-width:900px){.producto-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}.producto-media{height:168px!important;padding:12px!important}.producto-media img{max-height:138px!important}.producto-body{padding:12px!important}.producto-body h3{font-size:.78rem!important;min-height:2.75em}.producto-precio{border-radius:14px!important;padding:9px 10px!important}.producto-precio span{display:none}.producto-precio strong{font-size:.95rem!important}}@media(max-width:390px){.producto-grid{grid-template-columns:1fr!important}.producto-media{height:210px!important}.producto-media img{max-height:175px!important}}
+</style>
+<script id="electromas-index-cards-simples-filtros-v2-js">
+(function(){
+  function safeTagIndex(p){
+    const raw=String(p&&p.etiqueta||'').trim();
+    if(p&&p.combo) return 'Combo';
+    if(p&&p.oferta) return 'Oferta';
+    if(!raw || /categoria\.html|https?:\/\//i.test(raw) || raw.length>28) return 'Disponible';
+    return raw;
+  }
+  function ensureSidebarContext(){
+    const sidebar=document.querySelector('.catalogo-sidebar');
+    if(!sidebar) return null;
+    let box=document.getElementById('sidebarContext');
+    if(!box){box=document.createElement('div');box.id='sidebarContext';box.className='sidebar-context';const filtros=sidebar.querySelector('.filtros');sidebar.insertBefore(box,filtros||sidebar.firstChild);} 
+    return box;
+  }
+  function updateSidebarContext(){
+    try{
+      const sidebar=document.querySelector('.catalogo-sidebar'); const box=ensureSidebarContext(); if(!sidebar||!box) return;
+      sidebar.classList.toggle('sidebar-combo', filtros.especial==='combos');
+      if(filtros.especial==='combos') box.innerHTML='<i class="fas fa-layer-group"></i> Sección Combos: aquí solo aparecen paquetes armados desde el editor.';
+      else if(filtros.especial==='ofertas') box.innerHTML='<i class="fas fa-tags"></i> Sección Ofertas: aquí solo aparecen productos individuales con oferta.';
+      else if(filtros.categoria!=='todos') box.innerHTML='<i class="fas fa-filter"></i> Filtros de la categoría seleccionada. Las subcategorías pertenecen a esta sección.';
+      else box.innerHTML='<i class="fas fa-star"></i> Inicio muestra únicamente productos marcados como destacados.';
+    }catch(e){}
+  }
+
+  try{
+    const oldRenderCategoriasFiltro = typeof renderCategoriasFiltro==='function' ? renderCategoriasFiltro : null;
+    renderCategoriasFiltro = function(){
+      let filtroCategorias = CATEGORIAS.filter(c => c.mostrar_filtro && (c.parent_slug || c.modo_filtro === "subcategoria" || c.modo_filtro === "linea"));
+      if (typeof filtros!=='undefined' && filtros.categoria && filtros.categoria!=='todos') {
+        const scoped = filtroCategorias.filter(c => c.parent_slug === filtros.categoria);
+        if (scoped.length) filtroCategorias = scoped;
+      }
+      filtroCategorias.sort((a,b)=>a.orden-b.orden);
+      lineaSelect.innerHTML = `<option value="todos">${filtros && filtros.categoria!=='todos'?'Todas las subcategorías':'Seleccione una categoría'}</option>` + filtroCategorias.map(c => `<option value="${esc(c.slug)}">${esc(c.nombre)}</option>`).join("");
+    };
+  }catch(e){}
+
+  try{
+    aplicarFiltroMenu = function(slug, modo){
+      filtros.categoria = "todos";
+      filtros.especial = "todos";
+      filtros.linea = "todos";
+      lineaSelect.value = "todos";
+      if (modo === "ofertas" || slug === "ofertas") filtros.especial = "ofertas";
+      else if (modo === "combos" || slug === "combos") filtros.especial = "combos";
+      else if (modo === "linea") { filtros.linea = slug; lineaSelect.value = slug; }
+      else filtros.categoria = slug;
+      renderCategoriasFiltro();
+      if (lineaSelect.querySelector(`option[value="${CSS.escape(filtros.linea)}"]`)) lineaSelect.value = filtros.linea;
+      document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
+      const active = document.querySelector(`.menu-link[data-menu-slug="${CSS.escape(slug)}"]`);
+      if (active) active.classList.add("activo");
+      update();
+      updateSidebarContext();
+      document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+    };
+  }catch(e){}
+
+  try{
+    filtrarYRender = function(){
+      let items = PRODUCTOS.filter(p => {
+        if (!p.destacado) return false;
+        const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""} ${labels[p.categoria] || ""}`);
+        const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
+        const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
+        const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
+        const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+        let matchEspecial = false;
+        if (filtros.especial === "combos") matchEspecial = !!p.combo;
+        else if (filtros.especial === "ofertas") matchEspecial = !!p.oferta && !p.combo;
+        else matchEspecial = !p.combo;
+        return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+      });
+      if (filtros.orden === "az") items.sort((a,b)=>a.nombre.localeCompare(b.nombre,"es"));
+      else if (filtros.orden === "precioAsc") items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+      else if (filtros.orden === "precioDesc") items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+      else items.sort((a,b)=>{ if(a.destacado!==b.destacado)return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+      if(items.length===0){grid.style.display="none";noRes.style.display="block";countSpan.innerHTML=`<strong>0</strong> productos`;updateSidebarContext();return;}
+      grid.style.display="grid"; noRes.style.display="none"; countSpan.innerHTML=`<strong>${items.length}</strong> productos`;
+      grid.innerHTML = items.map(p => {
+        const imgs = productImages(p); const firstImage = imgs[0] || p.imagen || '';
+        const tag = safeTagIndex(p);
+        return `<article class="producto-card ${firstImage ? '' : 'sin-imagen'}" role="button" tabindex="0" onclick="location.href='${esc(productPageUrl(p))}'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();location.href='${esc(productPageUrl(p))}'}">${firstImage ? `<div class="producto-media"><span class="producto-tag">${esc(tag)}</span><img src="${esc(firstImage)}" alt="${esc(p.nombre)}" loading="lazy" onerror="this.closest('.producto-media').remove();"></div>` : ''}<div class="producto-body"><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${p.oferta ? "Precio oferta" : p.combo ? "Precio combo" : "Precio"}</span></div><strong>${formatoPrecio(p.precio_mostrar ?? p.precio)}</strong></div></div></article>`;
+      }).join("");
+      updateSidebarContext();
+    };
+  }catch(e){}
+
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(updateSidebarContext,700));
+})();
+</script>
+
 </body>
 </html>
