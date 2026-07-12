@@ -1990,17 +1990,20 @@
     noRes.style.display = "none";
     countSpan.innerHTML = `<strong>${items.length}</strong> productos`;
 
-    grid.innerHTML = items.map(p => `
-      <article class="producto-card">
-        <div class="producto-media">
+    grid.innerHTML = items.map(p => {
+      const imgs = productImages(p);
+      const firstImage = imgs[0] || p.imagen || '';
+      return `
+      <article class="producto-card ${firstImage ? '' : 'sin-imagen'}">
+        ${firstImage ? `<div class="producto-media">
           <span class="producto-tag">${esc(p.etiqueta)}</span>
-          <img src="${esc(productImages(p)[0] || p.imagen)}" alt="${esc(p.nombre)}" onerror="this.src='principal/logo.png';">
-        </div>
+          <img src="${esc(firstImage)}" alt="${esc(p.nombre)}" onerror="this.closest('.producto-media').remove();">
+        </div>` : ''}
         <div class="producto-body">
           <div class="producto-ruta">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div>
           <h3>${esc(p.nombre)}</h3>
           <p>${esc(p.descripcion)}</p>
-          ${productImages(p).length > 1 ? `<div class="producto-mini-galeria" title="${productImages(p).length} imágenes disponibles">${productImages(p).slice(0,10).map((_, idx) => `<span class="${idx === 0 ? 'activo' : ''}"></span>`).join("")}</div>` : ""}
+          ${imgs.length > 1 ? `<div class="producto-mini-galeria" title="${imgs.length} imágenes disponibles">${imgs.slice(0,10).map((_, idx) => `<span class="${idx === 0 ? 'activo' : ''}"></span>`).join("")}</div>` : ""}
 
           <div class="producto-precio">
             <div>
@@ -2016,7 +2019,8 @@
           </div>
         </div>
       </article>
-    `).join("");
+    `;
+    }).join("");
   }
 
   function update() {
