@@ -14,6 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="config.js"></script>
   <style>
     :root{--azul:#142b52;--azul2:#1f4175;--oscuro:#071326;--naranja:#ffa500;--verde:#25D366;--rojo:#ef4444;--gris:#5f6c7f;--fondo:#f5f7fc;--borde:#dfe7f2;--sombra:0 18px 42px rgba(20,43,82,.10)}
@@ -47,12 +48,12 @@
   </style>
 </head>
 <body>
-<header class="top"><div class="top-inner"><div class="brand"><img src="principal/electro.png" alt="Electromás"><div><strong>Editor Electromás</strong><span>Productos, categorías, subcategorías, ofertas y combos</span></div></div><div class="top-actions"><span id="sessionEmail" class="session"></span><a href="index.html" class="btn btn-light"><i class="fas fa-store"></i> Ver página</a><button id="downloadCatalogBtn" class="btn btn-blue" type="button"><i class="fas fa-file-arrow-down"></i> Descargar catálogo</button><button id="logoutBtn" class="btn btn-danger hidden" type="button"><i class="fas fa-right-from-bracket"></i> Cerrar sesión</button></div></div></header>
+<header class="top"><div class="top-inner"><div class="brand"><img src="principal/electro.png" alt="Electromás"><div><strong>Editor Electromás</strong><span>Productos, categorías, subcategorías, ofertas y combos</span></div></div><div class="top-actions"><span id="sessionEmail" class="session"></span><a href="index.html" class="btn btn-light"><i class="fas fa-store"></i> Ver página</a><button id="downloadCatalogBtn" class="btn btn-blue" type="button"><i class="fas fa-file-pdf"></i> Descargar catálogo PDF</button><button id="logoutBtn" class="btn btn-danger hidden" type="button"><i class="fas fa-right-from-bracket"></i> Cerrar sesión</button></div></div></header>
 <main class="layout"><section class="hero"><h1>Editor <span>dinámico.</span></h1><p>Use este panel por pasos: primero cree categorías, luego subcategorías y finalmente productos. Las ofertas y combos se activan con un clic.</p></section>
 <section id="loginSection" class="card login-card"><div class="card-head"><h2>Acceso administrativo</h2><p>Usuario creado en Supabase Authentication y autorizado en <strong>em_admin_users</strong>.</p></div><div class="card-body"><div class="form-grid"><label class="full">Correo electrónico<input id="loginEmail" type="email" autocomplete="email"></label><label class="full">Contraseña<input id="loginPassword" type="password" autocomplete="current-password"></label><div class="full actions"><button id="loginBtn" class="btn btn-primary" type="button"><i class="fas fa-lock"></i> Ingresar</button></div><div id="loginStatus" class="status full"></div></div></div></section>
 <section id="appSection" class="hidden"><div class="card"><div class="card-head"><div class="tabs"><button class="tab active" data-tab="products" type="button"><i class="fas fa-box"></i> Productos</button><button class="tab" data-tab="categories" type="button"><i class="fas fa-layer-group"></i> Categorías y subcategorías</button></div><div class="actions"><button id="reloadBtn" class="btn btn-light btn-small" type="button"><i class="fas fa-rotate"></i> Recargar</button></div></div></div>
 <div id="productsTab" class="grid-2" style="margin-top:18px"><div class="card"><div class="card-head"><h2>Productos</h2><p>Use “Nuevo producto”, complete los campos obligatorios, agregue imagen principal y marque si será destacado, oferta o combo.</p></div><div class="card-body"><div class="actions" style="margin-bottom:12px"><button id="newProductBtn" class="btn btn-primary btn-small" type="button"><i class="fas fa-plus"></i> Nuevo producto</button><button id="duplicateProductBtn" class="btn btn-light btn-small" type="button"><i class="fas fa-copy"></i> Duplicar</button></div><input id="productSearch" class="full" placeholder="Buscar producto..." style="margin-bottom:12px"><div id="productsList" class="list"></div></div></div>
-<div class="card"><div class="card-head"><h2 id="productFormTitle">Nuevo producto</h2><p>Formulario guiado. Los campos “slug” y “ruta” pueden quedarse automáticos.</p></div><div class="card-body"><form id="productForm" class="form-grid"><input type="hidden" id="productId"><div class="product-type-selector"><div class="product-type-title"><i class="fas fa-list-check"></i><span>Antes de empezar, seleccione qué va a crear</span></div><div class="product-type-grid"><label class="product-type-card active" id="typeCardProduct"><input type="radio" name="productEditorMode" value="product" checked><div><strong>Producto individual</strong><span>Use esta opción para cargar una refrigeradora, cocina, celular, televisor u otro producto por separado.</span></div></label><label class="product-type-card" id="typeCardCombo"><input type="radio" name="productEditorMode" value="combo"><div><strong>Combo de productos</strong><span>Use esta opción para armar un paquete con mínimo 2 productos ya creados y un precio total del combo.</span></div></label></div></div><div id="comboFlowBanner" class="combo-flow-banner hidden"><strong><i class="fas fa-layer-group"></i> Estructura para armar combo</strong><p>Primero seleccione mínimo dos productos existentes. Luego coloque el nombre del combo, el precio total del paquete, condiciones adicionales e imagen si desea promocionarlo.</p></div><div id="comboTopSlot" class="combo-top-slot"></div><div class="pdf-import full" id="pdfImportBlock"><h3><i class="fas fa-file-pdf"></i> Carga rápida desde PDF</h3><p>Opcional. Suba una ficha o catálogo en PDF. El editor leerá el archivo en este navegador, intentará reconocer la información, usará las páginas del PDF como imágenes del producto y luego usted revisa antes de guardar. El PDF no se guarda en Supabase.</p><div class="pdf-grid"><label>PDF del producto<input id="productPdfFile" type="file" accept="application/pdf"></label><button id="analyzeProductPdfBtn" class="btn btn-orange" type="button"><i class="fas fa-wand-magic-sparkles"></i> Analizar PDF</button><button id="clearProductPdfBtn" class="btn btn-light" type="button"><i class="fas fa-xmark"></i> Quitar PDF</button></div><div id="pdfImportStatus" class="status full"></div><div id="pdfImportResult" class="pdf-result"><strong>Información detectada y organizada</strong><div id="pdfImportChips" class="pdf-chips"></div><div id="pdfStructuredResult" class="pdf-structured"></div><details class="pdf-raw-wrap"><summary>Ver texto OCR completo</summary><textarea id="pdfDetectedText" readonly placeholder="Aquí aparecerá el texto completo detectado del PDF."></textarea></details><div class="actions"><button id="usePdfDataBtn" class="btn btn-green" type="button"><i class="fas fa-check"></i> Usar datos organizados</button><button id="searchPdfImagesBtn" class="btn btn-light" type="button"><i class="fas fa-magnifying-glass"></i> Buscar fotos oficiales</button></div><p class="hint">Revise siempre el precio, la categoría y la descripción antes de guardar el producto.</p></div></div><div class="help-box full" id="productHelpBox"><strong id="productHelpTitle">Cómo cargar un producto</strong><ol id="productHelpList"><li>Seleccione si va a crear un producto individual o un combo.</li><li>Complete nombre, marca, categoría, precio e imagen.</li><li>Si es oferta, ingrese precio de oferta. Si es combo, seleccione mínimo dos productos.</li><li>Presione “Guardar producto”.</li></ol></div><div class="form-step">1. Información básica</div><label>Nombre del producto *<input id="productName" required placeholder="Ej.: Lavadora automática 18 kg"><span class="field-note">Nombre que verá el cliente.</span></label><label>Marca<input id="productBrand" placeholder="Ej.: Indurama, Samsung, LG"><span class="field-note">Opcional, pero ayuda a vender y posicionar.</span></label><label>Modelo<input id="productModel" placeholder="Ej.: RI-480, Galaxy A25"><span class="field-note">Opcional.</span></label><label>Código automático<input id="productSlug" placeholder="lavadora-automatica-18kg"><span class="field-note">Se genera solo. No lo cambie si no es necesario.</span></label><label class="full">Descripción para el cliente<textarea id="productDescription" placeholder="Ej.: Capacidad, beneficios, garantía, ahorro de energía, tipo de uso..."></textarea></label><div class="form-step">2. Ubicación del producto</div><label>Categoría principal *<select id="productCategory"></select><span class="field-note">Ej.: Electrodomésticos, Tecnología u Hogar.</span></label><label>Subcategoría *<select id="productLine"></select><span class="field-note">Ej.: Refrigeración, Celulares, Televisores o Lavado.</span></label><div class="form-step" id="priceStepTitle">3. Precio y publicación</div><label>Precio normal<input id="productPrice" type="number" step="0.01" min="0" placeholder="Ej.: 621"><span class="field-note">Precio base del producto. Si no hay precio fijo, deje 0 para consultar.</span></label><label>Orden de aparición<input id="productOrder" type="number" step="1" value="100"><span class="field-note">Número menor aparece primero.</span></label><label>Etiqueta visible<input id="productTag" placeholder="Ej.: Nuevo, Precio especial, Crédito directo"><span class="field-note">Texto corto para llamar la atención. Si marca oferta, puede usar “Oferta”.</span></label><label>Ruta automática<input id="productRoute" class="readonly-input" placeholder="Se genera automáticamente si se deja vacío"><span class="field-note">Déjela vacía salvo que necesite una ruta especial.</span></label><div id="offerBox" class="conditional-box full hidden"><div class="box-title"><i class="fas fa-tags"></i><div><strong>Precio especial obligatorio</strong><span>Si marca Oferta o Combo, debe ingresar el precio especial correspondiente.</span></div></div><label>Precio de oferta o precio del combo *<input id="productSalePrice" type="number" step="0.01" min="0" placeholder="Ej.: 589"><span class="field-note">Obligatorio si marca Oferta o Combo. En ofertas debe ser menor al precio normal; en combos es el precio total del paquete.</span></label></div><div id="comboOriginalSlot" class="full hidden"></div><div id="comboBox" class="conditional-box combo-box full hidden"><div class="box-title"><i class="fas fa-layer-group"></i><div><strong>Arme el combo con productos existentes</strong><span>Seleccione mínimo dos productos. El cliente verá este combo como un paquete en la sección Combos.</span></div></div><div class="combo-toolbar"><span id="comboCounter" class="combo-counter">0 productos seleccionados</span><button id="clearComboSelectionBtn" class="btn btn-light btn-small" type="button"><i class="fas fa-eraser"></i> Limpiar selección</button></div><div id="comboProductPicker" class="combo-picker"></div><label class="full">Detalle adicional del combo<textarea id="comboItems" placeholder="Ej.: Incluye instalación, transporte o condiciones especiales. No repita los productos seleccionados; el editor los agregará automáticamente."></textarea><span class="field-note">Este campo es para condiciones adicionales. Los productos del combo se eligen arriba.</span></label></div><div class="form-step">4. SEO para Google</div><label class="full">Título para Google<input id="productSeoTitle" placeholder="Ej.: Celular Samsung en Loja con crédito directo"></label><label class="full">Descripción para Google<textarea id="productSeoDescription" placeholder="Ej.: Compre celulares, televisores o refrigeradoras en Loja con crédito directo y garantía."></textarea></label><label class="full">Palabras clave<input id="productKeywords" placeholder="celulares Loja, televisores Loja, refrigeradoras Loja, lavadoras Loja"></label><div class="form-step">5. Estado e imágenes</div><div class="full check-row"><label class="check"><input type="checkbox" id="productFeatured"> Mostrar en inicio</label><label class="check"><input type="checkbox" id="productOnSale"> Enviar a Ofertas</label><label class="check" id="productComboLabel"><input type="checkbox" id="productCombo"> Enviar a Combos</label><label class="check"><input type="checkbox" id="productActive" checked> Visible al público</label></div><div class="full"><div class="pill">Imágenes del producto · máximo 10</div><p class="hint">La imagen 1 será la portada. Para empezar, basta con cargar solo la imagen 1. Las demás son opcionales.</p><div class="image-grid" id="imageFields"></div></div><div class="form-step">6. Publicación rápida</div><div class="full help-box"><strong>Publicar después de guardar</strong><ol><li>Marque dónde quiere preparar la publicación.</li><li>Guarde el producto.</li><li>Use los botones que aparecerán debajo del formulario.</li></ol><p class="hint">WhatsApp y Facebook siempre piden confirmación manual; la página prepara el texto, imagen/enlace y abre la opción de compartir.</p></div><div class="full check-row"><label class="check"><input type="checkbox" id="shareToWhatsappStatus"> Preparar estado de WhatsApp</label><label class="check"><input type="checkbox" id="shareToFacebookPost"> Preparar publicación en Facebook</label></div><div class="full actions"><button class="btn btn-green" type="submit"><i class="fas fa-floppy-disk"></i> Guardar producto</button><button id="deleteProductBtn" class="btn btn-danger" type="button"><i class="fas fa-trash"></i> Eliminar</button><button id="clearProductBtn" class="btn btn-light" type="button"><i class="fas fa-eraser"></i> Limpiar</button></div><div id="productStatus" class="status full"></div><div id="productSharePanel" class="share-panel full hidden"><h3>Producto listo para publicar</h3><p id="sharePanelText">Elija una opción de publicación. El catálogo completo se descarga solo desde este editor.</p><div class="share-actions"><button id="shareWhatsappStatusBtn" class="btn btn-green" type="button"><i class="fab fa-whatsapp"></i> Estado WhatsApp con imagen</button><button id="shareWhatsappBtn" class="btn btn-green" type="button"><i class="fab fa-whatsapp"></i> Enviar WhatsApp con imagen</button><button id="shareFacebookBtn" class="btn btn-facebook" type="button"><i class="fab fa-facebook-f"></i> Publicar Facebook con imagen</button><button id="downloadShareImageBtn" class="btn btn-light" type="button"><i class="fas fa-image"></i> Descargar imagen</button><a id="openFacebookPageBtn" class="btn btn-light" target="_blank"><i class="fab fa-facebook-f"></i> Abrir página Facebook</a><a id="viewProductBtn" class="btn btn-light" target="_blank"><i class="fas fa-eye"></i> Ver producto</a><button id="copyProductLinkBtn" class="btn btn-copy" type="button"><i class="fas fa-copy"></i> Copiar publicación</button></div></div></form></div></div></div>
+<div class="card"><div class="card-head"><h2 id="productFormTitle">Nuevo producto</h2><p>Formulario guiado. Los campos “slug” y “ruta” pueden quedarse automáticos.</p></div><div class="card-body"><form id="productForm" class="form-grid"><input type="hidden" id="productId"><div class="product-type-selector"><div class="product-type-title"><i class="fas fa-list-check"></i><span>Antes de empezar, seleccione qué va a crear</span></div><div class="product-type-grid"><label class="product-type-card active" id="typeCardProduct"><input type="radio" name="productEditorMode" value="product" checked><div><strong>Producto individual</strong><span>Use esta opción para cargar una refrigeradora, cocina, celular, televisor u otro producto por separado.</span></div></label><label class="product-type-card" id="typeCardCombo"><input type="radio" name="productEditorMode" value="combo"><div><strong>Combo de productos</strong><span>Use esta opción para armar un paquete con mínimo 2 productos ya creados y un precio total del combo.</span></div></label></div></div><div id="comboFlowBanner" class="combo-flow-banner hidden"><strong><i class="fas fa-layer-group"></i> Estructura para armar combo</strong><p>Primero seleccione mínimo dos productos existentes. Luego coloque el nombre del combo, el precio total del paquete, condiciones adicionales e imagen si desea promocionarlo.</p></div><div id="comboTopSlot" class="combo-top-slot"></div><div class="pdf-import full" id="pdfImportBlock"><h3><i class="fas fa-file-pdf"></i> Carga rápida desde PDF</h3><p>Opcional. Suba una ficha o catálogo en PDF. El editor leerá el archivo en este navegador, intentará reconocer la información, usará las páginas del PDF como imágenes del producto y luego usted revisa antes de guardar. El PDF no se guarda en Supabase.</p><div class="pdf-grid"><label>PDF del producto<input id="productPdfFile" type="file" accept="application/pdf"></label><button id="analyzeProductPdfBtn" class="btn btn-orange" type="button"><i class="fas fa-wand-magic-sparkles"></i> Analizar PDF</button><button id="clearProductPdfBtn" class="btn btn-light" type="button"><i class="fas fa-xmark"></i> Quitar PDF</button></div><div id="pdfImportStatus" class="status full"></div><div id="pdfImportResult" class="pdf-result"><strong>Información detectada y organizada</strong><div id="pdfImportChips" class="pdf-chips"></div><div id="pdfStructuredResult" class="pdf-structured"></div><details class="pdf-raw-wrap"><summary>Ver texto OCR completo</summary><textarea id="pdfDetectedText" readonly placeholder="Aquí aparecerá el texto completo detectado del PDF."></textarea></details><div class="actions"><button id="usePdfDataBtn" class="btn btn-green" type="button"><i class="fas fa-check"></i> Usar datos organizados</button><button id="searchPdfImagesBtn" class="btn btn-light" type="button"><i class="fas fa-magnifying-glass"></i> Buscar fotos oficiales</button></div><p class="hint">Revise siempre el precio, la categoría y la descripción antes de guardar el producto.</p></div></div><div class="help-box full" id="productHelpBox"><strong id="productHelpTitle">Cómo cargar un producto</strong><ol id="productHelpList"><li>Seleccione si va a crear un producto individual o un combo.</li><li>Complete nombre, marca, categoría, precio e imagen.</li><li>Si es oferta, ingrese precio de oferta. Si es combo, seleccione mínimo dos productos.</li><li>Presione “Guardar producto”.</li></ol></div><div class="form-step">1. Información básica</div><label>Nombre del producto *<input id="productName" required placeholder="Ej.: Lavadora automática 18 kg"><span class="field-note">Nombre que verá el cliente.</span></label><label>Marca<input id="productBrand" placeholder="Ej.: Indurama, Samsung, LG"><span class="field-note">Opcional, pero ayuda a vender y posicionar.</span></label><label>Modelo<input id="productModel" placeholder="Ej.: RI-480, Galaxy A25"><span class="field-note">Opcional.</span></label><label>Código automático<input id="productSlug" placeholder="lavadora-automatica-18kg"><span class="field-note">Se genera solo. No lo cambie si no es necesario.</span></label><label class="full">Descripción para el cliente<textarea id="productDescription" placeholder="Ej.: Capacidad, beneficios, garantía, ahorro de energía, tipo de uso..."></textarea></label><div class="form-step">2. Ubicación del producto</div><label>Categoría principal *<select id="productCategory"></select><span class="field-note">Ej.: Electrodomésticos, Tecnología u Hogar.</span></label><label>Subcategoría *<select id="productLine"></select><span class="field-note">Ej.: Refrigeración, Celulares, Televisores o Lavado.</span></label><div class="form-step" id="priceStepTitle">3. Precio y publicación</div><label>Precio normal<input id="productPrice" type="number" step="0.01" min="0" placeholder="Ej.: 621"><span class="field-note">Precio base del producto. Si no hay precio fijo, deje 0 para consultar.</span></label><label>Orden de aparición<input id="productOrder" type="number" step="1" value="100"><span class="field-note">Número menor aparece primero.</span></label><label>Etiqueta visible<input id="productTag" placeholder="Ej.: Nuevo, Precio especial, Crédito directo"><span class="field-note">Texto corto para llamar la atención. Si marca oferta, puede usar “Oferta”.</span></label><label>Ruta automática<input id="productRoute" class="readonly-input" placeholder="Se genera automáticamente si se deja vacío"><span class="field-note">Déjela vacía salvo que necesite una ruta especial.</span></label><div id="offerBox" class="conditional-box full hidden"><div class="box-title"><i class="fas fa-tags"></i><div><strong>Precio especial obligatorio</strong><span>Si marca Oferta o Combo, debe ingresar el precio especial correspondiente.</span></div></div><label>Precio de oferta o precio del combo *<input id="productSalePrice" type="number" step="0.01" min="0" placeholder="Ej.: 589"><span class="field-note">Obligatorio si marca Oferta o Combo. En ofertas debe ser menor al precio normal; en combos es el precio total del paquete.</span></label></div><div id="comboOriginalSlot" class="full hidden"></div><div id="comboBox" class="conditional-box combo-box full hidden"><div class="box-title"><i class="fas fa-layer-group"></i><div><strong>Arme el combo con productos existentes</strong><span>Seleccione mínimo dos productos. El cliente verá este combo como un paquete en la sección Combos.</span></div></div><div class="combo-toolbar"><span id="comboCounter" class="combo-counter">0 productos seleccionados</span><button id="clearComboSelectionBtn" class="btn btn-light btn-small" type="button"><i class="fas fa-eraser"></i> Limpiar selección</button></div><div id="comboProductPicker" class="combo-picker"></div><label class="full">Detalle adicional del combo<textarea id="comboItems" placeholder="Ej.: Incluye instalación, transporte o condiciones especiales. No repita los productos seleccionados; el editor los agregará automáticamente."></textarea><span class="field-note">Este campo es para condiciones adicionales. Los productos del combo se eligen arriba.</span></label></div><div class="form-step">4. SEO para Google</div><label class="full">Título para Google<input id="productSeoTitle" placeholder="Ej.: Celular Samsung en Loja con crédito directo"></label><label class="full">Descripción para Google<textarea id="productSeoDescription" placeholder="Ej.: Compre celulares, televisores o refrigeradoras en Loja con crédito directo y garantía."></textarea></label><label class="full">Palabras clave<input id="productKeywords" placeholder="celulares Loja, televisores Loja, refrigeradoras Loja, lavadoras Loja"></label><div class="form-step">5. Estado e imágenes</div><div class="full check-row"><label class="check"><input type="checkbox" id="productFeatured"> Mostrar en inicio</label><label class="check"><input type="checkbox" id="productOnSale"> Enviar a Ofertas</label><label class="check" id="productComboLabel"><input type="checkbox" id="productCombo"> Enviar a Combos</label><label class="check"><input type="checkbox" id="productActive" checked> Visible al público</label></div><div class="full"><div class="pill">Imágenes del producto · máximo 10</div><p class="hint">La imagen 1 será la portada. Para empezar, basta con cargar solo la imagen 1. Las demás son opcionales.</p><div class="image-grid" id="imageFields"></div></div><div class="form-step">6. Publicación rápida</div><div class="full help-box"><strong>Publicar después de guardar</strong><ol><li>Marque dónde quiere preparar la publicación.</li><li>Guarde el producto.</li><li>Use los botones que aparecerán debajo del formulario.</li></ol><p class="hint">WhatsApp y Facebook siempre piden confirmación manual; la página prepara el texto, imagen/enlace y abre la opción de compartir.</p></div><div class="full check-row"><label class="check"><input type="checkbox" id="shareToWhatsappStatus"> Preparar estado de WhatsApp</label><label class="check"><input type="checkbox" id="shareToFacebookPost"> Preparar publicación en Facebook</label></div><div class="full actions"><button class="btn btn-green" type="submit"><i class="fas fa-floppy-disk"></i> Guardar producto</button><button id="deleteProductBtn" class="btn btn-danger" type="button"><i class="fas fa-trash"></i> Eliminar</button><button id="clearProductBtn" class="btn btn-light" type="button"><i class="fas fa-eraser"></i> Limpiar</button></div><div id="productStatus" class="status full"></div><div id="productSharePanel" class="share-panel full hidden"><h3>Producto listo para publicar</h3><p id="sharePanelText">El editor preparará una imagen promocional y copiará la descripción completa del producto. Usted solo confirma la publicación en WhatsApp o Facebook.</p><textarea id="sharePreviewText" readonly placeholder="Aquí aparecerá el texto completo de publicación."></textarea><div class="share-actions"><button id="shareWhatsappStatusBtn" class="btn btn-green" type="button"><i class="fab fa-whatsapp"></i> Publicar en WhatsApp</button><button id="shareFacebookBtn" class="btn btn-facebook" type="button"><i class="fab fa-facebook-f"></i> Publicar en Facebook</button></div></div></form></div></div></div>
 <div id="categoriesTab" class="grid-2 hidden" style="margin-top:18px"><div class="card"><div class="card-head"><h2>Categorías y subcategorías</h2><p>Cree primero categorías principales. Luego cree subcategorías y seleccione a qué categoría pertenecen.</p></div><div class="card-body"><div class="actions" style="margin-bottom:12px"><button id="newCategoryBtn" class="btn btn-primary btn-small" type="button"><i class="fas fa-plus"></i> Nueva categoría</button></div><div id="categoriesList" class="list"></div></div></div><div class="card"><div class="card-head"><h2 id="categoryFormTitle">Nueva categoría</h2><p>Ejemplo: “Electrodomésticos” es categoría principal; “Refrigeración” es subcategoría dentro de Electrodomésticos.</p></div><div class="card-body"><form id="categoryForm" class="form-grid"><input type="hidden" id="categoryId"><div class="help-box full"><strong>Cómo crear categorías</strong><ol><li>Para el menú principal, elija “Categoría principal”.</li><li>Para productos como Refrigeración o Celulares, elija “Subcategoría”.</li><li>Si elige subcategoría, seleccione obligatoriamente la categoría padre.</li></ol></div><label>Nombre *<input id="categoryName" required placeholder="Ej.: Refrigeración"><span class="field-note">Nombre que verá el cliente.</span></label><label>Código automático *<input id="categorySlug" required placeholder="refrigeracion"><span class="field-note">Se genera solo. Use minúsculas y sin espacios si lo modifica.</span></label><label>Icono<input id="categoryIcon" placeholder="fas fa-snowflake"><span class="field-note">Puede dejarlo como está o usar un icono FontAwesome.</span></label><label>¿Qué está creando? *<select id="categoryMode"><option value="categoria">Categoría principal: se abre como sección</option><option value="subcategoria">Subcategoría: va dentro de una categoría</option><option value="ofertas">Sección de ofertas</option><option value="combos">Sección de combos</option></select><span class="field-note">Use “Categoría principal” para Electrodomésticos, Tecnología, Hogar.</span></label><label>Dentro de qué categoría va<select id="categoryParent"></select><span class="field-note">Solo obligatorio si está creando una subcategoría.</span></label><label>Ruta automática<input id="categoryRoute" class="readonly-input" placeholder="categoria.html?mode=subcategoria&slug=refrigeracion"><span class="field-note">No necesita cambiarla.</span></label><label>Orden de aparición<input id="categoryOrder" type="number" step="1" value="100"><span class="field-note">Número menor aparece primero.</span></label><label class="full">Descripción para el cliente<textarea id="categoryDescription" placeholder="Ej.: Refrigeradoras, congeladores y equipos de conservación con crédito directo."></textarea></label><label class="full">Título para Google<input id="categorySeoTitle" placeholder="Ej.: Refrigeradoras en Loja | Electromás Crédito"></label><label class="full">Descripción para Google<textarea id="categorySeoDescription" placeholder="Ej.: Encuentre refrigeradoras, congeladores y electrodomésticos en Loja con crédito directo."></textarea></label><label class="full">Palabras clave<input id="categorySeoKeywords" placeholder="refrigeradoras Loja, congeladores Loja, celulares Loja, televisores"></label><div class="full check-row"><label class="check"><input type="checkbox" id="categoryMenu"> Mostrar en menú principal</label><label class="check"><input type="checkbox" id="categoryFilter" checked> Mostrar como subcategoría visible</label><label class="check"><input type="checkbox" id="categoryActive" checked> Activo</label></div><div class="full actions"><button class="btn btn-green" type="submit"><i class="fas fa-floppy-disk"></i> Guardar categoría</button><button id="deleteCategoryBtn" class="btn btn-danger" type="button"><i class="fas fa-trash"></i> Eliminar</button><button id="clearCategoryBtn" class="btn btn-light" type="button"><i class="fas fa-eraser"></i> Limpiar</button></div><div id="categoryStatus" class="status full"></div></form></div></div></div></section></main>
 <script>
 const cfg = window.ELECTROMAS_CONFIG || {};
@@ -449,19 +450,53 @@ function productPublicUrl(p){
   const line = encodeURIComponent(p?.line_slug || p?.category_slug || 'todos');
   return `${SITE_ORIGIN}/categoria.html?mode=subcategoria&slug=${line}&producto=${slug}`;
 }
+function cleanTextBlockForShare(value){
+  return String(value || '')
+    .replace(/
+/g, '')
+    .split('
+')
+    .map(line => line.trim())
+    .filter((line, idx, arr) => line || (idx > 0 && arr[idx-1]))
+    .join('
+')
+    .replace(/
+{3,}/g, '
+
+')
+    .trim();
+}
 function productShareText(p){
   const categoryText = `${categoryName(p?.category_slug)} · ${categoryName(p?.line_slug)}`;
   let priceText = 'Precio: consultar';
-  if(p?.sale_price && p?.price) priceText = `Precio especial: ${money(p.sale_price)}  |  Antes: ${money(p.price)}`;
+  if(p?.sale_price && p?.price) priceText = `Precio especial: ${money(p.sale_price)}
+Antes: ${money(p.price)}`;
   else if(p?.sale_price) priceText = `Precio especial: ${money(p.sale_price)}`;
   else if(p?.price) priceText = `Precio: ${money(p.price)}`;
+
   const flags = [];
   if(p?.is_on_sale) flags.push('OFERTA');
   if(p?.is_combo) flags.push('COMBO');
-  const badge = flags.length ? `${flags.join(' · ')}\n` : '';
-  const combo = p?.is_combo && p?.combo_items ? `\nCombo incluye / condiciones:\n${p.combo_items}` : '';
-  const desc = (p?.description || 'Disponible con asesoría, garantía y crédito directo.').replace(/\s+/g,' ').trim();
-  return `${badge}${p?.name || 'Producto Electromás'}\n${categoryText}\n${priceText}\n\n${desc}${combo}\n\nElectromás Crédito\nVentas Loja y Zamora\nWhatsApp: ${WHATSAPP_DISPLAY}`;
+  if(p?.is_featured) flags.push('DESTACADO');
+
+  const description = cleanTextBlockForShare(p?.description || 'Disponible con asesoría, garantía y crédito directo.');
+  const combo = p?.is_combo && p?.combo_items ? `
+
+Combo incluye / condiciones:
+${cleanTextBlockForShare(p.combo_items)}` : '';
+
+  return `${flags.length ? flags.join(' · ') + '
+' : ''}${p?.name || 'Producto Electromás'}
+${categoryText}
+${priceText}
+
+Descripción:
+${description}${combo}
+
+Electromás Crédito
+Ventas Loja y Zamora
+Crédito directo y productos con garantía
+WhatsApp: ${WHATSAPP_DISPLAY}`;
 }
 function productShareCaption(p){
   return `${productShareText(p)}\n\nVer producto: ${productPublicUrl(p)}`;
@@ -636,111 +671,145 @@ async function shareProductWithImage(p, target){
   try{
     const file = await getProductPosterFile(p);
     const caption = productShareCaption(p);
-    if(navigator.canShare && navigator.canShare({ files:[file] })){
-      await navigator.share({
-        title: p?.name || 'Producto Electromás',
-        text: caption,
-        files: [file]
-      });
-      showStatus('productStatus','Se abrió el menú de compartir con imagen. Elija WhatsApp, Estado o Facebook y confirme.','ok');
+    if($('sharePreviewText')) $('sharePreviewText').value = caption;
+    try{ await navigator.clipboard.writeText(caption); }catch(e){}
+
+    if(target === 'whatsapp'){
+      if(navigator.canShare && navigator.canShare({ files:[file] })){
+        await navigator.share({
+          title: p?.name || 'Producto Electromás',
+          text: caption,
+          files: [file]
+        });
+        showStatus('productStatus','Publicación preparada. Elija WhatsApp o Estado y confirme la publicación.','ok');
+        return;
+      }
+      await downloadProductPoster(p);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(caption)}`, '_blank');
+      showStatus('productStatus','Se copió la descripción completa y se descargó la imagen. En WhatsApp adjunte la imagen descargada y envíe/publice el texto.','ok');
       return;
     }
-    await navigator.clipboard.writeText(caption);
+
     await downloadProductPoster(p);
-    if(target === 'whatsapp'){
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(caption)}`, '_blank');
-      showStatus('productStatus','Se descargó la imagen y se copió el texto. En WhatsApp adjunte la imagen descargada y pegue el texto.','ok');
-    }else{
-      window.open(FACEBOOK_PAGE_URL, '_blank');
-      showStatus('productStatus','Se descargó la imagen y se copió el texto. En Facebook cree la publicación, suba la imagen descargada y pegue el texto.','ok');
-    }
+    window.open(FACEBOOK_PAGE_URL, '_blank');
+    showStatus('productStatus','Se copió la descripción completa y se descargó la imagen. En Facebook pegue el texto y suba la imagen descargada.','ok');
   }catch(err){
-    showStatus('productStatus', err.message || 'No se pudo preparar la publicación con imagen.','err');
+    showStatus('productStatus', err.message || 'No se pudo preparar la publicación.','err');
   }
 }
 function renderSharePanel(p, options = {}){
   const panel = $('productSharePanel');
   if(!panel) return;
   if(!p){ panel.classList.add('hidden'); return; }
-  const url = productPublicUrl(p);
   const caption = productShareCaption(p);
-
-  $('openFacebookPageBtn').href = FACEBOOK_PAGE_URL;
-  $('viewProductBtn').href = url;
-
-  const wantsWhatsapp = !!options.whatsappStatus;
-  const wantsFacebook = !!options.facebookPost;
   const panelText = $('sharePanelText');
   if(panelText){
-    panelText.textContent = 'Publicación mejorada: el editor genera una imagen promocional del producto y copia el texto. No usa la vista previa automática de Facebook, porque esa vista previa puede mostrar el logo o la categoría en lugar del producto.';
+    panelText.textContent = 'Texto completo listo. Al publicar, el editor copia esta descripción y genera una imagen promocional del producto.';
   }
-
-  $('shareWhatsappStatusBtn').onclick = () => shareProductWithImage(p, 'whatsapp');
-  $('shareWhatsappBtn').onclick = () => shareProductWithImage(p, 'whatsapp');
-  $('shareFacebookBtn').onclick = () => shareProductWithImage(p, 'facebook');
-  if($('downloadShareImageBtn')) $('downloadShareImageBtn').onclick = async () => { await downloadProductPoster(p); showStatus('productStatus','Imagen de publicación descargada.','ok'); };
-  $('copyProductLinkBtn').onclick = async () => {
-    try { await navigator.clipboard.writeText(caption); showStatus('productStatus','Texto de publicación copiado.','ok'); }
-    catch(e){ showStatus('productStatus','No se pudo copiar automáticamente. Copie el texto manualmente.','err'); }
-  };
+  if($('sharePreviewText')) $('sharePreviewText').value = caption;
+  if($('shareWhatsappStatusBtn')) $('shareWhatsappStatusBtn').onclick = () => shareProductWithImage(p, 'whatsapp');
+  if($('shareFacebookBtn')) $('shareFacebookBtn').onclick = () => shareProductWithImage(p, 'facebook');
   panel.classList.remove('hidden');
 }
 
-function catalogProductCard(p){
-  const img = imagesOf(p)[0] || '';
-  const price = money(p.sale_price || p.price);
-  const normal = p.sale_price && p.price ? `<span class="old-price">Antes ${money(p.price)}</span>` : '';
-  const flags = [p.is_on_sale?'Oferta':null,p.is_combo?'Combo':null,p.is_featured?'Destacado':null].filter(Boolean).map(x=>`<span>${x}</span>`).join('');
-  return `<article class="catalog-card">
-    ${img ? `<div class="pic"><img src="${esc(img)}" alt="${esc(p.name)}"></div>` : ''}
-    <div class="info">
-      <div class="flags">${flags}</div>
-      <small>${esc(categoryName(p.category_slug))} · ${esc(categoryName(p.line_slug))}</small>
-      <h2>${esc(p.name)}</h2>
-      <p>${esc(p.description || 'Disponible con asesoría, garantía y crédito directo.')}</p>
-      <div class="price">${price} ${normal}</div>
-    </div>
-  </article>`;
+function productCatalogSummary(p){
+  const desc = cleanTextBlockForShare(p.description || 'Disponible con asesoría, garantía y crédito directo.').replace(/•/g, '-');
+  return desc.length > 260 ? desc.slice(0, 257).trim() + '...' : desc;
+}
+function catalogFlags(p){
+  return [p.is_on_sale ? 'Oferta' : '', p.is_combo ? 'Combo' : '', p.is_featured ? 'Destacado' : ''].filter(Boolean).join(' / ');
 }
 function downloadCatalogo(){
   const active = products.filter(p=>p.is_active!==false);
   if(!active.length){ showStatus('productStatus','No hay productos activos para descargar en el catálogo.','err'); return; }
-  const date = new Date().toLocaleDateString('es-EC');
-  const rows = active.map(catalogProductCard).join('');
-  const html = `<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Catálogo Electromás</title><style>
-  body{margin:0;background:#f3f6fb;color:#071326;font-family:Arial,Helvetica,sans-serif}.wrap{max-width:1120px;margin:0 auto;padding:28px}.head{background:#071326;color:#fff;border-radius:24px;padding:26px;display:flex;gap:18px;align-items:center;justify-content:space-between}.head img{height:62px;background:#fff;border-radius:16px;padding:8px}.head h1{margin:0;font-size:2rem}.head p{margin:6px 0 0;color:#dbeafe}.meta{margin:18px 0;color:#42526a;font-weight:700}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}.catalog-card{background:#fff;border:1px solid #dfe7f2;border-radius:22px;overflow:hidden;box-shadow:0 14px 30px rgba(20,43,82,.08)}.pic{height:190px;background:#edf3fb;display:flex;align-items:center;justify-content:center}.pic img{max-width:100%;max-height:100%;object-fit:contain}.info{padding:16px}.info small{color:#f59e0b;font-weight:900;text-transform:uppercase;font-size:.72rem}.info h2{margin:8px 0;color:#071326;font-size:1.05rem}.info p{color:#42526a;font-size:.88rem;min-height:42px}.price{margin-top:12px;background:#fff7ed;border:1px solid #fed7aa;border-radius:16px;padding:12px;font-size:1.2rem;font-weight:900}.old-price{display:block;color:#64748b;text-decoration:line-through;font-size:.8rem;margin-top:3px}.flags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.flags span{background:#142b52;color:#fff;border-radius:999px;padding:4px 8px;font-size:.65rem;font-weight:900}.foot{margin:24px 0 0;text-align:center;color:#42526a;font-weight:700}.print{margin-top:16px;border:0;background:#25D366;color:#fff;border-radius:999px;padding:12px 18px;font-weight:900;cursor:pointer}@media print{.print{display:none}.catalog-card{break-inside:avoid}.head{border-radius:0}}
-  
-.product-type-selector{grid-column:1/-1;border:1px solid var(--borde);background:linear-gradient(135deg,#f8fafc,#ffffff);border-radius:20px;padding:16px;display:grid;gap:12px}
-.product-type-title{display:flex;align-items:center;gap:10px;color:var(--azul);font-weight:900;font-size:.95rem}
-.product-type-title i{width:34px;height:34px;border-radius:12px;background:var(--azul);color:#fff;display:grid;place-items:center}
-.product-type-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.product-type-card{border:2px solid var(--borde);border-radius:18px;padding:14px;background:#fff;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:flex-start;transition:.15s ease}
-.product-type-card:hover{border-color:var(--naranja);box-shadow:0 10px 22px rgba(20,43,82,.08)}
-.product-type-card input{width:20px;height:20px;margin-top:3px;accent-color:var(--naranja)}
-.product-type-card strong{display:block;color:var(--azul);font-size:.92rem;font-weight:900}
-.product-type-card span{display:block;color:#64748b;font-size:.75rem;font-weight:800;line-height:1.35;margin-top:3px;text-transform:none;letter-spacing:0}
-.product-type-card.active{border-color:var(--naranja);background:#fff7ed;box-shadow:0 0 0 4px rgba(255,165,0,.10)}
-.combo-flow-banner{grid-column:1/-1;border:1px solid #fed7aa;border-left:6px solid var(--naranja);background:#fff7ed;border-radius:18px;padding:14px;color:#7c2d12;display:grid;gap:6px}
-.combo-flow-banner strong{color:#7c2d12;font-size:.95rem}
-.combo-flow-banner p{margin:0;font-size:.78rem;font-weight:800;line-height:1.4}
-.combo-top-slot{grid-column:1/-1;display:grid;gap:12px}
-.combo-mode .pdf-import{display:none}
-.combo-mode .combo-only-note{display:block!important}
-.combo-only-note{display:none}
-.combo-mode #productCombo{pointer-events:none}
-@media(max-width:760px){.product-type-grid{grid-template-columns:1fr}}
+  const lib = window.jspdf;
+  if(!lib || !lib.jsPDF){ showStatus('productStatus','No se pudo cargar el generador PDF. Revise su conexión y vuelva a intentar.','err'); return; }
+  const { jsPDF } = lib;
+  const doc = new jsPDF({ orientation:'portrait', unit:'mm', format:'a4' });
+  const pageW = doc.internal.pageSize.getWidth();
+  const pageH = doc.internal.pageSize.getHeight();
+  const margin = 14;
+  let y = 16;
+  const today = new Date().toLocaleDateString('es-EC');
 
-  </style></head><body><div class="wrap"><header class="head"><div><h1>Catálogo Electromás</h1><p>Electrodomésticos, tecnología y hogar con crédito directo para Loja y Zamora.</p><button class="print" onclick="window.print()">Imprimir / Guardar PDF</button></div><img src="principal/electro.png" alt="Electromás"></header><div class="meta">Actualizado: ${date} · Productos activos: ${active.length} · WhatsApp: ${WHATSAPP_DISPLAY} · Facebook: ${FACEBOOK_PAGE_URL}</div><main class="grid">${rows}</main><footer class="foot">© 2026 Electromás · Desarrollado por NeoDat Consultores</footer></div></body></html>`;
-  const blob = new Blob([html], {type:'text/html;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'catalogo-electromas.html';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
-  showStatus('productStatus','Catálogo descargado. Ábralo y use “Imprimir / Guardar PDF” si necesita PDF.','ok');
+  function addHeader(){
+    doc.setFillColor(7,19,38);
+    doc.rect(0,0,pageW,28,'F');
+    doc.setTextColor(255,165,0);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(18);
+    doc.text('ELECTROMÁS', margin, 13);
+    doc.setTextColor(255,255,255);
+    doc.setFontSize(9);
+    doc.text('Catálogo de productos disponibles', margin, 20);
+    doc.setFontSize(8);
+    doc.text(`Actualizado: ${today}`, pageW-margin, 13, {align:'right'});
+    doc.text(`WhatsApp: ${WHATSAPP_DISPLAY}`, pageW-margin, 20, {align:'right'});
+    y = 38;
+  }
+  function footer(){
+    const n = doc.internal.getNumberOfPages();
+    for(let i=1;i<=n;i++){
+      doc.setPage(i);
+      doc.setTextColor(100,116,139);
+      doc.setFontSize(8);
+      doc.text(`© 2026 Electromás · Desarrollado por NeoDat Consultores · Página ${i}/${n}`, pageW/2, pageH-8, {align:'center'});
+    }
+  }
+  function needSpace(h){
+    if(y + h > pageH - 18){ doc.addPage(); addHeader(); }
+  }
+  addHeader();
+  doc.setTextColor(20,43,82);
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(12);
+  doc.text(`Resumen general: ${active.length} productos activos`, margin, y);
+  y += 8;
+  const grouped = active.reduce((acc,p)=>{
+    const key = `${categoryName(p.category_slug) || 'Sin categoría'} · ${categoryName(p.line_slug) || 'Sin subcategoría'}`;
+    (acc[key] ||= []).push(p);
+    return acc;
+  }, {});
+  Object.keys(grouped).sort().forEach(group=>{
+    needSpace(16);
+    doc.setFillColor(238,243,251);
+    doc.roundedRect(margin, y, pageW-margin*2, 9, 2, 2, 'F');
+    doc.setTextColor(20,43,82);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(10);
+    doc.text(group, margin+3, y+6);
+    y += 13;
+    grouped[group].sort((a,b)=>(a.sort_order||100)-(b.sort_order||100)).forEach((p, idx)=>{
+      const price = p.sale_price ? `Precio especial: ${money(p.sale_price)}${p.price ? ` | Antes: ${money(p.price)}` : ''}` : (p.price ? `Precio: ${money(p.price)}` : 'Precio: consultar');
+      const flags = catalogFlags(p);
+      const lines = doc.splitTextToSize(productCatalogSummary(p), pageW-margin*2-8);
+      const boxH = Math.max(25, 19 + lines.length*4);
+      needSpace(boxH + 4);
+      doc.setDrawColor(223,231,242);
+      doc.setFillColor(255,255,255);
+      doc.roundedRect(margin, y, pageW-margin*2, boxH, 3, 3, 'FD');
+      doc.setTextColor(7,19,38);
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(10);
+      doc.text(`${idx+1}. ${p.name || 'Producto Electromás'}`, margin+4, y+7);
+      doc.setFont('helvetica','normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(66,82,106);
+      doc.text(price, margin+4, y+12);
+      if(flags){
+        doc.setTextColor(245,158,11);
+        doc.setFont('helvetica','bold');
+        doc.text(flags, pageW-margin-4, y+12, {align:'right'});
+      }
+      doc.setTextColor(66,82,106);
+      doc.setFont('helvetica','normal');
+      doc.text(lines, margin+4, y+18);
+      y += boxH + 4;
+    });
+  });
+  footer();
+  doc.save('catalogo-electromas.pdf');
+  showStatus('productStatus','Catálogo PDF descargado correctamente.','ok');
 }
 if($('downloadCatalogBtn')) $('downloadCatalogBtn').onclick = downloadCatalogo;
 
