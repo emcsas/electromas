@@ -1420,13 +1420,19 @@
     .producto-mini-galeria span { width: 7px; height: 7px; border-radius: 50%; background: #cbd5e1; display: inline-block; }
     .producto-mini-galeria span.activo { background: var(--naranja); }
 
-  </style>
+  
+/* Ajuste profesional de tarjetas de productos destacados */
+.producto-grid{grid-template-columns:repeat(auto-fill,minmax(315px,360px));justify-content:flex-start;gap:24px}.producto-card{border-radius:28px;box-shadow:0 18px 40px rgba(20,43,82,.09);border-color:#dce6f3}.producto-media{height:285px;padding:22px;background:linear-gradient(180deg,#f8fbff,#edf4fc)}.producto-media:before{content:"";position:absolute;inset:16px;background:#fff;border:1px solid #e4ebf5;border-radius:24px}.producto-media img{position:relative;z-index:1;max-height:238px;max-width:92%;filter:drop-shadow(0 13px 20px rgba(20,43,82,.14))}.producto-tag{z-index:2}.producto-body{padding:20px}.producto-body h3{font-size:1.08rem;line-height:1.22}.producto-desc-corta{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:3.25em}.producto-features{display:grid;gap:7px;margin:8px 0 2px;padding:0;list-style:none}.producto-features li{display:flex;gap:8px;align-items:flex-start;color:#42526a;font-size:.76rem;line-height:1.35}.producto-features li i{color:var(--naranja);margin-top:2px}.producto-spec-row{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}.producto-spec-chip{background:#f4f7fb;border:1px solid #e1e9f3;color:#16325c;border-radius:999px;padding:6px 9px;font-size:.68rem;font-weight:900}.producto-final{display:grid;grid-template-columns:1fr 1fr;gap:9px}.producto-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #dbe5f0;border-radius:999px;padding:10px 12px;text-decoration:none;font-weight:900;color:var(--azul);background:#fff}.producto-link:hover{border-color:var(--naranja);background:#fff8eb}@media(max-width:760px){.producto-grid{grid-template-columns:1fr}}
+</style>
 
 <style id="supabase-minimal-patch">
   .menu-link.activo {
     background: rgba(255,255,255,0.25);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
   }
+
+/* Ajuste profesional de tarjetas de productos destacados */
+.producto-grid{grid-template-columns:repeat(auto-fill,minmax(315px,360px));justify-content:flex-start;gap:24px}.producto-card{border-radius:28px;box-shadow:0 18px 40px rgba(20,43,82,.09);border-color:#dce6f3}.producto-media{height:285px;padding:22px;background:linear-gradient(180deg,#f8fbff,#edf4fc)}.producto-media:before{content:"";position:absolute;inset:16px;background:#fff;border:1px solid #e4ebf5;border-radius:24px}.producto-media img{position:relative;z-index:1;max-height:238px;max-width:92%;filter:drop-shadow(0 13px 20px rgba(20,43,82,.14))}.producto-tag{z-index:2}.producto-body{padding:20px}.producto-body h3{font-size:1.08rem;line-height:1.22}.producto-desc-corta{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:3.25em}.producto-features{display:grid;gap:7px;margin:8px 0 2px;padding:0;list-style:none}.producto-features li{display:flex;gap:8px;align-items:flex-start;color:#42526a;font-size:.76rem;line-height:1.35}.producto-features li i{color:var(--naranja);margin-top:2px}.producto-spec-row{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}.producto-spec-chip{background:#f4f7fb;border:1px solid #e1e9f3;color:#16325c;border-radius:999px;padding:6px 9px;font-size:.68rem;font-weight:900}.producto-final{display:grid;grid-template-columns:1fr 1fr;gap:9px}.producto-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #dbe5f0;border-radius:999px;padding:10px 12px;text-decoration:none;font-weight:900;color:var(--azul);background:#fff}.producto-link:hover{border-color:var(--naranja);background:#fff8eb}@media(max-width:760px){.producto-grid{grid-template-columns:1fr}}
 </style>
 
 </head>
@@ -2163,6 +2169,34 @@
       }
     });
   }
+
+
+function publicCleanText(text){return String(text||'').replace(/\s+/g,' ').replace(/\s*[-–—]+\s*/g,' — ').replace(/\s*\|\s*/g,' ').trim();}
+function publicShortDescription(text){let t=publicCleanText(text);t=t.replace(/^(Características|Caracteristicas)\s*(principales|generales)?\s*[:\-]?\s*/i,'');const cut=t.search(/\b(Características adicionales|Caracteristicas adicionales|Medidas|Información general|Informacion general|Zona superior|Zona de control|Horno|Garantía|Garantia)\b/i);if(cut>40)t=t.slice(0,cut).trim();const first=t.match(/^(.{35,220}?[.!?])\s/);if(first)t=first[1];if(t.length>190)t=t.slice(0,187).trim()+'...';return t||'Producto disponible con asesoría, garantía y crédito directo.';}
+function publicFeatureList(text){const t=String(text||'');let chunk=t;const m=t.match(/(Características principales|Caracteristicas principales)\s*[:\-]?([\s\S]*?)(Características adicionales|Caracteristicas adicionales|Medidas|Información general|Informacion general|Zona superior|Zona de control|Horno|Garantía|Garantia|$)/i);if(m)chunk=m[2];chunk=chunk.replace(/[•▪■]+/g,'\n').replace(/\s+-\s+/g,'\n');let parts=chunk.split(/\n|;|\.\s+(?=[A-ZÁÉÍÓÚÑ])/).map(x=>publicCleanText(x)).filter(Boolean);parts=parts.filter(x=>x.length>4 && !/^caracter/i.test(x) && !/^producto/i.test(x)).slice(0,3);return [...new Set(parts)];}
+function publicSpecChips(text){const t=String(text||'');const chips=[];const re=/(Alto|Ancho|Prof(?:undidad)?|Garantía|Garantia)\s*[:=]\s*([0-9,.]+\s*(?:cm|año|años)?)/gi;let m;while((m=re.exec(t))&&chips.length<4){chips.push(`${m[1]}: ${m[2]}`)}return chips;}
+function filtrarYRender() {
+  let items = PRODUCTOS.filter(p => {
+    if (!p.destacado) return false;
+    const texto = normalize(`${p.nombre} ${p.descripcion} ${labels[p.linea] || ""} ${labels[p.categoria] || ""}`);
+    const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
+    const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
+    const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
+    const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+    const matchEspecial = filtros.especial === "todos" || (filtros.especial === "ofertas" && p.oferta) || (filtros.especial === "combos" && p.combo);
+    return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+  });
+  if (filtros.orden === "az") items.sort((a,b)=>a.nombre.localeCompare(b.nombre,"es"));
+  else if (filtros.orden === "precioAsc") items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+  else if (filtros.orden === "precioDesc") items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+  else items.sort((a,b)=>{ if(a.destacado!==b.destacado)return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+  if(items.length===0){grid.style.display="none";noRes.style.display="block";countSpan.innerHTML=`<strong>0</strong> productos`;return;}
+  grid.style.display="grid"; noRes.style.display="none"; countSpan.innerHTML=`<strong>${items.length}</strong> productos`;
+  grid.innerHTML = items.map(p => {
+    const imgs = productImages(p); const firstImage = imgs[0] || p.imagen || ''; const desc = publicShortDescription(p.descripcion); const features = publicFeatureList(p.descripcion); const specs = publicSpecChips(p.descripcion);
+    return `<article class="producto-card ${firstImage ? '' : 'sin-imagen'}">${firstImage ? `<div class="producto-media"><span class="producto-tag">${esc(p.etiqueta)}</span><img src="${esc(firstImage)}" alt="${esc(p.nombre)}" onerror="this.closest('.producto-media').remove();"></div>` : ''}<div class="producto-body"><div class="producto-ruta">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h3>${esc(p.nombre)}</h3><p class="producto-desc-corta">${esc(desc)}</p>${specs.length ? `<div class="producto-spec-row">${specs.map(s=>`<span class="producto-spec-chip">${esc(s)}</span>`).join('')}</div>` : ''}${features.length ? `<ul class="producto-features">${features.map(f=>`<li><i class="fas fa-check-circle"></i><span>${esc(f)}</span></li>`).join('')}</ul>` : ''}${imgs.length > 1 ? `<div class="producto-mini-galeria" title="${imgs.length} imágenes disponibles">${imgs.slice(0,10).map((_, idx) => `<span class="${idx === 0 ? 'activo' : ''}"></span>`).join("")}</div>` : ""}<div class="producto-precio"><div><span>${p.oferta ? "Precio de oferta" : p.combo ? "Precio combo" : "Precio especial"}</span><small>Crédito y cotización inmediata</small></div><strong>${formatoPrecio(p.precio_mostrar ?? p.precio)}</strong></div><div class="producto-final"><a href="${esc(productPageUrl(p))}" class="producto-link">Ver detalles</a><a href="${whatsLink(p)}" target="_blank" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a></div></div></article>`;
+  }).join("");
+}
 
   iniciarCatalogo();
 </script>
