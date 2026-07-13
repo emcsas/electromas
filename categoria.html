@@ -395,4 +395,72 @@ function openProductModal(id){
 })();
 </script>
 
+
+
+<!-- Corrección final: búsqueda total en todos los campos del producto -->
+<script id="electromas-busqueda-total-definitiva-categoria">
+(function(){
+  function normText(v){
+    return String(v ?? '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .toLowerCase()
+      .replace(/https?:\/\/\S+/g,' ')
+      .replace(/[_\-–—/\\|.,;:()\[\]{}"'`´+*&%$#@!?¿¡=<>]/g,' ')
+      .replace(/\s+/g,' ')
+      .trim();
+  }
+  function collectValues(value, out, seen){
+    if(value === null || value === undefined) return;
+    const t = typeof value;
+    if(t === 'string' || t === 'number' || t === 'boolean') { out.push(String(value)); return; }
+    if(t !== 'object') return;
+    if(seen.has(value)) return;
+    seen.add(value);
+    if(Array.isArray(value)) { value.forEach(v => collectValues(v,out,seen)); return; }
+    Object.keys(value).forEach(k => {
+      if(/^(created_at|updated_at|deleted_at|id|uuid)$/i.test(k)) return;
+      collectValues(value[k], out, seen);
+    });
+  }
+  function productBlob(p){
+    const parts = [];
+    collectValues(p, parts, new Set());
+    try { parts.push(label(p?.line_slug) || '', label(p?.category_slug) || ''); } catch(e){}
+    return normText(parts.join(' '));
+  }
+  function queryMatches(p, query){
+    const q = normText(query);
+    if(!q) return true;
+    const blob = productBlob(p);
+    if(blob.includes(q)) return true;
+    const tokens = q.split(' ').filter(x => x.length >= 2);
+    if(!tokens.length) return true;
+    return tokens.every(token => blob.includes(token));
+  }
+  function applyEnhancedSearch(){
+    try{
+      const q = searchInput ? searchInput.value : '';
+      const r = priceFilter ? priceFilter.value : 'todos';
+      const s = sortSelect ? sortSelect.value : 'recomendados';
+      filteredProducts = (products || []).filter(p => matchPage(p) && priceMatch(p,r) && queryMatches(p,q));
+      if(s === 'az') filteredProducts.sort((a,b)=>(a.name||'').localeCompare(b.name||'','es'));
+      else if(s === 'precioAsc') filteredProducts.sort((a,b)=>price(a)-price(b));
+      else if(s === 'precioDesc') filteredProducts.sort((a,b)=>price(b)-price(a));
+      else filteredProducts.sort((a,b)=>Number(b.is_featured)-Number(a.is_featured)||Number(a.sort_order||100)-Number(b.sort_order||100));
+      if(typeof render === 'function') render();
+    }catch(e){ console.warn('Electromás: búsqueda total de categoría no pudo renderizar', e); }
+  }
+  window.emElectromasBuscadorTotalCategoria = true;
+  window.apply = applyEnhancedSearch;
+  function attach(){
+    if(searchInput) searchInput.oninput = applyEnhancedSearch;
+    if(searchInput) searchInput.addEventListener('input', applyEnhancedSearch);
+    if(priceFilter) priceFilter.onchange = applyEnhancedSearch;
+    if(sortSelect) sortSelect.onchange = applyEnhancedSearch;
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attach); else attach();
+  setTimeout(()=>{ try{ if(Array.isArray(products) && products.length) applyEnhancedSearch(); }catch(e){} }, 800);
+})();
+</script>
+
 </body></html>
