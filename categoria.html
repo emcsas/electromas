@@ -149,7 +149,7 @@ function openProductModal(id){
     const im = (typeof productImageList==='function' ? productImageList(p) : (typeof imgs==='function'?imgs(p):[]));
     const src = im && im[0] ? im[0] : '';
     const tag = safeTag(p);
-    return `<article class="card card-simple-public ${src?'':'sin-imagen'}" role="button" tabindex="0" onclick="openProductModal('${esc(p.id)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('${esc(p.id)}')}">${src?`<div class="media"><span class="tag">${esc(tag)}</span>${p.is_on_sale?'<span class="tag offer">Oferta</span>':''}<img src="${esc(src)}" alt="${esc(p.name)}" loading="lazy" onerror="this.closest('.media').remove()"></div>`:''}<div class="body"><h3>${esc(p.name)}</h3><div class="price"><span>${priceTitle(p)}</span><strong>${priceText(p)}</strong></div><div class="tap-detail-hint"><i class="fas fa-circle-info"></i> Toque para ver características</div></div></article>`;
+    return `<article class="card card-simple-public ${src?'':'sin-imagen'}" role="button" tabindex="0" onclick="openProductModal('${esc(p.id)}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProductModal('${esc(p.id)}')}">${src?`<div class="media"><span class="tag">${esc(tag)}</span>${p.is_on_sale?'<span class="tag offer">Oferta</span>':''}<img src="${esc(src)}" alt="${esc(p.name)}" loading="lazy" onerror="this.closest('.media').remove()"></div>`:''}<div class="body"><h3>${esc(p.name)}</h3><div class="price"><span>${priceTitle(p)}</span><strong>${priceText(p)}</strong></div><div class="tap-detail-hint"><i class="fas fa-circle-info"></i> Ver características</div></div></article>`;
   }
 
   try{
@@ -285,7 +285,7 @@ function openProductModal(id){
     const p=filteredProducts.find(x=>String(x.id)===String(id))||products.find(x=>String(x.id)===String(id)); if(!p)return;
     const im=productImageList(p),src=im[0]||'',specs=typeof specChips==='function'?specChips(p.description):[],w=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Buen día, quiero más información de: '+p.name+' - '+money(price(p))+' '+productUrlCategory(p))}`;
     const modal=document.createElement('div'); modal.className='product-modal';
-    modal.innerHTML=`<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImage" src="${esc(src)}" alt="${esc(p.name)}" title="Clic para cambiar desde la galería">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route"><i class="${esc(icon(p.line_slug))}"></i> ${esc(label(p.category_slug))} · ${esc(label(p.line_slug))}</div><h2>${esc(p.name)}</h2>${specs.length?`<div class="spec-row">${specs.map(s=>`<span class="spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${im.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${im.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImage').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}"></button>`).join('')}</div></div>`:''}${fullDetailHtmlCategory(p)}<div class="modal-price"><div><span>${priceTitle(p)}</span></div><strong>${priceText(p)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-share-url" type="button" onclick="shareCategoryProductUrl(products.find(x=>String(x.id)==='${esc(String(p.id))}'))"><i class="fas fa-link"></i> Compartir URL</button><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.innerHTML=`<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImage" src="${esc(src)}" alt="${esc(p.name)}">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route"><i class="${esc(icon(p.line_slug))}"></i> ${esc(label(p.category_slug))} · ${esc(label(p.line_slug))}</div><h2>${esc(p.name)}</h2>${specs.length?`<div class="spec-row">${specs.map(s=>`<span class="spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${im.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${im.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImage').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}"></button>`).join('')}</div></div>`:''}${fullDetailHtmlCategory(p)}<div class="modal-price"><div><span>${priceTitle(p)}</span></div><strong>${priceText(p)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-share-url" type="button" onclick="shareCategoryProductUrl(products.find(x=>String(x.id)==='${esc(String(p.id))}'))"><i class="fas fa-link"></i> Compartir URL</button><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
     modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
   };
 })();
@@ -359,7 +359,7 @@ function openProductModal(id){
     const p=listaFiltrada.find(x=>String(x.id)===String(id))||listaProductos.find(x=>String(x.id)===String(id)); if(!p)return;
     const im=productImageList(p),src=im[0]||'',specs=typeof specChips==='function'?specChips(p.description):[],w=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Buen día, quiero más información de: '+p.name+' - '+money(price(p))+' '+location.href)}`;
     const modal=document.createElement('div'); modal.className='product-modal';
-    modal.innerHTML=`<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImage" src="${esc(src)}" alt="${esc(p.name)}" onclick="openElectromasImageZoomCategory(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route"><i class="${esc(icon(p.line_slug))}"></i> ${esc(label(p.category_slug))} · ${esc(label(p.line_slug))}</div><h2>${esc(p.name)}</h2>${specs.length?`<div class="spec-row">${specs.map(s=>`<span class="spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${im.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${im.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImage').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}" ondblclick="openElectromasImageZoomCategory(this.src,this.alt)"></button>`).join('')}</div><small style="display:block;margin-top:8px;color:#637083;font-weight:800">Toque una miniatura para cambiar la imagen.</small></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${priceTitle(p)}</span></div><strong>${priceText(p)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.innerHTML=`<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImage" src="${esc(src)}" alt="${esc(p.name)}" onclick="openElectromasImageZoomCategory(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route"><i class="${esc(icon(p.line_slug))}"></i> ${esc(label(p.category_slug))} · ${esc(label(p.line_slug))}</div><h2>${esc(p.name)}</h2>${specs.length?`<div class="spec-row">${specs.map(s=>`<span class="spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${im.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${im.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImage').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}" ondblclick="openElectromasImageZoomCategory(this.src,this.alt)"></button>`).join('')}</div></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${priceTitle(p)}</span></div><strong>${priceText(p)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
     modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
   };
 })();
@@ -505,4 +505,110 @@ function openProductModal(id){
 .product-modal-media img,.modal-gallery img,.em-gallery-main img,#modalMainImage,#modalMainImageIndex{cursor:default!important;}
 .product-modal-media img:hover,.modal-gallery img:hover,.em-gallery-main img:hover,#modalMainImage:hover,#modalMainImageIndex:hover{cursor:default!important;}
 </style>
+
+<style id="electromas-precio-proporcion-ver-caracteristicas">
+/* Precio más proporcionado en tarjetas y ventana de detalle */
+.producto-precio,
+.price,
+.modal-price{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  border-radius:18px!important;
+  padding:12px 15px!important;
+  min-height:auto!important;
+  line-height:1.15!important;
+}
+.producto-precio div,
+.price div,
+.modal-price div{
+  min-width:0!important;
+  flex:0 0 auto!important;
+}
+.producto-precio span,
+.price span,
+.modal-price span{
+  display:block!important;
+  font-size:.62rem!important;
+  letter-spacing:.035em!important;
+  line-height:1.05!important;
+  max-width:95px!important;
+  white-space:normal!important;
+}
+.producto-precio small,
+.price small,
+.modal-price small{
+  display:none!important;
+}
+.producto-precio strong,
+.price strong,
+.modal-price strong{
+  flex:1 1 auto!important;
+  min-width:0!important;
+  text-align:right!important;
+  font-size:clamp(1rem,2.2vw,1.45rem)!important;
+  line-height:1.12!important;
+  white-space:normal!important;
+  overflow-wrap:break-word!important;
+}
+.card .price strong,
+.producto-card .producto-precio strong{
+  font-size:1.02rem!important;
+}
+.tap-detail-hint,
+.em-ver-caracteristicas-hint{
+  margin-top:10px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:7px!important;
+  width:100%!important;
+  border:1px solid #dce7f5!important;
+  background:#f7fbff!important;
+  color:#062b57!important;
+  border-radius:999px!important;
+  padding:10px 12px!important;
+  font-weight:900!important;
+  font-size:.78rem!important;
+  text-align:center!important;
+}
+.tap-detail-hint i,
+.em-ver-caracteristicas-hint i{color:#ff9900!important;}
+.btn-share-product,.btn-share-url{display:none!important;}
+.product-modal-media img,.modal-gallery img,.em-gallery-main img,#modalMainImage,#modalMainImageIndex{cursor:default!important;}
+@media(max-width:760px){
+  .producto-precio,.price,.modal-price{padding:10px 11px!important;gap:8px!important;border-radius:15px!important;}
+  .producto-precio span,.price span,.modal-price span{font-size:.55rem!important;max-width:70px!important;}
+  .producto-precio strong,.price strong,.modal-price strong{font-size:.95rem!important;line-height:1.1!important;}
+  .modal-price strong{font-size:1.12rem!important;}
+}
+@media(max-width:390px){
+  .producto-precio,.price{display:grid!important;grid-template-columns:1fr!important;gap:4px!important;}
+  .producto-precio span,.price span{max-width:none!important;}
+  .producto-precio strong,.price strong{text-align:left!important;font-size:.95rem!important;}
+}
+</style>
+<script id="electromas-ver-caracteristicas-label">
+(function(){
+  function addHints(){
+    document.querySelectorAll('.producto-card .producto-body, .card .body').forEach(function(body){
+      if(body.querySelector('.tap-detail-hint,.em-ver-caracteristicas-hint')){
+        const h = body.querySelector('.tap-detail-hint,.em-ver-caracteristicas-hint');
+        h.innerHTML = '<i class="fas fa-circle-info"></i> Ver características';
+        return;
+      }
+      const price = body.querySelector('.producto-precio,.price');
+      if(!price) return;
+      const hint = document.createElement('div');
+      hint.className = 'em-ver-caracteristicas-hint';
+      hint.innerHTML = '<i class="fas fa-circle-info"></i> Ver características';
+      price.insertAdjacentElement('afterend', hint);
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', addHints); else addHints();
+  new MutationObserver(addHints).observe(document.documentElement,{childList:true,subtree:true});
+})();
+</script>
+
 </body></html>
