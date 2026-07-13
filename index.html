@@ -2105,5 +2105,32 @@
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 
-</script></body>
+</script>
+<style id="em-fix-precio-loading-ligero">
+/* Corrección puntual: precio más comercial y carga visual más rápida. */
+.em-skeleton-card{min-height:330px;border:1px solid #e1e9f3;border-radius:26px;background:linear-gradient(90deg,#f2f6fb 25%,#ffffff 38%,#f2f6fb 63%);background-size:420% 100%;animation:emSkeleton 1.25s ease-in-out infinite;box-shadow:0 16px 34px rgba(20,43,82,.06)}
+@keyframes emSkeleton{0%{background-position:100% 0}100%{background-position:0 0}}
+.producto-precio,.price,.modal-price{position:relative!important;overflow:hidden!important;background:linear-gradient(135deg,#fff8e7 0%,#fff1c8 55%,#ffe6a3 100%)!important;border:1px solid rgba(255,165,0,.55)!important;border-radius:18px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 10px 24px rgba(255,165,0,.13)!important;display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;align-items:center!important;gap:12px!important;min-height:68px!important;padding:12px 14px!important}
+.producto-precio:before,.price:before,.modal-price:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 92% 18%,rgba(255,255,255,.85),transparent 28%);pointer-events:none}
+.producto-precio div,.price div,.modal-price div{position:relative;z-index:1;min-width:0!important}
+.producto-precio span,.price span,.modal-price span{display:inline-flex!important;align-items:center!important;gap:5px!important;background:#142b52!important;color:#fff!important;border-radius:999px!important;padding:5px 8px!important;font-size:.56rem!important;line-height:1!important;letter-spacing:.03em!important;text-transform:uppercase!important;font-weight:900!important;white-space:nowrap!important;max-width:none!important}
+.producto-precio span:before,.price span:before,.modal-price span:before{content:"$";display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;background:#ffa500;color:#071326;font-size:.6rem;font-weight:900}
+.producto-precio strong,.price strong,.modal-price strong{position:relative;z-index:1;text-align:right!important;color:#071326!important;font-size:1.05rem!important;line-height:1.05!important;font-weight:900!important;letter-spacing:-.02em!important;word-break:normal!important}
+.producto-precio small,.price small,.modal-price small{display:none!important}
+@media(max-width:760px){.producto-precio,.price,.modal-price{grid-template-columns:1fr!important;align-items:start!important;gap:7px!important;min-height:66px!important;padding:11px 12px!important}.producto-precio strong,.price strong,.modal-price strong{text-align:left!important;font-size:1rem!important}.producto-precio span,.price span,.modal-price span{font-size:.53rem!important;width:max-content!important}.em-skeleton-card{min-height:250px}}
+</style>
+<script id="em-fast-title-loading-fix">
+(function(){
+  function niceSlug(v){return String(v||'').replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});}
+  function setFastTitle(){
+    var params=new URLSearchParams(location.search); var mode=params.get('mode')||''; var slug=params.get('slug')||'';
+    var map={electrodomesticos:'Electrodomésticos',tecnologia:'Tecnología',hogar:'Hogar',ofertas:'Ofertas',combos:'Combos',refrigeracion:'Refrigeración',cocina:'Cocina',lavado:'Lavado',climatizacion:'Climatización',televisores:'Televisores',celulares:'Celulares'};
+    var title=document.getElementById('pageTitle');
+    if(title && /cargando|productos/i.test(title.textContent.trim())) title.textContent=map[slug]||niceSlug(slug)||'Productos';
+    var count=document.getElementById('productCount'); if(count && count.textContent==='0') count.textContent='…';
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',setFastTitle,{once:true}); else setFastTitle();
+})();
+</script>
+</body>
 </html>
