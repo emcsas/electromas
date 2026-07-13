@@ -1448,6 +1448,11 @@
 }
 @media(max-width:380px){.producto-grid{gap:9px!important}.producto-media{height:150px!important}.producto-media img{max-height:124px!important}.producto-body h3{font-size:.78rem!important}.producto-precio strong{font-size:.98rem!important}}
 </style>
+
+<style id="electromas-no-lupa-hover-final">
+.product-modal-media img,.em-gallery-main img,#modalMainImage,#modalMainImageIndex{cursor:default!important;}
+.product-modal-media img:hover,.em-gallery-main img:hover,#modalMainImage:hover,#modalMainImageIndex:hover{cursor:default!important;filter:drop-shadow(0 18px 25px rgba(20,43,82,.16));}
+</style>
 </head>
 
 <body>
@@ -2626,7 +2631,7 @@ function filtrarYRender() {
     const specs = publicSpecChips(p.descripcion || '');
     const w = whatsLink(p);
     const modal=document.createElement('div'); modal.className='product-modal';
-    modal.innerHTML = `<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}" title="Clic para ampliar imagen" onclick="openElectromasImageZoomIndex(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h2>${esc(p.nombre)}</h2>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImageIndex').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}" ondblclick="openElectromasImageZoomIndex(this.src,this.alt)"></button>`).join('')}</div><small style="display:block;margin-top:8px;color:#637083;font-weight:800">Toque la imagen grande para ampliarla.</small></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${p.oferta?'Precio oferta':p.combo?'Precio combo':'Precio'}</span></div><strong>${formatoPrecio(p.precio_mostrar ?? p.precio)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.innerHTML = `<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}" onclick="openElectromasImageZoomIndex(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h2>${esc(p.nombre)}</h2>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImageIndex').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}" ondblclick="openElectromasImageZoomIndex(this.src,this.alt)"></button>`).join('')}</div><small style="display:block;margin-top:8px;color:#637083;font-weight:800">Toque una miniatura para cambiar la imagen.</small></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${p.oferta?'Precio oferta':p.combo?'Precio combo':'Precio'}</span></div><strong>${formatoPrecio(p.precio_mostrar ?? p.precio)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
     modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
   };
 })();
@@ -2662,7 +2667,7 @@ function filtrarYRender() {
     const specs=typeof publicSpecChips==='function'?publicSpecChips(p.descripcion||''):[]; const w=whatsLink(p);
     const arrows=window.emIndexModalImages.length>1?`<button class="em-img-arrow prev" type="button" onclick="event.stopPropagation();emIndexMoveImage(-1)">‹</button><button class="em-img-arrow next" type="button" onclick="event.stopPropagation();emIndexMoveImage(1)">›</button>`:'';
     const modal=document.createElement('div'); modal.className='product-modal';
-    modal.innerHTML=`<div class="product-modal-card"><button class="product-modal-close" type="button" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media em-gallery-main">${src?`${arrows}<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}" title="Clic para ampliar imagen" onclick="openElectromasImageZoomIndex(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria]||p.categoria)} · ${esc(labels[p.linea]||p.linea)}</div><h2>${esc(p.nombre)}</h2>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" data-em-img="${i}" class="${i===0?'active':''}" onclick="emIndexSetImage(${i})"><img src="${esc(u)}" alt="Imagen ${i+1}"></button>`).join('')}</div><small style="display:block;margin-top:8px;color:#637083;font-weight:800">Use las flechas o toque una miniatura. Toque la imagen grande para ampliar.</small></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${p.oferta?'Precio oferta':p.combo?'Precio combo':'Precio'}</span></div><strong>${formatoPrecio(p.precio_mostrar??p.precio)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.innerHTML=`<div class="product-modal-card"><button class="product-modal-close" type="button" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media em-gallery-main">${src?`${arrows}<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}" onclick="openElectromasImageZoomIndex(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria]||p.categoria)} · ${esc(labels[p.linea]||p.linea)}</div><h2>${esc(p.nombre)}</h2>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" data-em-img="${i}" class="${i===0?'active':''}" onclick="emIndexSetImage(${i})"><img src="${esc(u)}" alt="Imagen ${i+1}"></button>`).join('')}</div><small style="display:block;margin-top:8px;color:#637083;font-weight:800">Use las flechas o toque una miniatura. Use las flechas o toque una miniatura para cambiar la imagen.</small></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${p.oferta?'Precio oferta':p.combo?'Precio combo':'Precio'}</span></div><strong>${formatoPrecio(p.precio_mostrar??p.precio)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
     modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
   };
   if(typeof filtrarYRender==='function'){
@@ -2784,5 +2789,120 @@ function filtrarYRender() {
 })();
 </script>
 
+
+<script id="electromas-busqueda-global-real-final">
+(function(){
+  function norm(v){
+    return String(v ?? '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .toLowerCase()
+      .replace(/https?:\/\/\S+/g,' ')
+      .replace(/[_\-–—/\\|.,;:()\[\]{}"'`´+*&%$#@!?¿¡=<>]/g,' ')
+      .replace(/\s+/g,' ')
+      .trim();
+  }
+  function collect(v, out, seen){
+    if(v === null || v === undefined) return;
+    const t = typeof v;
+    if(t === 'string' || t === 'number' || t === 'boolean'){ out.push(String(v)); return; }
+    if(t !== 'object' || seen.has(v)) return;
+    seen.add(v);
+    if(Array.isArray(v)){ v.forEach(x=>collect(x,out,seen)); return; }
+    Object.keys(v).forEach(k=>{
+      if(/^(id|uuid|created_at|updated_at|deleted_at)$/i.test(k)) return;
+      collect(v[k], out, seen);
+    });
+  }
+  function blob(p){
+    const parts=[];
+    collect(p, parts, new Set());
+    try{ parts.push(labels[p.linea]||'', labels[p.categoria]||''); }catch(e){}
+    return norm(parts.join(' '));
+  }
+  function queryOk(p, q){
+    q = norm(q);
+    if(!q) return true;
+    const b = blob(p);
+    if(b.includes(q)) return true;
+    const words = q.split(' ').filter(x=>x.length>=2);
+    return words.length ? words.every(w=>b.includes(w)) : true;
+  }
+  function activeQuery(){
+    const q1 = document.getElementById('campoBusquedaGlobal')?.value || '';
+    const q2 = document.getElementById('buscarInput')?.value || '';
+    return (q1 || q2 || '').trim();
+  }
+  function sortItems(items){
+    const ord = document.getElementById('ordenSelect')?.value || (window.filtros && filtros.orden) || 'recomendados';
+    if(ord === 'az') items.sort((a,b)=>(a.nombre||'').localeCompare(b.nombre||'','es'));
+    else if(ord === 'precioAsc') items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+    else if(ord === 'precioDesc') items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+    else items.sort((a,b)=>{ if(Boolean(a.destacado)!==Boolean(b.destacado)) return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+    return items;
+  }
+  function renderSearch(){
+    try{
+      if(typeof PRODUCTOS === 'undefined' || !Array.isArray(PRODUCTOS)) return;
+      const q = activeQuery();
+      const hasSearch = !!q;
+      const line = hasSearch ? 'todos' : (document.getElementById('lineaSelect')?.value || (filtros && filtros.linea) || 'todos');
+      const priceRange = document.getElementById('precioSelect')?.value || (filtros && filtros.precio) || 'todos';
+      const category = hasSearch ? 'todos' : ((filtros && filtros.categoria) || 'todos');
+      const especial = hasSearch ? 'todos' : ((filtros && filtros.especial) || 'todos');
+      if(typeof filtros !== 'undefined'){
+        filtros.search = q;
+        filtros.linea = line;
+        filtros.precio = priceRange;
+        filtros.categoria = category;
+        filtros.especial = especial;
+        filtros.orden = document.getElementById('ordenSelect')?.value || filtros.orden || 'recomendados';
+      }
+      const items = sortItems((PRODUCTOS||[]).filter(p=>{
+        if(!hasSearch && line==='todos' && category==='todos' && especial==='todos' && priceRange==='todos' && !p.destacado) return false;
+        const okQ = queryOk(p,q);
+        const okLine = line === 'todos' || p.linea === line;
+        const okCat = category === 'todos' || p.categoria === category;
+        const okPrice = typeof cumpleRangoPrecio === 'function' ? cumpleRangoPrecio(p, priceRange) : true;
+        const okEsp = especial === 'todos' || (especial === 'ofertas' && p.oferta) || (especial === 'combos' && p.combo);
+        return okQ && okLine && okCat && okPrice && okEsp;
+      }));
+      const grid = document.getElementById('productosGrid');
+      const noRes = document.getElementById('noResultados');
+      const count = document.getElementById('resultadosCount');
+      if(!grid) return;
+      if(!items.length){ grid.style.display='none'; if(noRes) noRes.style.display='block'; if(count) count.innerHTML='<strong>0</strong> productos'; return; }
+      grid.style.display='grid'; if(noRes) noRes.style.display='none'; if(count) count.innerHTML='<strong>'+items.length+'</strong> productos';
+      if(typeof productCard === 'function') grid.innerHTML = items.map(productCard).join('');
+      else if(typeof filtrarYRender === 'function') filtrarYRender();
+    }catch(e){ console.warn('Electromás: búsqueda global final no pudo renderizar', e); }
+  }
+  window.emRenderSearchGlobalReal = renderSearch;
+  function syncAndRender(from){
+    const top=document.getElementById('campoBusquedaGlobal');
+    const side=document.getElementById('buscarInput');
+    const val=(from?.value || '').trimStart();
+    if(top && from !== top) top.value=val;
+    if(side && from !== side) side.value=val;
+    renderSearch();
+  }
+  function attach(){
+    const top=document.getElementById('campoBusquedaGlobal');
+    const side=document.getElementById('buscarInput');
+    const form=document.getElementById('formBusquedaGlobal');
+    [top,side].forEach(el=>{ if(el){ el.addEventListener('input',()=>syncAndRender(el),true); el.addEventListener('keyup',()=>syncAndRender(el),true); }});
+    if(form) form.addEventListener('submit',e=>{e.preventDefault(); syncAndRender(top); document.getElementById('catalogo')?.scrollIntoView({behavior:'smooth'});},true);
+    ['lineaSelect','precioSelect','ordenSelect'].forEach(id=>{const el=document.getElementById(id); if(el) el.addEventListener('change',renderSearch,true);});
+    const limpiar=document.getElementById('limpiarBtn');
+    if(limpiar) limpiar.addEventListener('click',()=>setTimeout(renderSearch,0),true);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',attach); else attach();
+  setTimeout(renderSearch, 1000);
+})();
+</script>
+
+<style id="electromas-no-lupa-hover-late-final">
+.product-modal-media img,.modal-gallery img,.em-gallery-main img,#modalMainImage,#modalMainImageIndex{cursor:default!important;}
+.product-modal-media img:hover,.modal-gallery img:hover,.em-gallery-main img:hover,#modalMainImage:hover,#modalMainImageIndex:hover{cursor:default!important;}
+</style>
 </body>
 </html>
