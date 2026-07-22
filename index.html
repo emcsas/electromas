@@ -1,0 +1,2926 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#142b52">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="EC-L">
+  <meta name="geo.placename" content="Loja, Ecuador">
+  <meta name="application-name" content="Electromás Crédito">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Electromás">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Electromás Crédito | Electrodomésticos, celulares, televisores y refrigeradoras en Loja</title>
+  <meta name="description" content="Electromás Crédito en Loja y Zamora: venta de electrodomésticos, celulares, televisores, refrigeradoras, lavadoras, cocinas, colchones y tecnología con crédito directo, garantía y atención por WhatsApp.">
+  <meta name="keywords" content="Electromás Crédito, electrodomésticos Loja, celulares Loja, televisores Loja, refrigeradoras Loja, refrigerador Loja, lavadoras Loja, cocinas Loja, tecnología Loja, crédito directo Loja, electrodomésticos Zamora, colchones, muebles, computadoras, audio, ofertas electrodomésticos">
+  <meta name="author" content="Electromás">
+  <meta property="og:title" content="Electromás Crédito | Electrodomésticos, celulares y tecnología en Loja">
+  <meta property="og:description" content="Electrodomésticos, celulares, televisores, refrigeradoras, lavadoras y tecnología con crédito directo para Loja y Zamora.">
+  <meta property="og:image" content="principal/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="shortcut icon" href="principal/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="principal/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="canonical" href="https://electromascredito.com/">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="motion.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ElectronicsStore",
+    "name": "Electromás Crédito",
+    "url": "https://electromascredito.com/",
+    "logo": "https://electromascredito.com/principal/electro.png",
+    "description": "Venta de electrodomésticos, celulares, televisores, refrigeradoras, lavadoras, cocinas y tecnología con crédito directo para Loja y Zamora.",
+    "telephone": "+593960798215",
+    "address": {"@type": "PostalAddress", "streetAddress": "Imbabura entre Sucre y 18 de Noviembre", "addressLocality": "Loja", "addressCountry": "EC"},
+    "areaServed": ["Loja", "Zamora"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Electromás Crédito",
+    "url": "https://electromascredito.com/",
+    "potentialAction": {"@type": "SearchAction", "target": "https://electromascredito.com/?q={search_term_string}", "query-input": "required name=search_term_string"}
+  }
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --azul: #142b52;
+      --azul-2: #1f4175;
+      --azul-oscuro: #071326;
+      --naranja: #ffa500;
+      --naranja-2: #e99100;
+      --negro: #1f242c;
+      --gris: #5f6c7f;
+      --gris-claro: #eef2f8;
+      --gris-fondo: #f5f7fc;
+      --blanco: #ffffff;
+      --whatsapp: #25D366;
+      --borde: #e2e8f0;
+      --sombra: 0 12px 30px rgba(0, 0, 0, 0.08);
+      --transition: all 0.2s ease;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: var(--gris-fondo);
+      color: var(--negro);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .contenedor {
+      width: calc(100% - 48px);
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* ========== TOPBAR ========== */
+    .topbar {
+      background: #11181c;
+      color: #cdd9ed;
+      font-size: 0.7rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+    .topbar::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    .topbar::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .topbar::-webkit-scrollbar-thumb {
+      background: var(--naranja);
+      border-radius: 3px;
+    }
+
+    .topbar .contenedor {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      min-height: 36px;
+      width: calc(100% - 48px);
+      max-width: 1280px;
+      min-width: max-content;
+      padding: 0;
+    }
+
+    .topbar-info,
+    .topbar-links {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .topbar-info span,
+    .topbar-links a {
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .topbar i,
+    .topbar-links i {
+      color: var(--naranja);
+      font-size: 0.7rem;
+    }
+
+    .topbar a {
+      color: #cdd9ed;
+      text-decoration: none;
+    }
+
+    .topbar a:hover {
+      color: white;
+    }
+
+    /* ========== HEADER ========== */
+    .header {
+      position: relative;
+      background: var(--blanco);
+      border-bottom: 1px solid var(--borde);
+      padding: 12px 0;
+    }
+
+    .header-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: inline-block;
+      line-height: 0;
+      flex-shrink: 0;
+      background: transparent;
+    }
+
+    .logo img {
+      height: 46px;
+      width: auto;
+      display: block;
+      background: transparent !important;
+      background-color: transparent !important;
+      mix-blend-mode: normal;
+    }
+
+    .busqueda-wrapper {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .busqueda {
+      display: flex;
+      align-items: center;
+      background: var(--gris-fondo);
+      border: 1px solid var(--borde);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      padding: 0 8px;
+    }
+
+    .busqueda:focus-within {
+      border-color: var(--naranja);
+      background: var(--blanco);
+      box-shadow: 0 0 0 3px rgba(255,165,0,0.15);
+    }
+
+    .busqueda input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 12px 8px;
+      font-size: 0.9rem;
+      outline: none;
+      color: var(--negro);
+    }
+
+    .busqueda input::placeholder {
+      color: #9aa6b5;
+    }
+
+    .busqueda button {
+      background: transparent;
+      border: none;
+      width: 40px;
+      height: 44px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--azul);
+    }
+
+    .busqueda button i {
+      font-size: 1.1rem;
+      color: var(--azul);
+    }
+
+    .busqueda button:hover i {
+      color: var(--naranja);
+    }
+
+    .header-whatsapp {
+      background: var(--whatsapp);
+      padding: 8px 18px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: white;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .header-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+    }
+
+    /* ========== MENU STICKY ========== */
+    .menu {
+      background: var(--azul);
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      position: sticky;
+      top: 0;
+      z-index: 1090;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+
+    .menu::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .menu::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+    }
+
+    .menu::-webkit-scrollbar-thumb {
+      background: var(--naranja);
+      border-radius: 4px;
+    }
+
+    .menu .contenedor {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 50px;
+      width: calc(100% - 48px);
+      max-width: 1280px;
+      min-width: max-content;
+      padding: 0;
+    }
+
+    .menu-grupo {
+      display: flex;
+      gap: 8px;
+    }
+
+    .menu-link {
+      background: rgba(255,255,255,0.1);
+      border-radius: 40px;
+      padding: 8px 16px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .menu-link i {
+      color: var(--naranja);
+      font-size: 0.8rem;
+    }
+
+    .menu-link:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-1px);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255,165,0,0.34), transparent 26%),
+        radial-gradient(circle at 92% 10%, rgba(37,211,102,0.20), transparent 30%),
+        linear-gradient(135deg, #071326 0%, #112c59 48%, #061226 100%);
+      padding: 36px 0;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Manrope', system-ui, sans-serif;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: 0.45;
+      mask-image: linear-gradient(90deg, black, transparent 82%);
+      pointer-events: none;
+    }
+
+    .hero .contenedor {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      padding-left: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Anton', Impact, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      font-weight: 400;
+      line-height: 0.96;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      max-width: 520px;
+      text-transform: uppercase;
+      text-shadow: 0 14px 30px rgba(0,0,0,0.28);
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--naranja);
+      text-shadow: 0 12px 26px rgba(255,165,0,0.18);
+    }
+
+    .hero p {
+      margin-top: 18px;
+      max-width: 545px;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.92rem;
+      line-height: 1.68;
+      font-weight: 600;
+    }
+
+    .hero-acciones {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-weight: 900;
+      font-size: 0.84rem;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--naranja);
+      color: #071326;
+      box-shadow: 0 18px 34px rgba(255,165,0,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #ffb323;
+      box-shadow: 0 24px 42px rgba(255,165,0,0.34);
+    }
+
+    .btn-wa {
+      background: var(--whatsapp);
+      color: white;
+      box-shadow: 0 18px 34px rgba(37,211,102,0.22);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 42px rgba(37,211,102,0.30);
+    }
+
+    .hero-panel {
+      width: 100%;
+      max-width: 392px;
+      justify-self: start;
+    }
+
+    .venta-card {
+      position: relative;
+      background: rgba(255,255,255,0.98);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.74);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.28);
+    }
+
+    .venta-card-head {
+      background:
+        radial-gradient(circle at top left, rgba(255,165,0,0.22), transparent 32%),
+        linear-gradient(135deg, #ffffff 0%, #fff8e7 100%);
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid #f1e2c4;
+    }
+
+    .venta-card-head strong {
+      display: block;
+      max-width: 285px;
+      color: #071326;
+      font-size: 1.04rem;
+      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .venta-card-head span {
+      display: block;
+      margin-top: 7px;
+      color: #536177;
+      font-size: 0.74rem;
+      line-height: 1.45;
+      font-weight: 700;
+      max-width: 340px;
+    }
+
+    .venta-card-body {
+      padding: 12px;
+      display: grid;
+      gap: 9px;
+      background: #f5f7fb;
+    }
+
+    .venta-linea {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 11px;
+      align-items: center;
+      background: #ffffff;
+      padding: 11px;
+      border-radius: 17px;
+      border: 1px solid #e8edf5;
+      box-shadow: 0 10px 20px rgba(20,43,82,0.05);
+    }
+
+    .venta-linea i {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: #071326;
+      color: var(--naranja);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 18px rgba(7,19,38,0.14);
+    }
+
+    .venta-linea div strong {
+      display: block;
+      color: #0c1d39;
+      font-size: 0.8rem;
+      font-weight: 900;
+      margin-bottom: 2px;
+    }
+
+    .venta-linea div span {
+      display: block;
+      color: #607086;
+      font-size: 0.68rem;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .venta-card-body .btn {
+      width: 100%;
+      margin-top: 2px;
+      padding: 13px 16px;
+    }
+
+    /* ========== SECCIONES ========== */
+    .section {
+      padding: 32px 0;
+    }
+
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      color: var(--naranja-2);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.66rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      letter-spacing: 0.06em;
+    }
+
+    .section-title {
+      font-size: clamp(1.65rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--azul);
+      letter-spacing: -0.04em;
+      line-height: 1.12;
+    }
+
+    .section-text {
+      color: var(--gris);
+      font-size: 0.86rem;
+    }
+
+    /* ========== CATÁLOGO PROFESIONAL ========== */
+    #catalogo .contenedor {
+      width: calc(100% - 28px);
+      max-width: 1440px;
+      padding: 0;
+    }
+
+    .catalogo-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .catalogo-sidebar {
+      background: white;
+      border: 1px solid var(--borde);
+      border-radius: 24px;
+      padding: 16px;
+      box-shadow: 0 14px 30px rgba(20,43,82,0.05);
+    }
+
+    .catalogo-sidebar h3 {
+      color: var(--azul);
+      font-size: 1.05rem;
+      font-weight: 900;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .filtros {
+      display: grid;
+      gap: 12px;
+    }
+
+    .busqueda-catalogo {
+      position: relative;
+    }
+
+    .busqueda-catalogo i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--naranja);
+      font-size: 0.85rem;
+    }
+
+    .busqueda-catalogo input,
+    .filtros select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--borde);
+      border-radius: 16px;
+      font-size: 0.9rem;
+      background: var(--gris-fondo);
+      transition: all 0.2s;
+      color: #10203d;
+    }
+
+    .filtro-grupo {
+      display: grid;
+      gap: 6px;
+    }
+
+    .filtro-grupo label {
+      color: var(--azul);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .busqueda-catalogo input {
+      padding-left: 40px;
+    }
+
+    .busqueda-catalogo input:focus,
+    .filtros select:focus {
+      outline: none;
+      border-color: var(--naranja);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(255,165,0,0.14);
+    }
+
+    .btn-limpiar {
+      background: #ffffff;
+      border: 1px solid var(--borde);
+      border-radius: 16px;
+      padding: 12px;
+      font-weight: 900;
+      color: var(--azul);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.88rem;
+    }
+
+    .btn-limpiar:hover {
+      background: var(--gris-fondo);
+      border-color: var(--naranja);
+    }
+
+    .catalogo-main {
+      min-width: 0;
+    }
+
+    .catalogo-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 0.74rem;
+      color: var(--gris);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .catalogo-meta strong {
+      color: var(--azul);
+    }
+
+    .producto-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .producto-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #dde6f1;
+      transition: all 0.22s ease;
+      box-shadow: 0 12px 28px rgba(20,43,82,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .producto-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 42px rgba(20,43,82,0.12);
+      border-color: #cfdae9;
+    }
+
+    .producto-media {
+      background: linear-gradient(180deg, #f9fbff, #edf3fb);
+      height: 182px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      position: relative;
+    }
+
+    .producto-media img {
+      max-height: 132px;
+      max-width: 88%;
+      object-fit: contain;
+      background: transparent;
+    }
+
+    .producto-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(135deg, #142b52 0%, #1f4175 100%);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      box-shadow: 0 10px 18px rgba(20,43,82,0.18);
+    }
+
+    .producto-body {
+      padding: 17px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 6px;
+    }
+
+    .producto-ruta {
+      font-size: 0.62rem;
+      font-weight: 900;
+      color: var(--naranja-2);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .producto-body h3 {
+      font-size: 1rem;
+      color: var(--azul);
+      margin: 8px 0 5px;
+      line-height: 1.25;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .producto-body p {
+      color: var(--gris);
+      font-size: 0.74rem;
+      margin-bottom: 6px;
+      line-height: 1.45;
+    }
+
+    .producto-precio {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: linear-gradient(180deg, #fffaf1 0%, #fff6e4 100%);
+      border: 1px solid #f2dfb4;
+      border-radius: 18px;
+      padding: 11px 13px;
+      margin-top: auto;
+      margin-bottom: 12px;
+    }
+
+    .producto-precio span {
+      color: #8a6a20;
+      font-size: 0.67rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .producto-precio strong {
+      color: var(--azul-oscuro);
+      font-size: 1.16rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .producto-precio small {
+      display: block;
+      color: #8a6a20;
+      font-size: 0.66rem;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+
+    .producto-final {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      border-top: 1px solid var(--borde);
+      padding-top: 12px;
+    }
+
+    .producto-link {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--azul-2);
+      text-decoration: none;
+    }
+
+    .producto-cta {
+      background: var(--whatsapp);
+      padding: 7px 13px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 900;
+      font-size: 0.68rem;
+      text-decoration: none;
+      display: inline-flex;
+      gap: 6px;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .sin-resultados {
+      display: none;
+      text-align: center;
+      padding: 34px;
+      background: white;
+      border: 1px solid var(--borde);
+      border-radius: 22px;
+      color: var(--gris);
+      font-size: 0.9rem;
+    }
+
+    /* ========== PANEL INFERIOR UNIDO ========== */
+    .servicio-panel {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid #dfe6f0;
+      box-shadow: 0 18px 42px rgba(20,43,82,0.09);
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: white;
+    }
+
+    .servicio-lado {
+      position: relative;
+      padding: 18px;
+    }
+
+    .servicio-lado-info {
+      background:
+        radial-gradient(circle at top right, rgba(255,165,0,0.16), transparent 22%),
+        linear-gradient(180deg, #fffaf0 0%, #f7f9fd 100%);
+      border-bottom: 1px solid #e5ebf3;
+    }
+
+    .servicio-lista {
+      display: grid;
+      gap: 10px;
+    }
+
+    .servicio-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid #e8edf5;
+      box-shadow: 0 8px 18px rgba(20,43,82,0.04);
+    }
+
+    .servicio-item i {
+      width: 42px;
+      height: 42px;
+      background: #071326;
+      color: var(--naranja);
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 18px rgba(7,19,38,0.13);
+    }
+
+    .servicio-item div strong {
+      display: block;
+      color: #071326;
+      font-size: 0.84rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+
+    .servicio-item div span {
+      display: block;
+      color: #5a6b82;
+      font-size: 0.74rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .servicio-lado-cta {
+      background:
+        radial-gradient(circle at 88% 16%, rgba(37,211,102,0.13), transparent 22%),
+        linear-gradient(135deg, #071326 0%, #142b52 56%, #0a1930 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .servicio-lado-cta h3 {
+      font-family: 'Anton', Impact, sans-serif;
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      max-width: 440px;
+      margin-bottom: 12px;
+    }
+
+    .servicio-lado-cta p {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.82rem;
+      line-height: 1.65;
+      font-weight: 700;
+      max-width: 470px;
+      margin-bottom: 18px;
+    }
+
+    .servicio-lado-cta .btn {
+      align-self: flex-start;
+      padding: 13px 20px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #f1f4f9;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .footer-main {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding: 40px 0 32px;
+    }
+
+    .footer-logo img {
+      height: 42px;
+      margin-bottom: 12px;
+      background: transparent;
+    }
+
+    .footer-col p {
+      color: #4a5b6e;
+      font-size: 0.8rem;
+      line-height: 1.55;
+    }
+
+    .footer-col h4 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #1f2c3c;
+      margin-bottom: 14px;
+    }
+
+    .footer-links,
+    .footer-contacto {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a,
+    .footer-contacto a,
+    .footer-contacto span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #4f6f8f;
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover,
+    .footer-contacto a:hover {
+      color: var(--naranja-2);
+    }
+
+    .footer-links a i,
+    .footer-contacto a i,
+    .footer-contacto span i {
+      width: 18px;
+      color: var(--naranja-2);
+      font-size: 0.82rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .footer-social a {
+      background: #e6edf4;
+      color: #2c4c6c;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .footer-social a:hover {
+      background: var(--naranja);
+      color: white;
+    }
+
+    .footer-bottom {
+      padding: 16px 0;
+      text-align: center;
+      font-size: 0.72rem;
+      color: #6c7e91;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .whatsapp-flotante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--whatsapp);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: white;
+      box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+      z-index: 1200;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .whatsapp-flotante:hover {
+      transform: scale(1.05);
+    }
+
+    /* TABLET Y DESKTOP */
+    @media (min-width: 640px) {
+      .contenedor {
+        width: calc(100% - 56px);
+        padding: 0;
+      }
+
+      #catalogo .contenedor {
+        width: calc(100% - 32px);
+      }
+
+      .hero .contenedor {
+        grid-template-columns: 0.9fr 0.72fr;
+        column-gap: 22px;
+        align-items: center;
+      }
+
+      .hero-acciones {
+        flex-direction: row;
+      }
+
+      .producto-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .servicio-panel {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .servicio-lado-info {
+        border-bottom: none;
+        border-right: 1px solid #e5ebf3;
+      }
+
+      .footer-main {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .footer-col {
+        flex: 1;
+        min-width: 180px;
+      }
+    }
+
+    @media (min-width: 980px) {
+      .catalogo-layout {
+        grid-template-columns: 245px minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .catalogo-sidebar {
+        position: sticky;
+        top: 70px;
+      }
+
+      .producto-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+
+    @media (min-width: 1200px) {
+      .producto-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .menu-link {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+      }
+
+      .menu-link i {
+        font-size: 0.7rem;
+      }
+
+      .logo img {
+        height: 38px;
+      }
+
+      .header-whatsapp span {
+        display: none;
+      }
+
+      .header-whatsapp {
+        padding: 8px 12px;
+      }
+
+      .hero {
+        padding: 34px 0;
+      }
+
+      .contenedor,
+      #catalogo .contenedor {
+        width: calc(100% - 28px);
+      }
+
+      .topbar .contenedor,
+      .menu .contenedor {
+        width: max-content;
+        min-width: calc(100% - 28px);
+        padding: 0 14px;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
+        max-width: 100%;
+      }
+
+      .hero-panel {
+        max-width: 100%;
+      }
+
+      .venta-card-head strong {
+        font-size: 1rem;
+      }
+
+      .servicio-lado-cta h3 {
+        font-size: 1.6rem;
+      }
+    }
+  
+
+    /* ========== AJUSTE VISUAL FINAL: MÁRGENES Y TARJETAS ========== */
+    #catalogo .contenedor {
+      width: calc(100% - 56px);
+      max-width: 1380px;
+    }
+
+    .catalogo-layout {
+      gap: 20px;
+    }
+
+    .catalogo-sidebar {
+      padding: 18px;
+    }
+
+    .producto-grid {
+      gap: 20px;
+    }
+
+    .producto-card {
+      border-radius: 22px;
+    }
+
+    .producto-media {
+      height: 196px;
+      padding: 18px;
+      background: linear-gradient(180deg, #eef3fa 0%, #e8eef7 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .producto-media::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+      border: 1px solid #e4ebf5;
+      border-radius: 20px;
+      box-shadow: 0 10px 24px rgba(20,43,82,0.08);
+    }
+
+    .producto-media img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      max-width: 88%;
+      max-height: 138px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 18px rgba(20,43,82,0.14));
+      transition: transform 0.25s ease;
+    }
+
+    .producto-card:hover .producto-media img {
+      transform: scale(1.04);
+    }
+
+    .producto-tag {
+      display: none;
+    }
+
+    .producto-body {
+      padding: 18px;
+    }
+
+    @media (min-width: 980px) {
+      .catalogo-layout {
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 22px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .producto-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      #catalogo .contenedor {
+        width: calc(100% - 28px);
+      }
+    }
+
+
+    /* ========== AJUSTE FINAL: MARGINADO ÚNICO PARA TODA LA PÁGINA ========== */
+    :root {
+      --margen-pagina: 64px;
+      --ancho-contenido: 1360px;
+    }
+
+    .contenedor,
+    #catalogo .contenedor {
+      width: min(var(--ancho-contenido), calc(100% - var(--margen-pagina)));
+      max-width: var(--ancho-contenido);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .topbar .contenedor,
+    .menu .contenedor {
+      width: min(var(--ancho-contenido), calc(100% - var(--margen-pagina)));
+      max-width: var(--ancho-contenido);
+      min-width: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .hero-copy {
+      padding-left: 0;
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --margen-pagina: 28px;
+      }
+
+      .contenedor,
+      #catalogo .contenedor,
+      .topbar .contenedor,
+      .menu .contenedor {
+        width: calc(100% - var(--margen-pagina));
+        min-width: auto;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+  
+
+    .footer-links a[data-dynamic-link] { cursor: pointer; }
+    .install-app-panel {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      width: min(94vw, 390px);
+      background: linear-gradient(135deg, #071326 0%, #142b52 58%, #1f4175 100%);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 18px 46px rgba(7,19,38,.34);
+      border-radius: 24px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 44px minmax(0,1fr) auto;
+      align-items: center;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .install-app-panel::before{
+      content:"";
+      position:absolute;
+      inset:auto -50px -70px auto;
+      width:170px;
+      height:170px;
+      background: radial-gradient(circle, rgba(255,165,0,.55), transparent 62%);
+      pointer-events:none;
+    }
+    .install-app-panel[hidden] { display: none !important; }
+    .install-icon{
+      width:44px;
+      height:44px;
+      border-radius:16px;
+      background:#ffa500;
+      color:#071326;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.05rem;
+      box-shadow:0 10px 24px rgba(255,165,0,.28);
+      position:relative;
+      z-index:1;
+    }
+    .install-app-copy { display: grid; gap: 2px; font-size: .82rem; line-height: 1.25; position:relative; z-index:1; }
+    .install-app-copy strong { font-weight: 900; color: #ffffff; }
+    .install-app-copy span { color: rgba(255,255,255,.78); font-weight: 700; }
+    .install-app-actions { display:flex; gap:7px; align-items:center; position:relative; z-index:1; }
+    .install-app-btn{border:0;cursor:pointer;background:#25D366;color:#fff;border-radius:999px;padding:10px 13px;font-weight:900;display:inline-flex;gap:7px;align-items:center;white-space:nowrap;box-shadow:0 12px 24px rgba(37,211,102,.22);}
+    .install-app-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+    .install-app-close{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.10);color:#fff;border-radius:999px;width:34px;height:34px;cursor:pointer;font-weight:900;}
+
+    .install-help{grid-column:1/-1;background:rgba(255,255,255,.97);border:1px solid #fed7aa;color:#7c2d12;border-radius:16px;padding:12px 14px;font-size:.78rem;font-weight:800;line-height:1.45;box-shadow:0 10px 22px rgba(20,43,82,.06);position:relative;z-index:1}
+    .install-help[hidden]{display:none!important}.install-help strong{display:block;color:#071326;margin-bottom:3px}.install-help small{display:block;color:#92400e;font-weight:800}
+    @media(max-width:640px){.install-app-panel{left:12px;right:12px;bottom:12px;width:auto;grid-template-columns:38px minmax(0,1fr) auto;padding:10px}.install-icon{width:38px;height:38px;border-radius:14px}.install-app-copy span{display:none}.install-app-btn span{display:none}.install-app-close{width:32px;height:32px}}
+    .producto-mini-galeria { display:flex; gap:5px; margin: 4px 0 8px; flex-wrap: wrap; }
+    .producto-mini-galeria span { width: 7px; height: 7px; border-radius: 50%; background: #cbd5e1; display: inline-block; }
+    .producto-mini-galeria span.activo { background: var(--naranja); }
+
+  
+/* Ajuste profesional de tarjetas de productos destacados */
+.producto-grid{grid-template-columns:repeat(auto-fill,minmax(315px,360px));justify-content:flex-start;gap:24px}.producto-card{border-radius:28px;box-shadow:0 18px 40px rgba(20,43,82,.09);border-color:#dce6f3}.producto-media{height:285px;padding:22px;background:linear-gradient(180deg,#f8fbff,#edf4fc)}.producto-media:before{content:"";position:absolute;inset:16px;background:#fff;border:1px solid #e4ebf5;border-radius:24px}.producto-media img{position:relative;z-index:1;max-height:238px;max-width:92%;filter:drop-shadow(0 13px 20px rgba(20,43,82,.14))}.producto-tag{z-index:2}.producto-body{padding:20px}.producto-body h3{font-size:1.08rem;line-height:1.22}.producto-desc-corta{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:3.25em}.producto-features{display:grid;gap:7px;margin:8px 0 2px;padding:0;list-style:none}.producto-features li{display:flex;gap:8px;align-items:flex-start;color:#42526a;font-size:.76rem;line-height:1.35}.producto-features li i{color:var(--naranja);margin-top:2px}.producto-spec-row{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}.producto-spec-chip{background:#f4f7fb;border:1px solid #e1e9f3;color:#16325c;border-radius:999px;padding:6px 9px;font-size:.68rem;font-weight:900}.producto-final{display:grid;grid-template-columns:1fr 1fr;gap:9px}.producto-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #dbe5f0;border-radius:999px;padding:10px 12px;text-decoration:none;font-weight:900;color:var(--azul);background:#fff}.producto-link:hover{border-color:var(--naranja);background:#fff8eb}@media(max-width:760px){.producto-grid{grid-template-columns:1fr}}
+</style>
+
+<style id="supabase-minimal-patch">
+  .menu-link.activo {
+    background: rgba(255,255,255,0.25);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  }
+
+/* Ajuste profesional de tarjetas de productos destacados */
+.producto-grid{grid-template-columns:repeat(auto-fill,minmax(315px,360px));justify-content:flex-start;gap:24px}.producto-card{border-radius:28px;box-shadow:0 18px 40px rgba(20,43,82,.09);border-color:#dce6f3}.producto-media{height:285px;padding:22px;background:linear-gradient(180deg,#f8fbff,#edf4fc)}.producto-media:before{content:"";position:absolute;inset:16px;background:#fff;border:1px solid #e4ebf5;border-radius:24px}.producto-media img{position:relative;z-index:1;max-height:238px;max-width:92%;filter:drop-shadow(0 13px 20px rgba(20,43,82,.14))}.producto-tag{z-index:2}.producto-body{padding:20px}.producto-body h3{font-size:1.08rem;line-height:1.22}.producto-desc-corta{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:3.25em}.producto-features{display:grid;gap:7px;margin:8px 0 2px;padding:0;list-style:none}.producto-features li{display:flex;gap:8px;align-items:flex-start;color:#42526a;font-size:.76rem;line-height:1.35}.producto-features li i{color:var(--naranja);margin-top:2px}.producto-spec-row{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}.producto-spec-chip{background:#f4f7fb;border:1px solid #e1e9f3;color:#16325c;border-radius:999px;padding:6px 9px;font-size:.68rem;font-weight:900}.producto-final{display:grid;grid-template-columns:1fr 1fr;gap:9px}.producto-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid #dbe5f0;border-radius:999px;padding:10px 12px;text-decoration:none;font-weight:900;color:var(--azul);background:#fff}.producto-link:hover{border-color:var(--naranja);background:#fff8eb}@media(max-width:760px){.producto-grid{grid-template-columns:1fr}}
+</style>
+
+
+<style id="mobile-featured-cards-clean">
+/* En celular, los productos destacados se ven como catálogo rápido: imagen, nombre y precio. */
+@media(max-width:760px){
+  .producto-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .producto-card{border-radius:20px!important;overflow:hidden!important;box-shadow:0 10px 24px rgba(20,43,82,.08)!important}
+  .producto-media{height:165px!important;padding:10px!important}.producto-media img{max-height:138px!important;max-width:94%!important;object-fit:contain!important}.producto-tag{font-size:.55rem!important;padding:4px 8px!important;left:9px!important;top:9px!important}
+  .producto-body{padding:11px!important;gap:7px!important}.producto-ruta,.producto-desc-corta,.producto-spec-row,.producto-features,.producto-mini-galeria,.producto-final{display:none!important}
+  .producto-body h3{font-size:.82rem!important;line-height:1.18!important;min-height:2.35em!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;margin:0!important;color:#102b54!important}
+  .producto-precio{margin-top:0!important;border:0!important;background:#fff4dd!important;border-radius:13px!important;padding:9px 10px!important;display:block!important}.producto-precio span,.producto-precio small{display:none!important}.producto-precio strong{font-size:1.05rem!important;color:#071326!important}
+}
+@media(max-width:380px){.producto-grid{gap:9px!important}.producto-media{height:150px!important}.producto-media img{max-height:124px!important}.producto-body h3{font-size:.78rem!important}.producto-precio strong{font-size:.98rem!important}}
+</style>
+
+<style id="electromas-no-lupa-hover-final">
+.product-modal-media img,.em-gallery-main img,#modalMainImage,#modalMainImageIndex{cursor:default!important;}
+.product-modal-media img:hover,.em-gallery-main img:hover,#modalMainImage:hover,#modalMainImageIndex:hover{cursor:default!important;filter:drop-shadow(0 18px 25px rgba(20,43,82,.16));}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="contenedor">
+    <div class="topbar-info">
+      <span><i class="fas fa-truck-fast"></i> Ventas para Loja y Zamora</span>
+      <span><i class="fas fa-credit-card"></i> Crédito directo</span>
+      <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja</span>
+    </div>
+    <div class="topbar-links">
+      <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://wa.me/593960798215" target="_blank"><i class="fab fa-whatsapp"></i> 096 079 8215</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="contenedor header-main">
+    <a href="index.html" class="logo"><img src="principal/electro.png" alt="Electromás"></a>
+    <div class="busqueda-wrapper">
+      <form class="busqueda" id="formBusquedaGlobal">
+        <input type="search" id="campoBusquedaGlobal" placeholder="Buscar">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+    <a href="https://wa.me/593960798215" target="_blank" class="header-whatsapp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+  </div>
+</header>
+
+<!-- MENÚ STICKY -->
+<nav class="menu">
+  <div class="contenedor" id="menuDinamico">
+    <div class="menu-grupo"><span class="menu-empty"><i class="fas fa-circle-notch fa-spin"></i> Cargando categorías...</span></div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="contenedor">
+      <div class="hero-copy">
+        <h1>Véalo. Cotícelo. <span>Llévelo.</span></h1>
+        <p>Electrodomésticos, tecnología y hogar con atención directa para Loja y Zamora. Consulte por WhatsApp y reciba precio, crédito, garantía y disponibilidad sin perder tiempo.</p>
+        <div class="hero-acciones">
+          <a href="#catalogo" class="btn btn-primary"><i class="fas fa-store"></i> Ver catálogo</a>
+          <a href="https://wa.me/593960798215?text=Buen%20d%C3%ADa%2C%20quiero%20cotizar%20el%20siguiente%20producto%3A" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Cotizar ahora</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="venta-card">
+          <div class="venta-card-head">
+            <strong>Compra rápida con asesoría real.</strong>
+            <span>Un asesor le confirma modelos, precio, crédito y cobertura antes de comprar.</span>
+          </div>
+          <div class="venta-card-body">
+            <div class="venta-linea"><i class="fas fa-location-dot"></i><div><strong>Loja y Zamora</strong><span>Atención comercial enfocada en ambas provincias.</span></div></div>
+            <div class="venta-linea"><i class="fas fa-credit-card"></i><div><strong>Crédito directo</strong><span>Consulte opciones de pago según el producto.</span></div></div>
+            <div class="venta-linea"><i class="fas fa-shield-halved"></i><div><strong>Compra con respaldo</strong><span>Productos con garantía y orientación antes de decidir.</span></div></div>
+            <a href="https://wa.me/593960798215?text=Buen%20d%C3%ADa%2C%20necesito%20asesor%C3%ADa%20con%20respecto%20a%3A" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Hablar con asesor</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="catalogo">
+    <div class="contenedor">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fas fa-cart-shopping"></i> Vitrina principal</span>
+          <h2 class="section-title">Productos recomendados.</h2>
+        </div>
+      </div>
+
+      <div class="catalogo-layout">
+        <aside class="catalogo-sidebar">
+          <h3>Explore por categoría</h3>
+
+          <div class="filtros">
+            <div class="filtro-grupo">
+              <label for="buscarInput">Buscar</label>
+              <div class="busqueda-catalogo">
+                <i class="fas fa-search"></i>
+                <input type="text" id="buscarInput" placeholder="Nombre del producto...">
+              </div>
+            </div>
+
+            <div class="filtro-grupo">
+              <label for="lineaSelect">Categoría</label>
+              <select id="lineaSelect">
+                <option value="todos">Seleccione una categoría</option>
+              </select>
+            </div>
+
+            <div class="filtro-grupo">
+              <label for="precioSelect">Rango de precio</label>
+              <select id="precioSelect">
+                <option value="todos">Todos los precios</option>
+                <option value="0-300">Hasta $300</option>
+                <option value="301-500">$301 a $500</option>
+                <option value="501-700">$501 a $700</option>
+                <option value="701-999999">Más de $700</option>
+              </select>
+            </div>
+
+            <div class="filtro-grupo">
+              <label for="ordenSelect">Ordenar</label>
+              <select id="ordenSelect">
+                <option value="recomendados">Orden recomendado</option>
+                <option value="az">Nombre A-Z</option>
+                <option value="precioAsc">Precio menor a mayor</option>
+                <option value="precioDesc">Precio mayor a menor</option>
+              </select>
+            </div>
+
+            <button class="btn-limpiar" id="limpiarBtn"><i class="fas fa-eraser"></i> Limpiar filtros</button>
+          </div>
+        </aside>
+
+        <div class="catalogo-main">
+          <div class="catalogo-meta">
+            <span id="resultadosCount"><strong>0</strong> productos</span>
+            <span>Atención: <strong>096 079 8215</strong></span>
+          </div>
+
+          <div class="producto-grid" id="productosGrid"></div>
+          <div class="sin-resultados" id="noResultados">No hay productos publicados todavía. Cárguelos desde el editor y active “Mostrar en inicio”.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="contenedor">
+      <div class="servicio-panel">
+        <div class="servicio-lado servicio-lado-info">
+          <div class="servicio-lista">
+            <div class="servicio-item">
+              <i class="fas fa-map-location-dot"></i>
+              <div>
+                <strong>Loja y Zamora, directo</strong>
+                <span>Atención enfocada en su ciudad y necesidad.</span>
+              </div>
+            </div>
+            <div class="servicio-item">
+              <i class="fas fa-comments"></i>
+              <div>
+                <strong>Precio sin vueltas</strong>
+                <span>Cotización clara por WhatsApp desde cada producto.</span>
+              </div>
+            </div>
+            <div class="servicio-item">
+              <i class="fas fa-layer-group"></i>
+              <div>
+                <strong>Elija mejor, compre mejor</strong>
+                <span>Categorías ordenadas para decidir más rápido.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="servicio-lado servicio-lado-cta">
+          <h3>Pregunte hoy. Estrene pronto.</h3>
+          <p>Escriba el producto y su ciudad. Le respondemos con precio, disponibilidad y opciones de crédito.</p>
+          <a href="https://wa.me/593960798215?text=Buen%20d%C3%ADa%2C%20quiero%20consular%20el%20producto%3A" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Consultar ahora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer-main">
+      <div class="footer-col">
+        <a href="index.html" class="footer-logo"><img src="principal/electro.png" alt="Electromás"></a>
+        <p>Electrodomésticos, tecnología y hogar con atención comercial para Loja y Zamora, crédito directo y garantía.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61577084507072" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/593960798215" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Categorías</h4>
+        <div class="footer-links" id="footerCategorias"><span class="footer-empty">Cargando categorías...</span></div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Más consultado</h4>
+        <div class="footer-links" id="footerMasConsultado"><span class="footer-empty">Cargando líneas...</span></div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Nuestra Empresa</h4>
+        <div class="footer-contacto">
+          <span><i class="fas fa-headset"></i> Asesoría y crédito directo</span>
+          <span><i class="fas fa-location-dot"></i> Imbabura entre Sucre y 18 de Noviembre, Loja</span>
+          <span><i class="fas fa-truck-fast"></i> Ventas Loja y Zamora</span>
+          <span><i class="fas fa-shield-halved"></i> Productos con garantía</span>
+          <a href="https://wa.me/593960798215" target="_blank"><i class="fab fa-whatsapp"></i> 096 079 8215</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Electromás · Desarrollado por NeoDat Consultores</span>
+    </div>
+  </div>
+</footer>
+
+<div id="installAppPanel" class="install-app-panel" hidden>
+  <div class="install-icon"><i class="fas fa-mobile-screen-button"></i></div>
+  <div class="install-app-copy">
+    <strong>Instalar Electromás</strong>
+    <span>Catálogo rápido en su pantalla principal.</span>
+  </div>
+  <div class="install-app-actions">
+    <button id="installAppBtn" class="install-app-btn" type="button"><i class="fas fa-download"></i><span>Instalar</span></button>
+    <button id="dismissInstallBtn" class="install-app-close" type="button" aria-label="Ocultar instalación">×</button>
+  </div>
+  <div id="installHelp" class="install-help" hidden>
+    <strong>Su navegador no mostró el instalador automático.</strong>
+    <small>Android/Chrome: menú ⋮ → Instalar app. iPhone/Safari: Compartir → Agregar a pantalla de inicio. Computadora/Chrome: use el icono de instalación de la barra de direcciones.</small>
+  </div>
+</div>
+
+
+<a href="https://wa.me/593960798215" class="whatsapp-flotante" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+
+<script>
+  const WHATSAPP = "593960798215";
+
+  /*
+    INTEGRACIÓN SUPABASE - CAMBIO MÍNIMO
+    - No cambia el diseño de la página.
+    - Las pestañas del menú, las categorías del filtro y los productos se leen desde Supabase.
+    - No hay productos precargados en el HTML: si Supabase no tiene productos, la vitrina queda vacía.
+  */
+  const CONFIG = window.ELECTROMAS_CONFIG || {};
+  const SUPABASE_URL = CONFIG.SUPABASE_URL || "https://ahwbckmjnspmjkzpgiqu.supabase.co";
+  const SUPABASE_ANON_KEY = CONFIG.SUPABASE_ANON_KEY || "";
+  const supabaseElectromas = (window.supabase && SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.includes("PEGUE_AQUI"))
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+
+  const PRODUCTOS_FALLBACK = [];
+
+  const CATEGORIAS_FALLBACK = [];
+
+  const labels = {};
+  const urlsCat = {};
+
+  let CATEGORIAS = [];
+  let PRODUCTOS = [];
+  let filtros = {
+    search: "",
+    linea: "todos",
+    precio: "todos",
+    orden: "recomendados",
+    categoria: "todos",
+    especial: "todos"
+  };
+
+  const grid = document.getElementById("productosGrid");
+  const noRes = document.getElementById("noResultados");
+  const countSpan = document.getElementById("resultadosCount");
+  const searchInput = document.getElementById("buscarInput");
+  const lineaSelect = document.getElementById("lineaSelect");
+  const precioSelect = document.getElementById("precioSelect");
+  const ordenSelect = document.getElementById("ordenSelect");
+  const limpiar = document.getElementById("limpiarBtn");
+  const menuDinamico = document.getElementById("menuDinamico");
+
+  const normalize = t => (t || "")
+    .toString()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+
+  const slugify = t => normalize(t)
+    .replace(/&/g, "y")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  const esc = texto => String(texto || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+  const formatoPrecio = valor => {
+    const numero = Number(valor);
+    if (!Number.isFinite(numero) || numero <= 0) return "Consultar";
+    return `$${numero.toLocaleString("es-EC", { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`;
+  };
+
+  const precioTextoProducto = p => {
+    const tipo = String(p?.payment_type || p?.raw?.payment_type || '').toLowerCase();
+    const cuotas = Number(p?.credit_installments || p?.raw?.credit_installments || 12) || 12;
+    const valor = Number(p?.credit_monthly_payment || p?.raw?.credit_monthly_payment || 0) || 0;
+    if (tipo === 'credito' && valor > 0) return `${cuotas} cuotas de ${formatoPrecio(valor)}`;
+    return formatoPrecio(p?.precio_mostrar ?? p?.precio);
+  };
+  const precioTituloProducto = p => {
+    const tipo = String(p?.payment_type || p?.raw?.payment_type || '').toLowerCase();
+    if (tipo === 'credito' && Number(p?.credit_monthly_payment || p?.raw?.credit_monthly_payment || 0) > 0) return 'Precio a crédito';
+    return p?.oferta ? 'Precio oferta' : p?.combo ? 'Precio combo' : 'Precio';
+  };
+
+  const whatsLink = p => {
+    const precio = precioTextoProducto(p);
+    const texto = `Buen día, quiero cotizar el siguiente producto: ${p.nombre} (${labels[p.linea] || p.linea}) - Precio: ${precio}`;
+    return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`;
+  };
+
+  function normalizarCategoria(row) {
+    const slug = slugify(row.slug || row.codigo || row.name || row.nombre);
+    return {
+      id: row.id || slug,
+      slug,
+      nombre: row.name || row.nombre || slug,
+      icono: row.icon_class || row.icono || row.icon || "fas fa-tag",
+      mostrar_menu: row.show_in_menu ?? row.mostrar_menu ?? false,
+      mostrar_filtro: row.show_in_filter ?? row.mostrar_filtro ?? false,
+      modo_filtro: row.filter_mode || row.modo_filtro || row.kind || row.tipo || "linea",
+      route: row.route || row.ruta || "",
+      marca: row.brand || row.marca || "",
+      modelo: row.model || row.modelo || "",
+      combo_items: row.combo_items || row.comboItems || "",
+      seo_title: row.seo_title || "",
+      seo_description: row.seo_description || "",
+      seo_keywords: row.seo_keywords || row.keywords || "",
+      parent_slug: row.parent_slug || row.parent || row.parent_category_slug || null,
+      descripcion: row.description || row.descripcion || "",
+      seo_title: row.seo_title || "",
+      seo_description: row.seo_description || "",
+      seo_keywords: row.seo_keywords || "",
+      orden: Number(row.sort_order ?? row.orden ?? 999)
+    };
+  }
+
+  function normalizarProducto(row, index = 0) {
+    const precioNormal = Number(row.price ?? row.precio ?? 0) || 0;
+    const precioOferta = Number(row.sale_price ?? row.precio_oferta ?? 0) || 0;
+    const enOferta = Boolean(row.is_on_sale ?? row.en_oferta ?? false);
+    const precioMostrar = enOferta && precioOferta > 0 ? precioOferta : precioNormal;
+
+    return {
+      id: row.id || row.slug || `producto-${index}`,
+      nombre: row.name || row.nombre || "Producto sin nombre",
+      categoria: slugify(row.category_slug || row.categoria || row.category || "electrodomesticos"),
+      linea: slugify(row.line_slug || row.linea || row.product_line || row.subcategoria || "otros"),
+      descripcion: row.description || row.descripcion || "Producto disponible para cotización.",
+      precio: precioNormal,
+      precio_oferta: precioOferta,
+      precio_mostrar: precioMostrar,
+      imagen: row.image_url || row.imagen || row.main_image || row.cover_image || (Array.isArray(row.image_urls) && row.image_urls[0]),
+      imagenes: Array.isArray(row.image_urls) ? row.image_urls.slice(0, 10) : [],
+      etiqueta: row.tag || row.etiqueta || (enOferta ? "Oferta" : "Disponible"),
+      orden: Number(row.sort_order ?? row.orden ?? index + 1),
+      destacado: Boolean(row.is_featured ?? row.destacado ?? false),
+      oferta: enOferta || (precioOferta > 0 && precioOferta < precioNormal),
+      combo: Boolean(row.is_combo ?? row.combo ?? false),
+      payment_type: row.payment_type || row.tipo_precio || 'contado',
+      credit_installments: Number(row.credit_installments ?? row.cuotas ?? 12) || 12,
+      credit_monthly_payment: Number(row.credit_monthly_payment ?? row.valor_cuota ?? 0) || 0,
+      activo: row.is_active ?? row.activo ?? true,
+      route: row.route || row.ruta || "",
+      marca: row.brand || row.marca || "",
+      modelo: row.model || row.modelo || "",
+      combo_items: row.combo_items || row.comboItems || "",
+      seo_title: row.seo_title || "",
+      seo_description: row.seo_description || "",
+      seo_keywords: row.seo_keywords || row.keywords || "",
+      raw: row
+    };
+  }
+
+  function cumpleRangoPrecio(producto, rango) {
+    if (!rango || rango === "todos") return true;
+    const [min, max] = rango.split("-").map(Number);
+    const precio = Number(producto.precio_mostrar ?? producto.precio) || 0;
+    return precio >= min && precio <= max;
+  }
+
+  async function cargarCategoriasDesdeSupabase() {
+    if (!supabaseElectromas) return [];
+
+    const { data, error } = await supabaseElectromas
+      .from("em_categories")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true })
+      .order("name", { ascending: true });
+
+    if (error) {
+      console.warn("Electromás: no se pudieron cargar categorías desde Supabase.", error.message);
+      return [];
+    }
+
+    const categorias = (data || []).map(normalizarCategoria).sort((a, b) => a.orden - b.orden);
+    return categorias;
+  }
+
+  async function cargarProductosDesdeSupabase() {
+    if (!supabaseElectromas) return [];
+
+    const { data, error } = await supabaseElectromas
+      .from("em_products")
+      .select("*")
+      .eq("is_active", true)
+      .order("sort_order", { ascending: true })
+      .order("name", { ascending: true });
+
+    if (error) {
+      console.warn("Electromás: no se pudieron cargar productos desde Supabase.", error.message);
+      return [];
+    }
+
+    const productos = (data || []).map(normalizarProducto).filter(p => p.activo !== false);
+    return productos;
+  }
+
+  function categoryPageUrl(cat) {
+    if (!cat) return "categoria.html";
+    let mode = cat.modo_filtro || cat.filter_mode || "subcategoria";
+    if (mode === "linea") mode = "subcategoria";
+    const slug = cat.slug || "todos";
+    return `categoria.html?mode=${encodeURIComponent(mode)}&slug=${encodeURIComponent(slug)}`;
+  }
+
+  function productPageUrl(producto) {
+    if (!producto) return "categoria.html";
+    const linea = producto.linea || producto.line_slug || "todos";
+    return `categoria.html?mode=subcategoria&slug=${encodeURIComponent(linea)}`;
+  }
+
+  function productImages(producto) {
+    const raw = producto?.imagenes || producto?.image_urls || [];
+    const list = Array.isArray(raw) ? raw : [];
+    const base = producto?.imagen || producto?.image_url || "";
+    const clean = [...list, base]
+      .filter(Boolean)
+      .map(value => String(value).trim())
+      .filter(Boolean);
+    return [...new Set(clean)].slice(0, 10);
+  }
+
+  function registrarLabels() {
+    Object.keys(labels).forEach(key => delete labels[key]);
+    Object.keys(urlsCat).forEach(key => delete urlsCat[key]);
+    CATEGORIAS.forEach(cat => {
+      labels[cat.slug] = cat.nombre;
+      urlsCat[cat.slug] = categoryPageUrl(cat);
+    });
+  }
+
+  function renderFooterDinamico() {
+    const footerCategorias = document.getElementById("footerCategorias");
+    const footerMas = document.getElementById("footerMasConsultado");
+    if (footerCategorias) {
+      const cats = CATEGORIAS
+        .filter(c => c.mostrar_menu)
+        .sort((a, b) => a.orden - b.orden)
+        .slice(0, 8);
+      footerCategorias.innerHTML = cats.length
+        ? cats.map(c => `
+          <a href="${esc(categoryPageUrl(c))}" data-dynamic-link><i class="${esc(c.icono)}"></i> ${esc(c.nombre)}</a>
+        `).join("")
+        : '<span class="footer-empty">Cree categorías en el editor.</span>';
+    }
+    if (footerMas) {
+      const countByLine = PRODUCTOS.reduce((acc, p) => {
+        acc[p.linea] = (acc[p.linea] || 0) + 1;
+        return acc;
+      }, {});
+      const lines = CATEGORIAS
+        .filter(c => c.mostrar_filtro || c.modo_filtro === "linea")
+        .sort((a, b) => (countByLine[b.slug] || 0) - (countByLine[a.slug] || 0) || a.orden - b.orden)
+        .slice(0, 6);
+      footerMas.innerHTML = lines.length
+        ? lines.map(c => `
+          <a href="${esc(categoryPageUrl(c))}" data-dynamic-link><i class="${esc(c.icono)}"></i> ${esc(c.nombre)}</a>
+        `).join("")
+        : '<span class="footer-empty">Cree líneas de productos en el editor.</span>';
+    }
+  }
+
+  function renderMenuCategorias() {
+    if (!menuDinamico) return;
+
+    const visibles = CATEGORIAS.filter(c => c.mostrar_menu && !c.parent_slug).sort((a, b) => a.orden - b.orden);
+    const normales = visibles.filter(c => !["ofertas", "combos"].includes(c.modo_filtro) && !["ofertas", "combos"].includes(c.slug));
+    const especiales = visibles.filter(c => ["ofertas", "combos"].includes(c.modo_filtro) || ["ofertas", "combos"].includes(c.slug));
+
+    const grupoHtml = lista => `<div class="menu-grupo">${lista.map(c => `
+      <a href="${esc(categoryPageUrl(c))}" class="menu-link" data-menu-slug="${esc(c.slug)}" data-filter-mode="${esc(c.modo_filtro)}">
+        <i class="${esc(c.icono)}"></i> ${esc(c.nombre)}
+      </a>`).join("")}</div>`;
+
+    if (!visibles.length) {
+      menuDinamico.innerHTML = '<div class="menu-grupo"><span class="menu-empty"><i class="fas fa-pen-to-square"></i> Cree pestañas en el editor.</span></div>';
+      return;
+    }
+
+    menuDinamico.innerHTML = `${grupoHtml(normales)}${especiales.length ? grupoHtml(especiales) : ""}`;
+  }
+
+  function renderCategoriasFiltro() {
+    const filtroCategorias = CATEGORIAS.filter(c => c.mostrar_filtro && (c.parent_slug || c.modo_filtro === "subcategoria" || c.modo_filtro === "linea")).sort((a, b) => a.orden - b.orden);
+
+    lineaSelect.innerHTML = `<option value="todos">Seleccione una categoría</option>` +
+      filtroCategorias.map(c => `<option value="${esc(c.slug)}">${esc(c.nombre)}</option>`).join("");
+  }
+
+  function aplicarFiltroMenu(slug, modo) {
+    filtros.categoria = "todos";
+    filtros.especial = "todos";
+    filtros.linea = "todos";
+    lineaSelect.value = "todos";
+
+    if (modo === "ofertas" || slug === "ofertas") {
+      filtros.especial = "ofertas";
+    } else if (modo === "combos" || slug === "combos") {
+      filtros.especial = "combos";
+    } else if (modo === "linea") {
+      filtros.linea = slug;
+      lineaSelect.value = slug;
+    } else {
+      filtros.categoria = slug;
+    }
+
+    document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
+    const active = document.querySelector(`.menu-link[data-menu-slug="${CSS.escape(slug)}"]`);
+    if (active) active.classList.add("activo");
+
+    update();
+    document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function filtrarYRender() {
+    let items = PRODUCTOS.filter(p => {
+      const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== "todos" || filtros.categoria !== "todos" || filtros.especial !== "todos" || filtros.precio !== "todos";
+        if (!hayFiltroActivo && !p.destacado) return false;
+      const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca || ""} ${p.modelo || ""} ${p.etiqueta || ""} ${p.combo_items || ""} ${p.seo_title || ""} ${p.seo_description || ""} ${p.seo_keywords || ""} ${labels[p.linea] || ""} ${labels[p.categoria] || ""} ${JSON.stringify(p.raw || {})}`);
+      const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
+      const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
+      const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
+      const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+      const matchEspecial = filtros.especial === "todos"
+        || (filtros.especial === "ofertas" && p.oferta)
+        || (filtros.especial === "combos" && p.combo);
+
+      return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+    });
+
+    if (filtros.orden === "az") {
+      items.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
+    } else if (filtros.orden === "precioAsc") {
+      items.sort((a, b) => (Number(a.precio_mostrar) || 0) - (Number(b.precio_mostrar) || 0));
+    } else if (filtros.orden === "precioDesc") {
+      items.sort((a, b) => (Number(b.precio_mostrar) || 0) - (Number(a.precio_mostrar) || 0));
+    } else {
+      items.sort((a, b) => {
+        if (a.destacado !== b.destacado) return a.destacado ? -1 : 1;
+        return (Number(a.orden) || 999) - (Number(b.orden) || 999);
+      });
+    }
+
+    if (items.length === 0) {
+      grid.style.display = "none";
+      noRes.style.display = "block";
+      countSpan.innerHTML = `<strong>0</strong> productos`;
+      return;
+    }
+
+    grid.style.display = "grid";
+    noRes.style.display = "none";
+    countSpan.innerHTML = `<strong>${items.length}</strong> productos`;
+
+    grid.innerHTML = items.map(p => {
+      const imgs = productImages(p);
+      const firstImage = imgs[0] || p.imagen || '';
+      return `
+      <article class="producto-card ${firstImage ? '' : 'sin-imagen'}">
+        ${firstImage ? `<div class="producto-media">
+          <span class="producto-tag">${esc(p.etiqueta)}</span>
+          <img src="${esc(firstImage)}" alt="${esc(p.nombre)}" onerror="this.closest('.producto-media').remove();">
+        </div>` : ''}
+        <div class="producto-body">
+          <div class="producto-ruta">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div>
+          <h3>${esc(p.nombre)}</h3>
+          <p>${esc(p.descripcion)}</p>
+          ${imgs.length > 1 ? `<div class="producto-mini-galeria" title="${imgs.length} imágenes disponibles">${imgs.slice(0,10).map((_, idx) => `<span class="${idx === 0 ? 'activo' : ''}"></span>`).join("")}</div>` : ""}
+
+          <div class="producto-precio">
+            <div>
+              <span>${p.oferta ? "Precio de oferta" : "Precio especial"}</span>
+              <small>Crédito y cotización inmediata</small>
+            </div>
+            <strong>${precioTextoProducto(p)}</strong>
+          </div>
+
+          <div class="producto-final">
+            <a href="${esc(productPageUrl(p))}" class="producto-link">Ver más →</a>
+            <a href="${whatsLink(p)}" target="_blank" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a>
+          </div>
+        </div>
+      </article>
+    `;
+    }).join("");
+  }
+
+  function update() {
+    filtros.search = searchInput.value;
+    filtros.linea = lineaSelect.value;
+    filtros.precio = precioSelect.value;
+    filtros.orden = ordenSelect.value;
+
+    if (filtros.linea !== "todos") {
+      filtros.categoria = "todos";
+      filtros.especial = "todos";
+      document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
+    }
+
+    filtrarYRender();
+  }
+
+  searchInput.addEventListener("input", update);
+  lineaSelect.addEventListener("change", update);
+  precioSelect.addEventListener("change", update);
+  ordenSelect.addEventListener("change", update);
+
+  limpiar.addEventListener("click", () => {
+    searchInput.value = "";
+    lineaSelect.value = "todos";
+    precioSelect.value = "todos";
+    ordenSelect.value = "recomendados";
+    filtros.categoria = "todos";
+    filtros.especial = "todos";
+    document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
+    update();
+  });
+
+  document.getElementById("formBusquedaGlobal").addEventListener("submit", e => {
+    e.preventDefault();
+    searchInput.value = document.getElementById("campoBusquedaGlobal").value;
+    update();
+    document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+  });
+
+  const initialQuery = new URLSearchParams(location.search).get("q");
+  if (initialQuery) {
+    document.getElementById("campoBusquedaGlobal").value = initialQuery;
+    searchInput.value = initialQuery;
+  }
+
+  async function iniciarCatalogo() {
+    try {
+      CATEGORIAS = await cargarCategoriasDesdeSupabase();
+      registrarLabels();
+      renderMenuCategorias();
+      renderCategoriasFiltro();
+
+      PRODUCTOS = await cargarProductosDesdeSupabase();
+      renderFooterDinamico();
+    } catch (error) {
+      console.warn("Electromás: no se pudieron cargar datos desde Supabase.", error);
+      CATEGORIAS = [];
+      PRODUCTOS = [];
+      registrarLabels();
+      renderMenuCategorias();
+      renderCategoriasFiltro();
+      renderFooterDinamico();
+    }
+
+    filtrarYRender();
+  }
+
+
+  // Instalación como aplicación (PWA)
+  let deferredInstallPrompt = null;
+  const installPanel = document.getElementById("installAppPanel");
+  const installBtn = document.getElementById("installAppBtn");
+  const dismissInstallBtn = document.getElementById("dismissInstallBtn");
+  const installHelp = document.getElementById("installHelp");
+  const isStandaloneApp = () => window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  const hideInstallPanel = () => { if (installPanel) installPanel.hidden = true; };
+  const showInstallPanel = () => {
+    if (!installPanel || isStandaloneApp() || localStorage.getItem("electromas_app_installed") === "1" || sessionStorage.getItem("electromas_install_dismissed") === "1") return;
+    installPanel.hidden = false;
+  };
+
+  if (isStandaloneApp() || localStorage.getItem("electromas_app_installed") === "1") {
+    hideInstallPanel();
+  } else {
+    setTimeout(showInstallPanel, 1600);
+  }
+
+  window.addEventListener("beforeinstallprompt", event => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    if (installHelp) installHelp.hidden = true;
+    showInstallPanel();
+  });
+
+  if (installBtn) {
+    installBtn.addEventListener("click", async () => {
+      if (isStandaloneApp()) {
+        localStorage.setItem("electromas_app_installed", "1");
+        hideInstallPanel();
+        return;
+      }
+
+      if (!deferredInstallPrompt) {
+        if (installHelp) installHelp.hidden = false;
+        return;
+      }
+
+      deferredInstallPrompt.prompt();
+      const choice = await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      if (choice && choice.outcome === "accepted") {
+        localStorage.setItem("electromas_app_installed", "1");
+        hideInstallPanel();
+      } else if (installHelp) {
+        installHelp.hidden = false;
+      }
+    });
+  }
+
+  if (dismissInstallBtn) {
+    dismissInstallBtn.addEventListener("click", () => {
+      sessionStorage.setItem("electromas_install_dismissed", "1");
+      hideInstallPanel();
+    });
+  }
+
+  window.addEventListener("appinstalled", () => {
+    localStorage.setItem("electromas_app_installed", "1");
+    hideInstallPanel();
+  });
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", async () => {
+      try {
+        const registration = await navigator.serviceWorker.register("sw.js", { scope: "./" });
+        if (registration.waiting) registration.waiting.postMessage({ type: "SKIP_WAITING" });
+      } catch (error) {
+        console.warn("Electromás: no se pudo registrar la app instalable.", error);
+      }
+    });
+  }
+
+
+function publicCleanText(text){return String(text||'').replace(/\s+/g,' ').replace(/\s*[-–—]+\s*/g,' — ').replace(/\s*\|\s*/g,' ').trim();}
+function publicShortDescription(text){let t=publicCleanText(text);t=t.replace(/^(Características|Caracteristicas)\s*(principales|generales)?\s*[:\-]?\s*/i,'');const cut=t.search(/\b(Características adicionales|Caracteristicas adicionales|Medidas|Información general|Informacion general|Zona superior|Zona de control|Horno|Garantía|Garantia)\b/i);if(cut>40)t=t.slice(0,cut).trim();const first=t.match(/^(.{35,220}?[.!?])\s/);if(first)t=first[1];if(t.length>190)t=t.slice(0,187).trim()+'...';return t||'Producto disponible con asesoría, garantía y crédito directo.';}
+function publicFeatureList(text){const t=String(text||'');let chunk=t;const m=t.match(/(Características principales|Caracteristicas principales)\s*[:\-]?([\s\S]*?)(Características adicionales|Caracteristicas adicionales|Medidas|Información general|Informacion general|Zona superior|Zona de control|Horno|Garantía|Garantia|$)/i);if(m)chunk=m[2];chunk=chunk.replace(/[•▪■]+/g,'\n').replace(/\s+-\s+/g,'\n');let parts=chunk.split(/\n|;|\.\s+(?=[A-ZÁÉÍÓÚÑ])/).map(x=>publicCleanText(x)).filter(Boolean);parts=parts.filter(x=>x.length>4 && !/^caracter/i.test(x) && !/^producto/i.test(x)).slice(0,3);return [...new Set(parts)];}
+function publicSpecChips(text){const t=String(text||'');const chips=[];const re=/(Alto|Ancho|Prof(?:undidad)?|Garantía|Garantia)\s*[:=]\s*([0-9,.]+\s*(?:cm|año|años)?)/gi;let m;while((m=re.exec(t))&&chips.length<4){chips.push(`${m[1]}: ${m[2]}`)}return chips;}
+function filtrarYRender() {
+  let items = PRODUCTOS.filter(p => {
+    const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== "todos" || filtros.categoria !== "todos" || filtros.especial !== "todos" || filtros.precio !== "todos";
+        if (!hayFiltroActivo && !p.destacado) return false;
+    const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca || ""} ${p.modelo || ""} ${p.etiqueta || ""} ${p.combo_items || ""} ${p.seo_title || ""} ${p.seo_description || ""} ${p.seo_keywords || ""} ${labels[p.linea] || ""} ${labels[p.categoria] || ""} ${JSON.stringify(p.raw || {})}`);
+    const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
+    const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
+    const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
+    const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+    const matchEspecial = filtros.especial === "todos" || (filtros.especial === "ofertas" && p.oferta) || (filtros.especial === "combos" && p.combo);
+    return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+  });
+  if (filtros.orden === "az") items.sort((a,b)=>a.nombre.localeCompare(b.nombre,"es"));
+  else if (filtros.orden === "precioAsc") items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+  else if (filtros.orden === "precioDesc") items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+  else items.sort((a,b)=>{ if(a.destacado!==b.destacado)return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+  if(items.length===0){grid.style.display="none";noRes.style.display="block";countSpan.innerHTML=`<strong>0</strong> productos`;return;}
+  grid.style.display="grid"; noRes.style.display="none"; countSpan.innerHTML=`<strong>${items.length}</strong> productos`;
+  grid.innerHTML = items.map(p => {
+    const imgs = productImages(p); const firstImage = imgs[0] || p.imagen || ''; const desc = publicShortDescription(p.descripcion); const features = publicFeatureList(p.descripcion); const specs = publicSpecChips(p.descripcion);
+    return `<article class="producto-card ${firstImage ? '' : 'sin-imagen'}">${firstImage ? `<div class="producto-media"><span class="producto-tag">${esc(p.etiqueta)}</span><img src="${esc(firstImage)}" alt="${esc(p.nombre)}" onerror="this.closest('.producto-media').remove();"></div>` : ''}<div class="producto-body"><div class="producto-ruta">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h3>${esc(p.nombre)}</h3><p class="producto-desc-corta">${esc(desc)}</p>${specs.length ? `<div class="producto-spec-row">${specs.map(s=>`<span class="producto-spec-chip">${esc(s)}</span>`).join('')}</div>` : ''}${features.length ? `<ul class="producto-features">${features.map(f=>`<li><i class="fas fa-check-circle"></i><span>${esc(f)}</span></li>`).join('')}</ul>` : ''}${imgs.length > 1 ? `<div class="producto-mini-galeria" title="${imgs.length} imágenes disponibles">${imgs.slice(0,10).map((_, idx) => `<span class="${idx === 0 ? 'activo' : ''}"></span>`).join("")}</div>` : ""}<div class="producto-precio"><div><span>${p.oferta ? "Precio de oferta" : p.combo ? "Precio combo" : "Precio especial"}</span><small>Crédito y cotización inmediata</small></div><strong>${precioTextoProducto(p)}</strong></div><div class="producto-final"><a href="${esc(productPageUrl(p))}" class="producto-link">Ver detalles</a><a href="${whatsLink(p)}" target="_blank" class="producto-cta"><i class="fab fa-whatsapp"></i> Cotizar</a></div></div></article>`;
+  }).join("");
+}
+
+  iniciarCatalogo();
+</script>
+
+
+<style id="electromas-index-cards-simples-filtros-v2">
+/* Inicio: tarjetas simples y filtros coherentes por sección */
+.producto-grid{grid-template-columns:repeat(auto-fill,minmax(230px,260px))!important;gap:20px!important}.producto-card{cursor:pointer;border-radius:24px!important;transition:transform .18s ease,box-shadow .18s ease}.producto-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px rgba(20,43,82,.14)!important}.producto-media{height:230px!important;padding:18px!important}.producto-media img{max-height:190px!important;max-width:92%!important;object-fit:contain}.producto-body{padding:16px!important}.producto-ruta,.producto-card p,.producto-mini-galeria,.producto-spec-row,.producto-features,.producto-final{display:none!important}.producto-body h3{font-size:.96rem!important;line-height:1.25!important;min-height:2.45em;margin:0!important;color:var(--azul)!important}.producto-precio{margin-top:13px!important;padding:11px 12px!important}.producto-precio span{font-size:.58rem!important}.producto-precio small{display:none!important}.producto-precio strong{font-size:1.15rem!important}.producto-tag{font-size:.58rem!important;padding:5px 9px!important}.sidebar-context{background:#fff7e6;border:1px solid #f2dfb4;color:#6f5315;border-radius:16px;padding:12px;margin-bottom:14px;font-size:.78rem;font-weight:800;line-height:1.4}.sidebar-context i{color:var(--naranja);margin-right:7px}.sidebar-combo #lineaSelect,.sidebar-combo label[for="lineaSelect"],.sidebar-combo #precioSelect,.sidebar-combo label[for="precioSelect"]{display:none}.sidebar-combo .filtro-grupo:has(#lineaSelect),.sidebar-combo .filtro-grupo:has(#precioSelect){display:none}.producto-card .producto-precio{display:flex!important}@media(max-width:900px){.producto-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}.producto-media{height:168px!important;padding:12px!important}.producto-media img{max-height:138px!important}.producto-body{padding:12px!important}.producto-body h3{font-size:.78rem!important;min-height:2.75em}.producto-precio{border-radius:14px!important;padding:9px 10px!important}.producto-precio span{display:none}.producto-precio strong{font-size:.95rem!important}}@media(max-width:390px){.producto-grid{grid-template-columns:1fr!important}.producto-media{height:210px!important}.producto-media img{max-height:175px!important}}
+</style>
+<script id="electromas-index-cards-simples-filtros-v2-js">
+(function(){
+  function safeTagIndex(p){
+    const raw=String(p&&p.etiqueta||'').trim();
+    if(p&&p.combo) return 'Combo';
+    if(p&&p.oferta) return 'Oferta';
+    if(!raw || /categoria\.html|https?:\/\//i.test(raw) || raw.length>28) return 'Disponible';
+    return raw;
+  }
+  function ensureSidebarContext(){
+    const sidebar=document.querySelector('.catalogo-sidebar');
+    if(!sidebar) return null;
+    let box=document.getElementById('sidebarContext');
+    if(!box){box=document.createElement('div');box.id='sidebarContext';box.className='sidebar-context';const filtros=sidebar.querySelector('.filtros');sidebar.insertBefore(box,filtros||sidebar.firstChild);} 
+    return box;
+  }
+  function updateSidebarContext(){
+    try{
+      const sidebar=document.querySelector('.catalogo-sidebar'); const box=ensureSidebarContext(); if(!sidebar||!box) return;
+      sidebar.classList.toggle('sidebar-combo', filtros.especial==='combos');
+      if(filtros.especial==='combos') box.innerHTML='<i class="fas fa-layer-group"></i> Sección Combos: aquí solo aparecen paquetes armados desde el editor.';
+      else if(filtros.especial==='ofertas') box.innerHTML='<i class="fas fa-tags"></i> Sección Ofertas: aquí solo aparecen productos individuales con oferta.';
+      else if(filtros.categoria!=='todos') box.innerHTML='<i class="fas fa-filter"></i> Filtros de la categoría seleccionada. Las subcategorías pertenecen a esta sección.';
+      else if((filtros.search||'').trim() || filtros.linea!=='todos' || filtros.categoria!=='todos' || filtros.precio!=='todos') box.innerHTML='<i class="fas fa-search"></i> Búsqueda activa: se revisa todo el catálogo, no solo los destacados.';
+      else box.innerHTML='<i class="fas fa-star"></i> Inicio muestra únicamente productos marcados como destacados.';
+    }catch(e){}
+  }
+
+  try{
+    const oldRenderCategoriasFiltro = typeof renderCategoriasFiltro==='function' ? renderCategoriasFiltro : null;
+    renderCategoriasFiltro = function(){
+      let filtroCategorias = CATEGORIAS.filter(c => c.mostrar_filtro && (c.parent_slug || c.modo_filtro === "subcategoria" || c.modo_filtro === "linea"));
+      if (typeof filtros!=='undefined' && filtros.categoria && filtros.categoria!=='todos') {
+        const scoped = filtroCategorias.filter(c => c.parent_slug === filtros.categoria);
+        if (scoped.length) filtroCategorias = scoped;
+      }
+      filtroCategorias.sort((a,b)=>a.orden-b.orden);
+      lineaSelect.innerHTML = `<option value="todos">${filtros && filtros.categoria!=='todos'?'Todas las subcategorías':'Seleccione una categoría'}</option>` + filtroCategorias.map(c => `<option value="${esc(c.slug)}">${esc(c.nombre)}</option>`).join("");
+    };
+  }catch(e){}
+
+  try{
+    aplicarFiltroMenu = function(slug, modo){
+      filtros.categoria = "todos";
+      filtros.especial = "todos";
+      filtros.linea = "todos";
+      lineaSelect.value = "todos";
+      if (modo === "ofertas" || slug === "ofertas") filtros.especial = "ofertas";
+      else if (modo === "combos" || slug === "combos") filtros.especial = "combos";
+      else if (modo === "linea") { filtros.linea = slug; lineaSelect.value = slug; }
+      else filtros.categoria = slug;
+      renderCategoriasFiltro();
+      if (lineaSelect.querySelector(`option[value="${CSS.escape(filtros.linea)}"]`)) lineaSelect.value = filtros.linea;
+      document.querySelectorAll(".menu-link").forEach(a => a.classList.remove("activo"));
+      const active = document.querySelector(`.menu-link[data-menu-slug="${CSS.escape(slug)}"]`);
+      if (active) active.classList.add("activo");
+      update();
+      updateSidebarContext();
+      document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
+    };
+  }catch(e){}
+
+  try{
+    filtrarYRender = function(){
+      let items = PRODUCTOS.filter(p => {
+        const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== "todos" || filtros.categoria !== "todos" || filtros.especial !== "todos" || filtros.precio !== "todos";
+        if (!hayFiltroActivo && !p.destacado) return false;
+        const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca || ""} ${p.modelo || ""} ${p.etiqueta || ""} ${p.combo_items || ""} ${p.seo_title || ""} ${p.seo_description || ""} ${p.seo_keywords || ""} ${labels[p.linea] || ""} ${labels[p.categoria] || ""} ${JSON.stringify(p.raw || {})}`);
+        const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
+        const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
+        const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
+        const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+        let matchEspecial = false;
+        if (filtros.especial === "combos") matchEspecial = !!p.combo;
+        else if (filtros.especial === "ofertas") matchEspecial = !!p.oferta && !p.combo;
+        else matchEspecial = true;
+        return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+      });
+      if (filtros.orden === "az") items.sort((a,b)=>a.nombre.localeCompare(b.nombre,"es"));
+      else if (filtros.orden === "precioAsc") items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+      else if (filtros.orden === "precioDesc") items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+      else items.sort((a,b)=>{ if(a.destacado!==b.destacado)return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+      if(items.length===0){grid.style.display="none";noRes.style.display="block";countSpan.innerHTML=`<strong>0</strong> productos`;updateSidebarContext();return;}
+      grid.style.display="grid"; noRes.style.display="none"; countSpan.innerHTML=`<strong>${items.length}</strong> productos`;
+      grid.innerHTML = items.map(p => {
+        const imgs = productImages(p); const firstImage = imgs[0] || p.imagen || '';
+        const tag = safeTagIndex(p);
+        return `<article class="producto-card ${firstImage ? '' : 'sin-imagen'}" role="button" tabindex="0" onclick="location.href='${esc(productPageUrl(p))}'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();location.href='${esc(productPageUrl(p))}'}">${firstImage ? `<div class="producto-media"><span class="producto-tag">${esc(tag)}</span><img src="${esc(firstImage)}" alt="${esc(p.nombre)}" loading="lazy" onerror="this.closest('.producto-media').remove();"></div>` : ''}<div class="producto-body"><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${precioTituloProducto(p)}</span></div><strong>${precioTextoProducto(p)}</strong></div></div></article>`;
+      }).join("");
+      updateSidebarContext();
+    };
+  }catch(e){}
+
+  document.addEventListener('DOMContentLoaded',()=>setTimeout(updateSidebarContext,700));
+})();
+</script>
+
+
+<style id="electromas-modal-share-index-fix">
+.product-modal{position:fixed;inset:0;z-index:9999;background:rgba(7,19,38,.62);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:22px}.product-modal-card{width:min(1080px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:28px;box-shadow:0 28px 80px rgba(0,0,0,.28);position:relative}.product-modal-close{position:absolute;right:16px;top:16px;border:0;background:#f0f4fa;color:#10203d;border-radius:50%;width:42px;height:42px;font-size:1.1rem;cursor:pointer;z-index:2}.product-modal-grid{display:grid;grid-template-columns:minmax(340px,460px) 1fr;gap:0}.product-modal-media{background:linear-gradient(180deg,#f7faff,#edf4fc);padding:28px;display:flex;align-items:center;justify-content:center;min-height:420px}.product-modal-media img{max-width:100%;max-height:390px;object-fit:contain;filter:drop-shadow(0 18px 25px rgba(20,43,82,.16))}.product-modal-info{padding:36px 32px;max-height:92vh;overflow:auto}.product-modal-info h2{margin:8px 0 10px;color:var(--azul);font-size:1.75rem;line-height:1.08}.modal-route{color:#e99100;font-weight:900;font-size:.75rem;text-transform:uppercase}.modal-desc{color:#43536b;line-height:1.6;white-space:pre-line}.modal-section{margin-top:18px}.modal-section h4{margin:0 0 8px;color:#071326}.modal-gallery{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.modal-gallery button{border:1px solid #dce6f3;background:#fff;border-radius:12px;padding:5px;cursor:pointer}.modal-gallery img{width:62px;height:62px;object-fit:contain}.modal-price{margin-top:18px;background:#fff7e6;border:1px solid #f2dfb4;border-radius:20px;padding:15px;display:flex;justify-content:space-between;align-items:center}.modal-price span{font-size:.7rem;text-transform:uppercase;color:#8a6a20;font-weight:900}.modal-price strong{font-size:1.55rem;color:#071326}.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.modal-actions .btn{padding:12px 18px}.btn-share-product{background:#eef3fb;color:var(--azul);border:1px solid var(--borde)}.modal-features{display:grid;gap:7px;margin:8px 0 0;padding:0;list-style:none}.modal-features li{display:flex;gap:8px;align-items:flex-start;color:#42526a;font-size:.86rem;line-height:1.4}.modal-features i{color:var(--naranja);margin-top:3px}.modal-spec-row{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.modal-spec-chip{background:#f4f7fb;border:1px solid #e1e9f3;color:#16325c;border-radius:999px;padding:6px 9px;font-size:.72rem;font-weight:900}@media(max-width:820px){.product-modal-grid{grid-template-columns:1fr}.product-modal-media{min-height:280px}.product-modal-info{padding:26px 22px;max-height:none}.product-modal-info h2{font-size:1.35rem}.modal-actions .btn{width:100%}}
+</style>
+<script id="electromas-index-detalles-compartir-fix">
+(function(){
+  function shareProductIndex(p){
+    const url = new URL(location.origin + '/' + (typeof productPageUrl==='function' ? productPageUrl(p) : 'index.html'));
+    const text = `Electromás Crédito\n${p.nombre}\nPrecio: ${precioTextoProducto(p)}\n${publicShortDescription(p.descripcion || '')}`;
+    if(navigator.share){ navigator.share({title:p.nombre,text,url:String(url)}).catch(()=>{}); return; }
+    navigator.clipboard?.writeText(`${text}\n${url}`).then(()=>alert('Información del producto copiada para compartir.')).catch(()=>alert(String(url)));
+  }
+  window.shareProductIndex = shareProductIndex;
+  window.openIndexProductModal = function(id){
+    const p = PRODUCTOS.find(x=>String(x.id)===String(id));
+    if(!p) return;
+    const imgs = productImages(p); const src = imgs[0] || p.imagen || '';
+    const features = publicFeatureList(p.descripcion || ''); const specs = publicSpecChips(p.descripcion || '');
+    const w = whatsLink(p);
+    const modal=document.createElement('div'); modal.className='product-modal';
+    modal.innerHTML = `<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h2>${esc(p.nombre)}</h2><p class="modal-desc">${esc(publicShortDescription(p.descripcion || ''))}</p>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${features.length?`<div class="modal-section"><h4>Características principales</h4><ul class="modal-features">${features.map(f=>`<li><i class="fas fa-check-circle"></i><span>${esc(f)}</span></li>`).join('')}</ul></div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImageIndex').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}"></button>`).join('')}</div></div>`:''}<div class="modal-price"><div><span>${precioTituloProducto(p)}</span></div><strong>${precioTextoProducto(p)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-share-product" type="button" onclick="shareProductIndex(PRODUCTOS.find(x=>String(x.id)==='${esc(String(p.id))}'))"><i class="fas fa-share-nodes"></i> Compartir producto</button><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
+  };
+  try{
+    filtrarYRender = function(){
+      let items = PRODUCTOS.filter(p => {
+        const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== "todos" || filtros.categoria !== "todos" || filtros.especial !== "todos" || filtros.precio !== "todos";
+        if (!hayFiltroActivo && !p.destacado) return false;
+        const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca || ""} ${p.modelo || ""} ${p.etiqueta || ""} ${p.combo_items || ""} ${p.seo_title || ""} ${p.seo_description || ""} ${p.seo_keywords || ""} ${labels[p.linea] || ""} ${labels[p.categoria] || ""} ${JSON.stringify(p.raw || {})}`);
+        const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
+        const matchLinea = filtros.linea === "todos" || p.linea === filtros.linea;
+        const matchCategoria = filtros.categoria === "todos" || p.categoria === filtros.categoria;
+        const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+        let matchEspecial = false;
+        if (filtros.especial === "combos") matchEspecial = !!p.combo;
+        else if (filtros.especial === "ofertas") matchEspecial = !!p.oferta && !p.combo;
+        else matchEspecial = true;
+        return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+      });
+      if (filtros.orden === "az") items.sort((a,b)=>a.nombre.localeCompare(b.nombre,"es"));
+      else if (filtros.orden === "precioAsc") items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+      else if (filtros.orden === "precioDesc") items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+      else items.sort((a,b)=>{ if(a.destacado!==b.destacado)return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+      if(items.length===0){grid.style.display="none";noRes.style.display="block";countSpan.innerHTML=`<strong>0</strong> productos`; if(typeof updateSidebarContext==='function') updateSidebarContext(); return;}
+      grid.style.display="grid"; noRes.style.display="none"; countSpan.innerHTML=`<strong>${items.length}</strong> productos`;
+      grid.innerHTML = items.map(p => { const imgs = productImages(p); const firstImage = imgs[0] || p.imagen || ''; const tag = (p.combo?'Combo':p.oferta?'Oferta':(p.etiqueta&&p.etiqueta.length<28?p.etiqueta:'Disponible')); return `<article class="producto-card ${firstImage ? '' : 'sin-imagen'}" role="button" tabindex="0" onclick="openIndexProductModal('${esc(String(p.id))}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openIndexProductModal('${esc(String(p.id))}')}">${firstImage ? `<div class="producto-media"><span class="producto-tag">${esc(tag)}</span><img src="${esc(firstImage)}" alt="${esc(p.nombre)}" loading="lazy" onerror="this.closest('.producto-media').remove();"></div>` : ''}<div class="producto-body"><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${precioTituloProducto(p)}</span></div><strong>${precioTextoProducto(p)}</strong></div></div></article>`; }).join('');
+      if(typeof updateSidebarContext==='function') updateSidebarContext();
+    };
+    setTimeout(()=>{ if(Array.isArray(PRODUCTOS) && PRODUCTOS.length) filtrarYRender(); }, 900);
+  }catch(e){ console.warn('Electromás: no se pudo activar detalles en inicio', e); }
+})();
+</script>
+
+
+
+<style id="electromas-final-full-details-share-url">
+.modal-details-grid{display:grid;gap:10px;margin-top:14px}.full-detail-block{background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:14px}.full-detail-block h4{margin:0 0 8px;color:#071326;font-size:.92rem}.full-detail-block ul{margin:0;padding-left:18px;display:grid;gap:6px}.full-detail-block li{color:#44546c;font-size:.85rem;line-height:1.45}.full-detail-block p{margin:0;color:#44546c;line-height:1.55;font-size:.9rem}.product-modal-media img{cursor:pointer}.btn-share-product small{font-weight:800;opacity:.8}
+@media(max-width:820px){.modal-details-grid{gap:8px}.full-detail-block{padding:12px}.full-detail-block li{font-size:.82rem}}
+</style>
+<script id="electromas-final-full-details-share-url-js">
+(function(){
+  function cleanDetailIndex(v){return String(v||'').replace(/\s+/g,' ').trim();}
+  function splitProductDescriptionSectionsIndex(text){
+    const raw=String(text||'').replace(/\r/g,'\n').replace(/[•▪■]/g,'\n• ').trim();
+    if(!raw) return [];
+    const headings=[
+      {rx:/(Descripción del producto|Descripcion del producto|Descripción|Descripcion)/i,title:'Descripción del producto'},
+      {rx:/(Características principales|Caracteristicas principales|Atributos principales)/i,title:'Características principales'},
+      {rx:/(Características adicionales|Caracteristicas adicionales|Atributos secundarios)/i,title:'Características adicionales'},
+      {rx:/(Medidas|Información general|Informacion general|Dimensiones)/i,title:'Medidas e información general'},
+      {rx:/(Zona superior y plano de labores|Zona superior|Plano de labores)/i,title:'Zona superior y plano de labores'},
+      {rx:/(Zona de control|Control)/i,title:'Zona de control'},
+      {rx:/(Horno y zona inferior|Horno|Zona inferior)/i,title:'Horno y zona inferior'},
+      {rx:/(Garantía y respaldo|Garantia y respaldo|Garantía|Garantia|Respaldo)/i,title:'Garantía y respaldo'},
+      {rx:/(Detalle del combo|Combo incluye|Productos del combo)/i,title:'Detalle del combo'},
+      {rx:/(SEO|Palabras clave)/i,title:'Información comercial'}
+    ];
+    let found=[];
+    headings.forEach(h=>{const m=raw.match(h.rx); if(m) found.push({index:m.index,len:m[0].length,title:h.title});});
+    found.sort((a,b)=>a.index-b.index);
+    const sections=[];
+    if(found.length){
+      const intro=cleanDetailIndex(raw.slice(0, found[0].index));
+      if(intro && intro.length>5) sections.push({title:'Descripción del producto', items:[intro]});
+      found.forEach((h,i)=>{
+        const start=h.index+h.len;
+        const end=i+1<found.length?found[i+1].index:raw.length;
+        let chunk=raw.slice(start,end).replace(/^\s*[:\-–—]+\s*/,'').trim();
+        let items=chunk.split(/\n|;|\s+-\s+|\.\s+(?=[A-ZÁÉÍÓÚÑ0-9])/).map(cleanDetailIndex).filter(Boolean);
+        items=items.filter(x=>x.length>2 && !/^[:\-–—]+$/.test(x)).slice(0,18);
+        if(items.length) sections.push({title:h.title,items:[...new Set(items)]});
+      });
+    } else {
+      let items=raw.split(/\n|;|\.\s+/).map(cleanDetailIndex).filter(Boolean).slice(0,18);
+      if(items.length) sections.push({title:'Detalle del producto',items});
+    }
+    return sections;
+  }
+  function fullDetailHtmlIndex(p){
+    const top=[];
+    if(p.marca) top.push('Marca: '+p.marca);
+    if(p.modelo) top.push('Modelo / línea: '+p.modelo);
+    if(p.combo && p.combo_items) top.push('Productos del combo: '+p.combo_items);
+    const sections=splitProductDescriptionSectionsIndex(p.descripcion||'');
+    if(top.length) sections.unshift({title:'Información del producto',items:top});
+    if(!sections.length) return '<div class="full-detail-block"><h4>Detalle del producto</h4><p>Producto disponible con asesoría comercial, garantía y crédito directo.</p></div>';
+    return '<div class="modal-details-grid">'+sections.map(sec=>`<div class="full-detail-block"><h4>${esc(sec.title)}</h4><ul>${sec.items.map(item=>`<li>${esc(item)}</li>`).join('')}</ul></div>`).join('')+'</div>';
+  }
+  function productShareUrlIndex(p){
+    try{
+      const route = (typeof productPageUrl==='function' ? productPageUrl(p) : 'index.html');
+      return new URL(route, location.origin + '/').toString();
+    }catch(e){ return location.href; }
+  }
+  window.shareProductIndex = function(p){
+    const url=productShareUrlIndex(p||{});
+    if(navigator.share){ navigator.share({url}).catch(()=>{}); return; }
+    navigator.clipboard?.writeText(url).then(()=>alert('URL del producto copiada.')).catch(()=>prompt('Copie el enlace del producto:', url));
+  };
+  window.openIndexProductModal = function(id){
+    const p = PRODUCTOS.find(x=>String(x.id)===String(id));
+    if(!p) return;
+    const imgs = productImages(p); const src = imgs[0] || p.imagen || '';
+    const specs = publicSpecChips(p.descripcion || '');
+    const w = whatsLink(p);
+    const modal=document.createElement('div'); modal.className='product-modal';
+    modal.innerHTML = `<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}" title="Clic para cambiar desde la galería">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h2>${esc(p.nombre)}</h2>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImageIndex').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}"></button>`).join('')}</div></div>`:''}${fullDetailHtmlIndex(p)}<div class="modal-price"><div><span>${precioTituloProducto(p)}</span></div><strong>${precioTextoProducto(p)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-share-product" type="button" onclick="shareProductIndex(PRODUCTOS.find(x=>String(x.id)==='${esc(String(p.id))}'))"><i class="fas fa-link"></i> Compartir URL</button><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
+  };
+  try{
+    const oldRender = typeof filtrarYRender==='function' ? filtrarYRender : null;
+    filtrarYRender = function(){
+      let items = PRODUCTOS.filter(p => {
+        const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== 'todos' || filtros.categoria !== 'todos' || filtros.especial !== 'todos' || filtros.precio !== 'todos';
+        if (!hayFiltroActivo && !p.destacado) return false;
+        const texto = normalize(`${p.nombre} ${p.descripcion} ${p.marca||''} ${p.modelo||''} ${labels[p.linea] || ''} ${labels[p.categoria] || ''}`);
+        const matchSearch = !filtros.search || texto.includes(normalize(filtros.search));
+        const matchLinea = filtros.linea === 'todos' || p.linea === filtros.linea;
+        const matchCategoria = filtros.categoria === 'todos' || p.categoria === filtros.categoria;
+        const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+        let matchEspecial = false;
+        if (filtros.especial === 'combos') matchEspecial = !!p.combo;
+        else if (filtros.especial === 'ofertas') matchEspecial = !!p.oferta && !p.combo;
+        else matchEspecial = true;
+        return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+      });
+      if (filtros.orden === 'az') items.sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
+      else if (filtros.orden === 'precioAsc') items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+      else if (filtros.orden === 'precioDesc') items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+      else items.sort((a,b)=>{ if(a.destacado!==b.destacado)return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+      if(items.length===0){grid.style.display='none';noRes.style.display='block';countSpan.innerHTML=`<strong>0</strong> productos`; if(typeof updateSidebarContext==='function') updateSidebarContext(); return;}
+      grid.style.display='grid'; noRes.style.display='none'; countSpan.innerHTML=`<strong>${items.length}</strong> productos`;
+      grid.innerHTML = items.map(p => { const imgs = productImages(p); const firstImage = imgs[0] || p.imagen || ''; const tag = (p.combo?'Combo':p.oferta?'Oferta':(p.etiqueta&&p.etiqueta.length<28?p.etiqueta:'Disponible')); return `<article class="producto-card ${firstImage ? '' : 'sin-imagen'}" role="button" tabindex="0" onclick="openIndexProductModal('${esc(String(p.id))}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openIndexProductModal('${esc(String(p.id))}')}">${firstImage ? `<div class="producto-media"><span class="producto-tag">${esc(tag)}</span><img src="${esc(firstImage)}" alt="${esc(p.nombre)}" loading="lazy" onerror="this.closest('.producto-media').remove();"></div>` : ''}<div class="producto-body"><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${precioTituloProducto(p)}</span></div><strong>${precioTextoProducto(p)}</strong></div></div></article>`; }).join('');
+      if(typeof updateSidebarContext==='function') updateSidebarContext();
+    };
+    setTimeout(()=>{ if(Array.isArray(PRODUCTOS) && PRODUCTOS.length) filtrarYRender(); }, 600);
+  }catch(e){ console.warn('Electromás: detalle completo en inicio no pudo activarse', e); }
+})();
+</script>
+
+
+<script id="electromas-index-search-all-fields-final">
+(function(){
+  function blobProductoIndex(p){
+    try{
+      return normalize([
+        p?.nombre,p?.descripcion,p?.marca,p?.modelo,p?.etiqueta,p?.combo_items,
+        p?.seo_title,p?.seo_description,p?.seo_keywords,
+        labels?.[p?.linea],labels?.[p?.categoria],JSON.stringify(p?.raw||{})
+      ].filter(Boolean).join(' '));
+    }catch(e){ return ''; }
+  }
+  const oldUpdate = typeof update === 'function' ? update : null;
+  window.electromasSearchAllFieldsReady = true;
+  if(typeof filtrarYRender === 'function'){
+    filtrarYRender = function(){
+      let items = PRODUCTOS.filter(p => {
+        const hayFiltroActivo = Boolean(filtros.search) || filtros.linea !== 'todos' || filtros.categoria !== 'todos' || filtros.especial !== 'todos' || filtros.precio !== 'todos';
+        if (!hayFiltroActivo && !p.destacado) return false;
+        const matchSearch = !filtros.search || blobProductoIndex(p).includes(normalize(filtros.search));
+        const matchLinea = filtros.linea === 'todos' || p.linea === filtros.linea;
+        const matchCategoria = filtros.categoria === 'todos' || p.categoria === filtros.categoria;
+        const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+        const matchEspecial = filtros.especial === 'todos' || (filtros.especial === 'ofertas' && p.oferta) || (filtros.especial === 'combos' && p.combo);
+        return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+      });
+      if (filtros.orden === 'az') items.sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
+      else if (filtros.orden === 'precioAsc') items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+      else if (filtros.orden === 'precioDesc') items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+      else items.sort((a,b)=>{ if(a.destacado!==b.destacado) return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+      if (items.length === 0) { grid.style.display='none'; noRes.style.display='block'; countSpan.innerHTML='<strong>0</strong> productos'; return; }
+      grid.style.display='grid'; noRes.style.display='none'; countSpan.innerHTML='<strong>'+items.length+'</strong> productos';
+      grid.innerHTML = items.map(p=>{
+        const imgs = productImages(p); const firstImage = imgs[0] || p.imagen || '';
+        return `<article class="producto-card ${firstImage ? '' : 'sin-imagen'}" data-open-product="${esc(p.id)}">${firstImage ? `<div class="producto-media"><span class="producto-tag">${esc(p.etiqueta)}</span><img src="${esc(firstImage)}" alt="${esc(p.nombre)}" onerror="this.closest('.producto-media').remove();"></div>` : ''}<div class="producto-body"><div class="producto-ruta">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${p.oferta ? 'Precio de oferta' : 'Precio especial'}</span></div><strong>${precioTextoProducto(p)}</strong></div></div></article>`;
+      }).join('');
+      document.querySelectorAll('[data-open-product]').forEach(card=>card.addEventListener('click',()=>{
+        if(typeof openProductModal === 'function') openProductModal(card.getAttribute('data-open-product'));
+      }));
+    };
+  }
+  if(oldUpdate){ update = function(){ filtros.search = searchInput.value; filtros.linea = lineaSelect.value; filtros.precio = precioSelect.value; filtros.orden = ordenSelect.value; if(filtros.linea !== 'todos'){ filtros.categoria='todos'; filtros.especial='todos'; document.querySelectorAll('.menu-link').forEach(a=>a.classList.remove('activo')); } filtrarYRender(); }; }
+})();
+</script>
+
+
+<!-- Ajuste final: descripción profesional, zoom de imágenes y sin compartir -->
+<style id="electromas-clean-details-zoom-no-share">
+.btn-share-product,.btn-share-url{display:none!important}.modal-details-grid{display:grid;gap:12px;margin-top:16px}.full-detail-block{background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:14px 15px}.full-detail-block h4{margin:0 0 9px;color:#071326;font-size:.92rem}.full-detail-block p{margin:0;color:#42526a;line-height:1.58;font-size:.9rem}.full-detail-list{display:grid;gap:7px;margin:0;padding:0;list-style:none}.full-detail-item{display:flex;gap:9px;align-items:flex-start;color:#42526a;font-size:.86rem;line-height:1.45}.full-detail-item i{color:var(--naranja);font-size:.78rem;margin-top:4px}.product-modal-media img,.modal-gallery img{cursor:zoom-in}.image-zoom-overlay{position:fixed;inset:0;z-index:12000;background:rgba(7,19,38,.88);display:flex;align-items:center;justify-content:center;padding:22px}.image-zoom-card{position:relative;max-width:96vw;max-height:94vh;background:#fff;border-radius:20px;padding:16px;box-shadow:0 28px 90px rgba(0,0,0,.35)}.image-zoom-card img{display:block;max-width:calc(96vw - 32px);max-height:calc(94vh - 32px);object-fit:contain}.image-zoom-close{position:absolute;right:-12px;top:-12px;width:42px;height:42px;border:0;border-radius:50%;background:#fff;color:#071326;font-size:1.5rem;font-weight:900;cursor:pointer;box-shadow:0 10px 25px rgba(0,0,0,.25)}@media(max-width:820px){.image-zoom-card{padding:8px;border-radius:16px}.image-zoom-card img{max-width:calc(96vw - 16px);max-height:calc(94vh - 16px)}.full-detail-block{padding:12px}.full-detail-item{font-size:.84rem}}
+</style>
+<script id="electromas-clean-details-zoom-no-share-js">
+(function(){
+  function cleanProductLine(v){
+    return String(v||'')
+      .replace(/^[\s•▪■·*\-–—:;,.]+/g,'')
+      .replace(/\s+/g,' ')
+      .replace(/\s+([,.;:])/g,'$1')
+      .trim();
+  }
+  function splitCleanItems(chunk){
+    return String(chunk||'')
+      .replace(/\r/g,'\n')
+      .replace(/[•▪■·]+/g,'\n')
+      .replace(/\s+-\s+/g,'\n')
+      .split(/\n|;|\.\s+(?=[A-ZÁÉÍÓÚÑ0-9])/)
+      .map(cleanProductLine)
+      .filter(x=>x.length>2)
+      .filter(x=>!/^características?$/i.test(x))
+      .filter(x=>!/^atributos?$/i.test(x));
+  }
+  function sectionsFromDescription(text){
+    const raw=String(text||'').replace(/\r/g,'\n').trim();
+    if(!raw) return [];
+    const headings=[
+      {rx:/(Descripción del producto|Descripcion del producto|Descripción|Descripcion)/i,title:'Descripción del producto',kind:'paragraph'},
+      {rx:/(Características principales|Caracteristicas principales|Atributos principales)/i,title:'Características principales'},
+      {rx:/(Características adicionales|Caracteristicas adicionales|Atributos secundarios)/i,title:'Características adicionales'},
+      {rx:/(Medidas|Información general|Informacion general|Dimensiones)/i,title:'Medidas e información general'},
+      {rx:/(Zona superior y plano de labores|Zona superior|Plano de labores)/i,title:'Zona superior y plano de labores'},
+      {rx:/(Zona de control|Control)/i,title:'Zona de control'},
+      {rx:/(Horno y zona inferior|Horno|Zona inferior)/i,title:'Horno y zona inferior'},
+      {rx:/(Garantía y respaldo|Garantia y respaldo|Garantía|Garantia|Respaldo)/i,title:'Garantía y respaldo'},
+      {rx:/(Detalle del combo|Combo incluye|Productos del combo)/i,title:'Detalle del combo'},
+      {rx:/(SEO|Palabras clave)/i,title:'Información comercial'}
+    ];
+    const found=[];
+    headings.forEach(h=>{ const m=raw.match(h.rx); if(m) found.push({index:m.index,len:m[0].length,title:h.title,kind:h.kind||'list'}); });
+    found.sort((a,b)=>a.index-b.index);
+    const sections=[];
+    if(found.length){
+      const intro=cleanProductLine(raw.slice(0,found[0].index));
+      if(intro && intro.length>8) sections.push({title:'Descripción del producto',kind:'paragraph',items:[intro]});
+      found.forEach((h,i)=>{
+        const start=h.index+h.len;
+        const end=i+1<found.length?found[i+1].index:raw.length;
+        let chunk=raw.slice(start,end).replace(/^\s*[:\-–—]+\s*/,'').trim();
+        let items=splitCleanItems(chunk).filter(x=>!headings.some(y=>y.rx.test(x) && x.length<45));
+        items=[...new Set(items)].slice(0,24);
+        if(items.length) sections.push({title:h.title,kind:h.kind,items});
+      });
+    }else{
+      const items=splitCleanItems(raw).slice(0,24);
+      if(items.length) sections.push({title:'Detalle del producto',kind:'list',items});
+    }
+    return sections.filter(s=>s.items && s.items.length);
+  }
+  function detailsHtml(p){
+    const info=[];
+    if(p.marca) info.push('Marca: '+p.marca);
+    if(p.modelo) info.push('Modelo / línea: '+p.modelo);
+    if(p.combo && p.combo_items) info.push('Productos del combo: '+p.combo_items);
+    const sections=sectionsFromDescription(p.descripcion||'');
+    if(info.length) sections.unshift({title:'Información del producto',kind:'list',items:info});
+    if(!sections.length) return '<div class="full-detail-block"><h4>Detalle del producto</h4><p>Producto disponible con asesoría comercial, garantía y crédito directo.</p></div>';
+    return '<div class="modal-details-grid">'+sections.map(sec=>{
+      if(sec.kind==='paragraph') return `<div class="full-detail-block"><h4>${esc(sec.title)}</h4><p>${esc(sec.items.join(' '))}</p></div>`;
+      return `<div class="full-detail-block"><h4>${esc(sec.title)}</h4><div class="full-detail-list">${sec.items.map(item=>`<div class="full-detail-item"><i class="fas fa-circle-check"></i><span>${esc(item)}</span></div>`).join('')}</div></div>`;
+    }).join('')+'</div>';
+  }
+  function zoomImage(src, alt){
+    if(!src) return;
+    const overlay=document.createElement('div'); overlay.className='image-zoom-overlay';
+    overlay.innerHTML=`<div class="image-zoom-card"><button class="image-zoom-close" type="button" aria-label="Cerrar">×</button><img src="${esc(src)}" alt="${esc(alt||'Imagen del producto')}"></div>`;
+    overlay.addEventListener('click',e=>{ if(e.target===overlay || e.target.classList.contains('image-zoom-close')) overlay.remove(); });
+    document.body.appendChild(overlay);
+  }
+  window.openElectromasImageZoomIndex=zoomImage;
+  window.openIndexProductModal=function(id){
+    const listaProductos = (typeof PRODUCTOS !== 'undefined' ? PRODUCTOS : (window.PRODUCTOS || []));
+    const p = listaProductos.find(x=>String(x.id)===String(id));
+    if(!p) return;
+    const imgs = productImages(p); const src = imgs[0] || p.imagen || '';
+    const specs = publicSpecChips(p.descripcion || '');
+    const w = whatsLink(p);
+    const modal=document.createElement('div'); modal.className='product-modal';
+    modal.innerHTML = `<div class="product-modal-card"><button class="product-modal-close" type="button" aria-label="Cerrar" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media">${src?`<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}" onclick="openElectromasImageZoomIndex(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria] || p.categoria)} · ${esc(labels[p.linea] || p.linea)}</div><h2>${esc(p.nombre)}</h2>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" onclick="document.getElementById('modalMainImageIndex').src='${esc(u)}'"><img src="${esc(u)}" alt="Imagen ${i+1}" ondblclick="openElectromasImageZoomIndex(this.src,this.alt)"></button>`).join('')}</div><small style="display:block;margin-top:8px;color:#637083;font-weight:800">Toque una miniatura para cambiar la imagen.</small></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${precioTituloProducto(p)}</span></div><strong>${precioTextoProducto(p)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
+  };
+})();
+</script>
+
+
+<!-- Corrección final: vitrina abre detalle completo, flechas en galería y zoom -->
+<style id="electromas-final-vitrina-detalle-flechas">
+.em-gallery-main{position:relative}.em-img-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:42px;height:42px;border:0;border-radius:50%;background:rgba(7,19,38,.86);color:#fff;font-size:1.4rem;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(0,0,0,.25)}.em-img-arrow:hover{background:#ffa500;color:#071326}.em-img-arrow.prev{left:18px}.em-img-arrow.next{right:18px}.modal-gallery button.active{border-color:#ffa500!important;box-shadow:0 0 0 3px rgba(255,165,0,.16)}.producto-card{cursor:pointer}.producto-final,.btn-share-product,.btn-share-url{display:none!important}@media(max-width:820px){.em-img-arrow{width:36px;height:36px;font-size:1.2rem}.em-img-arrow.prev{left:10px}.em-img-arrow.next{right:10px}}
+</style>
+<script id="electromas-final-vitrina-detalle-flechas-js">
+(function(){
+  function c(v){return String(v||'').replace(/^[\s•▪■·*\-–—:;,.]+/g,'').replace(/\s+/g,' ').trim();}
+  function splitItems(t){return String(t||'').replace(/\r/g,'\n').replace(/[•▪■·]+/g,'\n').replace(/\s+-\s+/g,'\n').split(/\n|;|\.\s+(?=[A-ZÁÉÍÓÚÑ0-9])/).map(c).filter(x=>x.length>2 && !/^características?$/i.test(x));}
+  function sections(text,p){
+    const raw=String(text||'').replace(/\r/g,'\n').trim();
+    const heads=[['Descripción del producto',/(Descripción del producto|Descripcion del producto|Descripción|Descripcion)/i,'p'],['Características principales',/(Características principales|Caracteristicas principales|Atributos principales)/i],['Características adicionales',/(Características adicionales|Caracteristicas adicionales|Atributos secundarios)/i],['Medidas e información general',/(Medidas|Información general|Informacion general|Dimensiones)/i],['Zona superior y plano de labores',/(Zona superior y plano de labores|Zona superior|Plano de labores)/i],['Zona de control',/(Zona de control|Control)/i],['Horno y zona inferior',/(Horno y zona inferior|Horno|Zona inferior)/i],['Garantía y respaldo',/(Garantía y respaldo|Garantia y respaldo|Garantía|Garantia|Respaldo)/i],['Detalle del combo',/(Detalle del combo|Combo incluye|Productos del combo)/i]];
+    const found=[]; heads.forEach(h=>{const m=raw.match(h[1]); if(m) found.push({i:m.index,l:m[0].length,t:h[0],k:h[2]||'list'});}); found.sort((a,b)=>a.i-b.i);
+    const out=[]; const info=[]; if(p?.marca) info.push('Marca: '+p.marca); if(p?.modelo) info.push('Modelo / línea: '+p.modelo); if(p?.combo && p?.combo_items) info.push('Productos del combo: '+p.combo_items); if(info.length) out.push({t:'Información del producto',k:'list',items:info});
+    if(found.length){ const intro=c(raw.slice(0,found[0].i)); if(intro.length>8) out.push({t:'Descripción del producto',k:'p',items:[intro]}); found.forEach((h,idx)=>{const start=h.i+h.l,end=idx+1<found.length?found[idx+1].i:raw.length; const items=[...new Set(splitItems(raw.slice(start,end).replace(/^\s*[:\-–—]+\s*/,'')))].slice(0,24); if(items.length) out.push({t:h.t,k:h.k,items});}); }
+    else { const items=splitItems(raw).slice(0,24); if(items.length) out.push({t:'Detalle del producto',k:'list',items}); }
+    return out;
+  }
+  function detailsHtml(p){ const sec=sections(p?.descripcion||'',p); if(!sec.length) return '<div class="full-detail-block"><h4>Detalle del producto</h4><p>Producto disponible con asesoría comercial, garantía y crédito directo.</p></div>'; return '<div class="modal-details-grid">'+sec.map(s=>s.k==='p'?`<div class="full-detail-block"><h4>${esc(s.t)}</h4><p>${esc(s.items.join(' '))}</p></div>`:`<div class="full-detail-block"><h4>${esc(s.t)}</h4><div class="full-detail-list">${s.items.map(i=>`<div class="full-detail-item"><i class="fas fa-circle-check"></i><span>${esc(i)}</span></div>`).join('')}</div></div>`).join('')+'</div>'; }
+  function zoom(src,alt){ if(!src)return; const o=document.createElement('div'); o.className='image-zoom-overlay'; o.innerHTML=`<div class="image-zoom-card"><button class="image-zoom-close" type="button">×</button><img src="${esc(src)}" alt="${esc(alt||'Imagen del producto')}"></div>`; o.onclick=e=>{if(e.target===o||e.target.classList.contains('image-zoom-close'))o.remove()}; document.body.appendChild(o); }
+  window.openElectromasImageZoomIndex=zoom;
+  window.emIndexModalImages=[]; window.emIndexModalPos=0;
+  window.emIndexSetImage=function(pos){ const imgs=window.emIndexModalImages||[]; if(!imgs.length)return; window.emIndexModalPos=(pos+imgs.length)%imgs.length; const img=document.getElementById('modalMainImageIndex'); if(img) img.src=imgs[window.emIndexModalPos]; document.querySelectorAll('.modal-gallery button[data-em-img]').forEach((b,i)=>b.classList.toggle('active',i===window.emIndexModalPos)); };
+  window.emIndexMoveImage=function(delta){ window.emIndexSetImage((window.emIndexModalPos||0)+delta); };
+  window.openIndexProductModal=function(id){
+    const p=(PRODUCTOS||[]).find(x=>String(x.id)===String(id)); if(!p)return;
+    const imgs=(typeof productImages==='function'?productImages(p):[]).filter(Boolean); const src=imgs[0]||p.imagen||''; window.emIndexModalImages=imgs.length?imgs:[src].filter(Boolean); window.emIndexModalPos=0;
+    const specs=typeof publicSpecChips==='function'?publicSpecChips(p.descripcion||''):[]; const w=whatsLink(p);
+    const arrows=window.emIndexModalImages.length>1?`<button class="em-img-arrow prev" type="button" onclick="event.stopPropagation();emIndexMoveImage(-1)">‹</button><button class="em-img-arrow next" type="button" onclick="event.stopPropagation();emIndexMoveImage(1)">›</button>`:'';
+    const modal=document.createElement('div'); modal.className='product-modal';
+    modal.innerHTML=`<div class="product-modal-card"><button class="product-modal-close" type="button" onclick="this.closest('.product-modal').remove()">×</button><div class="product-modal-grid"><div class="product-modal-media em-gallery-main">${src?`${arrows}<img id="modalMainImageIndex" src="${esc(src)}" alt="${esc(p.nombre)}" onclick="openElectromasImageZoomIndex(this.src,this.alt)">`:'<div style="color:#637083;font-weight:900">Producto sin imagen cargada</div>'}</div><div class="product-modal-info"><div class="modal-route">${esc(labels[p.categoria]||p.categoria)} · ${esc(labels[p.linea]||p.linea)}</div><h2>${esc(p.nombre)}</h2>${specs.length?`<div class="modal-spec-row">${specs.map(s=>`<span class="modal-spec-chip">${esc(s)}</span>`).join('')}</div>`:''}${imgs.length>1?`<div class="modal-section"><h4>Galería del producto</h4><div class="modal-gallery">${imgs.map((u,i)=>`<button type="button" data-em-img="${i}" class="${i===0?'active':''}" onclick="emIndexSetImage(${i})"><img src="${esc(u)}" alt="Imagen ${i+1}"></button>`).join('')}</div></div>`:''}${detailsHtml(p)}<div class="modal-price"><div><span>${precioTituloProducto(p)}</span></div><strong>${formatoPrecio(p.precio_mostrar??p.precio)}</strong></div><div class="modal-actions"><a class="btn btn-wa" target="_blank" href="${w}"><i class="fab fa-whatsapp"></i> Cotizar por WhatsApp</a><button class="btn btn-light" type="button" onclick="this.closest('.product-modal').remove()">Cerrar</button></div></div></div></div>`;
+    modal.addEventListener('click',e=>{if(e.target===modal)modal.remove()}); document.body.appendChild(modal);
+  };
+  if(typeof filtrarYRender==='function'){
+    filtrarYRender=function(){
+      let items=(PRODUCTOS||[]).filter(p=>{const active=Boolean(filtros.search)||filtros.linea!=='todos'||filtros.categoria!=='todos'||filtros.especial!=='todos'||filtros.precio!=='todos'; if(!active&&!p.destacado)return false; const blob=normalize([p.nombre,p.descripcion,p.marca,p.modelo,p.etiqueta,p.combo_items,p.seo_title,p.seo_description,p.seo_keywords,labels[p.linea],labels[p.categoria],JSON.stringify(p.raw||{})].filter(Boolean).join(' ')); return (!filtros.search||blob.includes(normalize(filtros.search)))&&(filtros.linea==='todos'||p.linea===filtros.linea)&&(filtros.categoria==='todos'||p.categoria===filtros.categoria)&&cumpleRangoPrecio(p,filtros.precio)&&(filtros.especial==='todos'||(filtros.especial==='ofertas'&&p.oferta)||(filtros.especial==='combos'&&p.combo));});
+      if(filtros.orden==='az')items.sort((a,b)=>a.nombre.localeCompare(b.nombre,'es')); else if(filtros.orden==='precioAsc')items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0)); else if(filtros.orden==='precioDesc')items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0)); else items.sort((a,b)=>{if(a.destacado!==b.destacado)return a.destacado?-1:1;return(Number(a.orden)||999)-(Number(b.orden)||999)});
+      if(!items.length){grid.style.display='none';noRes.style.display='block';countSpan.innerHTML='<strong>0</strong> productos';return;} grid.style.display='grid';noRes.style.display='none';countSpan.innerHTML='<strong>'+items.length+'</strong> productos';
+      grid.innerHTML=items.map(p=>{const imgs=productImages(p),first=imgs[0]||p.imagen||'',tag=p.combo?'Combo':p.oferta?'Oferta':(p.etiqueta&&p.etiqueta.length<28?p.etiqueta:'Disponible');return `<article class="producto-card ${first?'':'sin-imagen'}" role="button" tabindex="0" onclick="openIndexProductModal('${esc(String(p.id))}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openIndexProductModal('${esc(String(p.id))}')}">${first?`<div class="producto-media"><span class="producto-tag">${esc(tag)}</span><img src="${esc(first)}" alt="${esc(p.nombre)}" loading="lazy" onerror="this.closest('.producto-media').remove();"></div>`:''}<div class="producto-body"><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${precioTituloProducto(p)}</span></div><strong>${formatoPrecio(p.precio_mostrar??p.precio)}</strong></div></div></article>`}).join('');
+    };
+    setTimeout(()=>{try{if(Array.isArray(PRODUCTOS)&&PRODUCTOS.length)filtrarYRender();}catch(e){}},500);
+  }
+})();
+</script>
+
+
+
+<!-- Corrección final: búsqueda total en todos los campos del producto -->
+<script id="electromas-busqueda-total-definitiva-index">
+(function(){
+  function normText(v){
+    return String(v ?? '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .toLowerCase()
+      .replace(/https?:\/\/\S+/g,' ')
+      .replace(/[_\-–—/\\|.,;:()\[\]{}"'`´+*&%$#@!?¿¡=<>]/g,' ')
+      .replace(/\s+/g,' ')
+      .trim();
+  }
+  function collectValues(value, out, seen){
+    if(value === null || value === undefined) return;
+    const t = typeof value;
+    if(t === 'string' || t === 'number' || t === 'boolean') { out.push(String(value)); return; }
+    if(t !== 'object') return;
+    if(seen.has(value)) return;
+    seen.add(value);
+    if(Array.isArray(value)) { value.forEach(v => collectValues(v,out,seen)); return; }
+    Object.keys(value).forEach(k => {
+      if(/^(created_at|updated_at|deleted_at|id|uuid)$/i.test(k)) return;
+      collectValues(value[k], out, seen);
+    });
+  }
+  function productBlob(p){
+    const parts = [];
+    collectValues(p, parts, new Set());
+    try { if(window.labels){ parts.push(labels[p?.linea] || '', labels[p?.categoria] || ''); } } catch(e){}
+    return normText(parts.join(' '));
+  }
+  function queryMatches(p, query){
+    const q = normText(query);
+    if(!q) return true;
+    const blob = productBlob(p);
+    if(blob.includes(q)) return true;
+    const tokens = q.split(' ').filter(x => x.length >= 2);
+    if(!tokens.length) return true;
+    return tokens.every(token => blob.includes(token));
+  }
+  function activeFilters(){
+    return Boolean(filtros.search) || filtros.linea !== 'todos' || filtros.categoria !== 'todos' || filtros.especial !== 'todos' || filtros.precio !== 'todos';
+  }
+  function applySort(items){
+    if(filtros.orden === 'az') items.sort((a,b)=>(a.nombre||'').localeCompare(b.nombre||'','es'));
+    else if(filtros.orden === 'precioAsc') items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+    else if(filtros.orden === 'precioDesc') items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+    else items.sort((a,b)=>{ if(Boolean(a.destacado)!==Boolean(b.destacado)) return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+    return items;
+  }
+  function productCard(p){
+    const imgs = typeof productImages === 'function' ? productImages(p) : [];
+    const first = imgs[0] || p.imagen || '';
+    const tag = p.combo ? 'Combo' : p.oferta ? 'Oferta' : ((p.etiqueta && p.etiqueta.length < 28) ? p.etiqueta : 'Disponible');
+    const labelPrecio = p.oferta ? 'Precio oferta' : p.combo ? 'Precio combo' : 'Precio';
+    return `<article class="producto-card ${first?'':'sin-imagen'}" role="button" tabindex="0" onclick="openIndexProductModal('${esc(String(p.id))}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openIndexProductModal('${esc(String(p.id))}')}">${first?`<div class="producto-media"><span class="producto-tag">${esc(tag)}</span><img src="${esc(first)}" alt="${esc(p.nombre)}" loading="lazy" onerror="this.closest('.producto-media').remove();"></div>`:''}<div class="producto-body"><h3>${esc(p.nombre)}</h3><div class="producto-precio"><div><span>${labelPrecio}</span></div><strong>${precioTextoProducto(p)}</strong></div></div></article>`;
+  }
+  window.emElectromasBuscadorTotalIndex = true;
+  window.filtrarYRender = function(){
+    try{
+      const items = applySort((PRODUCTOS || []).filter(p => {
+        if(!activeFilters() && !p.destacado) return false;
+        const matchSearch = queryMatches(p, filtros.search);
+        const matchLinea = filtros.linea === 'todos' || p.linea === filtros.linea;
+        const matchCategoria = filtros.categoria === 'todos' || p.categoria === filtros.categoria;
+        const matchPrecio = cumpleRangoPrecio(p, filtros.precio);
+        const matchEspecial = filtros.especial === 'todos' || (filtros.especial === 'ofertas' && p.oferta) || (filtros.especial === 'combos' && p.combo);
+        return matchSearch && matchLinea && matchCategoria && matchPrecio && matchEspecial;
+      }));
+      if(!items.length){
+        grid.style.display='none'; noRes.style.display='block'; countSpan.innerHTML='<strong>0</strong> productos';
+        if(typeof updateSidebarContext === 'function') updateSidebarContext();
+        return;
+      }
+      grid.style.display='grid'; noRes.style.display='none'; countSpan.innerHTML='<strong>'+items.length+'</strong> productos';
+      grid.innerHTML = items.map(productCard).join('');
+      if(typeof updateSidebarContext === 'function') updateSidebarContext();
+    }catch(e){ console.warn('Electromás: búsqueda total no pudo renderizar', e); }
+  };
+  window.update = function(){
+    filtros.search = searchInput ? searchInput.value : '';
+    filtros.linea = lineaSelect ? lineaSelect.value : 'todos';
+    filtros.precio = precioSelect ? precioSelect.value : 'todos';
+    filtros.orden = ordenSelect ? ordenSelect.value : 'recomendados';
+    if(filtros.linea !== 'todos'){
+      filtros.categoria = 'todos'; filtros.especial = 'todos';
+      document.querySelectorAll('.menu-link').forEach(a => a.classList.remove('activo'));
+    }
+    filtrarYRender();
+  };
+  function attach(){
+    const top = document.getElementById('campoBusquedaGlobal');
+    const form = document.getElementById('formBusquedaGlobal');
+    if(searchInput) searchInput.addEventListener('input', () => { filtros.search = searchInput.value; filtrarYRender(); });
+    if(top) top.addEventListener('input', () => { searchInput.value = top.value; filtros.search = top.value; filtrarYRender(); });
+    if(form) form.addEventListener('submit', e => { e.preventDefault(); if(top){ searchInput.value = top.value; filtros.search = top.value; } filtrarYRender(); const cat = document.getElementById('catalogo'); if(cat) cat.scrollIntoView({behavior:'smooth'}); });
+    if(lineaSelect) lineaSelect.addEventListener('change', update);
+    if(precioSelect) precioSelect.addEventListener('change', update);
+    if(ordenSelect) ordenSelect.addEventListener('change', update);
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attach); else attach();
+  setTimeout(()=>{ try{ if(Array.isArray(PRODUCTOS) && PRODUCTOS.length) filtrarYRender(); }catch(e){} }, 800);
+})();
+</script>
+
+
+<script id="electromas-busqueda-global-real-final">
+(function(){
+  function norm(v){
+    return String(v ?? '')
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .toLowerCase()
+      .replace(/https?:\/\/\S+/g,' ')
+      .replace(/[_\-–—/\\|.,;:()\[\]{}"'`´+*&%$#@!?¿¡=<>]/g,' ')
+      .replace(/\s+/g,' ')
+      .trim();
+  }
+  function collect(v, out, seen){
+    if(v === null || v === undefined) return;
+    const t = typeof v;
+    if(t === 'string' || t === 'number' || t === 'boolean'){ out.push(String(v)); return; }
+    if(t !== 'object' || seen.has(v)) return;
+    seen.add(v);
+    if(Array.isArray(v)){ v.forEach(x=>collect(x,out,seen)); return; }
+    Object.keys(v).forEach(k=>{
+      if(/^(id|uuid|created_at|updated_at|deleted_at)$/i.test(k)) return;
+      collect(v[k], out, seen);
+    });
+  }
+  function blob(p){
+    const parts=[];
+    collect(p, parts, new Set());
+    try{ parts.push(labels[p.linea]||'', labels[p.categoria]||''); }catch(e){}
+    return norm(parts.join(' '));
+  }
+  function queryOk(p, q){
+    q = norm(q);
+    if(!q) return true;
+    const b = blob(p);
+    if(b.includes(q)) return true;
+    const words = q.split(' ').filter(x=>x.length>=2);
+    return words.length ? words.every(w=>b.includes(w)) : true;
+  }
+  function activeQuery(){
+    const q1 = document.getElementById('campoBusquedaGlobal')?.value || '';
+    const q2 = document.getElementById('buscarInput')?.value || '';
+    return (q1 || q2 || '').trim();
+  }
+  function sortItems(items){
+    const ord = document.getElementById('ordenSelect')?.value || (window.filtros && filtros.orden) || 'recomendados';
+    if(ord === 'az') items.sort((a,b)=>(a.nombre||'').localeCompare(b.nombre||'','es'));
+    else if(ord === 'precioAsc') items.sort((a,b)=>(Number(a.precio_mostrar)||0)-(Number(b.precio_mostrar)||0));
+    else if(ord === 'precioDesc') items.sort((a,b)=>(Number(b.precio_mostrar)||0)-(Number(a.precio_mostrar)||0));
+    else items.sort((a,b)=>{ if(Boolean(a.destacado)!==Boolean(b.destacado)) return a.destacado?-1:1; return (Number(a.orden)||999)-(Number(b.orden)||999); });
+    return items;
+  }
+  function renderSearch(){
+    try{
+      if(typeof PRODUCTOS === 'undefined' || !Array.isArray(PRODUCTOS)) return;
+      const q = activeQuery();
+      const hasSearch = !!q;
+      const line = hasSearch ? 'todos' : (document.getElementById('lineaSelect')?.value || (filtros && filtros.linea) || 'todos');
+      const priceRange = document.getElementById('precioSelect')?.value || (filtros && filtros.precio) || 'todos';
+      const category = hasSearch ? 'todos' : ((filtros && filtros.categoria) || 'todos');
+      const especial = hasSearch ? 'todos' : ((filtros && filtros.especial) || 'todos');
+      if(typeof filtros !== 'undefined'){
+        filtros.search = q;
+        filtros.linea = line;
+        filtros.precio = priceRange;
+        filtros.categoria = category;
+        filtros.especial = especial;
+        filtros.orden = document.getElementById('ordenSelect')?.value || filtros.orden || 'recomendados';
+      }
+      const items = sortItems((PRODUCTOS||[]).filter(p=>{
+        if(!hasSearch && line==='todos' && category==='todos' && especial==='todos' && priceRange==='todos' && !p.destacado) return false;
+        const okQ = queryOk(p,q);
+        const okLine = line === 'todos' || p.linea === line;
+        const okCat = category === 'todos' || p.categoria === category;
+        const okPrice = typeof cumpleRangoPrecio === 'function' ? cumpleRangoPrecio(p, priceRange) : true;
+        const okEsp = especial === 'todos' || (especial === 'ofertas' && p.oferta) || (especial === 'combos' && p.combo);
+        return okQ && okLine && okCat && okPrice && okEsp;
+      }));
+      const grid = document.getElementById('productosGrid');
+      const noRes = document.getElementById('noResultados');
+      const count = document.getElementById('resultadosCount');
+      if(!grid) return;
+      if(!items.length){ grid.style.display='none'; if(noRes) noRes.style.display='block'; if(count) count.innerHTML='<strong>0</strong> productos'; return; }
+      grid.style.display='grid'; if(noRes) noRes.style.display='none'; if(count) count.innerHTML='<strong>'+items.length+'</strong> productos';
+      if(typeof productCard === 'function') grid.innerHTML = items.map(productCard).join('');
+      else if(typeof filtrarYRender === 'function') filtrarYRender();
+    }catch(e){ console.warn('Electromás: búsqueda global final no pudo renderizar', e); }
+  }
+  window.emRenderSearchGlobalReal = renderSearch;
+  function syncAndRender(from){
+    const top=document.getElementById('campoBusquedaGlobal');
+    const side=document.getElementById('buscarInput');
+    const val=(from?.value || '').trimStart();
+    if(top && from !== top) top.value=val;
+    if(side && from !== side) side.value=val;
+    renderSearch();
+  }
+  function attach(){
+    const top=document.getElementById('campoBusquedaGlobal');
+    const side=document.getElementById('buscarInput');
+    const form=document.getElementById('formBusquedaGlobal');
+    [top,side].forEach(el=>{ if(el){ el.addEventListener('input',()=>syncAndRender(el),true); el.addEventListener('keyup',()=>syncAndRender(el),true); }});
+    if(form) form.addEventListener('submit',e=>{e.preventDefault(); syncAndRender(top); document.getElementById('catalogo')?.scrollIntoView({behavior:'smooth'});},true);
+    ['lineaSelect','precioSelect','ordenSelect'].forEach(id=>{const el=document.getElementById(id); if(el) el.addEventListener('change',renderSearch,true);});
+    const limpiar=document.getElementById('limpiarBtn');
+    if(limpiar) limpiar.addEventListener('click',()=>setTimeout(renderSearch,0),true);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',attach); else attach();
+  setTimeout(renderSearch, 1000);
+})();
+</script>
+
+<style id="electromas-no-lupa-hover-late-final">
+.product-modal-media img,.modal-gallery img,.em-gallery-main img,#modalMainImage,#modalMainImageIndex{cursor:default!important;}
+.product-modal-media img:hover,.modal-gallery img:hover,.em-gallery-main img:hover,#modalMainImage:hover,#modalMainImageIndex:hover{cursor:default!important;}
+</style>
+<script type="module" src="motion.js"></script>
+</body>
+</html>
